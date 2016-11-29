@@ -2,6 +2,7 @@ package com.example.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,6 +15,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    private Environment env;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -38,8 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.ldapAuthentication()
                 .userSearchFilter("cn={0}")
                 .groupSearchFilter("member={0}")
-                .contextSource().url("ldap://10.83.3.30:3268/dc=groupinfra,dc=com")
-                .managerDn("CN=SA-FR-LDAP_Query,OU=Service Accounts,OU=FR,OU=Landlord FR,OU=Corporate,DC=groupinfra,DC=com")
-                .managerPassword("ywxZFHoyTEsL1");
+                .contextSource().url(env.getRequiredProperty("ldap.url"))
+                .managerDn(env.getRequiredProperty("ldap.user"))
+                .managerPassword(env.getRequiredProperty("ldap.password"));
     }
 }
