@@ -27,11 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-      /*  auth.ldapAuthentication()
-                .userDnPatterns("cn={0},ou=People")
-                .groupSearchBase("ou=groupes")
-                .contextSource().url("ldap://127.0.0.1:389/dc=maxcrc,dc=com");
-                */
+
     /*  Fonctionne sur mon LDAP */
     /*auth.ldapAuthentication()
         .userSearchFilter("cn={0}")
