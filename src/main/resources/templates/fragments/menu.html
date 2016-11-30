@@ -47,9 +47,9 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                     </div>
                 </form>
                 <div class="navbar-text navbar-right" th:if="${#httpServletRequest.remoteUser != null}">
-                    <p th:text="${'Welcome, ' + #httpServletRequest.remoteUser}">Welcome, </p>
-                    <span sec:authentication="user.userName">toto</span>
-                    </div>
+                    <p>Welcome <span sec:authentication="principal.displayName" /></p>
+                    <p>Role: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></p>
+                </div>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

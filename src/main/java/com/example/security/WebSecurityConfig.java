@@ -1,12 +1,21 @@
 package com.example.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.ldap.core.DirContextOperations;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.ldap.userdetails.LdapUserDetails;
+import org.springframework.security.ldap.userdetails.LdapUserDetailsMapper;
+import org.springframework.security.ldap.userdetails.UserDetailsContextMapper;
+
+import java.util.Collection;
 
 /**
  * Created by garnons on 18/11/2016.
@@ -28,6 +37,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().permitAll();
     }
 
+    @Bean
+    public UserDetailsContextMapper userDetailsContextMapper(){
+        return new LdapUserDetailsMapper() {
+          @Override
+            public UserDetails mapUserFromContext(DirContextOperations ctx, String username, Collection<? extends GrantedAuthority> authorities){
+              UserDetails details = super.mapUserFromContext(ctx, username, authorities);
+              return new CustomLdapUserDetails((LdapUserDetails) details, env, ctx);
+          }
+        };
+    }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
@@ -39,8 +59,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /* Fonctionne sur AD Groupinfra */
         auth.ldapAuthentication()
+                .userDetailsContextMapper(userDetailsContextMapper())
                 .userSearchFilter("cn={0}")
-                .groupSearchFilter("member={0}")
+                //.groupSearchFilter("member={0}")
                 .contextSource().url(env.getRequiredProperty("ldap.url"))
                 .managerDn(env.getRequiredProperty("ldap.user"))
                 .managerPassword(env.getRequiredProperty("ldap.password"));
