@@ -1,6 +1,7 @@
 package com.example.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -10,12 +11,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.ldap.userdetails.LdapAuthoritiesPopulator;
 import org.springframework.security.ldap.userdetails.LdapUserDetails;
 import org.springframework.security.ldap.userdetails.LdapUserDetailsMapper;
 import org.springframework.security.ldap.userdetails.UserDetailsContextMapper;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by garnons on 18/11/2016.
@@ -26,6 +31,9 @@ import java.util.Collection;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private Environment env;
+    @Autowired
+    @Qualifier("myCustomLdapAuthorities")
+    LdapAuthoritiesPopulator myCustomLdapAuthorities;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -42,6 +50,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new LdapUserDetailsMapper() {
           @Override
             public UserDetails mapUserFromContext(DirContextOperations ctx, String username, Collection<? extends GrantedAuthority> authorities){
+              //List<GrantedAuthority> myAuth = new ArrayList<>();
+              //myAuth.add(new SimpleGrantedAuthority("ROLE_USER"));
               UserDetails details = super.mapUserFromContext(ctx, username, authorities);
               return new CustomLdapUserDetails((LdapUserDetails) details, env, ctx);
           }
@@ -59,6 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /* Fonctionne sur AD Groupinfra */
         auth.ldapAuthentication()
+                .ldapAuthoritiesPopulator(myCustomLdapAuthorities)
                 .userDetailsContextMapper(userDetailsContextMapper())
                 .userSearchFilter("cn={0}")
                 //.groupSearchFilter("member={0}")

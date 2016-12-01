@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.ldap.userdetails.LdapUserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * Created by garnons on 29/11/2016.
