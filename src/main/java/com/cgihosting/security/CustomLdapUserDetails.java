@@ -1,13 +1,11 @@
-package com.example.security;
+package com.cgihosting.security;
 
 import org.springframework.core.env.Environment;
 import org.springframework.ldap.core.DirContextOperations;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.ldap.userdetails.LdapUserDetails;
 
 import java.util.Collection;
-import java.util.HashSet;
 
 /**
  * Created by garnons on 29/11/2016.

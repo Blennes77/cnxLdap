@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.cgihosting.controller;
 
 /**
  * Created by garnons on 20/11/2016.
