@@ -1,9 +1,14 @@
 package com.cgihosting.domain;
 
+import org.hibernate.annotations.Fetch;
+import org.springframework.data.repository.cdi.Eager;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by garnons on 02/12/2016.
@@ -11,10 +16,10 @@ import java.util.Date;
 
 @Entity
 @Table(name="utilisateur")
-public class User {
+public class User implements Serializable{
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="UTI_ID")
     private int id;
 
@@ -31,11 +36,9 @@ public class User {
     private String mail;
 
     @Column(name="UTI_TEL_BUR")
-    @Null
     private String telephoneBureau;
 
     @Column(name="UTI_TEL_MOB")
-    @Null
     private String telephoneMobile;
 
     @Column(name="UTI_DATE_CREATION")
@@ -54,6 +57,14 @@ public class User {
     @NotNull
     private String codeIngenieur;
 
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name="UTILISATEUR_A_ROLE_UTILISATEUR",
+            joinColumns = @JoinColumn(name="URU_UTI_ID"),
+            inverseJoinColumns = @JoinColumn(name="URU_RRU_ID")
+    )
+    private List<Role> roleList;
+
     public User() {
     }
 
@@ -68,6 +79,20 @@ public class User {
         this.dateConnexion = dateConnexion;
         this.logonName = logonName;
         this.codeIngenieur = codeIngenieur;
+    }
+
+    public User(String prenom, String nom, String mail, String telephoneBureau, String telephoneMobile,
+                Date dateCreation, Date dateConnexion, String logonName, String codeIngenieur, List<Role> roleList) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.mail = mail;
+        this.telephoneBureau = telephoneBureau;
+        this.telephoneMobile = telephoneMobile;
+        this.dateCreation = dateCreation;
+        this.dateConnexion = dateConnexion;
+        this.logonName = logonName;
+        this.codeIngenieur = codeIngenieur;
+        this.roleList = roleList;
     }
 
     public int getId() {
@@ -148,5 +173,14 @@ public class User {
 
     public void setCodeIngenieur(String codeIngenieur) {
         this.codeIngenieur = codeIngenieur;
+    }
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 }
