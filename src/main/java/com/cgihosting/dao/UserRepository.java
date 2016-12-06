@@ -15,5 +15,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     //public User findByA_uti_mail(String a_uti_mail);
 
     //public User findUserByIdenti(String identi);
-    public User findByIdenti(String identi);
+    public User findByLogonName(String logonName);
 }

@@ -41,15 +41,14 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
         // On check en base dans la table YYYY si le user a le flag Admin, si oui on ajoute le ROLE_ADMIN
         String userId = "";
         try {
-            User user = userRepository.findByIdenti(username);
-            //User user = userRepository.findUserByIdenti(username);
-            userId = String.valueOf(user.getA_uti_cle());
-            log.debug("User not found");
+            User user = userRepository.findByLogonName(username);
+            //User user = userRepository.findUserByLogonName(username);
+            userId = String.valueOf(user.getId());
         }
         catch (Exception ex) {
-            log.debug("User not found");
+            log.debug("User not found in Database. This is the first connexion to the application.");
         }
-        log.debug("The user id is: " + userId);
+        log.debug("User " + username + " found in Database with id =" + userId);
 
         if(username.contains("garnon")) {
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));

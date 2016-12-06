@@ -4,142 +4,149 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import java.util.Date;
-import java.util.Set;
 
 /**
  * Created by garnons on 02/12/2016.
  */
 
 @Entity
-@Table(name="appli_utilisateurs")
+@Table(name="utilisateur")
 public class User {
 
-    private int a_uti_cle;
-    private String a_uti_prenom;
-    private String a_uti_nom;
-    private String a_uti_mail;
-    private String a_uti_telephone_fixe;
-    private String a_uti_telephone_mobi;
-    private Date a_uti_date_creation;
-    private int a_uti_type_utilisateur;
-    private String a_uti_code_cgi;
-    private String identi;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="UTI_ID")
+    private int id;
 
-    private Set<ListRoleId> listRoleId;
+    @Column(name="UTI_PRENOM")
+    @NotNull
+    private String prenom;
+
+    @Column(name="UTI_NOM")
+    @NotNull
+    private String nom;
+
+    @Column(name="UTI_MAIL")
+    @NotNull
+    private String mail;
+
+    @Column(name="UTI_TEL_BUR")
+    @Null
+    private String telephoneBureau;
+
+    @Column(name="UTI_TEL_MOB")
+    @Null
+    private String telephoneMobile;
+
+    @Column(name="UTI_DATE_CREATION")
+    @NotNull
+    private Date dateCreation;
+
+    @Column(name="UTI_DATE_CONNEXION")
+    @NotNull
+    private Date dateConnexion;
+
+    @Column(name="UTI_LOGON_NAME")
+    @NotNull
+    private String logonName;
+
+    @Column(name="UTI_CODE_INGE")
+    @NotNull
+    private String codeIngenieur;
 
     public User() {
     }
 
-    public User(String a_uti_prenom, String a_uti_nom, String a_uti_mail, String a_uti_telephone_fixe, String a_uti_telephone_mobi, Date a_uti_date_creation, int a_uti_type_utilisateur, String identi, String a_uti_code_cgi) {
-        this.a_uti_prenom = a_uti_prenom;
-        this.a_uti_nom = a_uti_nom;
-        this.a_uti_mail = a_uti_mail;
-        this.a_uti_telephone_fixe = a_uti_telephone_fixe;
-        this.a_uti_telephone_mobi = a_uti_telephone_mobi;
-        this.a_uti_date_creation = a_uti_date_creation;
-        this.a_uti_type_utilisateur = a_uti_type_utilisateur;
-        this.identi = identi;
-        this.a_uti_code_cgi = a_uti_code_cgi;
+    public User(String prenom, String nom, String mail, String telephoneBureau, String telephoneMobile,
+                Date dateCreation, Date dateConnexion, String logonName, String codeIngenieur) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.mail = mail;
+        this.telephoneBureau = telephoneBureau;
+        this.telephoneMobile = telephoneMobile;
+        this.dateCreation = dateCreation;
+        this.dateConnexion = dateConnexion;
+        this.logonName = logonName;
+        this.codeIngenieur = codeIngenieur;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getA_uti_cle() {
-        return a_uti_cle;
+    public int getId() {
+        return id;
     }
 
-    public void setA_uti_cle(int a_uti_cle) {
-        this.a_uti_cle = a_uti_cle;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    @NotNull
-    public String getA_uti_prenom() {
-        return a_uti_prenom;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setA_uti_prenom(String a_uti_prenom) {
-        this.a_uti_prenom = a_uti_prenom;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    @NotNull
-    public String getA_uti_nom() {
-        return a_uti_nom;
+    public String getNom() {
+        return nom;
     }
 
-    public void setA_uti_nom(String a_uti_nom) {
-        this.a_uti_nom = a_uti_nom;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    @NotNull
-    public String getA_uti_mail() {
-        return a_uti_mail;
+    public String getMail() {
+        return mail;
     }
 
-    public void setA_uti_mail(String a_uti_mail) {
-        this.a_uti_mail = a_uti_mail;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    @Null
-    public String getA_uti_telephone_fixe() {
-        return a_uti_telephone_fixe;
+    public String getTelephoneBureau() {
+        return telephoneBureau;
     }
 
-    public void setA_uti_telephone_fixe(String a_uti_telephone_fixe) {
-        this.a_uti_telephone_fixe = a_uti_telephone_fixe;
+    public void setTelephoneBureau(String telephoneBureau) {
+        this.telephoneBureau = telephoneBureau;
     }
 
-    @Null
-    public String getA_uti_telephone_mobi() {
-        return a_uti_telephone_mobi;
+    public String getTelephoneMobile() {
+        return telephoneMobile;
     }
 
-    public void setA_uti_telephone_mobi(String a_uti_telephone_mobi) {
-        this.a_uti_telephone_mobi = a_uti_telephone_mobi;
+    public void setTelephoneMobile(String telephoneMobile) {
+        this.telephoneMobile = telephoneMobile;
     }
 
-    @Null
-    public Date getA_uti_date_creation() {
-        return a_uti_date_creation;
+    public Date getDateCreation() {
+        return dateCreation;
     }
 
-    public void setA_uti_date_creation(Date a_uti_date_creation) {
-        this.a_uti_date_creation = a_uti_date_creation;
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
-    @NotNull
-    public int getA_uti_type_utilisateur() {
-        return a_uti_type_utilisateur;
+    public Date getDateConnexion() {
+        return dateConnexion;
     }
 
-    public void setA_uti_type_utilisateur(int a_uti_type_utilisateur) {
-        this.a_uti_type_utilisateur = a_uti_type_utilisateur;
+    public void setDateConnexion(Date dateConnexion) {
+        this.dateConnexion = dateConnexion;
     }
 
-    @NotNull
-    @Column(name="a_uti_identi_cgi")
-    public String getIdenti() {
-        return identi;
+    public String getLogonName() {
+        return logonName;
     }
 
-    public void setIdenti(String identi) {
-        this.identi = identi;
+    public void setLogonName(String logonName) {
+        this.logonName = logonName;
     }
 
-    @NotNull
-    public String getA_uti_code_cgi() {
-        return a_uti_code_cgi;
+    public String getCodeIngenieur() {
+        return codeIngenieur;
     }
 
-    public void setA_uti_code_cgi(String a_uti_code_cgi) {
-        this.a_uti_code_cgi = a_uti_code_cgi;
-    }
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
-    public Set<ListRoleId> getListRoleId() {
-        return listRoleId;
-    }
-
-    public void setListRoleId(Set<ListRoleId> listRoleId) {
-        this.listRoleId = listRoleId;
+    public void setCodeIngenieur(String codeIngenieur) {
+        this.codeIngenieur = codeIngenieur;
     }
 }
