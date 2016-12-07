@@ -57,13 +57,13 @@ public class User implements Serializable{
     @NotNull
     private String codeIngenieur;
 
-    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade={CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinTable(
             name="UTILISATEUR_A_ROLE_UTILISATEUR",
             joinColumns = @JoinColumn(name="URU_UTI_ID"),
             inverseJoinColumns = @JoinColumn(name="URU_RRU_ID")
     )
-    private List<Role> roleList;
+    private List<Role> roleList = null;
 
     public User() {
     }
