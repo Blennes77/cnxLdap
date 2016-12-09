@@ -1,7 +1,7 @@
 package com.cgihosting.security;
 
 import com.cgihosting.constantes.Constantes;
-import com.cgihosting.dao.UserRepository;
+import com.cgihosting.repository.UserRepository;
 import com.cgihosting.domain.Role;
 import com.cgihosting.domain.User;
 import org.slf4j.Logger;
@@ -26,12 +26,10 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
     // Define the logger object for this class
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private UserRepository userRepository;
-
     @Autowired
-    public void setUserRepository(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
+    private UserRepository userRepository; // Implémentation de l'interface via @Service et @Autowired, Spring Boot
+
+    //public void setUserRepository(UserRepository userRepository){ this.userRepository = userRepository; }
 
     @Override
     public Collection<? extends GrantedAuthority> getGrantedAuthorities(DirContextOperations ctx, String username) {
@@ -70,6 +68,7 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
                 // Sauvegarde de l'utilisateur et du role en base de données
                 userRepository.save(user);
+
                 // On recharge les données de l'utilisateur
                 user = userRepository.findByLogonName(username);
 

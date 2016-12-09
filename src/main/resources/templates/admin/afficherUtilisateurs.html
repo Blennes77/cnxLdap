@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Gestion des rôles utilisateurs</h1>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Liste des utilisateurs</div>
+
+            <!-- Table -->
+            <table class="table">
+                <tr >
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Mail</th>
+                    <th>Tél bur</th>
+                    <th>Tél mob</th>
+                </tr>
+                <tr th:each="user:${formulaire.userList}">
+                    <td ><a th:text="${user.nom}" th:href="@{'/admin/detailsUtilisateur.html?id='+${user.id}}"/></td>
+                    <td th:text="${user.prenom}"></td>
+                    <td th:text="${user.mail}"></td>
+                    <td th:text="${user.telephoneBureau}"></td>
+                    <td th:text="${user.telephoneMobile}"></td>
+                </tr>
+            </table>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li th:each="i : ${#numbers.sequence(1,formulaire.numPageTotal)}"><a th:text="${i}" href="#">1</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+</html>

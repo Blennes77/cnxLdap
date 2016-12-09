@@ -1,4 +1,4 @@
-package com.cgihosting.dao;
+package com.cgihosting.repository;
 
 import com.cgihosting.domain.User;
 import org.springframework.data.repository.CrudRepository;
@@ -16,4 +16,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     //public User findUserByIdenti(String identi);
     public User findByLogonName(String logonName);
+    public User findById(Integer id);
 }

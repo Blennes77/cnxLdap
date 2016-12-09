@@ -22,11 +22,8 @@
 <div th:replace="fragments/menu :: menu">...</div>
 <div class="container">
     <div class="jumbotron">
-        <img src="../static/images/FBcover1200x628.png" width="1000"
-             th:src="@{images/FBcover1200x628.png}"/>
-        <h1>Hello</h1>
-
-        <h2>Fellow Spring Framework Gurus!!!</h2>
+        <h1 th:text="${formulaire.user.nom}">Détails de l'utilisateur</h1>
+        <!-- REMPLIR CI-DESSOUS -->
     </div>
 </div>
 </body>

@@ -1,4 +1,4 @@
-package com.cgihosting.dao;
+package com.cgihosting.repository;
 
 import com.cgihosting.domain.UserRole;
 import org.springframework.data.repository.CrudRepository;
