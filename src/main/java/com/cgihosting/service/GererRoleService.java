@@ -1,6 +1,7 @@
 package com.cgihosting.service;
 
 import com.cgihosting.domain.User;
+import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,4 +17,8 @@ public interface GererRoleService extends Serializable{
     public void saveUser(User user);
 
     public List<User> searchAllUsers();
+
+    public Page<User> searchAllUsersByPage(Integer page, Integer ligneParPage);
+
+    public Long totalUsers();
 }

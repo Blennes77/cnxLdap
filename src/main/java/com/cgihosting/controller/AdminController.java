@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 /**
  * Created by garnons on 07/12/2016.
  */
@@ -21,9 +19,12 @@ public class AdminController {
     private GererRoleService gererRoleService;
 
     @RequestMapping("/admin/afficherUtilisateurs")
-    String afficherUtilisateurs(Model model){
+    String afficherUtilisateurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+                                @RequestParam(value = "ligneParPage", required = false, defaultValue = "3") int ligneParPage,
+                                Model model)
+    {
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs());
+        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage));
         return "admin/afficherUtilisateurs";
     }
 
@@ -34,13 +35,12 @@ public class AdminController {
         return "admin/detailsUtilisateur";
     }
 
-    private AfficherUtilisateursFormulaire recupererFormulaireAfficherUtilisateurs(){
-        List<User> userList;
+    private AfficherUtilisateursFormulaire recupererFormulaireAfficherUtilisateurs(int page, int ligneParPage){
 
-        AfficherUtilisateursFormulaire afficherUtilisateursFormulaire = new AfficherUtilisateursFormulaire();
-        afficherUtilisateursFormulaire.setUserList(gererRoleService.searchAllUsers());
+        AfficherUtilisateursFormulaire afficherUtilisateursFormulaire = new AfficherUtilisateursFormulaire(page, ligneParPage, gererRoleService);
+        //afficherUtilisateursFormulaire.setUserList(gererRoleService.searchAllUsers());
 
-        afficherUtilisateursFormulaire.setNumPageTotal(10);
+        //afficherUtilisateursFormulaire.setNumPageTotal(10);
         return afficherUtilisateursFormulaire;
     }
 
@@ -51,7 +51,7 @@ public class AdminController {
         idInt = Integer.parseInt(id);
 
         DetailsUtilisateurFormulaire detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
-        detailsUtilisateurFormulaire.setUser(gererRoleService.searchUserById(idInt));
+        //detailsUtilisateurFormulaire.setUser(gererRoleService.searchUserById(idInt));
 
         return detailsUtilisateurFormulaire;
     }
