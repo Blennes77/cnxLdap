@@ -1,5 +1,7 @@
 package com.cgihosting.security;
 
+import com.cgihosting.domain.ParametresAppliDTO;
+import com.cgihosting.service.admin.ParametrerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +33,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     @Qualifier("myCustomLdapAuthorities")
     LdapAuthoritiesPopulator myCustomLdapAuthorities;
+
+
+    @Autowired
+    private ParametrerService parametrerService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -65,7 +71,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .groupSearchBase("ou=groupes")
         .contextSource().url("ldap://127.0.0.1:389/dc=maxcrc,dc=com");*/
 
+        ParametresAppliDTO parametresAppliDTO = parametrerService.recupererParametresAppli();
+
     /* Fonctionne sur AD Groupinfra */
+/*
+        auth.ldapAuthentication()
+                .ldapAuthoritiesPopulator(myCustomLdapAuthorities)
+                .userDetailsContextMapper(userDetailsContextMapper())
+                .userSearchFilter("cn={0}")
+                //.groupSearchFilter("member={0}")
+                .contextSource().url(parametresAppliDTO.getChaineConnexionLDAP())
+                .managerDn(parametresAppliDTO.getCompteLDAP())
+                .managerPassword(parametresAppliDTO.getMotDePasseLDAP());
+*/
+
         auth.ldapAuthentication()
                 .ldapAuthoritiesPopulator(myCustomLdapAuthorities)
                 .userDetailsContextMapper(userDetailsContextMapper())
@@ -74,5 +93,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .contextSource().url(env.getRequiredProperty("ldap.url"))
                 .managerDn(env.getRequiredProperty("ldap.user"))
                 .managerPassword(env.getRequiredProperty("ldap.password"));
+
     }
 }

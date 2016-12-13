@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <div class="jumbotron">
+        <h1 th:text="${formulaire.titrePage}">Titre</h1>
+        <!-- Table -->
+        <table class="table">
+            <tr >
+                <td>URL VRealize Orchestrator</td>
+                <td th:text="${formulaire.parametresVCODTO.urlVco}"></td>
+            </tr>
+            <tr >
+                <td>Compte VCO</td>
+                <td th:text="${formulaire.parametresVCODTO.adminVco}"></td>
+            </tr>
+            <tr >
+                <td>Mot de passe VCO</td>
+                <td th:text="${formulaire.parametresVCODTO.motDePasseVco}"></td>
+            </tr>
+            <tr >
+                <td>Adresse IP Phpipam</td>
+                <td th:text="${formulaire.parametresVCODTO.adressePhpipam}"></td>
+            </tr>
+
+            <tr >
+                <td>Base Phpipam</td>
+                <td th:text="${formulaire.parametresVCODTO.basePhpipam}"></td>
+            </tr>
+            <tr >
+                <td>Compte Phpipam</td>
+                <td th:text="${formulaire.parametresVCODTO.comptePhpipam}"></td>
+            </tr>
+            <tr >
+                <td>Mot de passe Phpipam</td>
+                <td th:text="${formulaire.parametresVCODTO.motDePassePhpipam}"></td>
+            </tr>
+            <tr >
+                <td>Adresse IP Teampass</td>
+                <td th:text="${formulaire.parametresVCODTO.adresseTeampass}"></td>
+            </tr>
+            <tr >
+                <td>Base Teampass</td>
+                <td th:text="${formulaire.parametresVCODTO.baseTeampass}"></td>
+            </tr>
+            <tr >
+                <td>Compte Teampass</td>
+                <td th:text="${formulaire.parametresVCODTO.compteTeampass}"></td>
+            </tr>
+            <tr >
+                <td>Mot de passe Teampass</td>
+                <td th:text="${formulaire.parametresVCODTO.motDePasseTeampass}"></td>
+            </tr>
+            <tr >
+                <td>Adresse IP Dolibarr</td>
+                <td th:text="${formulaire.parametresVCODTO.adresseDolibarr}"></td>
+            </tr>
+            <tr >
+                <td>Base Dolibarr</td>
+                <td th:text="${formulaire.parametresVCODTO.baseDolibarr}"></td>
+            </tr>
+            <tr >
+                <td>Compte Dolibarr</td>
+                <td th:text="${formulaire.parametresVCODTO.compteDolibarr}"></td>
+            </tr>
+            <tr >
+                <td>Mot de passe Dolibarr</td>
+                <td th:text="${formulaire.parametresVCODTO.motDePasseDolibarr}"></td>
+            </tr>
+            <tr >
+                <td>Adresse SMTP</td>
+                <td th:text="${formulaire.parametresVCODTO.adresseSmtp}"></td>
+            </tr>
+            <tr >
+                <td>Mot de passe Dolibarr</td>
+                <td th:text="${formulaire.parametresVCODTO.expediteurSMTP}"></td>
+            </tr>
+            <tr >
+                <td>Longueur Mot de passe</td>
+                <td th:text="${formulaire.parametresVCODTO.longueurMotDePasse}"></td>
+            </tr>
+            <tr >
+                <td>Timeout Phpipam</td>
+                <td th:text="${formulaire.parametresVCODTO.timeoutPing}"></td>
+            </tr>
+            <tr >
+                <td>Texte de réservation phpipam</td>
+                <td th:text="${formulaire.parametresVCODTO.texteReservationPhpIpam}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

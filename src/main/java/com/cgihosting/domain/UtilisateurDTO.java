@@ -1,11 +1,7 @@
 package com.cgihosting.domain;
 
-import org.hibernate.annotations.Fetch;
-import org.springframework.data.repository.cdi.Eager;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name="utilisateur")
-public class User implements Serializable{
+public class UtilisateurDTO implements Serializable{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -65,10 +61,10 @@ public class User implements Serializable{
     )
     private List<Role> roleList = null;
 
-    public User() {
+    public UtilisateurDTO() {
     }
 
-    public User(String prenom, String nom, String mail, String telephoneBureau, String telephoneMobile,
+    public UtilisateurDTO(String prenom, String nom, String mail, String telephoneBureau, String telephoneMobile,
                 Date dateCreation, Date dateConnexion, String logonName, String codeIngenieur) {
         this.prenom = prenom;
         this.nom = nom;
@@ -81,7 +77,7 @@ public class User implements Serializable{
         this.codeIngenieur = codeIngenieur;
     }
 
-    public User(String prenom, String nom, String mail, String telephoneBureau, String telephoneMobile,
+    public UtilisateurDTO(String prenom, String nom, String mail, String telephoneBureau, String telephoneMobile,
                 Date dateCreation, Date dateConnexion, String logonName, String codeIngenieur, List<Role> roleList) {
         this.prenom = prenom;
         this.nom = nom;

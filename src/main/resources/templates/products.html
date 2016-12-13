@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>Spring Framework Guru</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <div class="jumbotron">
+
+        <h1>liste des produits</h1>
+
+        <h2>Voic les produits</h2>
+
+        <tr th:each="produit : ${produitsListe}">
+            <td th:text="${produit.codeProduitStr}">codeproduit</td>
+            <td th:text="${produit.libelleProduitStr}">codeproduit</td>
+        </tr>
+    </div>
+</div>
+</body>
+</html>

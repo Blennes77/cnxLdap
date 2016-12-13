@@ -1,13 +1,13 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.User;
-import org.springframework.data.repository.CrudRepository;
+
+import com.cgihosting.domain.UtilisateurDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * Created by garnons on 02/12/2016.
  */
-public interface UserRepository extends PagingAndSortingRepository<User, Integer> {
+public interface UserRepository extends PagingAndSortingRepository<UtilisateurDTO, Integer> {
     /**
      * This method will find an User instance in the database by its email.
      * Note that this method is not implemented and its working code will be
@@ -16,6 +16,6 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
     //public User findByA_uti_mail(String a_uti_mail);
 
     //public User findUserByIdenti(String identi);
-    public User findByLogonName(String logonName);
-    public User findById(Integer id);
+    public UtilisateurDTO findByLogonName(String logonName);
+    public UtilisateurDTO findById(Integer id);
 }

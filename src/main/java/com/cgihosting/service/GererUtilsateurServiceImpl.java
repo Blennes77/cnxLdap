@@ -1,7 +1,8 @@
 package com.cgihosting.service;
 
+import com.cgihosting.domain.UtilisateurDTO;
 import com.cgihosting.repository.UserRepository;
-import com.cgihosting.domain.User;
+import com.cgihosting.service.admin.GererUtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,38 +16,38 @@ import java.util.List;
  */
 
 @Service("gererRoleService")
-public class GererRoleServiceImpl implements GererRoleService {
+public class GererUtilsateurServiceImpl implements GererUtilisateurService {
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public User searchUser(String username) {
-        User user = userRepository.findByLogonName(username);
-        return user;
+    public UtilisateurDTO searchUser(String username) {
+        UtilisateurDTO utilisateurDTO = userRepository.findByLogonName(username);
+        return utilisateurDTO;
     }
 
     @Override
-    public void saveUser(User user) {
-        userRepository.save(user);
+    public void saveUser(UtilisateurDTO utilisateurDTO) {
+        userRepository.save(utilisateurDTO);
     }
 
     @Override
-    public List<User> searchAllUsers() {
-        List<User> userList;
-        userList = (List<User>) userRepository.findAll();
+    public List<UtilisateurDTO> searchAllUsers() {
+        List<UtilisateurDTO> userList;
+        userList = (List<UtilisateurDTO>) userRepository.findAll();
         return userList;
     }
 
     @Override
-    public User searchUserById(Integer id) {
-        User user = userRepository.findById(id);
+    public UtilisateurDTO searchUserById(Integer id) {
+        UtilisateurDTO user = userRepository.findById(id);
         return user;
     }
 
     @Override
-    public Page<User> searchAllUsersByPage(Integer page, Integer maxRow) {
-        Page<User> userPage;
+    public Page<UtilisateurDTO> searchAllUsersByPage(Integer page, Integer maxRow) {
+        Page<UtilisateurDTO> userPage;
 
         userPage = userRepository.findAll(new PageRequest(page,maxRow, new Sort(
                 new Sort.Order(Sort.Direction.ASC, "nom"),

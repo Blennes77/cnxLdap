@@ -1,8 +1,7 @@
 package com.cgihosting.formulaire;
 
-import com.cgihosting.domain.User;
-import com.cgihosting.service.GererRoleService;
-import org.springframework.data.domain.Page;
+
+import com.cgihosting.domain.UtilisateurDTO;
 
 import java.util.List;
 
@@ -10,10 +9,8 @@ import java.util.List;
  * Created by garnons on 08/12/2016.
  */
 public class AfficherUtilisateursFormulaire {
-    private GererRoleService gererRoleService;
 
-    private List<User> userList;
-    private Page<User> userPage;
+    private List<UtilisateurDTO> utilisateurDTOListeAffiches;
     private int nbLigneAfficheParPage; // Y
     private int numPageCourante;       // X
     private Long numTotalUsers;         // Z
@@ -21,29 +18,21 @@ public class AfficherUtilisateursFormulaire {
 
     public AfficherUtilisateursFormulaire(){}
 
-    public AfficherUtilisateursFormulaire(int page, int ligneParPage, GererRoleService gererRoleService) {
+    public AfficherUtilisateursFormulaire(int page, int ligneParPage) {
         // Constructeur
-        //gererRoleService = new GererRoleServiceImpl();
-        this.gererRoleService = gererRoleService;
 
-        //TODO : Nb d'utilisateurs Total
-        this.numTotalUsers = gererRoleService.totalUsers();
 
         //TODO : Initialisation des attributs
         this.numPageCourante = page;
         this.nbLigneAfficheParPage = ligneParPage;
-        this.numPageTotal = (int) Math.ceil((double) this.numTotalUsers / (double) this.nbLigneAfficheParPage);
-
-        //TODO : Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
-        userPage = gererRoleService.searchAllUsersByPage(this.numPageCourante, this.nbLigneAfficheParPage);
     }
 
-    public List<User> getUserList() {
-        return userList;
+    public List<UtilisateurDTO> getUtilisateurDTOListeAffiches() {
+        return utilisateurDTOListeAffiches;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUtilisateurDTOListeAffiches(List<UtilisateurDTO> utilisateurDTOListeAffiches) {
+        this.utilisateurDTOListeAffiches = utilisateurDTOListeAffiches;
     }
 
     public int getNbLigneAfficheParPage() {
@@ -70,13 +59,6 @@ public class AfficherUtilisateursFormulaire {
         this.numPageTotal = numPageTotal;
     }
 
-    public Page<User> getUserPage() {
-        return userPage;
-    }
-
-    public void setUserPage(Page<User> userPage) {
-        this.userPage = userPage;
-    }
 
     public Long getNumTotalUsers() {
         return numTotalUsers;

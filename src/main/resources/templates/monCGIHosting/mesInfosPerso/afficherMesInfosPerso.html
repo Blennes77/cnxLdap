@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <div class="jumbotron">
+        <h1 th:text="${formulaire.titrePage}">Titre</h1>
+        <!-- Table -->
+        <table class="table">
+            <tr >
+                <th>Nom </th>
+                <th>Prenom</th>
+            </tr>
+            <tr>
+                <td ><a th:text="${formulaire.utilisateurDTO.nom}" /></td>
+                <td th:text="$formulaire.utilisateurDTO.prenom"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

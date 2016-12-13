@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "utilisateur_a_role_utilisateur")
-public class UserRole implements Serializable{
+public class RoleUtilisateurDTO implements Serializable{
 
     @Id
     @Column(name="URU_UTI_ID")
@@ -18,10 +18,10 @@ public class UserRole implements Serializable{
     @Column(name="URU_RRU_ID")
     private int idRole;
 
-    public UserRole() {
+    public RoleUtilisateurDTO() {
     }
 
-    public UserRole(int idUser, int idRole) {
+    public RoleUtilisateurDTO(int idUser, int idRole) {
         this.idUser = idUser;
         this.idRole = idRole;
     }

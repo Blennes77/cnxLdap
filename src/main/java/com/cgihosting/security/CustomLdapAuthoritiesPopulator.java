@@ -1,9 +1,9 @@
 package com.cgihosting.security;
 
-import com.cgihosting.constantes.Constantes;
+import com.cgihosting.constantes.ConstantesAdmin;
+import com.cgihosting.domain.UtilisateurDTO;
 import com.cgihosting.repository.UserRepository;
 import com.cgihosting.domain.Role;
-import com.cgihosting.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,20 +43,20 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
         // On check en base dans la table XXXX si le user existe dans les données PSA, si oui on ajoute le ROLE_DP
         // On check en base dans la table YYYY si le user a le flag Admin, si oui on ajoute le ROLE_ADMIN
         try {
-            User user = userRepository.findByLogonName(username);
+            UtilisateurDTO utilisateurDTO = userRepository.findByLogonName(username);
 
-            if(user==null){
+            if(utilisateurDTO==null){
                 // ==================== Première connexion. Utilisateur inconnu de l'application.
                 Calendar calendar = Calendar.getInstance();
                 Date dateCreation = new Date(calendar.getTime().getTime());
 
                 List<Role> roleList = new ArrayList<Role>();
-                roleList.add(new Role(Constantes.ROLE_USER.intValue()));
+                roleList.add(new Role(ConstantesAdmin.ROLE_USER.intValue()));
 
                 log.debug("Création de l'utilisateur " + username + " en base de données.");
 
                 // Création de l'utilisateur dans la base de données avec les informations de l'active directory
-                user = new User(ctx.getStringAttribute("givenname"),
+                utilisateurDTO = new UtilisateurDTO(ctx.getStringAttribute("givenname"),
                                 ctx.getStringAttribute("sn"),
                                 ctx.getStringAttribute("mail"),
                                 ctx.getStringAttribute("telephonenumber"),
@@ -67,10 +67,10 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                                 ctx.getStringAttribute("extensionattribute1"), roleList);
 
                 // Sauvegarde de l'utilisateur et du role en base de données
-                userRepository.save(user);
+                userRepository.save(utilisateurDTO);
 
                 // On recharge les données de l'utilisateur
-                user = userRepository.findByLogonName(username);
+                utilisateurDTO = userRepository.findByLogonName(username);
 
                 // Pour supprimer dans les deux tables sauf la table de parametres
                 //user.setRoleList(null);
@@ -82,7 +82,7 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
             }
 
-            List<Role> roleList = user.getRoleList();
+            List<Role> roleList = utilisateurDTO.getRoleList();
             if(roleList==null){
                 // TODO
                 log.warn("Aucun rôle en base de données associé à l'utilisateur " + username);
