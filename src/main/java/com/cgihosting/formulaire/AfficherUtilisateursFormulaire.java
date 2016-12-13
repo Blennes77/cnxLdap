@@ -85,4 +85,6 @@ public class AfficherUtilisateursFormulaire {
     public void setNumTotalUsers(Long numTotalUsers) {
         this.numTotalUsers = numTotalUsers;
     }
+
+
 }

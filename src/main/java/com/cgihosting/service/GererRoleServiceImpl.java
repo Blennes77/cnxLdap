@@ -5,6 +5,7 @@ import com.cgihosting.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,7 +48,10 @@ public class GererRoleServiceImpl implements GererRoleService {
     public Page<User> searchAllUsersByPage(Integer page, Integer maxRow) {
         Page<User> userPage;
 
-        userPage = userRepository.findAll(new PageRequest(page,maxRow));
+        userPage = userRepository.findAll(new PageRequest(page,maxRow, new Sort(
+                new Sort.Order(Sort.Direction.ASC, "nom"),
+                new Sort.Order(Sort.Direction.ASC, "prenom")
+        )));
         return userPage;
     }
 
