@@ -51,7 +51,7 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                 Date dateCreation = new Date(calendar.getTime().getTime());
 
                 List<Role> roleList = new ArrayList<Role>();
-                roleList.add(new Role(Constantes.ROLE_USER.intValue()));
+                roleList.add(new Role(Constantes.ROLE_USER));
 
                 log.debug("Création de l'utilisateur " + username + " en base de données.");
 

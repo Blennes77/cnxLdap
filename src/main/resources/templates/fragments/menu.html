@@ -34,7 +34,7 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/admin/afficherUtilisateurs">Utilisateurs</a></li>
@@ -60,7 +60,7 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                 </form>
                 <div class="navbar-text navbar-right" th:if="${#httpServletRequest.remoteUser != null}">
                     <p>Welcome <span sec:authentication="principal.displayName" /></p>
-                    <p>Role: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></p>
+                    <p>Role: <span sec:authentication="principal.authorities">Liste Role</span></p>
                 </div>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

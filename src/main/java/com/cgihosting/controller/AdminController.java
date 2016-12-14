@@ -1,15 +1,21 @@
 package com.cgihosting.controller;
 
+import com.cgihosting.constantes.Constantes;
+import com.cgihosting.domain.Role;
 import com.cgihosting.domain.User;
 import com.cgihosting.formulaire.AfficherUtilisateursFormulaire;
 import com.cgihosting.formulaire.DetailsUtilisateurFormulaire;
 import com.cgihosting.service.GererRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+import java.util.ListIterator;
+
+import static com.cgihosting.constantes.Constantes.*;
 
 /**
  * Created by garnons on 07/12/2016.
@@ -19,6 +25,7 @@ public class AdminController {
     @Autowired
     private GererRoleService gererRoleService;
     private AfficherUtilisateursFormulaire afficherUtilisateursFormulaire;
+    private DetailsUtilisateurFormulaire detailsUtilisateurFormulaire;
 
     @RequestMapping("/admin/afficherUtilisateurs")
     String afficherUtilisateurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
@@ -35,7 +42,8 @@ public class AdminController {
     @RequestMapping("/admin/detailsUtilisateur")
     String detailsUtilisateur(@RequestParam("id") int id, Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireDetailsUtilisateur(id));
+        recupererFormulaireDetailsUtilisateur(id);
+        model.addAttribute("formulaire", detailsUtilisateurFormulaire);
         return "admin/detailsUtilisateur";
     }
 
@@ -68,11 +76,35 @@ public class AdminController {
         //BEST CODE: return afficherUtilisateursFormulaire;
     }
 
-    private DetailsUtilisateurFormulaire recupererFormulaireDetailsUtilisateur(int id){
+    private void recupererFormulaireDetailsUtilisateur(int id){
+        User user;
+        List<Role> roleList;
 
-        DetailsUtilisateurFormulaire detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire(id, gererRoleService);
-        //detailsUtilisateurFormulaire.setUser(gererRoleService.searchUserById(idInt));
+        //roleList = new ArrayList<Role>();
 
-        return detailsUtilisateurFormulaire;
+        detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
+        detailsUtilisateurFormulaire.setUser(gererRoleService.searchUserById(id));
+
+        user = detailsUtilisateurFormulaire.getUser();
+        roleList = user.getRoleList();
+
+        ListIterator<Role> roleListIterator = roleList.listIterator();
+        while(roleListIterator.hasNext()){
+            Role role = roleListIterator.next();
+            switch (role.getId()) {
+                case ROLE_USER:
+                    //TODO
+                    detailsUtilisateurFormulaire.setRoleUser(true);
+                    break;
+                case ROLE_EXPLOITANT:
+                    //TODO
+                    detailsUtilisateurFormulaire.setRoleExploit(true);
+                    break;
+                case ROLE_ADMIN:
+                    //TODO
+                    detailsUtilisateurFormulaire.setRoleAdmin(true);
+                    break;
+            }
+        }
     }
 }
