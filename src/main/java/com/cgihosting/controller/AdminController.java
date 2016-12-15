@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class AdminController {
     private AfficherUtilisateursFormulaire afficherUtilisateursFormulaire;
     private DetailsUtilisateurFormulaire detailsUtilisateurFormulaire;
 
-    @RequestMapping("/admin/afficherUtilisateurs")
+    @RequestMapping(value = "/admin/afficherUtilisateurs", method = RequestMethod.GET)
     String afficherUtilisateurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                                 @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,
                                 Model model)
@@ -39,12 +40,19 @@ public class AdminController {
         return "admin/afficherUtilisateurs";
     }
 
-    @RequestMapping("/admin/detailsUtilisateur")
+    @RequestMapping(value = "/admin/detailsUtilisateur", method = RequestMethod.GET)
     String detailsUtilisateur(@RequestParam("id") int id, Model model){
 
         recupererFormulaireDetailsUtilisateur(id);
         model.addAttribute("formulaire", detailsUtilisateurFormulaire);
         return "admin/detailsUtilisateur";
+    }
+
+    @RequestMapping(value = "/admin/detailsUtilisateur", method = RequestMethod.POST)
+    String submitRole(){
+        //TODO
+
+        return "redirect:/admin/afficherUtilisateurs";
     }
 
     ////BEST CODE: private AfficherUtilisateursFormulaire recupererFormulaireAfficherUtilisateurs(int page, int ligneParPage){
