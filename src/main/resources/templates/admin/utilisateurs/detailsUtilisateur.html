@@ -22,9 +22,54 @@
 <div th:replace="fragments/menu :: menu">...</div>
 <div class="container">
     <div class="jumbotron">
-        <h2 th:text="${formulaire.user.nom}">Détails de l'utilisateur</h2>
+        <h1>Attribution des rôles pour l'utilisateur</h1>
+        <h2 th:text="${formulaire.user.nom} + ' ' + ${formulaire.user.prenom}">Détails de l'utilisateur</h2>
         <!-- REMPLIR CI-DESSOUS -->
+        <form action="/admin/detailsUtilisateur" th:object="${form}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleUser}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Utilisateur"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleDp}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Directeur de projet"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleExploit}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Exploitant"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleAdmin}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Administrateur du site"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <p><input type="submit" value="Submit"/></p>
+        </form>
     </div>
 </div>
 </body>
-</html>Lfz80YEV
+</html>

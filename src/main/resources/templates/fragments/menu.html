@@ -14,17 +14,19 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">LINK</a>
+                <a class="navbar-brand" href="#">CGI Hosting</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Link 1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Link 2</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon CGI Hosting<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/monCGIHosting/afficherMesInfosPerso">Mes Infos perso</a></li>
+                            <li><a href="#">My contracts</a></li>
+                            <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">My projects</a></li>
@@ -32,8 +34,8 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Exploitation<span class="caret"></span></a>
+                    <li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/exploit/afficherServeursVirtuels">Serveurs Virtuels</a></li>
                             <li><a href="#">My products</a></li>
