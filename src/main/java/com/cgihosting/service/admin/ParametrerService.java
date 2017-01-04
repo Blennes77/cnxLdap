@@ -15,4 +15,8 @@ public interface ParametrerService extends Serializable{
 
     ParametresVCODTO recupererParametresVCO();
 
+
+    boolean mettreAJourParametresAppli(ParametresAppliDTO parametresAppliDTO);
+    boolean mettreAJourParametresVCO(ParametresVCODTO parametresVCODTO);
+
 }

@@ -23,7 +23,7 @@
 <div class="container">
     <div class="jumbotron">
         <h1>Attribution des rôles pour l'utilisateur</h1>
-        <h2 th:text="${formulaire.user.nom} + ' ' + ${formulaire.user.prenom}">Détails de l'utilisateur</h2>
+        <h2 th:text="${formulaire.utilisateurDTO.nom} + ' ' + ${formulaire.utilisateurDTO.prenom}">Détails de l'utilisateur</h2>
         <!-- REMPLIR CI-DESSOUS -->
         <form action="/admin/detailsUtilisateur" th:object="${form}" method="post">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>

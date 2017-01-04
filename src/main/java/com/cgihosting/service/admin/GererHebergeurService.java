@@ -13,5 +13,7 @@ public interface GererHebergeurService extends Serializable{
 
     List<HebergeurDTO> recupererHebergeurs();
 
+    boolean creerHebergeur(HebergeurDTO hebergeurDTO);
+
 
 }

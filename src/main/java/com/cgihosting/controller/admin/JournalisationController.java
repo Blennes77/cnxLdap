@@ -30,7 +30,7 @@ public class JournalisationController {
     @RequestMapping("/admin/afficherJournalisation")
     String afficherJournalisation(Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherJournalisation());
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherJournalisation());
         return "admin/journalisation/afficherJournalisation";
     }
 

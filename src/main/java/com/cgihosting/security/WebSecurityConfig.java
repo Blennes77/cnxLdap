@@ -74,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         ParametresAppliDTO parametresAppliDTO = parametrerService.recupererParametresAppli();
 
     /* Fonctionne sur AD Groupinfra */
-/*
+
         auth.ldapAuthentication()
                 .ldapAuthoritiesPopulator(myCustomLdapAuthorities)
                 .userDetailsContextMapper(userDetailsContextMapper())
@@ -83,7 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .contextSource().url(parametresAppliDTO.getChaineConnexionLDAP())
                 .managerDn(parametresAppliDTO.getCompteLDAP())
                 .managerPassword(parametresAppliDTO.getMotDePasseLDAP());
-*/
+/*
 
         auth.ldapAuthentication()
                 .ldapAuthoritiesPopulator(myCustomLdapAuthorities)
@@ -93,6 +93,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .contextSource().url(env.getRequiredProperty("ldap.url"))
                 .managerDn(env.getRequiredProperty("ldap.user"))
                 .managerPassword(env.getRequiredProperty("ldap.password"));
+
+                */
 
     }
 }

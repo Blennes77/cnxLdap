@@ -29,6 +29,12 @@ public class ParametresAppliDTO implements Serializable{
     @Column(name="CAP_MOTDEPASSE_LDAP")
     private String motDePasseLDAP;
 
+    @Column(name="CAP_COMPTE_ADMIN")
+    private String compteAdmin;
+
+    @Column(name="CAP_MOTDEPASSE_ADMIN")
+    private String motDePasseAdmin;
+
 
     public int getId() {
         return id;
@@ -68,5 +74,22 @@ public class ParametresAppliDTO implements Serializable{
 
     public void setMotDePasseLDAP(String motDePasseLDAP) {
         this.motDePasseLDAP = motDePasseLDAP;
+    }
+
+
+    public String getCompteAdmin() {
+        return compteAdmin;
+    }
+
+    public void setCompteAdmin(String compteAdmin) {
+        this.compteAdmin = compteAdmin;
+    }
+
+    public String getMotDePasseAdmin() {
+        return motDePasseAdmin;
+    }
+
+    public void setMotDePasseAdmin(String motDePasseAdmin) {
+        this.motDePasseAdmin = motDePasseAdmin;
     }
 }

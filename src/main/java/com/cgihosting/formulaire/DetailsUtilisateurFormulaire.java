@@ -1,24 +1,23 @@
 package com.cgihosting.formulaire;
 
-import com.cgihosting.domain.User;
-import com.cgihosting.service.GererRoleService;
+import com.cgihosting.domain.UtilisateurDTO;
 
 /**
  * Created by garnons on 08/12/2016.
  */
 public class DetailsUtilisateurFormulaire {
-    private User user;
+    private UtilisateurDTO utilisateurDTO;
     private boolean roleAdmin;
     private boolean roleUser;
     private boolean roleDp;
     private boolean roleExploit;
 
-    public User getUser() {
-        return user;
+    public UtilisateurDTO getUtilisateurDTO() {
+        return utilisateurDTO;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUtilisateurDTO(UtilisateurDTO utilisateurDTO) {
+        this.utilisateurDTO = utilisateurDTO;
     }
 
     public boolean isRoleAdmin() {

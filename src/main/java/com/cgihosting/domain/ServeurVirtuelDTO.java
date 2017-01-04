@@ -81,6 +81,11 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_UTI_INTERV_ID")
     private int utiIntervId;
 
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="SVI_ID", nullable=true)
+    private EtatTraitementServeurDTO etatTraitementServeurDTO ;
+
     public int getId() {
         return id;
     }
@@ -247,5 +252,14 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setUtiIntervId(int utiIntervId) {
         this.utiIntervId = utiIntervId;
+    }
+
+
+    public EtatTraitementServeurDTO getEtatTraitementServeurDTO() {
+        return etatTraitementServeurDTO;
+    }
+
+    public void setEtatTraitementServeurDTO(EtatTraitementServeurDTO etatTraitementServeurDTO) {
+        this.etatTraitementServeurDTO = etatTraitementServeurDTO;
     }
 }

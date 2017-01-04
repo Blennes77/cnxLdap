@@ -30,7 +30,7 @@ public class MesInfosPersoController {
     @RequestMapping("/monCGIHosting/afficherMesInfosPerso")
     String afficherMesInfosPerso(Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireMesInfosPerso());
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireMesInfosPerso());
         return "monCGIHosting/mesInfosPerso/afficherMesInfosPerso";
     }
 

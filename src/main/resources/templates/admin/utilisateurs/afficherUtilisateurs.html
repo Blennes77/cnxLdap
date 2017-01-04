@@ -10,7 +10,7 @@
 <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
         th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
-<link href="../../../static/css/guru.css"
+<link href="../../static/css/guru.css"
       th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
 
 <head lang="fr">
@@ -47,12 +47,12 @@
                     <th>Tél bur</th>
                     <th>Tél mob</th>
                 </tr>
-                <tr th:each="utilisateur:${formulaire.utilisateurDTOListeAffiches}">
-                    <td ><a th:text="${utilisateur.nom}" th:href="@{'/admin/detailsUtilisateur.html?id='+${utilisateur.id}}"/></td>
-                    <td th:text="${utilisateur.prenom}"></td>
-                    <td th:text="${utilisateur.mail}"></td>
-                    <td th:text="${utilisateur.telephoneBureau}"></td>
-                    <td th:text="${utilisateur.telephoneMobile}"></td>
+                <tr th:each="user:${formulaire.userPage.content}">
+                    <td ><a th:text="${user.nom}" th:href="@{'/admin/detailsUtilisateur.html?id='+${user.id}}"/></td>
+                    <td th:text="${user.prenom}"></td>
+                    <td th:text="${user.mail}"></td>
+                    <td th:text="${user.telephoneBureau}"></td>
+                    <td th:text="${user.telephoneMobile}"></td>
                 </tr>
             </table>
             <nav aria-label="Page navigation">
@@ -70,7 +70,7 @@
                     </li>
                 </ul>
             </nav>
-         </div>
+        </div>
     </div>
 </div>
 </body>

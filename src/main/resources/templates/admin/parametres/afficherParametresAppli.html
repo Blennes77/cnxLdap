@@ -20,30 +20,63 @@
 
 <body>
 <div th:replace="fragments/menu :: menu">...</div>
+<form action="#" th:action="@{/admin/modifierParametresAppli}" th:object="${formulaire}" method="post">
 <div class="container">
     <div class="jumbotron">
         <h1 th:text="${formulaire.titrePage}">Titre</h1>
 
         <!-- Table -->
+
+        <input type="hidden" th:field="*{parametresAppliDTO.id}" th:value="${formulaire.parametresAppliDTO.id}"/>
         <table class="table">
             <tr >
                 <td>Titre du site</td>
-                <td th:text="${formulaire.parametresAppliDTO.titreSite}"></td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.titreSite}" th:value="${formulaire.parametresAppliDTO.titreSite}"/>
+
+                </td>
             </tr>
             <tr >
-                <td>Chaine de connexion LDAP</td>
-                <td th:text="${formulaire.parametresAppliDTO.chaineConnexionLDAP}"></td>
+                <td> Chaine de connexion LDAP</td>
+                <td>
+                    <input th:field="*{parametresAppliDTO.chaineConnexionLDAP}" th:value="${formulaire.parametresAppliDTO.chaineConnexionLDAP}"/>
+                </td>
             </tr>
             <tr >
                 <td>Compte de connexion LDAP</td>
-                <td th:text="${formulaire.parametresAppliDTO.compteLDAP}"></td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.compteLDAP}" th:value="${formulaire.parametresAppliDTO.compteLDAP}"/>
+                </td>
             </tr>
             <tr >
                 <td>Mot de passe LDAP</td>
-                <td th:text="${formulaire.parametresAppliDTO.motDePasseLDAP}"></td>
+                <td>
+                    <input th:field="*{parametresAppliDTO.motDePasseLDAP}"  th:value="${formulaire.parametresAppliDTO.motDePasseLDAP}"/>
+                </td>
+            </tr>
+
+            <tr >
+                <td>Compte de connexion Admin</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.compteAdmin}" th:value="${formulaire.parametresAppliDTO.compteAdmin}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Mot de passe Admin</td>
+                <td>
+                    <input th:field="*{parametresAppliDTO.motDePasseAdmin}"  th:value="${formulaire.parametresAppliDTO.motDePasseAdmin}"/>
+                </td>
             </tr>
         </table>
+
+        <p><button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}">
+            <span th:text="${formulaire.boutonSoumissionLabel}">
+                Label bouton
+            </span>
+        </button>
+        </p>
     </div>
 </div>
+</form>
 </body>
 </html>

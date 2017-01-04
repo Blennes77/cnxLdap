@@ -2,6 +2,7 @@ package com.cgihosting.formulaire;
 
 
 import com.cgihosting.domain.UtilisateurDTO;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class AfficherUtilisateursFormulaire {
     private int numPageCourante;       // X
     private Long numTotalUsers;         // Z
     private int numPageTotal;          // W
+
+    private Page<UtilisateurDTO> userPage;
 
     public AfficherUtilisateursFormulaire(){}
 
@@ -68,5 +71,11 @@ public class AfficherUtilisateursFormulaire {
         this.numTotalUsers = numTotalUsers;
     }
 
+    public Page<UtilisateurDTO> getUserPage() {
+        return userPage;
+    }
 
+    public void setUserPage(Page<UtilisateurDTO> userPage) {
+        this.userPage = userPage;
+    }
 }

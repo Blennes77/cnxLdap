@@ -1,11 +1,10 @@
 package com.cgihosting.controller;
 
-import com.cgihosting.constantes.Constantes;
 import com.cgihosting.domain.Role;
-import com.cgihosting.domain.User;
+import com.cgihosting.domain.UtilisateurDTO;
 import com.cgihosting.formulaire.AfficherUtilisateursFormulaire;
 import com.cgihosting.formulaire.DetailsUtilisateurFormulaire;
-import com.cgihosting.service.GererRoleService;
+import com.cgihosting.service.admin.GererUtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +23,7 @@ import static com.cgihosting.constantes.Constantes.*;
 @Controller
 public class AdminController {
     @Autowired
-    private GererRoleService gererRoleService;
+    private GererUtilisateurService gererUtilisateurService;
     private AfficherUtilisateursFormulaire afficherUtilisateursFormulaire;
     private DetailsUtilisateurFormulaire detailsUtilisateurFormulaire;
 
@@ -37,7 +36,7 @@ public class AdminController {
         //BEST CODE: model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage));
         recupererFormulaireAfficherUtilisateurs(page, ligneParPage);
         model.addAttribute("formulaire", afficherUtilisateursFormulaire);
-        return "admin/afficherUtilisateurs";
+        return "admin/utilisateurs/afficherUtilisateurs";
     }
 
     @RequestMapping(value = "/admin/detailsUtilisateur", method = RequestMethod.GET)
@@ -45,14 +44,14 @@ public class AdminController {
 
         recupererFormulaireDetailsUtilisateur(id);
         model.addAttribute("formulaire", detailsUtilisateurFormulaire);
-        return "admin/detailsUtilisateur";
+        return "admin/utilisateurs/detailsUtilisateur";
     }
 
-    @RequestMapping(value = "/admin/detailsUtilisateur", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/utilisateurs/detailsUtilisateur", method = RequestMethod.POST)
     String submitRole(){
         //TODO
 
-        return "redirect:/admin/afficherUtilisateurs";
+        return "redirect:/admin/utilisateurs/afficherUtilisateurs";
     }
 
     ////BEST CODE: private AfficherUtilisateursFormulaire recupererFormulaireAfficherUtilisateurs(int page, int ligneParPage){
@@ -72,7 +71,7 @@ public class AdminController {
         // Je le suspecte d'être un psycho rigide des getter et setter.....
         // Tout ce code merdique peut être remplacé par un zolie constructeur que j'ai conservé dans AfficherUtilisateursFormulaire
         afficherUtilisateursFormulaire = new AfficherUtilisateursFormulaire();
-        afficherUtilisateursFormulaire.setNumTotalUsers(gererRoleService.totalUsers());
+        afficherUtilisateursFormulaire.setNumTotalUsers(gererUtilisateurService.totalUsers());
         afficherUtilisateursFormulaire.setNumPageCourante(page);
         afficherUtilisateursFormulaire.setNbLigneAfficheParPage(ligneParPage);
         numTotalUsers = afficherUtilisateursFormulaire.getNumTotalUsers();
@@ -80,21 +79,21 @@ public class AdminController {
         afficherUtilisateursFormulaire.setNumPageTotal((int) Math.ceil((double) numTotalUsers / (double) numLigneAfficheParPage));
 
         //TODO : Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
-        afficherUtilisateursFormulaire.setUserPage(gererRoleService.searchAllUsersByPage(page, ligneParPage));
+       afficherUtilisateursFormulaire.setUserPage(gererUtilisateurService.searchAllUsersByPage(page, ligneParPage));
         //BEST CODE: return afficherUtilisateursFormulaire;
     }
 
     private void recupererFormulaireDetailsUtilisateur(int id){
-        User user;
+        UtilisateurDTO utilisateurDTO;
         List<Role> roleList;
 
         //roleList = new ArrayList<Role>();
 
         detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
-        detailsUtilisateurFormulaire.setUser(gererRoleService.searchUserById(id));
+        detailsUtilisateurFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserById(id));
 
-        user = detailsUtilisateurFormulaire.getUser();
-        roleList = user.getRoleList();
+        utilisateurDTO = detailsUtilisateurFormulaire.getUtilisateurDTO();
+        roleList = utilisateurDTO.getRoleList();
 
         ListIterator<Role> roleListIterator = roleList.listIterator();
         while(roleListIterator.hasNext()){

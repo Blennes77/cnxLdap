@@ -1,25 +1,25 @@
 package com.cgihosting.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
- * Created by marinib on 09/12/2016.
+ * Created by marinib on 03/01/2017.
  */
 
 @Entity
-@Table(name="ref_hebergeurs")
-public class HebergeurDTO implements Serializable{
+@Table(name="ref_etattraitement_serveur")
+
+public class EtatTraitementServeurDTO {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="RHE_ID")
+    @Column(name="RES_ID")
     private int id;
 
-    @Column(name="RHE_NOM")
-    private String nom = "";
+    @Column(name="RES_CODE")
+    private String code = "";
 
-    @Column(name="RHE_DESCRIPTION")
+    @Column(name="RES_DESCRIPTION")
     private String description = "";
 
     public int getId() {
@@ -30,12 +30,12 @@ public class HebergeurDTO implements Serializable{
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getCode() {
+        return code;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getDescription() {

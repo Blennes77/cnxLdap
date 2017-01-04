@@ -29,4 +29,20 @@ public class GererHebergeurServiceImpl implements GererHebergeurService {
         return hebergeurDTOListe;
 
     }
+
+
+
+    public boolean creerHebergeur(HebergeurDTO hebergeurDTO) {
+
+
+        boolean hebergeurCreeBln = false;
+
+
+        hebergeurRepository.save(hebergeurDTO);
+
+        return hebergeurCreeBln;
+
+
+
+    }
 }

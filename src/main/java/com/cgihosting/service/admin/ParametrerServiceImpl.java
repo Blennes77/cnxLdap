@@ -45,4 +45,28 @@ public class ParametrerServiceImpl implements ParametrerService {
         return parametresVCODTOListe.get(0);
 
     }
+
+
+    @Override
+    public boolean mettreAJourParametresAppli(ParametresAppliDTO parametresAppliDTO) {
+        boolean miseAJourReussieBln = false;
+
+        parametrageAppliRepository.save(parametresAppliDTO);
+
+        return miseAJourReussieBln;
+
+    }
+
+    @Override
+    public boolean mettreAJourParametresVCO(ParametresVCODTO parametresVCODTO) {
+
+        boolean miseAJourReussieBln = false;
+
+
+        parametrageVCORepository.save(parametresVCODTO);
+
+
+        return miseAJourReussieBln;
+
+    }
 }

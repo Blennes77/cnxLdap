@@ -14,4 +14,6 @@ public interface ServeurVirtuelRepository extends CrudRepository<ServeurVirtuelD
      */
 
 
+    public ServeurVirtuelDTO findById(Integer id);
+
 }
