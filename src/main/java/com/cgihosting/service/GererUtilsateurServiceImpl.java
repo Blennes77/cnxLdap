@@ -41,8 +41,8 @@ public class GererUtilsateurServiceImpl implements GererUtilisateurService {
 
     @Override
     public UtilisateurDTO searchUserById(Integer id) {
-        UtilisateurDTO user = userRepository.findById(id);
-        return user;
+        UtilisateurDTO utilisateurDTO = userRepository.findById(id);
+        return utilisateurDTO;
     }
 
     @Override
@@ -63,4 +63,10 @@ public class GererUtilsateurServiceImpl implements GererUtilisateurService {
         total = userRepository.count();
         return total;
     }
+
+    @Override
+    public void deleteUser(UtilisateurDTO utilisateurDTO){
+        userRepository.delete(utilisateurDTO);
+    }
+
 }

@@ -2,7 +2,6 @@ package com.cgihosting.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.InterruptedIOException;
 import java.io.Serializable;
 
 /**
@@ -10,7 +9,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name="ref_role_utilisateur")
-public class Role implements Serializable{
+public class RoleDTO implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="RRU_ID")
@@ -20,14 +19,14 @@ public class Role implements Serializable{
     @NotNull
     private String libelleRole;
 
-    public Role() {
+    public RoleDTO() {
     }
 
-    public Role(int id){
+    public RoleDTO(int id){
         this.id = id;
     }
 
-    public Role(String libelleRole) {
+    public RoleDTO(String libelleRole) {
         this.libelleRole = libelleRole;
     }
 

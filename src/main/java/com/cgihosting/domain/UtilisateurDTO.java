@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by garnons on 02/12/2016.
@@ -53,13 +52,15 @@ public class UtilisateurDTO implements Serializable{
     @NotNull
     private String codeIngenieur;
 
+    /*
     @OneToMany(cascade={CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JoinTable(
             name="UTILISATEUR_A_ROLE_UTILISATEUR",
             joinColumns = @JoinColumn(name="URU_UTI_ID"),
             inverseJoinColumns = @JoinColumn(name="URU_RRU_ID")
     )
-    private List<Role> roleList = null;
+    private List<RoleDTO> roleList = null;
+    */
 
     public UtilisateurDTO() {
     }
@@ -77,8 +78,9 @@ public class UtilisateurDTO implements Serializable{
         this.codeIngenieur = codeIngenieur;
     }
 
+    /*
     public UtilisateurDTO(String prenom, String nom, String mail, String telephoneBureau, String telephoneMobile,
-                Date dateCreation, Date dateConnexion, String logonName, String codeIngenieur, List<Role> roleList) {
+                Date dateCreation, Date dateConnexion, String logonName, String codeIngenieur, List<RoleDTO> roleList) {
         this.prenom = prenom;
         this.nom = nom;
         this.mail = mail;
@@ -90,6 +92,7 @@ public class UtilisateurDTO implements Serializable{
         this.codeIngenieur = codeIngenieur;
         this.roleList = roleList;
     }
+    */
 
     public int getId() {
         return id;
@@ -171,12 +174,14 @@ public class UtilisateurDTO implements Serializable{
         this.codeIngenieur = codeIngenieur;
     }
 
-    public List<Role> getRoleList() {
+    /*
+    public List<RoleDTO> getRoleList() {
         return roleList;
     }
 
 
-    public void setRoleList(List<Role> roleList) {
+    public void setRoleList(List<RoleDTO> roleList) {
         this.roleList = roleList;
     }
+    */
 }

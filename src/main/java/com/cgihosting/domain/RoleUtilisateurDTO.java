@@ -7,6 +7,7 @@ import java.io.Serializable;
  * Created by garnons on 05/12/2016.
  */
 @Entity
+@IdClass (RoleUtilisateurDTOPK.class)
 @Table(name = "utilisateur_a_role_utilisateur")
 public class RoleUtilisateurDTO implements Serializable{
 
@@ -14,7 +15,7 @@ public class RoleUtilisateurDTO implements Serializable{
     @Column(name="URU_UTI_ID")
     private int idUser;
 
-    //@Id
+    @Id
     @Column(name="URU_RRU_ID")
     private int idRole;
 

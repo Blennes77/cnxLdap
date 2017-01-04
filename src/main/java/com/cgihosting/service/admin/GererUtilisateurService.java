@@ -22,4 +22,6 @@ public interface GererUtilisateurService extends Serializable{
     public Page<UtilisateurDTO> searchAllUsersByPage(Integer page, Integer ligneParPage);
 
     public Long totalUsers();
+
+    public void deleteUser(UtilisateurDTO utilisateurDTO );
 }

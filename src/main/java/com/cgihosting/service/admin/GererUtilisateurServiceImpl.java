@@ -1,10 +1,12 @@
-package com.cgihosting.service.admin;
+package com.cgihosting.service;
 
 import com.cgihosting.domain.UtilisateurDTO;
 import com.cgihosting.repository.UserRepository;
+import com.cgihosting.service.admin.GererUtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,9 +34,9 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
 
     @Override
     public List<UtilisateurDTO> searchAllUsers() {
-        List<UtilisateurDTO> utilisateurDTOListe;
-        utilisateurDTOListe = (List<UtilisateurDTO>) userRepository.findAll();
-        return utilisateurDTOListe;
+        List<UtilisateurDTO> userList;
+        userList = (List<UtilisateurDTO>) userRepository.findAll();
+        return userList;
     }
 
     @Override
@@ -47,7 +49,10 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
     public Page<UtilisateurDTO> searchAllUsersByPage(Integer page, Integer maxRow) {
         Page<UtilisateurDTO> userPage;
 
-        userPage = userRepository.findAll(new PageRequest(page,maxRow));
+        userPage = userRepository.findAll(new PageRequest(page,maxRow, new Sort(
+                new Sort.Order(Sort.Direction.ASC, "nom"),
+                new Sort.Order(Sort.Direction.ASC, "prenom")
+        )));
         return userPage;
     }
 
@@ -58,4 +63,11 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
         total = userRepository.count();
         return total;
     }
+
+    @Override
+    public void deleteUser(UtilisateurDTO utilisateurDTO){
+        userRepository.delete(utilisateurDTO);
+    }
 }
+
+

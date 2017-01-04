@@ -47,7 +47,7 @@
                     <th>Tél bur</th>
                     <th>Tél mob</th>
                 </tr>
-                <tr th:each="user:${formulaire.userPage.content}">
+                <tr th:each="user:${formulaire.utilisateurDTOPage.content}">
                     <td ><a th:text="${user.nom}" th:href="@{'/admin/detailsUtilisateur.html?id='+${user.id}}"/></td>
                     <td th:text="${user.prenom}"></td>
                     <td th:text="${user.mail}"></td>
