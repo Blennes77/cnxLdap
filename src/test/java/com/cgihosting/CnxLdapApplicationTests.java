@@ -27,7 +27,7 @@ public class CnxLdapApplicationTests {
 		Calendar calendar = Calendar.getInstance();
 		Date dateCreation = new Date(calendar.getTime().getTime());
 
-		// INSERT - tCréation d'un utilisateur sans rôle
+		// INSERT - Création d'un utilisateur sans rôle
 		UtilisateurDTO utilisateurDTO = new UtilisateurDTO("prenom", "nom", "mail", "016422", "066422", dateCreation, dateCreation, "logon", "code");
 		gererUtilisateurService.saveUser(utilisateurDTO);
 
