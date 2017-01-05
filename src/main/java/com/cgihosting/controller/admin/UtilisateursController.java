@@ -39,7 +39,6 @@ public class UtilisateursController {
                                 Model model)
     {
 
-        //BEST CODE: model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage));
         recupererFormulaireAfficherUtilisateurs(page, ligneParPage);
         model.addAttribute("formulaire", afficherUtilisateursFormulaire);
         return "admin/utilisateurs/afficherUtilisateurs";

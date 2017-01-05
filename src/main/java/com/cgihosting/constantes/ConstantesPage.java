@@ -82,7 +82,7 @@ public class ConstantesPage {
     public static final String BOUTON_RETOUR_HEBERGEUR = "Annuler";
 
 
-    public static final String BOUTON_MODIFIER_ROLE_UTILISATEUR = "Enregistrer rôle";
+    public static final String BOUTON_MODIFIER_ROLE_UTILISATEUR = "Enregistrer";
     public static final String BOUTON_RETOUR_AFFICHER_UTILISATEURS = "Annuler";
 
 }
