@@ -1,11 +1,12 @@
 package com.cgihosting.formulaire.admin.gererRole;
 
 import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.formulaire.admin.ModeleFormulaire;
 
 /**
  * Created by garnons on 08/12/2016.
  */
-public class DetailsUtilisateurFormulaire {
+public class DetailsUtilisateurFormulaire extends ModeleFormulaire {
     private UtilisateurDTO utilisateurDTO;
     private boolean roleAdmin;
     private boolean roleUser;

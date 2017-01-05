@@ -25,7 +25,7 @@
         <h1>Attribution des rôles pour l'utilisateur</h1>
         <h2 th:text="${formulaire.utilisateurDTO.nom} + ' ' + ${formulaire.utilisateurDTO.prenom}">Détails de l'utilisateur</h2>
         <!-- REMPLIR CI-DESSOUS -->
-        <form action="/admin/detailsUtilisateur" th:object="${form}" method="post">
+        <form action="/admin/modifierDetailsUtilisateur" th:object="${form}" method="post">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
             <input type="hidden" name="id" th:value="${formulaire.utilisateurDTO.id}"/>
             <div class="row">
@@ -68,7 +68,14 @@
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
-            <p><input type="submit" value="Submit"/></p>
+            <p><button type="submit" name="action" th:attr="value=${formulaire.actionAnnuler}">
+                <span th:text="${formulaire.boutonRetourLabel}">Label bouton</span>
+            </button>
+            </p>
+            <p><button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}">
+                <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
+            </button>
+            </p>
         </form>
     </div>
 </div>

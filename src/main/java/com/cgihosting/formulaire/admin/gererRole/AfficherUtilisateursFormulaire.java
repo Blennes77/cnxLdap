@@ -1,6 +1,7 @@
 package com.cgihosting.formulaire.admin.gererRole;
 
 import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.formulaire.admin.ModeleFormulaire;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by garnons on 08/12/2016.
  */
-public class AfficherUtilisateursFormulaire {
+public class AfficherUtilisateursFormulaire extends ModeleFormulaire {
 
     private List<UtilisateurDTO> utilisateurDTOList;
     private Page<UtilisateurDTO> utilisateurDTOPage;

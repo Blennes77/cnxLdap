@@ -1,5 +1,6 @@
 package com.cgihosting.controller.admin;
 
+import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.UtilisateurDTO;
 import com.cgihosting.formulaire.admin.gererRole.AfficherUtilisateursFormulaire;
 import com.cgihosting.formulaire.admin.gererRole.DetailsUtilisateurFormulaire;
@@ -45,8 +46,19 @@ public class UtilisateursController {
         return "admin/utilisateurs/detailsUtilisateur";
     }
 
-    @RequestMapping(value = "/admin/detailsUtilisateur", method = RequestMethod.POST)
-    String submitRole(int id, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin){
+    @RequestMapping(value = "/admin/modifierDetailsUtilisateur", method = RequestMethod.POST)
+    String submitRole(int id, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin, String action){
+
+        if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
+
+
+
+        }
+        else {
+
+
+        }
+
         //TODO
         //UserRole roles = userRoleRepository.findByIdUser(id);
 /**
@@ -96,6 +108,9 @@ public class UtilisateursController {
 
         detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
         detailsUtilisateurFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserById(id));
+
+        detailsUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_MODIFIER_ROLE_UTILISATEUR);
+        detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_AFFICHER_UTILISATEURS);
 
         utilisateurDTO = detailsUtilisateurFormulaire.getUtilisateurDTO();
         /**
