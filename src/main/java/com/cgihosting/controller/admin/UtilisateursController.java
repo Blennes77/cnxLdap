@@ -38,7 +38,7 @@ public class UtilisateursController {
         return "admin/utilisateurs/afficherUtilisateurs";
     }
 
-    @RequestMapping(value = "/admin/detailsUtilisateur", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/afficherDetailsUtilisateur", method = RequestMethod.GET)
     String detailsUtilisateur(@RequestParam("id") int id, Model model){
 
         recupererFormulaireDetailsUtilisateur(id);
