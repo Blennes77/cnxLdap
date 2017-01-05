@@ -12,4 +12,6 @@ public interface UserRoleRepository extends CrudRepository<RoleUtilisateurDTO, I
 
     public List<RoleUtilisateurDTO> findByIdUser(Integer id) ;
 
+    public void deleteByIdUser(Integer id);
+
 }

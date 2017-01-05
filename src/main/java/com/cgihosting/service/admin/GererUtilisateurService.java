@@ -1,6 +1,7 @@
 package com.cgihosting.service.admin;
 
 
+import com.cgihosting.domain.RoleUtilisateurDTO;
 import com.cgihosting.domain.UtilisateurDTO;
 import org.springframework.data.domain.Page;
 
@@ -24,4 +25,9 @@ public interface GererUtilisateurService extends Serializable{
     public Long totalUsers();
 
     public void deleteUser(UtilisateurDTO utilisateurDTO );
+
+    public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin);
+
+    public List<RoleUtilisateurDTO> recupererRolesUtilisateur(int idUser);
+
 }

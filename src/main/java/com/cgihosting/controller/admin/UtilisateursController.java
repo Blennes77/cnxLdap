@@ -1,6 +1,8 @@
 package com.cgihosting.controller.admin;
 
+import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
+import com.cgihosting.domain.RoleUtilisateurDTO;
 import com.cgihosting.domain.UtilisateurDTO;
 import com.cgihosting.formulaire.admin.gererRole.AfficherUtilisateursFormulaire;
 import com.cgihosting.formulaire.admin.gererRole.DetailsUtilisateurFormulaire;
@@ -13,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
+import static com.cgihosting.constantes.ConstantesAdmin.*;
+
 /**
  * Created by garnons on 07/12/2016.
  */
@@ -20,8 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UtilisateursController {
     @Autowired
     private GererUtilisateurService gererUtilisateurService;
-    @Autowired
-    private UserRoleRepository userRoleRepository;
+
 
     private AfficherUtilisateursFormulaire afficherUtilisateursFormulaire;
     private DetailsUtilisateurFormulaire detailsUtilisateurFormulaire;
@@ -50,28 +57,17 @@ public class UtilisateursController {
     String submitRole(int id, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin, String action){
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
-
-
-
+            gererUtilisateurService.mettreAJourRolesUtilisateur(id, roleUser, roleDP, roleExploit, roleAdmin);
         }
         else {
-
+            // DO NOTHING
 
         }
 
-        //TODO
-        //UserRole roles = userRoleRepository.findByIdUser(id);
-/**
- User user = gererRoleService.searchUserById(id);
- List<Role> roleList = user.getRoleList();
- roleList.add(new Role(Constantes.ROLE_DP));
- user.setRoleList(roleList);
- gererRoleService.saveUser(user);
- **/
         return "redirect:/admin/afficherUtilisateurs";
     }
 
-    ////BEST CODE: private AfficherUtilisateursFormulaire recupererFormulaireAfficherUtilisateurs(int page, int ligneParPage){
+
     private void recupererFormulaireAfficherUtilisateurs(int page, int ligneParPage){
 
         Long numTotalUsers;
@@ -82,11 +78,7 @@ public class UtilisateursController {
         // page : affiche la page demandé si le nombre d'utilisateurs ramenés est trop conséquent
         // ligneParPage : définie le nombre d'utilisateur que l'on affiche sur chaque page
         // gererRoleService : référence du bean GererRoleService
-        //BEST CODE: AfficherUtilisateursFormulaire afficherUtilisateursFormulaire = new AfficherUtilisateursFormulaire(page, ligneParPage, gererRoleService);
 
-        // Désolé, ce n'est vraiment pas beau mais j'ai du faire comme ca parce que c'est Baptiste qui le veut.
-        // Je le suspecte d'être un psycho rigide des getter et setter.....
-        // Tout ce code merdique peut être remplacé par un zolie constructeur que j'ai conservé dans AfficherUtilisateursFormulaire
         afficherUtilisateursFormulaire = new AfficherUtilisateursFormulaire();
         afficherUtilisateursFormulaire.setNumTotalUsers(gererUtilisateurService.totalUsers());
         afficherUtilisateursFormulaire.setNumPageCourante(page);
@@ -95,16 +87,12 @@ public class UtilisateursController {
         numLigneAfficheParPage = afficherUtilisateursFormulaire.getNbLigneAfficheParPage();
         afficherUtilisateursFormulaire.setNumPageTotal((int) Math.ceil((double) numTotalUsers / (double) numLigneAfficheParPage));
 
-        //TODO : Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
+        // Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
         afficherUtilisateursFormulaire.setUtilisateurDTOPage(gererUtilisateurService.searchAllUsersByPage(page, ligneParPage));
-        //BEST CODE: return afficherUtilisateursFormulaire;
+
     }
 
     private void recupererFormulaireDetailsUtilisateur(int id){
-        UtilisateurDTO utilisateurDTO;
-        //List<Role> roleList;
-
-        //roleList = new ArrayList<Role>();
 
         detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
         detailsUtilisateurFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserById(id));
@@ -112,28 +100,23 @@ public class UtilisateursController {
         detailsUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_MODIFIER_ROLE_UTILISATEUR);
         detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_AFFICHER_UTILISATEURS);
 
-        utilisateurDTO = detailsUtilisateurFormulaire.getUtilisateurDTO();
-        /**
-         roleList = user.getRoleList();
-
-         ListIterator<Role> roleListIterator = roleList.listIterator();
-         while(roleListIterator.hasNext()){
-         Role role = roleListIterator.next();
-         switch (role.getId()) {
-         case ROLE_USER:
-         //TODO
-         detailsUtilisateurFormulaire.setRoleUser(true);
-         break;
-         case ROLE_EXPLOITANT:
-         //TODO
-         detailsUtilisateurFormulaire.setRoleExploit(true);
-         break;
-         case ROLE_ADMIN:
-         //TODO
-         detailsUtilisateurFormulaire.setRoleAdmin(true);
-         break;
-         }
-         }**/
+        List<RoleUtilisateurDTO> listRolesUtilisateurDTO = gererUtilisateurService.recupererRolesUtilisateur(id);
+        for(int i = 0; i<listRolesUtilisateurDTO.size();i++){
+            switch (listRolesUtilisateurDTO.get(i).getIdRole()){
+                case ROLE_USER:
+                    detailsUtilisateurFormulaire.setRoleUser(true);
+                    break;
+                case ROLE_EXPLOITANT:
+                    detailsUtilisateurFormulaire.setRoleExploit(true);
+                    break;
+                case ROLE_DP:
+                    detailsUtilisateurFormulaire.setRoleDp(true);
+                    break;
+                case ROLE_ADMIN:
+                    detailsUtilisateurFormulaire.setRoleAdmin(true);
+                    break;
+            }
+        }
     }
 }
 

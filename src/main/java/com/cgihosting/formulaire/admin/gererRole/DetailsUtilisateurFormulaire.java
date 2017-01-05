@@ -14,34 +14,42 @@ public class DetailsUtilisateurFormulaire extends ModeleFormulaire {
     private boolean roleExploit;
 
     public UtilisateurDTO getUtilisateurDTO() {
+
         return utilisateurDTO;
     }
 
     public void setUtilisateurDTO(UtilisateurDTO utilisateurDTO) {
+
         this.utilisateurDTO = utilisateurDTO;
     }
 
     public boolean isRoleAdmin() {
+
         return roleAdmin;
     }
 
     public void setRoleAdmin(boolean roleAdmin) {
+
         this.roleAdmin = roleAdmin;
     }
 
     public boolean isRoleUser() {
+
         return roleUser;
     }
 
     public void setRoleUser(boolean roleUser) {
+
         this.roleUser = roleUser;
     }
 
     public boolean isRoleDp() {
+
         return roleDp;
     }
 
     public void setRoleDp(boolean roleDp) {
+
         this.roleDp = roleDp;
     }
 
@@ -50,6 +58,7 @@ public class DetailsUtilisateurFormulaire extends ModeleFormulaire {
     }
 
     public void setRoleExploit(boolean roleExploit) {
+
         this.roleExploit = roleExploit;
     }
 }

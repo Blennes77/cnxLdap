@@ -32,7 +32,7 @@
                 <div class="col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleUser}"/>
+                            <input th:disabled="true" th:name="roleUser" type="checkbox" aria-label="..." th:checked="${formulaire.roleUser}"/>
                         </span>
                         <input type="text" class="form-control" aria-label="..." value="Utilisateur"/>
                     </div><!-- /input-group -->
@@ -42,7 +42,7 @@
                 <div class="col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleDp}"/>
+                            <input th:name="roleDP" type="checkbox" aria-label="..." th:checked="${formulaire.roleDp}"/>
                         </span>
                         <input type="text" class="form-control" aria-label="..." value="Directeur de projet"/>
                     </div><!-- /input-group -->
@@ -52,7 +52,7 @@
                 <div class="col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleExploit}"/>
+                            <input th:name="roleExploit" type="checkbox" aria-label="..." th:checked="${formulaire.roleExploit}"/>
                         </span>
                         <input type="text" class="form-control" aria-label="..." value="Exploitant"/>
                     </div><!-- /input-group -->
@@ -62,7 +62,7 @@
                 <div class="col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <input type="checkbox" aria-label="..." th:checked="${formulaire.roleAdmin}"/>
+                            <input th:name="roleAdmin" type="checkbox" aria-label="..." th:checked="${formulaire.roleAdmin}"/>
                         </span>
                         <input type="text" class="form-control" aria-label="..." value="Administrateur du site"/>
                     </div><!-- /input-group -->
