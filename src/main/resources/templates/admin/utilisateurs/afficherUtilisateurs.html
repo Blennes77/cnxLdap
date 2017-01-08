@@ -13,6 +13,18 @@
 <link href="../../static/css/guru.css"
       th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
 
+<script language="javascript">
+
+
+    function afficherDetailsUtilisateur(identifiantUtilisateurSelect) {
+
+        // alert(identifiant);
+        document.getElementById("identifiantUtilisateurSelect").value= identifiantUtilisateurSelect;
+        document.getElementById("monformulaire").submit();
+    }
+
+</script>
+
 <head lang="fr">
     <title>CGI Hosting</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -20,11 +32,13 @@
 
 <body>
 <div th:replace="fragments/menu :: menu">...</div>
+<form id="monformulaire" action="#" th:action="@{/admin/afficherDetailsUtilisateur}" th:object="${formulaire}" method="post">
+
 <div class="container">
     <div class="jumbotron">
-        <h2>Gestion des rôles utilisateurs</h2>
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
         <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" th:text="${formulaire.nbLigneAfficheParPage}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-default dropdown-toggle" th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 5
                 <span class="caret"></span>
             </button>
@@ -37,7 +51,7 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">Liste des utilisateurs</div>
-
+            <input id="identifiantUtilisateurSelect" name="identifiantUtilisateurSelect" type="hidden"  />
             <!-- Table -->
             <table class="table">
                 <tr >
@@ -47,12 +61,12 @@
                     <th>Tél bur</th>
                     <th>Tél mob</th>
                 </tr>
-                <tr th:each="user:${formulaire.utilisateurDTOPage.content}">
-                    <td ><a th:text="${user.nom}" th:href="@{'/admin/afficherDetailsUtilisateur.html?id='+${user.id}}"/></td>
-                    <td th:text="${user.prenom}"></td>
-                    <td th:text="${user.mail}"></td>
-                    <td th:text="${user.telephoneBureau}"></td>
-                    <td th:text="${user.telephoneMobile}"></td>
+                <tr th:each="utilisateur:${formulaire.utilisateurDTOPage.content}" th:onclick="'afficherDetailsUtilisateur(\'' + ${utilisateur.id} + '\');'">
+                    <td th:text="${utilisateur.nom}"></td>
+                    <td th:text="${utilisateur.prenom}"></td>
+                    <td th:text="${utilisateur.mail}"></td>
+                    <td th:text="${utilisateur.telephoneBureau}"></td>
+                    <td th:text="${utilisateur.telephoneMobile}"></td>
                 </tr>
             </table>
             <nav aria-label="Page navigation">
@@ -62,7 +76,7 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li th:each="i : ${#numbers.sequence(1,formulaire.numPageTotal)}"><a th:text="${i}" th:href="@{'/admin/afficherUtilisateurs?page='+${i-1}+'&amp;ligneParPage='+${formulaire.nbLigneAfficheParPage}}">1</a></li>
+                    <li th:each="i : ${#numbers.sequence(1,formulaire.paginationObjet.numPageTotal)}"><a th:text="${i}" th:href="@{'/admin/afficherUtilisateurs?page='+${i-1}+'&amp;ligneParPage='+${formulaire.paginationObjet.nbLigneAfficheParPage}}">1</a></li>
                     <li>
                         <a href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -72,6 +86,6 @@
             </nav>
         </div>
     </div>
-</div>
+</form>
 </body>
 </html>

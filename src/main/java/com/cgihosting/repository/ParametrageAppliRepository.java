@@ -13,5 +13,7 @@ public interface ParametrageAppliRepository extends CrudRepository<ParametresApp
      * automatically generated from its signature by Spring Data JPA.
      */
 
+    public ParametresAppliDTO findByTypeEnvironnement(int idTypeEnvironement);
+
 
 }

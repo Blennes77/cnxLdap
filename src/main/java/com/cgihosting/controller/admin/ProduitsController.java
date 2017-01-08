@@ -1,7 +1,7 @@
 package com.cgihosting.controller.admin;
 
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.formulaire.admin.gererProduits.AfficherProduitsFormulaire;
+import com.cgihosting.formulaire.admin.produits.AfficherProduitsFormulaire;
 import com.cgihosting.service.admin.GererProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +31,7 @@ public class ProduitsController {
     String afficherProduits(Model model){
 
         model.addAttribute("formulaire", recupererFormulaireAfficherProduits());
-        return "admin/produits/afficherProduits";
+        return "admin/referentielProduits/afficherProduits";
     }
 
 

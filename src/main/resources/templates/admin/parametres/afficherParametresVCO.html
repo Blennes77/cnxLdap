@@ -23,11 +23,22 @@
 <form action="#" th:action="@{/admin/modifierParametresVCO}" th:object="${formulaire}" method="post">
 <div class="container">
     <div class="jumbotron">
-        <h1 th:text="${formulaire.titrePage}">Titre</h1>
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
 
         <input type="hidden" th:field="*{parametresVCODTO.id}" th:value="${formulaire.parametresVCODTO.id}"/>
+        <input type="hidden" th:field="*{parametresVCODTO.typeEnvironnement}" th:value="${formulaire.parametresVCODTO.typeEnvironnement}"/>
         <!-- Table -->
         <table class="table">
+            <tr >
+                <td> Code environnement</td>
+                <td th:text="${formulaire.parametresVCODTO.typeEnvironnementDTO.codeEnvironnement}"/>
+                </td>
+            </tr>
+            <tr >
+                <td> Description de l'environnemment</td>
+                <td th:text="${formulaire.parametresVCODTO.typeEnvironnementDTO.descriptionEnvironnement}"/>
+                </td>
+            </tr>
             <tr >
                 <td>URL VRealize Orchestrator</td>
                 <td>

@@ -12,17 +12,17 @@ import java.util.List;
  * Created by garnons on 07/12/2016.
  */
 public interface GererUtilisateurService extends Serializable{
-    public UtilisateurDTO searchUser(String username);
+    public UtilisateurDTO searchUserByLogonName(String username);
 
     public UtilisateurDTO searchUserById(Integer id);
 
-    public void saveUser(UtilisateurDTO utilisateurDTO);
+    public int saveUser(UtilisateurDTO utilisateurDTO);
 
     public List<UtilisateurDTO> searchAllUsers();
 
     public Page<UtilisateurDTO> searchAllUsersByPage(Integer page, Integer ligneParPage);
 
-    public Long totalUsers();
+    public Long nombreTotalUtilisateurs(int roleUtilisateur);
 
     public void deleteUser(UtilisateurDTO utilisateurDTO );
 

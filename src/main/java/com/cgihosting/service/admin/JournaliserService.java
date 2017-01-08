@@ -1,6 +1,8 @@
 package com.cgihosting.service.admin;
 
 import com.cgihosting.domain.JournalDTO;
+import com.cgihosting.domain.TypeJournalisationDTO;
+import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,8 +13,23 @@ import java.util.List;
 
 public interface JournaliserService extends Serializable{
 
-    List<JournalDTO> recupererJournalisation();
-    void enregistrerJournalisation(JournalDTO journalDTO);
+    public List<JournalDTO> recupererJournalisation();
+    public int enregistrerJournalisation(JournalDTO journalDTO);
+
+    public Long nombreTotalJournalisation();
+
+    public Page<JournalDTO> searchAllJournalDTOPageByPage(Integer page, Integer ligneParPage);
+
+    public Long nombreTotalReferentielJournalisation();
+
+    public Page<TypeJournalisationDTO> searchAllTypeJournalisationDTOPageByPage(Integer page, Integer ligneParPage);
+
+
+    public TypeJournalisationDTO recupererReferentielJournalisationById(int identifiant);
+
+    public  int creerReferentielJournalisation(TypeJournalisationDTO typeJournalisationDTO);
+
+
 
 
 }

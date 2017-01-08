@@ -1,10 +1,15 @@
 package com.cgihosting.controller.admin;
 
+import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
+import com.cgihosting.domain.JournalDTO;
 import com.cgihosting.formulaire.admin.parametres.ParametrerAppliFormulaire;
 import com.cgihosting.formulaire.admin.parametres.ParametrerVCOFormulaire;
+import com.cgihosting.objets.UtilisateurSession;
+import com.cgihosting.service.admin.JournaliserService;
 import com.cgihosting.service.admin.ParametrerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,6 +36,14 @@ public class ParametrageController {
 
     @Autowired
     private ParametrerService parametrerService;
+
+
+    @Autowired
+    private JournaliserService journaliserService;
+
+
+    @Autowired
+    private Environment env;
 
 
     /**
@@ -68,6 +81,7 @@ public class ParametrageController {
 
     String modifierParametresAppli(@Valid ParametrerAppliFormulaire parametrerAppliFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
 
+        int identifiantDonneeTraitee = 0;
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
@@ -75,8 +89,11 @@ public class ParametrageController {
 
                 // On enregistre les paramètres
 
-                parametrerService.mettreAJourParametresAppli(parametrerAppliFormulaire.getParametresAppliDTO());
+                identifiantDonneeTraitee = parametrerService.mettreAJourParametresAppli(parametrerAppliFormulaire.getParametresAppliDTO());
 
+                // Journalisation
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_PARAMETRESAPPLI, identifiantDonneeTraitee);
+                journaliserService.enregistrerJournalisation(journalDTO);
 
             }
 
@@ -104,6 +121,7 @@ public class ParametrageController {
 
     String modifierParametresVCO(@Valid ParametrerVCOFormulaire parametrerVCOFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
 
+    int identifiantDonneeTraitee =0 ;
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
@@ -111,7 +129,11 @@ public class ParametrageController {
 
                 // On enregistre les paramètres
 
-                parametrerService.mettreAJourParametresVCO(parametrerVCOFormulaire.getParametresVCODTO());
+                identifiantDonneeTraitee = parametrerService.mettreAJourParametresVCO(parametrerVCOFormulaire.getParametresVCODTO());
+
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_PARAMETRESVCO, identifiantDonneeTraitee);
+
+                journaliserService.enregistrerJournalisation(journalDTO);
             }
 
 
@@ -139,11 +161,10 @@ public class ParametrageController {
 
     private ParametrerAppliFormulaire recupererFormulaireParametrageAppli() {
 
-
         ParametrerAppliFormulaire parametrerAppliFormulaire = new ParametrerAppliFormulaire();
 
         parametrerAppliFormulaire.setTitrePage(ConstantesPage.PARAMETRAGE_APPLI_TITRE);
-        parametrerAppliFormulaire.setParametresAppliDTO(parametrerService.recupererParametresAppli());
+        parametrerAppliFormulaire.setParametresAppliDTO(parametrerService.recupererParametresAppli(env.getRequiredProperty("nom.environnement")));
         parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_SAUVEGARDER_PARAMETRES_APPLI);
 
         return parametrerAppliFormulaire;
@@ -161,10 +182,11 @@ public class ParametrageController {
     private ParametrerVCOFormulaire recupererFormulaireParametrageVCO() {
 
 
+
         ParametrerVCOFormulaire parametrerVCOFormulaire = new ParametrerVCOFormulaire();
 
         parametrerVCOFormulaire.setTitrePage(ConstantesPage.PARAMETRAGE_VCO_TITRE);
-        parametrerVCOFormulaire.setParametresVCODTO(parametrerService.recupererParametresVCO());
+        parametrerVCOFormulaire.setParametresVCODTO(parametrerService.recupererParametresVCO(env.getRequiredProperty("nom.environnement")));
         parametrerVCOFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_SAUVEGARDER_PARAMETRES_VCO);
 
         return parametrerVCOFormulaire;

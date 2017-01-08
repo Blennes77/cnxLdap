@@ -78,6 +78,18 @@ public class ParametresVCODTO implements Serializable{
     @Column(name="COR_TEXTE_RESERVATIONPHPIPAM")
     private String texteReservationPhpIpam;
 
+    @Column(name="COR_ID_TYPE_ENVIRONNEMENT")
+    private int typeEnvironnement;
+
+    @OneToOne
+    @JoinColumn(name="COR_ID_TYPE_ENVIRONNEMENT", insertable = false, updatable = false)
+    private TypeEnvironnementDTO typeEnvironnementDTO;
+
+
+    /**
+     *
+     * getters et setters
+     */
     public int getId() {
         return id;
     }
@@ -244,5 +256,21 @@ public class ParametresVCODTO implements Serializable{
 
     public void setTexteReservationPhpIpam(String texteReservationPhpIpam) {
         this.texteReservationPhpIpam = texteReservationPhpIpam;
+    }
+
+    public int getTypeEnvironnement() {
+        return typeEnvironnement;
+    }
+
+    public void setTypeEnvironnement(int typeEnvironnement) {
+        this.typeEnvironnement = typeEnvironnement;
+    }
+
+    public TypeEnvironnementDTO getTypeEnvironnementDTO() {
+        return typeEnvironnementDTO;
+    }
+
+    public void setTypeEnvironnementDTO(TypeEnvironnementDTO typeEnvironnementDTO) {
+        this.typeEnvironnementDTO = typeEnvironnementDTO;
     }
 }

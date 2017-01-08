@@ -1,12 +1,12 @@
 package com.cgihosting.formulaire.admin.parametres;
 
 import com.cgihosting.domain.ParametresVCODTO;
-import com.cgihosting.formulaire.admin.ModeleFormulaire;
+import com.cgihosting.formulaire.admin.RacineFormulaire;
 
 /**
  * Created by marinib on 09/12/2016.
  */
-public class ParametrerVCOFormulaire extends ModeleFormulaire {
+public class ParametrerVCOFormulaire extends RacineFormulaire {
 
     private ParametresVCODTO parametresVCODTO ;
 

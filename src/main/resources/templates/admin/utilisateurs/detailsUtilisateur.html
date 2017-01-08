@@ -22,7 +22,7 @@
 <div th:replace="fragments/menu :: menu">...</div>
 <div class="container">
     <div class="jumbotron">
-        <h1>Attribution des rôles pour l'utilisateur</h1>
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
         <h2 th:text="${formulaire.utilisateurDTO.nom} + ' ' + ${formulaire.utilisateurDTO.prenom}">Détails de l'utilisateur</h2>
         <!-- REMPLIR CI-DESSOUS -->
         <form action="/admin/modifierDetailsUtilisateur" th:object="${form}" method="post">

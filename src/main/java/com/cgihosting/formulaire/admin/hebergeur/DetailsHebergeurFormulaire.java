@@ -1,14 +1,14 @@
 package com.cgihosting.formulaire.admin.hebergeur;
 
 import com.cgihosting.domain.HebergeurDTO;
-import com.cgihosting.formulaire.admin.ModeleFormulaire;
+import com.cgihosting.formulaire.admin.RacineFormulaire;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by marinib on 02/01/2017
  */
-public class DetailsHebergeurFormulaire extends ModeleFormulaire {
+public class DetailsHebergeurFormulaire extends RacineFormulaire {
 
     private HebergeurDTO hebergeurDTO;
 

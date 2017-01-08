@@ -23,17 +23,28 @@
 <form action="#" th:action="@{/admin/modifierParametresAppli}" th:object="${formulaire}" method="post">
 <div class="container">
     <div class="jumbotron">
-        <h1 th:text="${formulaire.titrePage}">Titre</h1>
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
 
         <!-- Table -->
 
         <input type="hidden" th:field="*{parametresAppliDTO.id}" th:value="${formulaire.parametresAppliDTO.id}"/>
+        <input type="hidden" th:field="*{parametresAppliDTO.typeEnvironnement}" th:value="${formulaire.parametresAppliDTO.typeEnvironnement}"/>
         <table class="table">
             <tr >
                 <td>Titre du site</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.titreSite}" th:value="${formulaire.parametresAppliDTO.titreSite}"/>
 
+                </td>
+            </tr>
+            <tr >
+                <td> Code environnement</td>
+                <td th:text="${formulaire.parametresAppliDTO.typeEnvironnementDTO.codeEnvironnement}"/>
+                </td>
+            </tr>
+            <tr >
+                <td> Description de l'environnemment</td>
+                <td th:text="${formulaire.parametresAppliDTO.typeEnvironnementDTO.descriptionEnvironnement}"/>
                 </td>
             </tr>
             <tr >
@@ -65,6 +76,13 @@
                 <td>Mot de passe Admin</td>
                 <td>
                     <input th:field="*{parametresAppliDTO.motDePasseAdmin}"  th:value="${formulaire.parametresAppliDTO.motDePasseAdmin}"/>
+                </td>
+            </tr>
+
+            <tr >
+                <td>Mail Admin</td>
+                <td>
+                    <input th:field="*{parametresAppliDTO.mailAdmin}"  th:value="${formulaire.parametresAppliDTO.mailAdmin}"/>
                 </td>
             </tr>
         </table>

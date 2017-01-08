@@ -2,8 +2,8 @@ package com.cgihosting.security;
 
 import com.cgihosting.domain.RoleUtilisateurDTO;
 import com.cgihosting.domain.UtilisateurDTO;
-import com.cgihosting.repository.UserRepository;
-import com.cgihosting.repository.UserRoleRepository;
+import com.cgihosting.repository.UtilisateurRepository;
+import com.cgihosting.repository.UtilisateurRoleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +32,10 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private UserRepository userRepository; // Implémentation de l'interface via @Service et @Autowired, Spring Boot
+    private UtilisateurRepository utilisateurRepository; // Implémentation de l'interface via @Service et @Autowired, Spring Boot
 
     @Autowired
-    private UserRoleRepository userRoleRepository; // Implémentation de l'interface via @Service et @Autowired, Spring Boot
+    private UtilisateurRoleRepository utilisateurRoleRepository; // Implémentation de l'interface via @Service et @Autowired, Spring Boot
 
     //public void setUserRepository(UserRepository userRepository){ this.userRepository = userRepository; }
 
@@ -51,7 +51,7 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
         // On check en base dans la table XXXX si le user existe dans les données PSA, si oui on ajoute le ROLE_DP
         // On check en base dans la table YYYY si le user a le flag Admin, si oui on ajoute le ROLE_ADMIN
         try {
-            UtilisateurDTO utilisateurDTO = userRepository.findByLogonName(username);
+            UtilisateurDTO utilisateurDTO = utilisateurRepository.findByLogonName(username);
 
             if(utilisateurDTO==null){
                 // ==================== Première connexion. Utilisateur inconnu de l'application.
@@ -75,10 +75,10 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                                 ctx.getStringAttribute("extensionattribute1"));
 
                 // Sauvegarde de l'utilisateur et du role en base de données
-                userRepository.save(utilisateurDTO);
+                utilisateurRepository.save(utilisateurDTO);
 
                 RoleUtilisateurDTO roleUtilisateurDTO = new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_USER);
-                userRoleRepository.save(roleUtilisateurDTO);
+                utilisateurRoleRepository.save(roleUtilisateurDTO);
 
                 // On recharge les données de l'utilisateur
 
@@ -91,11 +91,11 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                 // TODO NOTHING
 
 
-                utilisateurDTO = userRepository.findByLogonName(username);
+                utilisateurDTO = utilisateurRepository.findByLogonName(username);
 
             }
 
-            List<RoleUtilisateurDTO> roleUtilisateurDTOList = userRoleRepository.findByIdUser(utilisateurDTO.getId());
+            List<RoleUtilisateurDTO> roleUtilisateurDTOList = utilisateurRoleRepository.findByIdUser(utilisateurDTO.getId());
             if(roleUtilisateurDTOList ==null){
                 // TODO
                 log.warn("Aucun rôle en base de données associé à l'utilisateur " + username);

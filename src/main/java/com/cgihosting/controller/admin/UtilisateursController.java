@@ -1,13 +1,15 @@
 package com.cgihosting.controller.admin;
 
+import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
+import com.cgihosting.domain.JournalDTO;
 import com.cgihosting.domain.RoleUtilisateurDTO;
-import com.cgihosting.domain.UtilisateurDTO;
-import com.cgihosting.formulaire.admin.gererRole.AfficherUtilisateursFormulaire;
-import com.cgihosting.formulaire.admin.gererRole.DetailsUtilisateurFormulaire;
-import com.cgihosting.repository.UserRoleRepository;
+import com.cgihosting.formulaire.admin.utilisateurs.AfficherUtilisateursFormulaire;
+import com.cgihosting.formulaire.admin.utilisateurs.DetailsUtilisateurFormulaire;
+import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.service.admin.GererUtilisateurService;
+import com.cgihosting.service.admin.JournaliserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 import static com.cgihosting.constantes.ConstantesAdmin.*;
 
@@ -30,8 +30,10 @@ public class UtilisateursController {
     private GererUtilisateurService gererUtilisateurService;
 
 
-    private AfficherUtilisateursFormulaire afficherUtilisateursFormulaire;
-    private DetailsUtilisateurFormulaire detailsUtilisateurFormulaire;
+    @Autowired
+    private JournaliserService journaliserService;
+
+
 
     @RequestMapping(value = "/admin/afficherUtilisateurs", method = RequestMethod.GET)
     String afficherUtilisateurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
@@ -39,24 +41,48 @@ public class UtilisateursController {
                                 Model model)
     {
 
-        recupererFormulaireAfficherUtilisateurs(page, ligneParPage);
-        model.addAttribute("formulaire", afficherUtilisateursFormulaire);
+        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage, 0));
         return "admin/utilisateurs/afficherUtilisateurs";
     }
 
-    @RequestMapping(value = "/admin/afficherDetailsUtilisateur", method = RequestMethod.GET)
-    String detailsUtilisateur(@RequestParam("id") int id, Model model){
+    @RequestMapping(value = "/admin/afficherExploitants", method = RequestMethod.GET)
+    String afficherExploitants(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+                                @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,
+                                Model model)
+    {
 
-        recupererFormulaireDetailsUtilisateur(id);
-        model.addAttribute("formulaire", detailsUtilisateurFormulaire);
+        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage, ConstantesAdmin.ROLE_EXPLOITANT));
+        return "admin/utilisateurs/afficherResponsables";
+    }
+
+    @RequestMapping(value = "/admin/afficherAdministrateurs", method = RequestMethod.GET)
+    String afficherAdministrateurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,
+                               Model model)
+    {
+
+        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage, ConstantesAdmin.ROLE_ADMIN));
+        return "admin/utilisateurs/afficherResponsables";
+    }
+
+    @RequestMapping(value = "/admin/afficherDetailsUtilisateur", method = RequestMethod.POST)
+    String detailsUtilisateur(@RequestParam("identifiantUtilisateurSelect") int id, Model model){
+
+        model.addAttribute("formulaire", recupererFormulaireDetailsUtilisateur(id));
         return "admin/utilisateurs/detailsUtilisateur";
     }
 
     @RequestMapping(value = "/admin/modifierDetailsUtilisateur", method = RequestMethod.POST)
     String submitRole(int id, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin, String action){
 
+        int identifiantDonneeTraitee = 0;
+
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
-            gererUtilisateurService.mettreAJourRolesUtilisateur(id, roleUser, roleDP, roleExploit, roleAdmin);
+             gererUtilisateurService.mettreAJourRolesUtilisateur(id, roleUser, roleDP, roleExploit, roleAdmin);
+
+            JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_ROLES_UTILISATEUR, 0);
+            journaliserService.enregistrerJournalisation(journalDTO);
+
         }
         else {
             // DO NOTHING
@@ -67,10 +93,9 @@ public class UtilisateursController {
     }
 
 
-    private void recupererFormulaireAfficherUtilisateurs(int page, int ligneParPage){
+    private AfficherUtilisateursFormulaire recupererFormulaireAfficherUtilisateurs(int pageCourante, int numLigneAfficheParPage, int roleUtilisateur){
 
-        Long numTotalUsers;
-        int numLigneAfficheParPage;
+        Long numTotalLignes;
 
 
         // Création du formulaire afficherUtilisateurFormulaire
@@ -78,26 +103,30 @@ public class UtilisateursController {
         // ligneParPage : définie le nombre d'utilisateur que l'on affiche sur chaque page
         // gererRoleService : référence du bean GererRoleService
 
-        afficherUtilisateursFormulaire = new AfficherUtilisateursFormulaire();
-        afficherUtilisateursFormulaire.setNumTotalUsers(gererUtilisateurService.totalUsers());
-        afficherUtilisateursFormulaire.setNumPageCourante(page);
-        afficherUtilisateursFormulaire.setNbLigneAfficheParPage(ligneParPage);
-        numTotalUsers = afficherUtilisateursFormulaire.getNumTotalUsers();
-        numLigneAfficheParPage = afficherUtilisateursFormulaire.getNbLigneAfficheParPage();
-        afficherUtilisateursFormulaire.setNumPageTotal((int) Math.ceil((double) numTotalUsers / (double) numLigneAfficheParPage));
+        AfficherUtilisateursFormulaire afficherUtilisateursFormulaire = new AfficherUtilisateursFormulaire();
+
+        PaginationObjet paginationObjet;
+        paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererUtilisateurService.nombreTotalUtilisateurs(roleUtilisateur));
+        afficherUtilisateursFormulaire.setPaginationObjet(paginationObjet);
+
+        afficherUtilisateursFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_UTILISATEURS_TITRE);
 
         // Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
-        afficherUtilisateursFormulaire.setUtilisateurDTOPage(gererUtilisateurService.searchAllUsersByPage(page, ligneParPage));
+        afficherUtilisateursFormulaire.setUtilisateurDTOPage(gererUtilisateurService.searchAllUsersByPage(pageCourante, numLigneAfficheParPage));
+
+        return afficherUtilisateursFormulaire;
 
     }
 
-    private void recupererFormulaireDetailsUtilisateur(int id){
+    private DetailsUtilisateurFormulaire recupererFormulaireDetailsUtilisateur(int id){
 
-        detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
+        DetailsUtilisateurFormulaire detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
         detailsUtilisateurFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserById(id));
 
         detailsUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_MODIFIER_ROLE_UTILISATEUR);
         detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_AFFICHER_UTILISATEURS);
+
+        detailsUtilisateurFormulaire.setTitrePage(ConstantesPage.DETAIL_UTILISATEUR_TITRE);
 
         List<RoleUtilisateurDTO> listRolesUtilisateurDTO = gererUtilisateurService.recupererRolesUtilisateur(id);
         for(int i = 0; i<listRolesUtilisateurDTO.size();i++){
@@ -116,6 +145,8 @@ public class UtilisateursController {
                     break;
             }
         }
+
+        return detailsUtilisateurFormulaire;
     }
 }
 

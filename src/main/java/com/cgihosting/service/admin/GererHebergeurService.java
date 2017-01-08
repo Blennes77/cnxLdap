@@ -1,6 +1,7 @@
 package com.cgihosting.service.admin;
 
 import com.cgihosting.domain.HebergeurDTO;
+import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,9 +12,17 @@ import java.util.List;
 
 public interface GererHebergeurService extends Serializable{
 
-    List<HebergeurDTO> recupererHebergeurs();
+    public List<HebergeurDTO> recupererHebergeurs();
 
-    boolean creerHebergeur(HebergeurDTO hebergeurDTO);
+    public HebergeurDTO recupererHebergeurById(int identifiant);
+
+
+    public  int creerHebergeur(HebergeurDTO hebergeurDTO);
+
+    public Long nombreTotalHebergeurs();
+
+    public Page<HebergeurDTO> searchAllHebergeurDtoPageByPage(Integer page, Integer ligneParPage);
+
 
 
 }

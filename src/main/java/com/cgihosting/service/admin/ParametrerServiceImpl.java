@@ -4,10 +4,9 @@ import com.cgihosting.domain.ParametresAppliDTO;
 import com.cgihosting.domain.ParametresVCODTO;
 import com.cgihosting.repository.ParametrageAppliRepository;
 import com.cgihosting.repository.ParametrageVCORepository;
+import com.cgihosting.repository.RefEnvironnementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * Created by marinib on 09/12/2016.
@@ -24,49 +23,51 @@ public class ParametrerServiceImpl implements ParametrerService {
     @Autowired
     private ParametrageVCORepository parametrageVCORepository;
 
+
+    @Autowired
+    private RefEnvironnementRepository refEnvironnementRepository;
+
     @Override
-    public ParametresAppliDTO recupererParametresAppli() {
+    public ParametresAppliDTO recupererParametresAppli(String codeEnvironnement) {
 
-        List<ParametresAppliDTO> parametresAppliDTOListe = null;
+        ParametresAppliDTO parametresAppliDTO = new ParametresAppliDTO();
 
-        parametresAppliDTOListe = (List<ParametresAppliDTO>) parametrageAppliRepository.findAll();
+        parametresAppliDTO = parametrageAppliRepository.findByTypeEnvironnement(refEnvironnementRepository.findByCodeEnvironnement(codeEnvironnement).getId());
 
-        return parametresAppliDTOListe.get(0);
+        return parametresAppliDTO;
 
     }
 
     @Override
-    public ParametresVCODTO recupererParametresVCO() {
+    public ParametresVCODTO recupererParametresVCO(String codeEnvironnement) {
 
-        List<ParametresVCODTO> parametresVCODTOListe = null;
+        ParametresVCODTO parametresVCODTO = new ParametresVCODTO();
 
-        parametresVCODTOListe = (List<ParametresVCODTO>) parametrageVCORepository.findAll();
+        parametresVCODTO = parametrageVCORepository.findByTypeEnvironnement(
+                refEnvironnementRepository.findByCodeEnvironnement(codeEnvironnement).getId());
 
-        return parametresVCODTOListe.get(0);
+
+        return parametresVCODTO;
 
     }
 
 
     @Override
-    public boolean mettreAJourParametresAppli(ParametresAppliDTO parametresAppliDTO) {
-        boolean miseAJourReussieBln = false;
+    public int mettreAJourParametresAppli(ParametresAppliDTO parametresAppliDTO) {
 
         parametrageAppliRepository.save(parametresAppliDTO);
 
-        return miseAJourReussieBln;
+        return parametresAppliDTO.getId();
 
     }
 
     @Override
-    public boolean mettreAJourParametresVCO(ParametresVCODTO parametresVCODTO) {
-
-        boolean miseAJourReussieBln = false;
-
+    public int mettreAJourParametresVCO(ParametresVCODTO parametresVCODTO) {
 
         parametrageVCORepository.save(parametresVCODTO);
 
 
-        return miseAJourReussieBln;
+        return parametresVCODTO.getId();
 
     }
 }

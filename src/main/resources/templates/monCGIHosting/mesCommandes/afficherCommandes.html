@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+
+<script language="javascript">
+
+
+    function afficherDetailsCommande(identifiantCommandeSelect) {
+
+       // alert(identifiant);
+        document.getElementById("identifiantCommandeSelect").value= identifiantCommandeSelect;
+        document.getElementById("monformulaire").submit();
+    }
+
+</script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+
+<form id="monformulaire" action="#" th:action="@{/emonCGIHosting/afficherDetailsCommande}" th:object="${formulaire}" method="post">
+<div class="container">
+    <div class="jumbotron">
+
+
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
+
+        <input id="identifiantCommandeSelect" name="identifiantCommandeSelect" type="hidden"  />
+        <!-- Table -->
+        <table class="table">
+            <tr >
+                <th>identifiant commande</th>
+                <th>utilisateur enregistreur</th>
+            </tr>
+            <tr  class="sortable" th:each="commande:${formulaire.commandeDTOListe}" th:onclick="'afficherDetailsCommande(\'' + ${commande.id} + '\');'">
+
+
+                <td th:text="${commande.id}"></td>
+                    <td> A saisir</td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+</form>
+</body>
+</html>

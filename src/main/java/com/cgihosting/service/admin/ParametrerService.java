@@ -11,12 +11,12 @@ import java.io.Serializable;
 
 public interface ParametrerService extends Serializable{
 
-    ParametresAppliDTO recupererParametresAppli();
+    ParametresAppliDTO recupererParametresAppli(String codeEnvironnement);
 
-    ParametresVCODTO recupererParametresVCO();
+    ParametresVCODTO recupererParametresVCO(String codeEnvironnement);
 
 
-    boolean mettreAJourParametresAppli(ParametresAppliDTO parametresAppliDTO);
-    boolean mettreAJourParametresVCO(ParametresVCODTO parametresVCODTO);
+    int mettreAJourParametresAppli(ParametresAppliDTO parametresAppliDTO);
+    int mettreAJourParametresVCO(ParametresVCODTO parametresVCODTO);
 
 }

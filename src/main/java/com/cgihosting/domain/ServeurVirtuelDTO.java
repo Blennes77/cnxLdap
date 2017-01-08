@@ -28,8 +28,8 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_CPUS")
     private int cpus;
 
-    @Column(name="SVI_CODE_OS")
-    private String codeOS;
+    @Column(name="SVI_ID_OS")
+    private int idOS;
 
     @Column(name="SVI_DISQUE_SYSTEME")
     private int tailleDisqueSysteme;
@@ -62,7 +62,14 @@ public class ServeurVirtuelDTO implements Serializable{
     private int masqueCICDR;
 
     @Column(name="SVI_IND_TRAITEMENT")
-    private int indWindows;
+    private int indTraitement;
+
+
+    @Column(name="SVI_ID_PROJET")
+    private int idProjet;
+
+
+
 /*
     @Column(name="SVI_DATE_TRAITEMENT")
     private Date dateTraitement;
@@ -82,9 +89,17 @@ public class ServeurVirtuelDTO implements Serializable{
     private int utiIntervId;
 
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="SVI_ID", nullable=true)
+    @OneToOne
+    @JoinColumn(name="SVI_IND_TRAITEMENT", insertable = false, updatable = false)
     private EtatTraitementServeurDTO etatTraitementServeurDTO ;
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_OS", insertable = false, updatable = false)
+    private TemplateOSDTO templateOSDTO ;
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_PROJET", insertable = false, updatable = false)
+    private ProjetDTO projetDTO ;
 
     public int getId() {
         return id;
@@ -126,12 +141,12 @@ public class ServeurVirtuelDTO implements Serializable{
         this.cpus = cpus;
     }
 
-    public String getCodeOS() {
-        return codeOS;
+    public int getIdOS() {
+        return idOS;
     }
 
-    public void setCodeOS(String codeOS) {
-        this.codeOS = codeOS;
+    public void setIdOS(int idOS) {
+        this.idOS = idOS;
     }
 
     public int getTailleDisqueSysteme() {
@@ -214,13 +229,6 @@ public class ServeurVirtuelDTO implements Serializable{
         this.masqueCICDR = masqueCICDR;
     }
 
-    public int getIndWindows() {
-        return indWindows;
-    }
-
-    public void setIndWindows(int indWindows) {
-        this.indWindows = indWindows;
-    }
 
     public String getMessageErreur() {
         return messageErreur;
@@ -261,5 +269,37 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setEtatTraitementServeurDTO(EtatTraitementServeurDTO etatTraitementServeurDTO) {
         this.etatTraitementServeurDTO = etatTraitementServeurDTO;
+    }
+
+    public TemplateOSDTO getTemplateOSDTO() {
+        return templateOSDTO;
+    }
+
+    public void setTemplateOSDTO(TemplateOSDTO templateOSDTO) {
+        this.templateOSDTO = templateOSDTO;
+    }
+
+    public int getIndTraitement() {
+        return indTraitement;
+    }
+
+    public void setIndTraitement(int indTraitement) {
+        this.indTraitement = indTraitement;
+    }
+
+    public ProjetDTO getProjetDTO() {
+        return projetDTO;
+    }
+
+    public void setProjetDTO(ProjetDTO projetDTO) {
+        this.projetDTO = projetDTO;
+    }
+
+    public int getIdProjet() {
+        return idProjet;
+    }
+
+    public void setIdProjet(int idProjet) {
+        this.idProjet = idProjet;
     }
 }

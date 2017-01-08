@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface GererProduitService extends Serializable{
 
-    List<ProduitDTO> recupererProduits();
+    public List<ProduitDTO> recupererProduits();
 
 
 }

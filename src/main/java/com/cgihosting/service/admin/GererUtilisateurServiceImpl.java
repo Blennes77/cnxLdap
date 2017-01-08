@@ -3,8 +3,8 @@ package com.cgihosting.service.admin;
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.domain.RoleUtilisateurDTO;
 import com.cgihosting.domain.UtilisateurDTO;
-import com.cgihosting.repository.UserRepository;
-import com.cgihosting.repository.UserRoleRepository;
+import com.cgihosting.repository.UtilisateurRepository;
+import com.cgihosting.repository.UtilisateurRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,40 +22,43 @@ import java.util.List;
 public class GererUtilisateurServiceImpl implements GererUtilisateurService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UtilisateurRepository utilisateurRepository;
 
     @Autowired
-    private UserRoleRepository userRoleRepository;
+    private UtilisateurRoleRepository utilisateurRoleRepository;
 
     @Override
-    public UtilisateurDTO searchUser(String username) {
-        UtilisateurDTO utilisateurDTO = userRepository.findByLogonName(username);
+    public UtilisateurDTO searchUserByLogonName(String username) {
+        UtilisateurDTO utilisateurDTO = utilisateurRepository.findByLogonName(username);
         return utilisateurDTO;
     }
 
     @Override
-    public void saveUser(UtilisateurDTO utilisateurDTO) {
-        userRepository.save(utilisateurDTO);
+    public int saveUser(UtilisateurDTO utilisateurDTO) {
+
+        utilisateurRepository.save(utilisateurDTO);
+
+        return utilisateurDTO.getId();
     }
 
     @Override
     public List<UtilisateurDTO> searchAllUsers() {
         List<UtilisateurDTO> userList;
-        userList = (List<UtilisateurDTO>) userRepository.findAll();
+        userList = (List<UtilisateurDTO>) utilisateurRepository.findAll();
         return userList;
     }
 
     @Override
     public UtilisateurDTO searchUserById(Integer id) {
-        UtilisateurDTO utilisateurDTO = userRepository.findById(id);
+        UtilisateurDTO utilisateurDTO = utilisateurRepository.findById(id);
         return utilisateurDTO;
     }
 
     @Override
-    public Page<UtilisateurDTO> searchAllUsersByPage(Integer page, Integer maxRow) {
+    public Page<UtilisateurDTO> searchAllUsersByPage(Integer page, Integer ligneParPage) {
         Page<UtilisateurDTO> userPage;
 
-        userPage = userRepository.findAll(new PageRequest(page,maxRow, new Sort(
+        userPage = utilisateurRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
                 new Sort.Order(Sort.Direction.ASC, "nom"),
                 new Sort.Order(Sort.Direction.ASC, "prenom")
         )));
@@ -63,25 +66,25 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
     }
 
     @Override
-    public Long totalUsers() {
+    public Long nombreTotalUtilisateurs(int roleUtilisateur) {
         Long total;
 
-        total = userRepository.count();
+        total = utilisateurRepository.count();
         return total;
     }
 
     @Override
     public void deleteUser(UtilisateurDTO utilisateurDTO){
-        userRepository.delete(utilisateurDTO);
+        utilisateurRepository.delete(utilisateurDTO);
     }
 
     @Override
     public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin) {
         // Supression des rôles en base de données
         List<RoleUtilisateurDTO> listRoleUtilisateurDTO = new ArrayList<>();
-        listRoleUtilisateurDTO = userRoleRepository.findByIdUser(idUser);
+        listRoleUtilisateurDTO = utilisateurRoleRepository.findByIdUser(idUser);
 
-        userRoleRepository.delete(listRoleUtilisateurDTO);
+        utilisateurRoleRepository.delete(listRoleUtilisateurDTO);
 
         // Création de la liste de rôle à insérer
         //List<RoleUtilisateurDTO> listRoleUtilisateurDTO = new ArrayList<>();
@@ -102,15 +105,15 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
             listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_ADMIN));
         }
 
-        userRoleRepository.save(listRoleUtilisateurDTO);
+        utilisateurRoleRepository.save(listRoleUtilisateurDTO);
 
         return true;
     }
 
     @Override
     public List<RoleUtilisateurDTO> recupererRolesUtilisateur(int idUser) {
-        List<RoleUtilisateurDTO> listRolesUtilisateurDTO = new ArrayList<>();
-        listRolesUtilisateurDTO = userRoleRepository.findByIdUser(idUser);
+        List<RoleUtilisateurDTO> listRolesUtilisateurDTO = new ArrayList<RoleUtilisateurDTO>();
+        listRolesUtilisateurDTO = utilisateurRoleRepository.findByIdUser(idUser);
         return listRolesUtilisateurDTO;
     }
 }

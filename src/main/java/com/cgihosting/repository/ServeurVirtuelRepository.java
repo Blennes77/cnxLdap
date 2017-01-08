@@ -1,12 +1,12 @@
 package com.cgihosting.repository;
 
 import com.cgihosting.domain.ServeurVirtuelDTO;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * Created by marinib on 09/12/2016.
  */
-public interface ServeurVirtuelRepository extends CrudRepository<ServeurVirtuelDTO, Integer> {
+public interface ServeurVirtuelRepository extends PagingAndSortingRepository<ServeurVirtuelDTO, Integer> {
     /**
      * This method will find an User instance in the database by its email.
      * Note that this method is not implemented and its working code will be

@@ -71,7 +71,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .groupSearchBase("ou=groupes")
         .contextSource().url("ldap://127.0.0.1:389/dc=maxcrc,dc=com");*/
 
-        ParametresAppliDTO parametresAppliDTO = parametrerService.recupererParametresAppli();
+
+    /*
+     * Récupération de l'environnement
+     */
+
+
+        ParametresAppliDTO parametresAppliDTO = parametrerService.recupererParametresAppli(env.getRequiredProperty("nom.environnement"));
 
     /* Fonctionne sur AD Groupinfra */
 

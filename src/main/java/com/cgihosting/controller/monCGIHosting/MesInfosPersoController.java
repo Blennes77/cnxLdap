@@ -1,7 +1,8 @@
 package com.cgihosting.controller.monCGIHosting;
 
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.formulaire.monCGIHosting.AfficherMesInfosPersoFormulaire;
+import com.cgihosting.formulaire.monCGIHosting.mesInfosPerso.AfficherMesInfosPersoFormulaire;
+import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.service.admin.GererUtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,12 +45,12 @@ public class MesInfosPersoController {
 
     private AfficherMesInfosPersoFormulaire recupererFormulaireMesInfosPerso() {
 
-        int identifiant = 1;
+
 
         AfficherMesInfosPersoFormulaire afficherMesInfosPersoFormulaire = new AfficherMesInfosPersoFormulaire();
 
         afficherMesInfosPersoFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_MESINFOS_PERSO_TITRE);
-        afficherMesInfosPersoFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserById(identifiant));
+        afficherMesInfosPersoFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin()));
 
         return afficherMesInfosPersoFormulaire;
     }

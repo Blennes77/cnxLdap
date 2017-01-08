@@ -29,7 +29,20 @@ public class ConstantesPage {
     /** Titre des pages **/
     public static final String AFFICHAGE_MESINFOS_PERSO_TITRE = "Mes informations personnelles";
 
+    public static final String AFFICHAGE_MESSAGES_TITRE = "Mes messages";
+    public static final String AFFICHAGE_COMMANDES_TITRE = "Mes commandes";
+    public static final String DETAILS_COMMANDE_TITRE = "Mes commandes";
+
+
+    public static final String AFFICHAGE_AJOUT_SERVEUR_TITRE = "Ajouter serveur";
+
     /** Noms des boutons **/
+
+    public static final String BOUTON_RETOUR_LISTE_MESSAGES = "Retour liste de messages";
+    public static final String BOUTON_RETOUR_LISTE_COMMANDES =  "Retour";
+
+    public static final String BOUTON_RETOUR_AJOUT_SERVEUR =  "Retour";
+    public static final String BOUTON_AJOUT_SERVEUR_ENREGISTRER =  "Enregistrer";
 
     /***************************************************************************************************
      *
@@ -42,10 +55,18 @@ public class ConstantesPage {
 
     public static final String DETAIL_SERVEUR_VIRTUEL_TITRE = "Paramètres de la machine virtuelle";
 
+    public static final String AFFICHAGE_TEMPLATES_OS_TITRE = "Liste des templates";
+
+    public static final String DETAIL_TEMPLATE_OS_TITRE = "Template";
+
     /** Noms des boutons **/
 
     public static final String BOUTON_MODIFIER_SERVEUR_VIRTUEL = "Modifier Serveur Virtuel";
     public static final String BOUTON_RETOUR_LISTE_SERVEURS_VIRTUELS = "Retour";
+
+    public static final String BOUTON_AJOUTER_TEMPLATE_OS = "Ajouter template";
+    public static final String BOUTON_MODIFIER_TEMPLATE_OS = "Modifier template";
+    public static final String BOUTON_RETOUR_LISTE_TEMPLATE_OS = "Retour";
 
 
     /***************************************************************************************************
@@ -55,6 +76,10 @@ public class ConstantesPage {
      ***************************************************************************************************/
 
     /** Titre des pages **/
+
+    public static final String AFFICHAGE_UTILISATEURS_TITRE = "Gestion des rôles utilisateurs";
+
+    public static final String DETAIL_UTILISATEURS_TITRE = "Attribution des rôles de l'utilisateur";
 
     public static final String AFFICHAGE_HEBGERGEURS_TITRE = "Liste des hébergeurs disponibles";
 
@@ -71,6 +96,13 @@ public class ConstantesPage {
 
     public static final String AFFICHAGE_JOURNALISATION_TITRE = "Evênements dans l'application";
 
+    public static final String AFFICHAGE_REFERENTIEL_JOURNALISATION_TITRE = "Types d'evênements journalisés";
+
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_TITRE = "Evênement journalisé";
+
+
+    public static final String AFFICHAGE_PROJETS_TITRE = "Liste des projetss";
+
 
     /** Noms des boutons **/
 
@@ -78,8 +110,12 @@ public class ConstantesPage {
     public static final String BOUTON_SAUVEGARDER_PARAMETRES_VCO = "Enregistrer paramètres VCO";
 
     public static final String BOUTON_AJOUTER_HEBERGEUR = "Ajouter un hébergeur";
-    public static final String BOUTON_CREER_HEBERGEUR = "Créer hébergeur";
+    public static final String BOUTON_MODIFIER_HEBERGEUR = "Modifier hébergeur";
     public static final String BOUTON_RETOUR_HEBERGEUR = "Annuler";
+
+    public static final String BOUTON_AJOUTER_REFERENTIEL_JOURNALISATIOn = "Ajouter un journal";
+    public static final String BOUTON_MODIFIER_REFERENTIEL_JOURNALISATION = "Modifier un journal";
+    public static final String BOUTON_RETOUR_REFERENTIEL_JOURNALISATION = "Annuler";
 
 
     public static final String BOUTON_MODIFIER_ROLE_UTILISATEUR = "Enregistrer";

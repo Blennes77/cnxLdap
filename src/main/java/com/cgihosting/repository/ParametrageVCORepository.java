@@ -13,5 +13,6 @@ public interface ParametrageVCORepository extends CrudRepository<ParametresVCODT
      * automatically generated from its signature by Spring Data JPA.
      */
 
+    public ParametresVCODTO findByTypeEnvironnement(int typeEnvironnement);
 
 }
