@@ -42,11 +42,15 @@
                     <th>Identifiant technique</th>
                     <th>Nom projet</th>
                     <th>Code projet</th>
+                    <th>Nom DP</th>
+                    <th>Prenom DP</th>
                 </tr>
                 <tr th:each="projet:${formulaire.projetDTOPage.content}">
                     <td th:text="${projet.id}"></td>
                     <td th:text="${projet.nomProjet}"></td>
                     <td th:text="${projet.codeProjet}"></td>
+                    <td th:text="${projet.nomDP}"></td>
+                    <td th:text="${projet.prenomDP}"></td>
                 </tr>
             </table>
 

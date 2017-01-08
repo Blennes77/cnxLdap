@@ -25,6 +25,11 @@ public class ProjetDTO implements Serializable{
     @Column(name="PRO_LOGINDP")
     private String loginDP;
 
+    @Column(name="PRO_NOMDP")
+    private String nomDP;
+
+    @Column(name="PRO_PRENOMDP")
+    private String prenomDP;
 
     public int getId() {
         return id;
@@ -56,5 +61,23 @@ public class ProjetDTO implements Serializable{
 
     public void setNomProjet(String nomProjet) {
         this.nomProjet = nomProjet;
+    }
+
+
+
+    public String getPrenomDP() {
+        return prenomDP;
+    }
+
+    public void setPrenomDP(String prenomDP) {
+        this.prenomDP = prenomDP;
+    }
+
+    public String getNomDP() {
+        return nomDP;
+    }
+
+    public void setNomDP(String nomDP) {
+        this.nomDP = nomDP;
     }
 }

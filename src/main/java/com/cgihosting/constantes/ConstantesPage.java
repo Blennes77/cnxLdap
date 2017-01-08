@@ -101,7 +101,7 @@ public class ConstantesPage {
     public static final String DETAILS_REFERENTIEL_JOURNALISATION_TITRE = "Evênement journalisé";
 
 
-    public static final String AFFICHAGE_PROJETS_TITRE = "Liste des projetss";
+    public static final String AFFICHAGE_PROJETS_TITRE = "Liste des projets";
 
 
     /** Noms des boutons **/

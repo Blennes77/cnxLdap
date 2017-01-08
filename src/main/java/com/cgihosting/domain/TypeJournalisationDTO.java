@@ -19,6 +19,9 @@ public class TypeJournalisationDTO {
     @Column(name="RTJ_ACTION_LIBELLE")
     private String libelleAction = "";
 
+    @Column(name="RTJ_DESCRIPTION")
+    private String description = "";
+
 
     public int getId() {
         return id;
@@ -34,5 +37,13 @@ public class TypeJournalisationDTO {
 
     public void setLibelleAction(String libelleAction) {
         this.libelleAction = libelleAction;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
