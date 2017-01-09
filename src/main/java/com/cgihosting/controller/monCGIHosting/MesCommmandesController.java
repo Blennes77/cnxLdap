@@ -12,6 +12,7 @@ import com.cgihosting.formulaire.monCGIHosting.mesCommandes.DetailsCommandeFormu
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.service.admin.GererCommandeService;
 import com.cgihosting.service.admin.GererProjetsService;
+import com.cgihosting.service.admin.GererUtilisateurService;
 import com.cgihosting.service.admin.JournaliserService;
 import com.cgihosting.service.exploit.GererServeursVirtuelsService;
 import com.cgihosting.service.exploit.GererTemplateOSService;
@@ -54,6 +55,9 @@ public class MesCommmandesController {
 
     @Autowired
     private GererProjetsService gererProjetsService;
+
+    @Autowired
+    private GererUtilisateurService gererUtilisateurService;
 
     @RequestMapping("/monCGIHosting/ajouterServeurVirtuel")
     String afficherEcranAjoutServeurVirtuel(Model model){
@@ -111,6 +115,10 @@ public class MesCommmandesController {
 
                 serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
                 serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
+
+                serveurVirtuelDTO.setIdEnregistreur(gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin()).getId());
+
+
 
                 identifiantDonneeTraitee = gererServeursVirtuelsService.creerServeurVirtuel(serveurVirtuelDTO);
 

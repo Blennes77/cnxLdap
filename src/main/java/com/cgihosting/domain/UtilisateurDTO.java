@@ -20,11 +20,11 @@ public class UtilisateurDTO implements Serializable{
 
     @Column(name="UTI_PRENOM")
     @NotNull
-    private String prenom;
+    private String prenom ="";
 
     @Column(name="UTI_NOM")
     @NotNull
-    private String nom;
+    private String nom = "";
 
     @Column(name="UTI_MAIL")
     @NotNull

@@ -85,8 +85,14 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_PHPIPAM_ID")
     private int phpipamId;
 
-    @Column(name="SVI_UTI_INTERV_ID")
-    private int utiIntervId;
+    @Column(name="SVI_ID_UTI_EXPLOITANT")
+    private Integer idExploitant;
+
+    @Column(name="SVI_ID_UTI_ENREGISTREUR")
+    private Integer idEnregistreur;
+
+    @Column(name="SVI_ID_UTI_VALIDEUR")
+    private Integer idValideur;
 
 
     @OneToOne
@@ -100,6 +106,25 @@ public class ServeurVirtuelDTO implements Serializable{
     @OneToOne
     @JoinColumn(name="SVI_ID_PROJET", insertable = false, updatable = false)
     private ProjetDTO projetDTO ;
+
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_UTI_EXPLOITANT", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurExploitantDTO;
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_UTI_ENREGISTREUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurEnregistreurDTO;
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_UTI_VALIDEUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurValideurDTO ;
+
+
+    /**
+     * Guetters et setters
+     * @return
+     */
 
     public int getId() {
         return id;
@@ -254,14 +279,29 @@ public class ServeurVirtuelDTO implements Serializable{
         this.phpipamId = phpipamId;
     }
 
-    public int getUtiIntervId() {
-        return utiIntervId;
+    public int getIdExploitant() {
+        return idExploitant;
     }
 
-    public void setUtiIntervId(int utiIntervId) {
-        this.utiIntervId = utiIntervId;
+    public void setIdExploitant(int idExploitant) {
+        this.idExploitant = idExploitant;
     }
 
+    public int getIdEnregistreur() {
+        return idEnregistreur;
+    }
+
+    public void setIdEnregistreur(int idEnregistreur) {
+        this.idEnregistreur = idEnregistreur;
+    }
+
+    public int getIdValideur() {
+        return idValideur;
+    }
+
+    public void setIdValideur(int idValideur) {
+        this.idValideur = idValideur;
+    }
 
     public EtatTraitementServeurDTO getEtatTraitementServeurDTO() {
         return etatTraitementServeurDTO;
@@ -301,5 +341,31 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setIdProjet(int idProjet) {
         this.idProjet = idProjet;
+    }
+
+
+    public UtilisateurDTO getUtilisateurExploitantDTO() {
+        return utilisateurExploitantDTO;
+    }
+
+    public void setUtilisateurExploitantDTO(UtilisateurDTO utilisateurExploitantDTO) {
+        this.utilisateurExploitantDTO = utilisateurExploitantDTO;
+    }
+
+
+    public UtilisateurDTO getUtilisateurEnregistreurDTO() {
+        return utilisateurEnregistreurDTO;
+    }
+
+    public void setUtilisateurEnregistreurDTO(UtilisateurDTO utilisateurEnregistreurDTO) {
+        this.utilisateurEnregistreurDTO = utilisateurEnregistreurDTO;
+    }
+
+    public UtilisateurDTO getUtilisateurValideurDTO() {
+        return utilisateurValideurDTO;
+    }
+
+    public void setUtilisateurValideurDTO(UtilisateurDTO utilisateurValideurDTO) {
+        this.utilisateurValideurDTO = utilisateurValideurDTO;
     }
 }
