@@ -10,13 +10,11 @@ import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AfficherCommandesFor
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjoutServeurVirtuelFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.DetailsCommandeFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
-import com.cgihosting.service.admin.GererCommandeService;
-import com.cgihosting.service.admin.GererProjetsService;
-import com.cgihosting.service.admin.GererUtilisateurService;
-import com.cgihosting.service.admin.JournaliserService;
+import com.cgihosting.service.admin.*;
 import com.cgihosting.service.exploit.GererServeursVirtuelsService;
 import com.cgihosting.service.exploit.GererTemplateOSService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -58,6 +56,13 @@ public class MesCommmandesController {
 
     @Autowired
     private GererUtilisateurService gererUtilisateurService;
+
+
+    @Autowired
+    private RefWorkflowsService refWorkflowsService;
+
+    @Autowired
+    private Environment env;
 
     @RequestMapping("/monCGIHosting/ajouterServeurVirtuel")
     String afficherEcranAjoutServeurVirtuel(Model model){
@@ -115,6 +120,17 @@ public class MesCommmandesController {
 
                 serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
                 serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
+
+
+                // Bouchon OVH
+                serveurVirtuelDTO.setIdTypeHeberg(1);
+
+                // On crée une machine avec l'identifiant déploiement
+
+                serveurVirtuelDTO.setIdWorkflow(refWorkflowsService.recupererRefWorkflowsUuiDTO(
+                                                            env.getRequiredProperty("nom.environnement"),
+                                                            ConstantesGenerales.OVH_NOM_WORKFLOW_DEPLOIEMENT,
+                                                          serveurVirtuelDTO.getIdTypeHeberg()).getId());
 
                 serveurVirtuelDTO.setIdEnregistreur(gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin()).getId());
 

@@ -52,11 +52,11 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_MASQUE")
     private String masque;
 
-    @Column(name="SVI_TYPE_HEBERG_ID")
-    private int typeHebergId;
+    @Column(name="SVI_ID_TYPE_HEBERGEUR")
+    private int idTypeHeberg;
 
-    @Column(name="SVI_WORKFLOW_ID")
-    private int workflowId;
+    @Column(name="SVI_ID_WORKFLOW")
+    private int idWorkflow;
 
     @Column(name="SVI_MASQUECICDR")
     private int masqueCICDR;
@@ -82,8 +82,8 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_IND_CUSTOMISATION")
     private int indCustomisation;
 
-    @Column(name="SVI_PHPIPAM_ID")
-    private int phpipamId;
+    @Column(name="SVI_ID_PHPIPAM")
+    private int idPhpipam;
 
     @Column(name="SVI_ID_UTI_EXPLOITANT")
     private Integer idExploitant;
@@ -230,21 +230,7 @@ public class ServeurVirtuelDTO implements Serializable{
         this.masque = masque;
     }
 
-    public int getTypeHebergId() {
-        return typeHebergId;
-    }
 
-    public void setTypeHebergId(int typeHebergId) {
-        this.typeHebergId = typeHebergId;
-    }
-
-    public int getWorkflowId() {
-        return workflowId;
-    }
-
-    public void setWorkflowId(int workflowId) {
-        this.workflowId = workflowId;
-    }
 
     public int getMasqueCICDR() {
         return masqueCICDR;
@@ -271,12 +257,40 @@ public class ServeurVirtuelDTO implements Serializable{
         this.indCustomisation = indCustomisation;
     }
 
-    public int getPhpipamId() {
-        return phpipamId;
+    public int getIdTypeHeberg() {
+        return idTypeHeberg;
     }
 
-    public void setPhpipamId(int phpipamId) {
-        this.phpipamId = phpipamId;
+    public void setIdTypeHeberg(int idTypeHeberg) {
+        this.idTypeHeberg = idTypeHeberg;
+    }
+
+    public int getIdWorkflow() {
+        return idWorkflow;
+    }
+
+    public void setIdWorkflow(int idWorkflow) {
+        this.idWorkflow = idWorkflow;
+    }
+
+    public int getIdPhpipam() {
+        return idPhpipam;
+    }
+
+    public void setIdPhpipam(int idPhpipam) {
+        this.idPhpipam = idPhpipam;
+    }
+
+    public void setIdExploitant(Integer idExploitant) {
+        this.idExploitant = idExploitant;
+    }
+
+    public void setIdEnregistreur(Integer idEnregistreur) {
+        this.idEnregistreur = idEnregistreur;
+    }
+
+    public void setIdValideur(Integer idValideur) {
+        this.idValideur = idValideur;
     }
 
     public int getIdExploitant() {
