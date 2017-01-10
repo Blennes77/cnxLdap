@@ -1,7 +1,9 @@
 package com.cgihosting.security;
 
+import com.cgihosting.domain.ProjetDTO;
 import com.cgihosting.domain.RoleUtilisateurDTO;
 import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.repository.ProjetsRepository;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;
 import org.slf4j.Logger;
@@ -14,10 +16,7 @@ import org.springframework.security.ldap.userdetails.LdapAuthoritiesPopulator;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 import static com.cgihosting.constantes.ConstantesAdmin.*;
 
@@ -37,6 +36,9 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
     @Autowired
     private UtilisateurRoleRepository utilisateurRoleRepository; // Implémentation de l'interface via @Service et @Autowired, Spring Boot
 
+    @Autowired
+    private ProjetsRepository projetsRepository;
+
     //public void setUserRepository(UserRepository userRepository){ this.userRepository = userRepository; }
 
     @Override
@@ -46,20 +48,16 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
         Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 
-        //TODO COMMENTAIRES
         // Un user à toujours le ROLE_USER
         // On check en base dans la table XXXX si le user existe dans les données PSA, si oui on ajoute le ROLE_DP
-        // On check en base dans la table YYYY si le user a le flag Admin, si oui on ajoute le ROLE_ADMIN
         try {
+            // Recherce de l'utilisateur dans la table utilisateur avec le username fourni
             UtilisateurDTO utilisateurDTO = utilisateurRepository.findByLogonName(username);
 
             if(utilisateurDTO==null){
                 // ==================== Première connexion. Utilisateur inconnu de l'application.
                 Calendar calendar = Calendar.getInstance();
                 Date dateCreation = new Date(calendar.getTime().getTime());
-
-                //List<RoleDTO> roleDTOList = new ArrayList<RoleDTO>();
-                //roleDTOList.add(new RoleDTO(ConstantesAdmin.ROLE_USER.intValue()));
 
                 log.debug("Création de l'utilisateur " + username + " en base de données.");
 
@@ -74,27 +72,42 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                                 username,
                                 ctx.getStringAttribute("extensionattribute1"));
 
-                // Sauvegarde de l'utilisateur et du role en base de données
+                // Sauvegarde de l'utilisateur
                 utilisateurRepository.save(utilisateurDTO);
 
-                RoleUtilisateurDTO roleUtilisateurDTO = new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_USER);
-                utilisateurRoleRepository.save(roleUtilisateurDTO);
+                // Vérification dans la table ref_projet si l'utilisateur est présent
+                List<ProjetDTO> projetDTOList = new ArrayList<>();
+                projetDTOList = projetsRepository.findBymailDP(utilisateurDTO.getMail());
 
-                // On recharge les données de l'utilisateur
+                // Si oui, il faut lui ajouter le role ROLE_DP et ROLE_USER dans la table utilisateur_a_role
+                if(projetDTOList.size()>0){
+                    List<RoleUtilisateurDTO> roleUtilisateurDTOList = new ArrayList<>();
+                    roleUtilisateurDTOList.add(new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_USER));
+                    roleUtilisateurDTOList.add(new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_DP));
+                    utilisateurRoleRepository.save(roleUtilisateurDTOList);
 
-                // Pour supprimer dans les deux tables sauf la table de parametres
-                //user.setRoleList(null);
-                //userRepository.delete(user);
+                    // On boucle maintenant sur les projets pour renseigner l'id utilisateur en regard des id projets
+                    for(int i=0;i<projetDTOList.size();i++){
+                        projetDTOList.get(i).setIdUser(utilisateurDTO.getId());
+                    }
+                    // Sauvegarde de l'utilisateur
+                    projetsRepository.save(projetDTOList);
+                }
+                else
+                {
+                    // Si non, il faut ajouter uniquement le role ROLE_USER dans la table utilisateur_a_role
+                    // Sauvegarde du role ROLE_USER
+                    RoleUtilisateurDTO roleUtilisateurDTO = new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_USER);
+                    utilisateurRoleRepository.save(roleUtilisateurDTO);
+                }
 
-            }else{
+             }else{
                 // ==================== Utilisateur déjà connu de l'application.
-                // TODO NOTHING
-
-
-                utilisateurDTO = utilisateurRepository.findByLogonName(username);
+                // DO NOTHING
 
             }
 
+            // Affecte les roles applicatif, au sens spring security
             List<RoleUtilisateurDTO> roleUtilisateurDTOList = utilisateurRoleRepository.findByIdUser(utilisateurDTO.getId());
             if(roleUtilisateurDTOList ==null){
                 // TODO

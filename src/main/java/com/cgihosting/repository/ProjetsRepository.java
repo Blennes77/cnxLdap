@@ -3,6 +3,8 @@ package com.cgihosting.repository;
 import com.cgihosting.domain.ProjetDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import java.util.List;
+
 /**
  * Created by marinib on 08/01/2017.
  */
@@ -15,5 +17,7 @@ public interface ProjetsRepository extends PagingAndSortingRepository<ProjetDTO,
 
 
     public ProjetDTO findById(Integer id);
+
+    public List<ProjetDTO> findBymailDP(String mail);
 
 }
