@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name="projets")
+@Table(name="ref_projets")
 public class ProjetDTO implements Serializable{
 
     @Id
@@ -16,14 +16,17 @@ public class ProjetDTO implements Serializable{
     @Column(name="PRO_ID")
     private int id;
 
+    @Column(name="PRO_UTI_ID")
+    private Integer idUser;
+
     @Column(name="PRO_CODE_PROJET")
     private String codeProjet;
 
     @Column(name="PRO_NOM_PROJET")
     private String nomProjet;
 
-    @Column(name="PRO_LOGINDP")
-    private String loginDP;
+    @Column(name="PRO_CODE_INGE")
+    private String codeInge;
 
     @Column(name="PRO_NOMDP")
     private String nomDP;
@@ -31,12 +34,23 @@ public class ProjetDTO implements Serializable{
     @Column(name="PRO_PRENOMDP")
     private String prenomDP;
 
+    @Column(name="PRO_MAILDP")
+    private String mailDP;
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getCodeProjet() {
@@ -47,14 +61,6 @@ public class ProjetDTO implements Serializable{
         this.codeProjet = codeProjet;
     }
 
-    public String getLoginDP() {
-        return loginDP;
-    }
-
-    public void setLoginDP(String loginDP) {
-        this.loginDP = loginDP;
-    }
-
     public String getNomProjet() {
         return nomProjet;
     }
@@ -63,7 +69,21 @@ public class ProjetDTO implements Serializable{
         this.nomProjet = nomProjet;
     }
 
+    public String getCodeInge() {
+        return codeInge;
+    }
 
+    public void setCodeInge(String codeInge) {
+        this.codeInge = codeInge;
+    }
+
+    public String getNomDP() {
+        return nomDP;
+    }
+
+    public void setNomDP(String nomDP) {
+        this.nomDP = nomDP;
+    }
 
     public String getPrenomDP() {
         return prenomDP;
@@ -73,11 +93,11 @@ public class ProjetDTO implements Serializable{
         this.prenomDP = prenomDP;
     }
 
-    public String getNomDP() {
-        return nomDP;
+    public String getMailDP() {
+        return mailDP;
     }
 
-    public void setNomDP(String nomDP) {
-        this.nomDP = nomDP;
+    public void setMailDP(String mailDP) {
+        this.mailDP = mailDP;
     }
 }

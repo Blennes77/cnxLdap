@@ -1,4 +1,4 @@
-package com.cgihosting.controller.admin;
+package com.cgihosting.controller.admin.utilisateurs;
 
 import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.constantes.ConstantesAdmin;

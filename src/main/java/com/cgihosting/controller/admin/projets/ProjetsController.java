@@ -1,4 +1,4 @@
-package com.cgihosting.controller.admin;
+package com.cgihosting.controller.admin.projets;
 
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.formulaire.admin.projets.AfficherProjetsFormulaire;
@@ -30,7 +30,7 @@ public class ProjetsController {
 
     @RequestMapping("/admin/afficherReferentielProjets")
     String afficherProjets(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
-                           @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage, Model model) {
+                           @RequestParam(value = "ligneParPage", required = false, defaultValue = "250") int ligneParPage, Model model) {
 
         model.addAttribute("formulaire", recupererFormulaireAfficherProjets(page, ligneParPage));
         return "admin/projets/afficherProjets";

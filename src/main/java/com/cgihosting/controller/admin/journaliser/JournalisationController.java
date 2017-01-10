@@ -1,4 +1,4 @@
-package com.cgihosting.controller.admin;
+package com.cgihosting.controller.admin.journaliser;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;

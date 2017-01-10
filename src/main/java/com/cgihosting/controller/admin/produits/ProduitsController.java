@@ -1,4 +1,4 @@
-package com.cgihosting.controller.admin;
+package com.cgihosting.controller.admin.produits;
 
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.formulaire.admin.produits.AfficherProduitsFormulaire;
