@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.ldap.core.DirContextOperations;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -28,12 +29,12 @@ import java.util.Collection;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private Environment env;
     @Autowired
     @Qualifier("myCustomLdapAuthorities")
     LdapAuthoritiesPopulator myCustomLdapAuthorities;
-
 
     @Autowired
     private ParametrerService parametrerService;
@@ -62,9 +63,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
 
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
+        //boolean debugLogin = env.getRequiredProperty("debug.login").equals("true");
     /*  Fonctionne sur mon LDAP */
     /*auth.ldapAuthentication()
         .userSearchFilter("cn={0}")
@@ -89,6 +91,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .contextSource().url(parametresAppliDTO.getChaineConnexionLDAP())
                 .managerDn(parametresAppliDTO.getCompteLDAP())
                 .managerPassword(parametresAppliDTO.getMotDePasseLDAP());
+
+        // UNIQUEMENT HORS PRODUCTION
+        // Mettre la valeur debug = true pour passer en mode développeur
+        // Ce bout de code fonctionne mais probleme lors de la valorisation de certains attributs de la class principale
+        //if(debugLogin){
+        //    auth.inMemoryAuthentication().withUser("admin").password("golinu").authorities("ROLE_ADMIN");
+        //}
+
+
 /*
 
         auth.ldapAuthentication()
