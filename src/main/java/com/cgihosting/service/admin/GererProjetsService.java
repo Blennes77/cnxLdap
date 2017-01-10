@@ -14,6 +14,7 @@ public interface GererProjetsService extends Serializable{
 
     public List<ProjetDTO> recupererProjets();
 
+    public List<ProjetDTO> recupererProjetsDP(Integer idUser);
 
     public Long nombreTotalProjets();
 

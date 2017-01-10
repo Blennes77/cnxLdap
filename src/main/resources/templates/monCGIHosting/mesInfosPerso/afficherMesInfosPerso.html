@@ -30,8 +30,20 @@
                 <th>Prenom</th>
             </tr>
             <tr>
-                <td ><a th:text="${formulaire.utilisateurDTO.nom}" /></td>
+                <td th:text="${formulaire.utilisateurDTO.nom}"></td>
                 <td th:text="${formulaire.utilisateurDTO.prenom}"></td>
+            </tr>
+        </table>
+        <h2>Mes Projets</h2>
+        <!-- Table -->
+        <table class="table">
+            <tr>
+                <th>Code projet </th>
+                <th>Libellé</th>
+            </tr>
+            <tr th:each="projet:${formulaire.projetDTODPList}">
+                <td th:text="${projet.codeProjet}" ></td>
+                <td th:text="${projet.nomProjet}"></td>
             </tr>
         </table>
     </div>

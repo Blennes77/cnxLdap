@@ -33,6 +33,18 @@ public class GererProjetsServiceImpl implements GererProjetsService {
         return projetDTOListe;
 
     }
+
+    @Override
+    public List<ProjetDTO> recupererProjetsDP(Integer idUser) {
+
+        List<ProjetDTO> projetDTOListe;
+
+        projetDTOListe =  (List<ProjetDTO>) projetsRepository.findByIdUser(idUser);
+
+        return projetDTOListe;
+
+    }
+
     public Long nombreTotalProjets() {
         Long total;
 

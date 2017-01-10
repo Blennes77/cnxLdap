@@ -18,6 +18,8 @@ public interface ProjetsRepository extends PagingAndSortingRepository<ProjetDTO,
 
     public ProjetDTO findById(Integer id);
 
+    public List<ProjetDTO> findByIdUser(Integer idUser);
+
     public List<ProjetDTO> findBymailDP(String mail);
 
 }
