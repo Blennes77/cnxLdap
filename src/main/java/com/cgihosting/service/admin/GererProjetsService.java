@@ -20,6 +20,6 @@ public interface GererProjetsService extends Serializable{
 
     public Page<ProjetDTO> searchAllProjetDTOPageByPage(Integer page, Integer ligneParPage);
 
-
+    public List<ProjetDTO> searchByCodeProjet(String codeProjet);
 
 }

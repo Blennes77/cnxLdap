@@ -13,6 +13,37 @@
 <link href="../static/css/guru.css"
       th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
 
+<script type="application/javascript" language="JavaScript">
+    jQuery(document).ready(
+            function($) {
+
+                $("#boutonAjax").click(function(event) {
+
+
+                    var champRechercheProjet = $('#codeProjet').val();
+                    var token = $("input[name='_csrf']").val();
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/monCGIHosting/ajaxRechercheProjet",
+                        data: 'champRechercheProjet='+champRechercheProjet+'&_csrf='+token,
+                        dataType: 'html',
+                        timeout: 600000,
+                        success: function (data) {
+                            $("#resultatProjet").html(data);
+                               //alert("success");                         //...
+                        },
+                        error: function (e) {
+                                 alert("error:"+e.valueOf());                       //...
+                        }
+                    });
+
+                });
+
+            });
+</script>
+
 <head lang="fr">
     <title>CGI Hosting</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -29,14 +60,18 @@
         <h2 th:text="${formulaire.titrePage}">Titre de la page</h2>
 
         <table class="table">
-
+            <tr>
+                <td>&nbsp;</td>
+                <td><input th:field="*{champRechercheProjet}" id="codeProjet" type="text" th:size="10"/> <button type="button" id="boutonAjax">Recherche</button> </td>
+            </tr>
             <tr>
                 <td>Sélection du projet</td>
-                <td> <select th:field="*{serveurVirtuelDTO.idProjet}" >
-                    <option th:each="projet : ${formulaire.projetDTOListe}"
-                            th:value="${projet.id}" th:text="${projet.codeProjet}">Template</option>
+                <td>
+                    <!--<select th:field="*{serveurVirtuelDTO.idProjet}" >-->
+                        <div id="resultatProjet">
 
-                </select>
+                        </div>
+                    <!--</select>-->
                 </td>
             </tr>
 

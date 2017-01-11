@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.monCGIHosting.mesServeursVirtuels;
 
 import com.cgihosting.domain.ServeurVirtuelDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 /**
  * Created by marinib on 11/01/2017

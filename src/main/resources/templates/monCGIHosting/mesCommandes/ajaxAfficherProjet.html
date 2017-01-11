@@ -1,0 +1,3 @@
+<select  id="idProjet" name="idProjet">
+    <option th:each="projet : ${formulaireAjax.projetDTOList}" th:value="${projet.id}" th:text="${projet.codeProjet}">Liste de Projet</option>
+</select>

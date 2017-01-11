@@ -1,4 +1,4 @@
-package com.cgihosting.formulaire.admin;
+package com.cgihosting.formulaire;
 
 import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.constantes.ConstantesPage;

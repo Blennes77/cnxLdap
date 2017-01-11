@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.admin.journaliser;
 
 import com.cgihosting.domain.TypeJournalisationDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 /**
  * Created by marinib on 08/01/2017

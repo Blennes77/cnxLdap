@@ -5,8 +5,10 @@ import com.cgihosting.constantes.ConstantesGenerales;
 import com.cgihosting.constantes.ConstantesMonCGIHosting;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.JournalDTO;
+import com.cgihosting.domain.ProjetDTO;
 import com.cgihosting.domain.ServeurVirtuelDTO;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AfficherCommandesFormulaire;
+import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjaxRecupererProjetFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjoutServeurVirtuelFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.DetailsCommandeFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
@@ -21,8 +23,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by marinib on 06/01/2017.
@@ -71,6 +76,12 @@ public class MesCommmandesController {
         return "monCGIHosting/mesCommandes/ajoutServeurVirtuel";
     }
 
+    @RequestMapping(value = "/monCGIHosting/ajaxRechercheProjet", method = RequestMethod.POST)
+    String ajaxRechercheProjet(@RequestParam String champRechercheProjet, Model model){
+
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_AJAX, recupererAjaxProjets(champRechercheProjet));
+        return "monCGIHosting/mesCommandes/ajaxAfficherProjet";
+    }
 
     @RequestMapping("/monCGIHosting/afficherCommandes")
     String afficherCommandes(Model model){
@@ -104,10 +115,11 @@ public class MesCommmandesController {
 
     @RequestMapping(value = "/monCGIHosting/enregistrerServeurVirtuel", method = RequestMethod.POST)
 
-    String creerServeurVirtuel(@Valid AjoutServeurVirtuelFormulaire ajoutServeurVirtuelFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String creerServeurVirtuel(@Valid AjoutServeurVirtuelFormulaire ajoutServeurVirtuelFormulaire, Model model, BindingResult bindingResult,
+                               @RequestParam String action, @RequestParam int idProjet){
 
         int identifiantDonneeTraitee = 0;
-        ServeurVirtuelDTO serveurVirtuelDTO = new ServeurVirtuelDTO();
+        ServeurVirtuelDTO serveurVirtuelDTO;
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
@@ -119,6 +131,7 @@ public class MesCommmandesController {
             else{
 
                 serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
+                serveurVirtuelDTO.setIdProjet(idProjet);
                 serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
 
 
@@ -235,5 +248,13 @@ public class MesCommmandesController {
         return ajoutServeurVirtuelFormulaire;
     }
 
+    private AjaxRecupererProjetFormulaire recupererAjaxProjets(String codeProjet) {
+        List<ProjetDTO> projetDTOList = new ArrayList<>();
+        AjaxRecupererProjetFormulaire ajaxRecupererProjetFormulaire = new AjaxRecupererProjetFormulaire();
+
+        ajaxRecupererProjetFormulaire.setProjetDTOList(gererProjetsService.searchByCodeProjet(codeProjet));
+
+        return ajaxRecupererProjetFormulaire;
+    }
 
 }

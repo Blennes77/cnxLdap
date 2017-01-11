@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.admin.utilisateurs;
 
 import com.cgihosting.domain.UtilisateurDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 /**
  * Created by garnons on 08/12/2016.

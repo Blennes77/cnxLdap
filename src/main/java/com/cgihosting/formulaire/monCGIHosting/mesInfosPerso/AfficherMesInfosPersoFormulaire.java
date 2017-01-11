@@ -2,7 +2,7 @@ package com.cgihosting.formulaire.monCGIHosting.mesInfosPerso;
 
 import com.cgihosting.domain.ProjetDTO;
 import com.cgihosting.domain.UtilisateurDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 import java.util.List;
 

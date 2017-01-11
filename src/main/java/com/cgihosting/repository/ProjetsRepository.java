@@ -22,4 +22,6 @@ public interface ProjetsRepository extends PagingAndSortingRepository<ProjetDTO,
 
     public List<ProjetDTO> findBymailDP(String mail);
 
+    public List<ProjetDTO> findByCodeProjetContaining(String codeProjet);
+
 }

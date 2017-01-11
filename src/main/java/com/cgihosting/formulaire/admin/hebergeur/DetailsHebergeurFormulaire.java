@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.admin.hebergeur;
 
 import com.cgihosting.domain.HebergeurDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 import javax.validation.constraints.NotNull;
 

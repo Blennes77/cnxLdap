@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.admin.parametres;
 
 import com.cgihosting.domain.ParametresVCODTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 /**
  * Created by marinib on 09/12/2016.

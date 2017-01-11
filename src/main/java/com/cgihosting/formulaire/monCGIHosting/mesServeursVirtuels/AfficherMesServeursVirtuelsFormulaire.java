@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.monCGIHosting.mesServeursVirtuels;
 
 import com.cgihosting.domain.ServeurVirtuelDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 import org.springframework.data.domain.Page;
 
 /**

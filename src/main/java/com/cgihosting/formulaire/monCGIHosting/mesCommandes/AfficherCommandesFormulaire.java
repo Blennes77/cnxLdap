@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.monCGIHosting.mesCommandes;
 
 import com.cgihosting.domain.CommandeDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 import java.util.List;
 

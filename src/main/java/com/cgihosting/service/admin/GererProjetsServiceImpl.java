@@ -63,4 +63,14 @@ public class GererProjetsServiceImpl implements GererProjetsService {
         )));
         return projetDTOPage;
     }
+
+    @Override
+    public List<ProjetDTO> searchByCodeProjet(String codeProjet) {
+
+        List<ProjetDTO> projetDTOList;
+
+        projetDTOList = projetsRepository.findByCodeProjetContaining(codeProjet);
+
+        return projetDTOList;
+    }
 }

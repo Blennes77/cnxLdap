@@ -15,6 +15,8 @@ public class ConstantesPage {
 
     public static final String NOM_FORMULAIRE_HTML = "formulaire";
 
+    public static final String NOM_FORMULAIRE_AJAX = "formulaireAjax";
+
     public static final String ACTION_SAUVEGARDER = "Sauvegarder";
 
     public static final String ACTION_ANNULER = "Annuler";

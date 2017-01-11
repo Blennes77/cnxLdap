@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.monCGIHosting.mesCommandes;
 
 import com.cgihosting.domain.CommandeDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 /**
  * Created by marinib on 06/01/2017.

@@ -3,7 +3,7 @@ package com.cgihosting.formulaire.monCGIHosting.mesCommandes;
 import com.cgihosting.domain.ProjetDTO;
 import com.cgihosting.domain.ServeurVirtuelDTO;
 import com.cgihosting.domain.TemplateOSDTO;
-import com.cgihosting.formulaire.admin.RacineFormulaire;
+import com.cgihosting.formulaire.RacineFormulaire;
 
 import java.util.List;
 
@@ -17,6 +17,8 @@ public class AjoutServeurVirtuelFormulaire extends RacineFormulaire {
     private List<TemplateOSDTO> templateOSDTOListe;
 
     private List<ProjetDTO> projetDTOListe;
+
+    private String champRechercheProjet = "";
 
 
     public ServeurVirtuelDTO getServeurVirtuelDTO() {
@@ -41,5 +43,13 @@ public class AjoutServeurVirtuelFormulaire extends RacineFormulaire {
 
     public void setProjetDTOListe(List<ProjetDTO> projetDTOListe) {
         this.projetDTOListe = projetDTOListe;
+    }
+
+    public String getChampRechercheProjet() {
+        return champRechercheProjet;
+    }
+
+    public void setChampRechercheProjet(String champRechercheProjet) {
+        this.champRechercheProjet = champRechercheProjet;
     }
 }
