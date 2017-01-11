@@ -76,7 +76,7 @@ public class MessagerieController {
 
         MessagerieFormulaire messagerieFormulaire = new MessagerieFormulaire();
 
-        messagerieFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_MESSAGES_TITRE);
+        messagerieFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_MESSAGES_TITRE);
         messagerieFormulaire.setMessageDTOListe(messageService.recupererMessagesUtilisateur(identifiant));
 
         return messagerieFormulaire;
@@ -98,8 +98,8 @@ public class MessagerieController {
 
 
         detailsMessageFormulaire.setMessageDTO(messageService.recupererMessageById(identifiantServeurSelect));
-        detailsMessageFormulaire.setTitrePage(ConstantesPage.DETAIL_SERVEUR_VIRTUEL_TITRE);
-        detailsMessageFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_LISTE_MESSAGES);
+        detailsMessageFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_DETAIL_SERVEUR_VIRTUEL_TITRE);
+        detailsMessageFormulaire.setBoutonRetourLabel(ConstantesPage.MONCGIHOSTING_BOUTON_RETOUR_LISTE_MESSAGES);
 
 
         return detailsMessageFormulaire;

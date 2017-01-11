@@ -16,7 +16,7 @@ public class UtilisateurDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="UTI_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="UTI_PRENOM")
     @NotNull
@@ -94,11 +94,11 @@ public class UtilisateurDTO implements Serializable{
     }
     */
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -173,15 +173,4 @@ public class UtilisateurDTO implements Serializable{
     public void setCodeIngenieur(String codeIngenieur) {
         this.codeIngenieur = codeIngenieur;
     }
-
-    /*
-    public List<RoleDTO> getRoleList() {
-        return roleList;
-    }
-
-
-    public void setRoleList(List<RoleDTO> roleList) {
-        this.roleList = roleList;
-    }
-    */
 }

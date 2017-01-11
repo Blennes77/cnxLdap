@@ -14,10 +14,10 @@ public class ProduitDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="RPR_ID")
-    private int id;
+    private int Integer;
 
     @Column(name="RPR_TYPE_ID")
-    private int typeProduit;
+    private Integer typeProduit;
 
     @Column(name="RPR_DESCRIPTION")
     private String description;
@@ -29,28 +29,27 @@ public class ProduitDTO implements Serializable{
     private String libelleProduit;
 
     @Column(name="RPR_PRIX_UNITAIRE")
-    private int prixUnitaire;
+    private Integer prixUnitaire;
 
     @Column(name="RPR_DOLIBARR_ID")
-    private int  dolibarrId;
+    private Integer  dolibarrId;
 
     @Column(name="RPR_HEBERGEUR_ID")
-    private int hebergeurId;
+    private Integer hebergeurId;
 
-
-    public int getId() {
-        return id;
+    public int getInteger() {
+        return Integer;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setInteger(int integer) {
+        Integer = integer;
     }
 
-    public int getTypeProduit() {
+    public java.lang.Integer getTypeProduit() {
         return typeProduit;
     }
 
-    public void setTypeProduit(int typeProduit) {
+    public void setTypeProduit(java.lang.Integer typeProduit) {
         this.typeProduit = typeProduit;
     }
 
@@ -78,27 +77,27 @@ public class ProduitDTO implements Serializable{
         this.libelleProduit = libelleProduit;
     }
 
-    public int getPrixUnitaire() {
+    public java.lang.Integer getPrixUnitaire() {
         return prixUnitaire;
     }
 
-    public void setPrixUnitaire(int prixUnitaire) {
+    public void setPrixUnitaire(java.lang.Integer prixUnitaire) {
         this.prixUnitaire = prixUnitaire;
     }
 
-    public int getDolibarrId() {
+    public java.lang.Integer getDolibarrId() {
         return dolibarrId;
     }
 
-    public void setDolibarrId(int dolibarrId) {
+    public void setDolibarrId(java.lang.Integer dolibarrId) {
         this.dolibarrId = dolibarrId;
     }
 
-    public int getHebergeurId() {
+    public java.lang.Integer getHebergeurId() {
         return hebergeurId;
     }
 
-    public void setHebergeurId(int hebergeurId) {
+    public void setHebergeurId(java.lang.Integer hebergeurId) {
         this.hebergeurId = hebergeurId;
     }
 }

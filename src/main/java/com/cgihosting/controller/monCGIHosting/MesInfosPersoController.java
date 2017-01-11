@@ -54,7 +54,7 @@ public class MesInfosPersoController {
 
         AfficherMesInfosPersoFormulaire afficherMesInfosPersoFormulaire = new AfficherMesInfosPersoFormulaire();
 
-        afficherMesInfosPersoFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_MESINFOS_PERSO_TITRE);
+        afficherMesInfosPersoFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_MESINFOS_PERSO_TITRE);
         utilisateurDTO = gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
         afficherMesInfosPersoFormulaire.setUtilisateurDTO(utilisateurDTO);
 

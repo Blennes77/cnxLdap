@@ -14,7 +14,7 @@ public class EtatTraitementServeurDTO {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="RES_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="RES_CODE")
     private String code = "";
@@ -22,11 +22,11 @@ public class EtatTraitementServeurDTO {
     @Column(name="RES_DESCRIPTION")
     private String description = "";
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

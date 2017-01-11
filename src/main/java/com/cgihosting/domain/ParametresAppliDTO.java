@@ -9,49 +9,48 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="configuration_application")
-public class ParametresAppliDTO implements Serializable{
+public class ParametresAppliDTO implements Serializable {
 
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="CAP_ID")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CAP_ID")
+    private Integer id;
 
-    @Column(name="CAP_TITRE_SITE")
+    @Column(name = "CAP_TITRE_SITE")
     private String titreSite;
 
-    @Column(name="CAP_CHAINE_CONNEXIONLDAP")
+    @Column(name = "CAP_CHAINE_CONNEXIONLDAP")
     private String chaineConnexionLDAP;
 
-    @Column(name="CAP_COMPTE_LDAP")
+    @Column(name = "CAP_COMPTE_LDAP")
     private String compteLDAP;
 
-    @Column(name="CAP_MOTDEPASSE_LDAP")
+    @Column(name = "CAP_MOTDEPASSE_LDAP")
     private String motDePasseLDAP;
 
-    @Column(name="CAP_COMPTE_ADMIN")
+    @Column(name = "CAP_COMPTE_ADMIN")
     private String compteAdmin;
 
-    @Column(name="CAP_MOTDEPASSE_ADMIN")
+    @Column(name = "CAP_MOTDEPASSE_ADMIN")
     private String motDePasseAdmin;
 
-    @Column(name="CAP_MAIL_ADMIN")
+    @Column(name = "CAP_MAIL_ADMIN")
     private String mailAdmin;
 
-    @Column(name="CAP_ID_TYPE_ENVIRONNEMENT")
-    private int typeEnvironnement;
+    @Column(name = "CAP_ID_TYPE_ENVIRONNEMENT")
+    private Integer typeEnvironnement;
 
 
     @OneToOne
-    @JoinColumn(name="CAP_ID_TYPE_ENVIRONNEMENT", insertable = false, updatable = false)
+    @JoinColumn(name = "CAP_ID_TYPE_ENVIRONNEMENT", insertable = false, updatable = false)
     private TypeEnvironnementDTO typeEnvironnementDTO;
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -87,7 +86,6 @@ public class ParametresAppliDTO implements Serializable{
         this.motDePasseLDAP = motDePasseLDAP;
     }
 
-
     public String getCompteAdmin() {
         return compteAdmin;
     }
@@ -104,16 +102,6 @@ public class ParametresAppliDTO implements Serializable{
         this.motDePasseAdmin = motDePasseAdmin;
     }
 
-
-    public TypeEnvironnementDTO getTypeEnvironnementDTO() {
-        return typeEnvironnementDTO;
-    }
-
-    public void setTypeEnvironnementDTO(TypeEnvironnementDTO typeEnvironnementDTO) {
-        this.typeEnvironnementDTO = typeEnvironnementDTO;
-    }
-
-
     public String getMailAdmin() {
         return mailAdmin;
     }
@@ -122,11 +110,19 @@ public class ParametresAppliDTO implements Serializable{
         this.mailAdmin = mailAdmin;
     }
 
-    public int getTypeEnvironnement() {
+    public Integer getTypeEnvironnement() {
         return typeEnvironnement;
     }
 
-    public void setTypeEnvironnement(int typeEnvironnement) {
+    public void setTypeEnvironnement(Integer typeEnvironnement) {
         this.typeEnvironnement = typeEnvironnement;
+    }
+
+    public TypeEnvironnementDTO getTypeEnvironnementDTO() {
+        return typeEnvironnementDTO;
+    }
+
+    public void setTypeEnvironnementDTO(TypeEnvironnementDTO typeEnvironnementDTO) {
+        this.typeEnvironnementDTO = typeEnvironnementDTO;
     }
 }

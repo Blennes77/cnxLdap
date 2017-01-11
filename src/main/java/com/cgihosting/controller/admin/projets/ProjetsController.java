@@ -48,7 +48,7 @@ public class ProjetsController {
 
         AfficherProjetsFormulaire afficherProjetsFormulaire = new AfficherProjetsFormulaire();
 
-        afficherProjetsFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_PROJETS_TITRE);
+        afficherProjetsFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_PROJETS_TITRE);
         afficherProjetsFormulaire.setProjetDTOPage(gererProjetsService.searchAllProjetDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
         PaginationObjet paginationObjet;

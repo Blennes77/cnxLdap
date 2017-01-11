@@ -14,7 +14,7 @@ public class TypeJournalisationDTO {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="RTJ_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="RTJ_ACTION_LIBELLE")
     private String libelleAction = "";
@@ -23,11 +23,11 @@ public class TypeJournalisationDTO {
     private String description = "";
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

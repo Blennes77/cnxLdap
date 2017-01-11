@@ -14,7 +14,7 @@ public class WorkflowNomDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="RWN_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="RWN_NOM_WORKFLOW")
     private String nomWorkflow = "";
@@ -29,12 +29,11 @@ public class WorkflowNomDTO implements Serializable{
     @JoinColumn(name="RWN_ID_HEBERGEUR", insertable = false, updatable = false)
     private HebergeurDTO hebergeurDTO ;
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

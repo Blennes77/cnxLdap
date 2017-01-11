@@ -14,16 +14,16 @@ public class JournalDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="JEV_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="JEV_LOGIN_NAME")
     private String login;
 
     @Column(name="JEV_TYPEACTION_ID")
-    private int typeActionId;
+    private Integer typeActionId;
 
     @Column(name="JEV_ID_DONNEE")
-    private int idDonnee;
+    private Integer idDonnee;
 
 
     @OneToOne
@@ -50,7 +50,7 @@ public class JournalDTO implements Serializable{
 
     }
 
-    public JournalDTO(String login, int typeActionId, int idDonnee ) {
+    public JournalDTO(String login, Integer typeActionId, Integer idDonnee ) {
 
         this.login = login;
         this.typeActionId = typeActionId;
@@ -58,11 +58,11 @@ public class JournalDTO implements Serializable{
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -74,14 +74,21 @@ public class JournalDTO implements Serializable{
         this.login = login;
     }
 
-    public int getTypeActionId() {
+    public Integer getTypeActionId() {
         return typeActionId;
     }
 
-    public void setTypeActionId(int typeActionId) {
+    public void setTypeActionId(Integer typeActionId) {
         this.typeActionId = typeActionId;
     }
 
+    public Integer getIdDonnee() {
+        return idDonnee;
+    }
+
+    public void setIdDonnee(Integer idDonnee) {
+        this.idDonnee = idDonnee;
+    }
 
     public UtilisateurDTO getUtilisateurDTO() {
         return utilisateurDTO;
@@ -91,20 +98,11 @@ public class JournalDTO implements Serializable{
         this.utilisateurDTO = utilisateurDTO;
     }
 
-
     public TypeJournalisationDTO getTypeJournalisationDTO() {
         return typeJournalisationDTO;
     }
 
     public void setTypeJournalisationDTO(TypeJournalisationDTO typeJournalisationDTO) {
         this.typeJournalisationDTO = typeJournalisationDTO;
-    }
-
-    public int getIdDonnee() {
-        return idDonnee;
-    }
-
-    public void setIdDonnee(int idDonnee) {
-        this.idDonnee = idDonnee;
     }
 }

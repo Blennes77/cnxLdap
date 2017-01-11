@@ -14,7 +14,7 @@ public class ProjetDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="PRO_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="PRO_UTI_ID")
     private Integer idUser;
@@ -37,19 +37,19 @@ public class ProjetDTO implements Serializable{
     @Column(name="PRO_MAILDP")
     private String mailDP;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getIdUser() {
+    public Integer getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 

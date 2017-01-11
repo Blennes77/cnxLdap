@@ -14,7 +14,7 @@ public class WorkflowUUIDDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="RWU_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="RWU_ID_NOM_WORKFLOW")
     private Integer idWorkflow;
@@ -29,16 +29,16 @@ public class WorkflowUUIDDTO implements Serializable{
     @JoinColumn(name="RWU_ID_ENV", insertable = false, updatable = false)
     private TypeEnvironnementDTO typeEnvironnementDTO;
 
-
     @OneToOne
     @JoinColumn(name="RWU_ID_NOM_WORKFLOW", insertable = false, updatable = false)
     private WorkflowNomDTO workflowNomDTO;
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

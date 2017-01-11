@@ -7,14 +7,14 @@ import java.io.Serializable;
  */
 public class RoleUtilisateurDTOPK implements Serializable{
 
-    private int idUser;
-    private int idRole;
+    private Integer idUser;
+    private Integer idRole;
 
     public RoleUtilisateurDTOPK() {
 
     }
 
-    public RoleUtilisateurDTOPK(int idUser, int idRole) {
+    public RoleUtilisateurDTOPK(Integer idUser, Integer idRole) {
 
         this.idUser= idUser;
         this.idRole = idRole;
@@ -22,19 +22,19 @@ public class RoleUtilisateurDTOPK implements Serializable{
     }
 
 
-    public int getIdUser() {
+    public Integer getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 
-    public int getIdRole() {
+    public Integer getIdRole() {
         return idRole;
     }
 
-    public void setIdRole(int idRole) {
+    public void setIdRole(Integer idRole) {
         this.idRole = idRole;
     }
 }

@@ -163,9 +163,9 @@ public class ParametrageController {
 
         ParametrerAppliFormulaire parametrerAppliFormulaire = new ParametrerAppliFormulaire();
 
-        parametrerAppliFormulaire.setTitrePage(ConstantesPage.PARAMETRAGE_APPLI_TITRE);
+        parametrerAppliFormulaire.setTitrePage(ConstantesPage.ADMIN_PARAMETRAGE_APPLI_TITRE);
         parametrerAppliFormulaire.setParametresAppliDTO(parametrerService.recupererParametresAppli(env.getRequiredProperty("nom.environnement")));
-        parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_SAUVEGARDER_PARAMETRES_APPLI);
+        parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_APPLI);
 
         return parametrerAppliFormulaire;
     }
@@ -185,9 +185,9 @@ public class ParametrageController {
 
         ParametrerVCOFormulaire parametrerVCOFormulaire = new ParametrerVCOFormulaire();
 
-        parametrerVCOFormulaire.setTitrePage(ConstantesPage.PARAMETRAGE_VCO_TITRE);
+        parametrerVCOFormulaire.setTitrePage(ConstantesPage.ADMIN_PARAMETRAGE_VCO_TITRE);
         parametrerVCOFormulaire.setParametresVCODTO(parametrerService.recupererParametresVCO(env.getRequiredProperty("nom.environnement")));
-        parametrerVCOFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_SAUVEGARDER_PARAMETRES_VCO);
+        parametrerVCOFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_VCO);
 
         return parametrerVCOFormulaire;
     }

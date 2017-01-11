@@ -13,33 +13,33 @@ public class RoleUtilisateurDTO implements Serializable{
 
     @Id
     @Column(name="URU_UTI_ID")
-    private int idUser;
+    private Integer idUser;
 
     @Id
     @Column(name="URU_RRU_ID")
-    private int idRole;
+    private Integer idRole;
 
     public RoleUtilisateurDTO() {
     }
 
-    public RoleUtilisateurDTO(int idUser, int idRole) {
+    public RoleUtilisateurDTO(Integer idUser, Integer idRole) {
         this.idUser = idUser;
         this.idRole = idRole;
     }
 
-    public int getIdUser() {
+    public Integer getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 
-    public int getIdRole() {
+    public Integer getIdRole() {
         return idRole;
     }
 
-    public void setIdRole(int idRole) {
+    public void setIdRole(Integer idRole) {
         this.idRole = idRole;
     }
 }

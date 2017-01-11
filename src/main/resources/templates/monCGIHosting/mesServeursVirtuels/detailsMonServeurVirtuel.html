@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<form action="#" th:action="@{/exploit/modifierServeurVirtuel}" th:object="${formulaire}" method="post">
+<div class="container">
+    <div class="jumbotron">
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
+        <!-- Table -->
+        <table class="table">
+            <tr >
+                <td>Nom du serveur</td>
+                <td th:text="${formulaire.serveurVirtuelDTO.nomServeur}"></td>
+
+            </tr>
+            <tr>
+                <td>Adresse IP</td>
+                <td th:text="${formulaire.serveurVirtuelDTO.adresseIp}"></td>
+            </tr>
+
+            <tr>
+                <td>Etat traitement</td>
+                <td th:text="${formulaire.serveurVirtuelDTO.etatTraitementServeurDTO.code}"></td>
+            </tr>
+            <tr>
+                <td>Système Exploitation</td>
+                <td th:text="${formulaire.serveurVirtuelDTO.templateOSDTO.libelleTemplate}"></td>
+            </tr>
+        </table>
+        <br/>
+        <button type="submit" name="action" th:attr="value=${formulaire.actionAnnuler}" class="btn btn-sm btn-danger">
+            <span th:text="${formulaire.boutonRetourLabel}">Label bouton</span>
+        </button>
+        <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">
+            <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
+        </button>
+    </div>
+</div>
+
+</form>
+</body>
+</html>

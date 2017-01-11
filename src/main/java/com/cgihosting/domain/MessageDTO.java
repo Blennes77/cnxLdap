@@ -14,7 +14,7 @@ public class MessageDTO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MUT_ID")
-    private int id;
+    private Integer id;
 
     @Column(name = "MUT_SUJET")
     private String sujet;
@@ -23,10 +23,10 @@ public class MessageDTO implements Serializable {
     private String contenu;
 
     @Column(name = "MUT_ID_DEST")
-    private int idDest;
+    private Integer idDest;
 
     @Column(name = "MUT_ID_EXP")
-    private int idExp;
+    private Integer idExp;
 
 
    /*
@@ -35,11 +35,11 @@ public class MessageDTO implements Serializable {
 	`MUT_DATE_LECTURE`
 	*/
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -59,19 +59,19 @@ public class MessageDTO implements Serializable {
         this.contenu = contenu;
     }
 
-    public int getIdDest() {
+    public Integer getIdDest() {
         return idDest;
     }
 
-    public void setIdDest(int idDest) {
+    public void setIdDest(Integer idDest) {
         this.idDest = idDest;
     }
 
-    public int getIdExp() {
+    public Integer getIdExp() {
         return idExp;
     }
 
-    public void setIdExp(int idExp) {
+    public void setIdExp(Integer idExp) {
         this.idExp = idExp;
     }
 }

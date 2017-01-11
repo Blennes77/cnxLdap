@@ -14,7 +14,7 @@ public class HebergeurDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="RHE_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="RHE_NOM")
     private String nom = "";
@@ -22,11 +22,11 @@ public class HebergeurDTO implements Serializable{
     @Column(name="RHE_DESCRIPTION")
     private String description = "";
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

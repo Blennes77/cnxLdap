@@ -14,7 +14,7 @@ public class TemplateOSDTO implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="TEO_ID")
-    private int id;
+    private Integer id;
 
     @Column(name="TEO_CODE_TEMPLATE")
     private String codeTemplate;
@@ -26,25 +26,25 @@ public class TemplateOSDTO implements Serializable{
     private String descriptionTemplate;
 
     @Column(name="TEO_ID_HEBERGEUR")
-    private int idHebergeur;
+    private Integer idHebergeur;
 
     @Column(name="TEO_ID_CREATEUR")
-    private int idCreateur;
+    private Integer idCreateur;
 
     @Column(name="TEO_ID_MODIFICATEUR")
-    private int idModificateur;
+    private Integer idModificateur;
 
     @Column(name="TEO_MINRAM")
-    private int minRam;
+    private Integer minRam;
 
     @Column(name="TEO_MINCPU")
-    private int minCpu;
+    private Integer minCpu;
 
     @Column(name="TEO_MINDISQUE")
-    private int minDisque;
+    private Integer minDisque;
 
     @Column(name="TEO_ID_OS")
-    private int idOS;
+    private Integer idOS;
     /**
 	`TEO_DATE_CREATION` DATETIME NULL DEFAULT NULL,
 	`TEO_DATE_FIN_ACTIF` DATETIME NULL DEFAULT NULL,
@@ -83,12 +83,11 @@ public class TemplateOSDTO implements Serializable{
 
     }
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -116,28 +115,60 @@ public class TemplateOSDTO implements Serializable{
         this.descriptionTemplate = descriptionTemplate;
     }
 
-    public int getIdHebergeur() {
+    public Integer getIdHebergeur() {
         return idHebergeur;
     }
 
-    public void setIdHebergeur(int idHebergeur) {
+    public void setIdHebergeur(Integer idHebergeur) {
         this.idHebergeur = idHebergeur;
     }
 
-    public int getIdCreateur() {
+    public Integer getIdCreateur() {
         return idCreateur;
     }
 
-    public void setIdCreateur(int idCreateur) {
+    public void setIdCreateur(Integer idCreateur) {
         this.idCreateur = idCreateur;
     }
 
-    public int getIdModificateur() {
+    public Integer getIdModificateur() {
         return idModificateur;
     }
 
-    public void setIdModificateur(int idModificateur) {
+    public void setIdModificateur(Integer idModificateur) {
         this.idModificateur = idModificateur;
+    }
+
+    public Integer getMinRam() {
+        return minRam;
+    }
+
+    public void setMinRam(Integer minRam) {
+        this.minRam = minRam;
+    }
+
+    public Integer getMinCpu() {
+        return minCpu;
+    }
+
+    public void setMinCpu(Integer minCpu) {
+        this.minCpu = minCpu;
+    }
+
+    public Integer getMinDisque() {
+        return minDisque;
+    }
+
+    public void setMinDisque(Integer minDisque) {
+        this.minDisque = minDisque;
+    }
+
+    public Integer getIdOS() {
+        return idOS;
+    }
+
+    public void setIdOS(Integer idOS) {
+        this.idOS = idOS;
     }
 
     public UtilisateurDTO getUtilisateurCreateurDTO() {
@@ -164,44 +195,11 @@ public class TemplateOSDTO implements Serializable{
         this.hebergeurDTO = hebergeurDTO;
     }
 
-    public int getMinRam() {
-        return minRam;
-    }
-
-    public void setMinRam(int minRam) {
-        this.minRam = minRam;
-    }
-
-    public int getMinCpu() {
-        return minCpu;
-    }
-
-    public void setMinCpu(int minCpu) {
-        this.minCpu = minCpu;
-    }
-
-
     public TypeOSDTO getTypeOSDTO() {
         return typeOSDTO;
     }
 
     public void setTypeOSDTO(TypeOSDTO typeOSDTO) {
         this.typeOSDTO = typeOSDTO;
-    }
-
-    public int getIdOS() {
-        return idOS;
-    }
-
-    public void setIdOS(int idOS) {
-        this.idOS = idOS;
-    }
-
-    public int getMinDisque() {
-        return minDisque;
-    }
-
-    public void setMinDisque(int minDisque) {
-        this.minDisque = minDisque;
     }
 }

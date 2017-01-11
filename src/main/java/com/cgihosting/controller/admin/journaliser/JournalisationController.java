@@ -121,7 +121,7 @@ public class JournalisationController {
         afficherJournalisationFormulaire.setPaginationObjet(paginationObjet);
 
 
-        afficherJournalisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_JOURNALISATION_TITRE);
+        afficherJournalisationFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_JOURNALISATION_TITRE);
         //  afficherJournalisationFormulaire.setJournalDTOListe(journaliserService.recupererJournalisation());
 
         afficherJournalisationFormulaire.setJournalDTOPage(journaliserService.searchAllJournalDTOPageByPage(pageCourante, numLigneAfficheParPage));
@@ -141,8 +141,8 @@ public class JournalisationController {
         afficherReferentielJournalisationFormulaire.setPaginationObjet(paginationObjet);
 
 
-        afficherReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_REFERENTIEL_JOURNALISATION_TITRE);
-        afficherReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_AJOUTER_REFERENTIEL_JOURNALISATIOn);
+        afficherReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_REFERENTIEL_JOURNALISATION_TITRE);
+        afficherReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_JOURNALISATIOn);
 
         afficherReferentielJournalisationFormulaire.setTypeJournalisationDTOPage(journaliserService.searchAllTypeJournalisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
@@ -161,11 +161,11 @@ public class JournalisationController {
         if (identifiantReferentielJournalisationSelect != 0) {
             typeJournalisationDTO = journaliserService.recupererReferentielJournalisationById(identifiantReferentielJournalisationSelect);
 
-            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_MODIFIER_REFERENTIEL_JOURNALISATION);
+            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_REFERENTIEL_JOURNALISATION);
         }
         else {
 
-            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_AJOUTER_REFERENTIEL_JOURNALISATIOn);
+            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_JOURNALISATIOn);
         }
 
 
@@ -173,8 +173,8 @@ public class JournalisationController {
 
         detailsReferentielJournalisationFormulaire.setTypeJournalisationDTO(typeJournalisationDTO);
 
-        detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_TITRE);
-        detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_REFERENTIEL_JOURNALISATION);
+        detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAILS_REFERENTIEL_JOURNALISATION_TITRE);
+        detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_REFERENTIEL_JOURNALISATION);
 
 
         return detailsReferentielJournalisationFormulaire;

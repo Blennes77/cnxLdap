@@ -109,7 +109,7 @@ public class UtilisateursController {
         paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererUtilisateurService.nombreTotalUtilisateurs(roleUtilisateur));
         afficherUtilisateursFormulaire.setPaginationObjet(paginationObjet);
 
-        afficherUtilisateursFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_UTILISATEURS_TITRE);
+        afficherUtilisateursFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_UTILISATEURS_TITRE);
 
         // Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
         afficherUtilisateursFormulaire.setUtilisateurDTOPage(gererUtilisateurService.searchAllUsersByPage(pageCourante, numLigneAfficheParPage));
@@ -123,10 +123,10 @@ public class UtilisateursController {
         DetailsUtilisateurFormulaire detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
         detailsUtilisateurFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserById(id));
 
-        detailsUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_MODIFIER_ROLE_UTILISATEUR);
-        detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_AFFICHER_UTILISATEURS);
+        detailsUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_ROLE_UTILISATEUR);
+        detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_AFFICHER_UTILISATEURS);
 
-        detailsUtilisateurFormulaire.setTitrePage(ConstantesPage.DETAIL_UTILISATEUR_TITRE);
+        detailsUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_UTILISATEUR_TITRE);
 
         List<RoleUtilisateurDTO> listRolesUtilisateurDTO = gererUtilisateurService.recupererRolesUtilisateur(id);
         for(int i = 0; i<listRolesUtilisateurDTO.size();i++){

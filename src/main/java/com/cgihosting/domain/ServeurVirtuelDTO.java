@@ -23,22 +23,22 @@ public class ServeurVirtuelDTO implements Serializable{
     private String nomServeur;
 
     @Column(name="SVI_RAM")
-    private int ram;
+    private Integer ram;
 
     @Column(name="SVI_CPUS")
-    private int cpus;
+    private Integer cpus;
 
     @Column(name="SVI_ID_OS")
-    private int idOS;
+    private Integer idOS;
 
     @Column(name="SVI_DISQUE_SYSTEME")
-    private int tailleDisqueSysteme;
+    private Integer tailleDisqueSysteme;
 
     @Column(name="SVI_IND_DISQUE_ADDITIF")
-    private int indDisqueAdditif;
+    private Integer indDisqueAdditif;
 
     @Column(name="SVI_DISQUE_ADDITIF")
-    private int tailleDisqueAdditif;
+    private Integer tailleDisqueAdditif;
 
     @Column(name="SVI_NOM_ADMIN")
     private String nomAdmin;
@@ -53,20 +53,20 @@ public class ServeurVirtuelDTO implements Serializable{
     private String masque;
 
     @Column(name="SVI_ID_TYPE_HEBERGEUR")
-    private int idTypeHeberg;
+    private Integer idTypeHeberg;
 
     @Column(name="SVI_ID_WORKFLOW")
-    private int idWorkflow;
+    private Integer idWorkflow;
 
     @Column(name="SVI_MASQUECICDR")
-    private int masqueCICDR;
+    private Integer masqueCICDR;
 
     @Column(name="SVI_IND_TRAITEMENT")
-    private int indTraitement;
+    private Integer indTraitement;
 
 
     @Column(name="SVI_ID_PROJET")
-    private int idProjet;
+    private Integer idProjet;
 
 
 
@@ -80,10 +80,10 @@ public class ServeurVirtuelDTO implements Serializable{
 
 
     @Column(name="SVI_IND_CUSTOMISATION")
-    private int indCustomisation;
+    private Integer indCustomisation;
 
     @Column(name="SVI_ID_PHPIPAM")
-    private int idPhpipam;
+    private Integer idPhpipam;
 
     @Column(name="SVI_ID_UTI_EXPLOITANT")
     private Integer idExploitant;
@@ -93,6 +93,9 @@ public class ServeurVirtuelDTO implements Serializable{
 
     @Column(name="SVI_ID_UTI_VALIDEUR")
     private Integer idValideur;
+
+    @Column(name="SVI_ID_UTI_DP")
+    private Integer idDP;
 
 
     @OneToOne
@@ -119,6 +122,10 @@ public class ServeurVirtuelDTO implements Serializable{
     @OneToOne
     @JoinColumn(name="SVI_ID_UTI_VALIDEUR", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurValideurDTO ;
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_UTI_DP", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurDPDTO ;
 
 
     /**
@@ -150,51 +157,51 @@ public class ServeurVirtuelDTO implements Serializable{
         this.nomServeur = nomServeur;
     }
 
-    public int getRam() {
+    public Integer getRam() {
         return ram;
     }
 
-    public void setRam(int ram) {
+    public void setRam(Integer ram) {
         this.ram = ram;
     }
 
-    public int getCpus() {
+    public Integer getCpus() {
         return cpus;
     }
 
-    public void setCpus(int cpus) {
+    public void setCpus(Integer cpus) {
         this.cpus = cpus;
     }
 
-    public int getIdOS() {
+    public Integer getIdOS() {
         return idOS;
     }
 
-    public void setIdOS(int idOS) {
+    public void setIdOS(Integer idOS) {
         this.idOS = idOS;
     }
 
-    public int getTailleDisqueSysteme() {
+    public Integer getTailleDisqueSysteme() {
         return tailleDisqueSysteme;
     }
 
-    public void setTailleDisqueSysteme(int tailleDisqueSysteme) {
+    public void setTailleDisqueSysteme(Integer tailleDisqueSysteme) {
         this.tailleDisqueSysteme = tailleDisqueSysteme;
     }
 
-    public int getIndDisqueAdditif() {
+    public Integer getIndDisqueAdditif() {
         return indDisqueAdditif;
     }
 
-    public void setIndDisqueAdditif(int indDisqueAdditif) {
+    public void setIndDisqueAdditif(Integer indDisqueAdditif) {
         this.indDisqueAdditif = indDisqueAdditif;
     }
 
-    public int getTailleDisqueAdditif() {
+    public Integer getTailleDisqueAdditif() {
         return tailleDisqueAdditif;
     }
 
-    public void setTailleDisqueAdditif(int tailleDisqueAdditif) {
+    public void setTailleDisqueAdditif(Integer tailleDisqueAdditif) {
         this.tailleDisqueAdditif = tailleDisqueAdditif;
     }
 
@@ -230,16 +237,53 @@ public class ServeurVirtuelDTO implements Serializable{
         this.masque = masque;
     }
 
+    public Integer getIdTypeHeberg() {
+        return idTypeHeberg;
+    }
 
+    public void setIdTypeHeberg(Integer idTypeHeberg) {
+        this.idTypeHeberg = idTypeHeberg;
+    }
 
-    public int getMasqueCICDR() {
+    public Integer getIdWorkflow() {
+        return idWorkflow;
+    }
+
+    public void setIdWorkflow(Integer idWorkflow) {
+        this.idWorkflow = idWorkflow;
+    }
+
+    public Integer getMasqueCICDR() {
         return masqueCICDR;
     }
 
-    public void setMasqueCICDR(int masqueCICDR) {
+    public void setMasqueCICDR(Integer masqueCICDR) {
         this.masqueCICDR = masqueCICDR;
     }
 
+    public Integer getIndTraitement() {
+        return indTraitement;
+    }
+
+    public void setIndTraitement(Integer indTraitement) {
+        this.indTraitement = indTraitement;
+    }
+
+    public Integer getIdProjet() {
+        return idProjet;
+    }
+
+    public void setIdProjet(Integer idProjet) {
+        this.idProjet = idProjet;
+    }
+
+    public Integer getIdDP() {
+        return idDP;
+    }
+
+    public void setIdDP(Integer idDP) {
+        this.idDP = idDP;
+    }
 
     public String getMessageErreur() {
         return messageErreur;
@@ -249,71 +293,43 @@ public class ServeurVirtuelDTO implements Serializable{
         this.messageErreur = messageErreur;
     }
 
-    public int getIndCustomisation() {
+    public Integer getIndCustomisation() {
         return indCustomisation;
     }
 
-    public void setIndCustomisation(int indCustomisation) {
+    public void setIndCustomisation(Integer indCustomisation) {
         this.indCustomisation = indCustomisation;
     }
 
-    public int getIdTypeHeberg() {
-        return idTypeHeberg;
-    }
-
-    public void setIdTypeHeberg(int idTypeHeberg) {
-        this.idTypeHeberg = idTypeHeberg;
-    }
-
-    public int getIdWorkflow() {
-        return idWorkflow;
-    }
-
-    public void setIdWorkflow(int idWorkflow) {
-        this.idWorkflow = idWorkflow;
-    }
-
-    public int getIdPhpipam() {
+    public Integer getIdPhpipam() {
         return idPhpipam;
     }
 
-    public void setIdPhpipam(int idPhpipam) {
+    public void setIdPhpipam(Integer idPhpipam) {
         this.idPhpipam = idPhpipam;
+    }
+
+    public Integer getIdExploitant() {
+        return idExploitant;
     }
 
     public void setIdExploitant(Integer idExploitant) {
         this.idExploitant = idExploitant;
     }
 
+    public Integer getIdEnregistreur() {
+        return idEnregistreur;
+    }
+
     public void setIdEnregistreur(Integer idEnregistreur) {
         this.idEnregistreur = idEnregistreur;
     }
 
-    public void setIdValideur(Integer idValideur) {
-        this.idValideur = idValideur;
-    }
-
-    public int getIdExploitant() {
-        return idExploitant;
-    }
-
-    public void setIdExploitant(int idExploitant) {
-        this.idExploitant = idExploitant;
-    }
-
-    public int getIdEnregistreur() {
-        return idEnregistreur;
-    }
-
-    public void setIdEnregistreur(int idEnregistreur) {
-        this.idEnregistreur = idEnregistreur;
-    }
-
-    public int getIdValideur() {
+    public Integer getIdValideur() {
         return idValideur;
     }
 
-    public void setIdValideur(int idValideur) {
+    public void setIdValideur(Integer idValideur) {
         this.idValideur = idValideur;
     }
 
@@ -333,14 +349,6 @@ public class ServeurVirtuelDTO implements Serializable{
         this.templateOSDTO = templateOSDTO;
     }
 
-    public int getIndTraitement() {
-        return indTraitement;
-    }
-
-    public void setIndTraitement(int indTraitement) {
-        this.indTraitement = indTraitement;
-    }
-
     public ProjetDTO getProjetDTO() {
         return projetDTO;
     }
@@ -349,15 +357,6 @@ public class ServeurVirtuelDTO implements Serializable{
         this.projetDTO = projetDTO;
     }
 
-    public int getIdProjet() {
-        return idProjet;
-    }
-
-    public void setIdProjet(int idProjet) {
-        this.idProjet = idProjet;
-    }
-
-
     public UtilisateurDTO getUtilisateurExploitantDTO() {
         return utilisateurExploitantDTO;
     }
@@ -365,7 +364,6 @@ public class ServeurVirtuelDTO implements Serializable{
     public void setUtilisateurExploitantDTO(UtilisateurDTO utilisateurExploitantDTO) {
         this.utilisateurExploitantDTO = utilisateurExploitantDTO;
     }
-
 
     public UtilisateurDTO getUtilisateurEnregistreurDTO() {
         return utilisateurEnregistreurDTO;
@@ -381,5 +379,13 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setUtilisateurValideurDTO(UtilisateurDTO utilisateurValideurDTO) {
         this.utilisateurValideurDTO = utilisateurValideurDTO;
+    }
+
+    public UtilisateurDTO getUtilisateurDPDTO() {
+        return utilisateurDPDTO;
+    }
+
+    public void setUtilisateurDPDTO(UtilisateurDTO utilisateurDPDTO) {
+        this.utilisateurDPDTO = utilisateurDPDTO;
     }
 }
