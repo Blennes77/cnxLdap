@@ -1,8 +1,10 @@
 package com.cgihosting;
 
 import com.cgihosting.constantes.ConstantesAdmin;
+import com.cgihosting.constantes.ConstantesDate;
 import com.cgihosting.domain.RoleDTO;
 import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.GererUtilisateurService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,11 +26,9 @@ public class CnxLdapApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		Calendar calendar = Calendar.getInstance();
-		Date dateCreation = new Date(calendar.getTime().getTime());
 
 		// INSERT - Création d'un utilisateur sans rôle
-		UtilisateurDTO utilisateurDTO = new UtilisateurDTO("prenom", "nom", "mail", "016422", "066422", dateCreation, dateCreation, "logon", "code");
+		UtilisateurDTO utilisateurDTO = new UtilisateurDTO("prenom", "nom", "mail", "016422", "066422", Dates.aujourdhui(), Dates.aujourdhui(), "logon3", "code");
 		gererUtilisateurService.saveUser(utilisateurDTO);
 
 		// UPDATE - Mise à jour d'un utilisateur sans rôle
@@ -37,6 +37,12 @@ public class CnxLdapApplicationTests {
 
 		// DELETE - Suppression de l'utilisateur sans rôle
 		gererUtilisateurService.deleteUser(utilisateurDTO);
+
+		String maChaine = "";
+		String maDate = "";
+
+		maChaine = Dates.dateToString(Dates.aujourdhui(), ConstantesDate.DATE);
+		maDate = Dates.dateToString(Dates.aujourdhui(), ConstantesDate.DATETIME);
 
 		List<RoleDTO> roleDTOList = new ArrayList<>();
 		roleDTOList.add(new RoleDTO(ConstantesAdmin.ROLE_USER));
