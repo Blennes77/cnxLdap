@@ -30,6 +30,7 @@ public class ConstantesPage {
 
     /** Titre des pages **/
     public static final String MONCGIHOSTING_AFFICHAGE_MESINFOS_PERSO_TITRE = "Mes informations personnelles";
+    public static final String MONCGIHOSTING_AFFICHAGE_MESPROJETS = "Mes projets";
 
     public static final String MONCGIHOSTING_AFFICHAGE_MESSAGES_TITRE = "Mes messages";
     public static final String MONCGIHOSTING_AFFICHAGE_COMMANDES_TITRE = "Mes commandes";

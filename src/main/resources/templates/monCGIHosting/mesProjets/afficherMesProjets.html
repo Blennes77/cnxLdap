@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <div class="jumbotron">
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
+
+        <!-- Table -->
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Code projet </th>
+                <th>Libellé</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="projet:${formulaire.projetDTODPList}">
+                <td th:text="${projet.codeProjet}" ></td>
+                <td th:text="${projet.nomProjet}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
