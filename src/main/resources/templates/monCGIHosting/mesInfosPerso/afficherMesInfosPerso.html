@@ -24,33 +24,41 @@
     <div class="jumbotron">
         <h2 th:text="${formulaire.titrePage}">Titre</h2>
         <!-- Table -->
-        <table class="table">
-            <tr >
-                <th>Nom </th>
-                <th>Prenom</th>
-                <th>Staff Number</th>
-                <th>Tél Bureau</th>
-                <th>Tél Mobile</th>
-            </tr>
-            <tr>
-                <td th:text="${formulaire.utilisateurDTO.nom}"></td>
-                <td th:text="${formulaire.utilisateurDTO.prenom}"></td>
-                <td th:text="${formulaire.utilisateurDTO.codeIngenieur}"></td>
-                <td th:text="${formulaire.utilisateurDTO.telephoneBureau}"></td>
-                <td th:text="${formulaire.utilisateurDTO.telephoneMobile}"></td>
-            </tr>
+        <table class="table table-striped">
+            <thead>
+                <tr >
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Staff Number</th>
+                    <th>Tél Bureau</th>
+                    <th>Tél Mobile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${formulaire.utilisateurDTO.nom}"></td>
+                    <td th:text="${formulaire.utilisateurDTO.prenom}"></td>
+                    <td th:text="${formulaire.utilisateurDTO.codeIngenieur}"></td>
+                    <td th:text="${formulaire.utilisateurDTO.telephoneBureau}"></td>
+                    <td th:text="${formulaire.utilisateurDTO.telephoneMobile}"></td>
+                </tr>
+            </tbody>
         </table>
         <h2>Mes Projets</h2>
         <!-- Table -->
-        <table class="table">
-            <tr>
-                <th>Code projet </th>
-                <th>Libellé</th>
-            </tr>
-            <tr th:each="projet:${formulaire.projetDTODPList}">
-                <td th:text="${projet.codeProjet}" ></td>
-                <td th:text="${projet.nomProjet}"></td>
-            </tr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Code projet </th>
+                    <th>Libellé</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="projet:${formulaire.projetDTODPList}">
+                    <td th:text="${projet.codeProjet}" ></td>
+                    <td th:text="${projet.nomProjet}"></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
