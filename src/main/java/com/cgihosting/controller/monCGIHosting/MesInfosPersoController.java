@@ -50,15 +50,11 @@ public class MesInfosPersoController {
     private AfficherMesInfosPersoFormulaire recupererFormulaireMesInfosPerso() {
 
 
-        UtilisateurDTO utilisateurDTO;
-
         AfficherMesInfosPersoFormulaire afficherMesInfosPersoFormulaire = new AfficherMesInfosPersoFormulaire();
 
         afficherMesInfosPersoFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_MESINFOS_PERSO_TITRE);
-        utilisateurDTO = gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
-        afficherMesInfosPersoFormulaire.setUtilisateurDTO(utilisateurDTO);
 
-        afficherMesInfosPersoFormulaire.setProjetDTODPList(gererProjetsService.recupererProjetsDP(utilisateurDTO.getId()));
+        afficherMesInfosPersoFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin()));
 
         return afficherMesInfosPersoFormulaire;
     }

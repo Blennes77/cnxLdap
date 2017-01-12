@@ -44,22 +44,6 @@
                 </tr>
             </tbody>
         </table>
-        <h2>Mes Projets</h2>
-        <!-- Table -->
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Code projet </th>
-                    <th>Libellé</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="projet:${formulaire.projetDTODPList}">
-                    <td th:text="${projet.codeProjet}" ></td>
-                    <td th:text="${projet.nomProjet}"></td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </div>
 </body>
