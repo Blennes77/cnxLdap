@@ -28,10 +28,16 @@
             <tr >
                 <th>Nom </th>
                 <th>Prenom</th>
+                <th>Staff Number</th>
+                <th>Tél Bureau</th>
+                <th>Tél Mobile</th>
             </tr>
             <tr>
                 <td th:text="${formulaire.utilisateurDTO.nom}"></td>
                 <td th:text="${formulaire.utilisateurDTO.prenom}"></td>
+                <td th:text="${formulaire.utilisateurDTO.codeIngenieur}"></td>
+                <td th:text="${formulaire.utilisateurDTO.telephoneBureau}"></td>
+                <td th:text="${formulaire.utilisateurDTO.telephoneMobile}"></td>
             </tr>
         </table>
         <h2>Mes Projets</h2>
