@@ -1,9 +1,7 @@
 package com.cgihosting.service.admin;
 
 import com.cgihosting.domain.ParametresAppliDTO;
-import com.cgihosting.domain.ParametresVCODTO;
 import com.cgihosting.repository.ParametrageAppliRepository;
-import com.cgihosting.repository.ParametrageVCORepository;
 import com.cgihosting.repository.RefEnvironnementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +18,6 @@ public class ParametrerServiceImpl implements ParametrerService {
     @Autowired
     private ParametrageAppliRepository parametrageAppliRepository;
 
-    @Autowired
-    private ParametrageVCORepository parametrageVCORepository;
-
 
     @Autowired
     private RefEnvironnementRepository refEnvironnementRepository;
@@ -38,18 +33,6 @@ public class ParametrerServiceImpl implements ParametrerService {
 
     }
 
-    @Override
-    public ParametresVCODTO recupererParametresVCO(String codeEnvironnement) {
-
-        ParametresVCODTO parametresVCODTO = new ParametresVCODTO();
-
-        parametresVCODTO = parametrageVCORepository.findByTypeEnvironnement(
-                refEnvironnementRepository.findByCodeEnvironnement(codeEnvironnement).getId());
-
-
-        return parametresVCODTO;
-
-    }
 
 
     @Override
@@ -61,13 +44,5 @@ public class ParametrerServiceImpl implements ParametrerService {
 
     }
 
-    @Override
-    public int mettreAJourParametresVCO(ParametresVCODTO parametresVCODTO) {
 
-        parametrageVCORepository.save(parametresVCODTO);
-
-
-        return parametresVCODTO.getId();
-
-    }
 }

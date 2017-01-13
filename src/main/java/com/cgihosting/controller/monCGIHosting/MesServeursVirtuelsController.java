@@ -4,6 +4,8 @@ import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.formulaire.exploit.serveursVirtuels.AfficherServeursVirtuelsFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesServeursVirtuels.DetailsMonServeurVirtuelFormulaire;
 import com.cgihosting.objets.PaginationObjet;
+import com.cgihosting.objets.UtilisateurSession;
+import com.cgihosting.service.admin.GererUtilisateurService;
 import com.cgihosting.service.admin.JournaliserService;
 import com.cgihosting.service.exploit.GererServeursVirtuelsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class MesServeursVirtuelsController {
 
     @Autowired
     private GererServeursVirtuelsService gererServeursVirtuelsService;
+
+    @Autowired
+    private GererUtilisateurService gererUtilisateurService;
 
     @Autowired
     private JournaliserService journaliserService;
@@ -70,7 +75,9 @@ public class MesServeursVirtuelsController {
         afficherServeursVirtuelsFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_SERVEURS_VIRTUELS_TITRE);
         afficherServeursVirtuelsFormulaire.setServeurVirtuelDTOListe(gererServeursVirtuelsService.recupererServeursVirtuels());
 
-        afficherServeursVirtuelsFormulaire.setServeurVirtuelDTOPage(gererServeursVirtuelsService.searchAllServeurVirtuelDTOPageByPage(pageCourante, numLigneAfficheParPage));
+        afficherServeursVirtuelsFormulaire.setServeurVirtuelDTOPage(gererServeursVirtuelsService.searchAllServeurVirtuelDTOPageByPageByUser(
+                                                                        pageCourante, numLigneAfficheParPage,
+                                                                   gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin()).getId()));
 
 
 

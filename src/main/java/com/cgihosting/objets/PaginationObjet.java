@@ -6,34 +6,43 @@ package com.cgihosting.objets;
 public class PaginationObjet {
 
 
-    /** Pagination **/
-    private int nbLigneAfficheParPage; // Y
-    private int numPageCourante;       // X
+    /**
+     * Pagination
+     **/
+    private Integer nbLigneAfficheParPage; // Y
+    private Integer numPageCourante;       // X
     private Long numTotalLignes;         // Z
-    private int numPageTotal;          // W
+    private Integer numPageTotal;          // W
 
 
     public PaginationObjet(int nbLigneAfficheParPage, int numPageCourante, long numTotalLignes) {
         this.nbLigneAfficheParPage = nbLigneAfficheParPage;
         this.numPageCourante = numPageCourante;
         this.numTotalLignes = numTotalLignes;
-        this.numPageTotal = (int) Math.ceil((double) numTotalLignes / (double) nbLigneAfficheParPage);
+
+        if (numTotalLignes > 0) {
+            this.numPageTotal = (int) Math.ceil((double) numTotalLignes / (double) nbLigneAfficheParPage);
+
+        } else {
+            this.numPageTotal = 1;
+
+        }
     }
 
 
-    public int getNbLigneAfficheParPage() {
+    public Integer getNbLigneAfficheParPage() {
         return nbLigneAfficheParPage;
     }
 
-    public void setNbLigneAfficheParPage(int nbLigneAfficheParPage) {
+    public void setNbLigneAfficheParPage(Integer nbLigneAfficheParPage) {
         this.nbLigneAfficheParPage = nbLigneAfficheParPage;
     }
 
-    public int getNumPageCourante() {
+    public Integer getNumPageCourante() {
         return numPageCourante;
     }
 
-    public void setNumPageCourante(int numPageCourante) {
+    public void setNumPageCourante(Integer numPageCourante) {
         this.numPageCourante = numPageCourante;
     }
 
@@ -45,11 +54,11 @@ public class PaginationObjet {
         this.numTotalLignes = numTotalLignes;
     }
 
-    public int getNumPageTotal() {
+    public Integer getNumPageTotal() {
         return numPageTotal;
     }
 
-    public void setNumPageTotal(int numPageTotal) {
+    public void setNumPageTotal(Integer numPageTotal) {
         this.numPageTotal = numPageTotal;
     }
 }

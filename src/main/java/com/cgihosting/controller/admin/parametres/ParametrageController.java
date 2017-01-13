@@ -4,8 +4,8 @@ import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.JournalDTO;
 import com.cgihosting.formulaire.admin.parametres.ParametrerAppliFormulaire;
-import com.cgihosting.formulaire.admin.parametres.ParametrerVCOFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
+import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.JournaliserService;
 import com.cgihosting.service.admin.ParametrerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,17 +59,6 @@ public class ParametrageController {
         return "admin/parametres/afficherParametresAppli";
     }
 
-    /**
-     * Méthode permettant l'affichage des paramètres VCO
-     * @param model
-     * @return
-     */
-    @RequestMapping("/admin/afficherParametresVCO")
-    String afficherParametresVCO(Model model){
-
-        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireParametrageVCO());
-        return "admin/parametres/afficherParametresVCO";
-    }
 
 
        /**
@@ -92,7 +81,8 @@ public class ParametrageController {
                 identifiantDonneeTraitee = parametrerService.mettreAJourParametresAppli(parametrerAppliFormulaire.getParametresAppliDTO());
 
                 // Journalisation
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_PARAMETRESAPPLI, identifiantDonneeTraitee);
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_PARAMETRESAPPLI,
+                                                        identifiantDonneeTraitee,  Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 
             }
@@ -112,43 +102,6 @@ public class ParametrageController {
     }
 
 
-    /**
-     * Méthode permettant l'enregistrement des paramètres VCO
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/admin/modifierParametresVCO", method = RequestMethod.POST)
-
-    String modifierParametresVCO(@Valid ParametrerVCOFormulaire parametrerVCOFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
-
-    int identifiantDonneeTraitee =0 ;
-
-        if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
-
-            if (!bindingResult.hasErrors()) {
-
-                // On enregistre les paramètres
-
-                identifiantDonneeTraitee = parametrerService.mettreAJourParametresVCO(parametrerVCOFormulaire.getParametresVCODTO());
-
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_PARAMETRESVCO, identifiantDonneeTraitee);
-
-                journaliserService.enregistrerJournalisation(journalDTO);
-            }
-
-
-        }
-
-        else {
-
-
-
-        }
-
-        return  "redirect:/admin/afficherParametresVCO";
-
-
-    }
 
 
 
@@ -173,24 +126,6 @@ public class ParametrageController {
 
 
 
-    /**
-     * Méthodes privées appelées par les controleurs pour
-     * remplir les forumalires associés aux pages web
-     * méthodes comme des controleurs
-     */
-
-    private ParametrerVCOFormulaire recupererFormulaireParametrageVCO() {
-
-
-
-        ParametrerVCOFormulaire parametrerVCOFormulaire = new ParametrerVCOFormulaire();
-
-        parametrerVCOFormulaire.setTitrePage(ConstantesPage.ADMIN_PARAMETRAGE_VCO_TITRE);
-        parametrerVCOFormulaire.setParametresVCODTO(parametrerService.recupererParametresVCO(env.getRequiredProperty("nom.environnement")));
-        parametrerVCOFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_VCO);
-
-        return parametrerVCOFormulaire;
-    }
 
 
 

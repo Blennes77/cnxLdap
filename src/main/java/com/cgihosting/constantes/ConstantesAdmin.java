@@ -48,6 +48,10 @@ public class ConstantesAdmin {
     public static final Integer JOURNAL_AJOUT_REF_JOURNAL= 13;
     public static final Integer JOURNAL_MODIFICATION_REF_JOURNAL = 14;
     public static final Integer JOURNAL_AJOUT_SERVEUR_VIRTUEL = 15;
+    public static final Integer JOURNAL_AJOUT_OS = 16;
+    public static final Integer JOURNAL_MODIFICATION_OS = 17;
+    public static final Integer JOURNAL_AJOUT_VIRTUALISATION = 18;
+    public static final Integer JOURNAL_MODIFICATION_VIRTUALISATION = 19;
 
 
 

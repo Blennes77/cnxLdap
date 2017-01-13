@@ -8,6 +8,7 @@ import com.cgihosting.domain.RoleUtilisateurDTO;
 import com.cgihosting.formulaire.admin.utilisateurs.AfficherUtilisateursFormulaire;
 import com.cgihosting.formulaire.admin.utilisateurs.DetailsUtilisateurFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
+import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.GererUtilisateurService;
 import com.cgihosting.service.admin.JournaliserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,7 +81,8 @@ public class UtilisateursController {
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
              gererUtilisateurService.mettreAJourRolesUtilisateur(id, roleUser, roleDP, roleExploit, roleAdmin);
 
-            JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_ROLES_UTILISATEUR, 0);
+            JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_ROLES_UTILISATEUR,
+                        null, Dates.aujourdhui());
             journaliserService.enregistrerJournalisation(journalDTO);
 
         }

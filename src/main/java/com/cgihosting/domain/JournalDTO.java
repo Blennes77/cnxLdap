@@ -1,7 +1,9 @@
 package com.cgihosting.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by marinib on 09/12/2016.
@@ -35,10 +37,11 @@ public class JournalDTO implements Serializable{
     @JoinColumn(name="JEV_TYPEACTION_ID",  insertable = false, updatable = false)
     private TypeJournalisationDTO typeJournalisationDTO;
 
-    /*
-    @Column(name="JEV_DATE_EVENEMENT) " +
+
+    @Column(name="JEV_DATE_EVENEMENT")
+    @NotNull
     private Date dateEvenement;
-    */
+
 
     /**
      *
@@ -50,11 +53,12 @@ public class JournalDTO implements Serializable{
 
     }
 
-    public JournalDTO(String login, Integer typeActionId, Integer idDonnee ) {
+    public JournalDTO(String login, Integer typeActionId, Integer idDonnee, Date dateEvenement ) {
 
         this.login = login;
         this.typeActionId = typeActionId;
         this.idDonnee = idDonnee;
+        this.dateEvenement = dateEvenement;
 
     }
 
@@ -105,4 +109,15 @@ public class JournalDTO implements Serializable{
     public void setTypeJournalisationDTO(TypeJournalisationDTO typeJournalisationDTO) {
         this.typeJournalisationDTO = typeJournalisationDTO;
     }
+
+    public Date getDateEvenement() {
+        return dateEvenement;
+    }
+
+    public void setDateEvenement(Date dateEvenement) {
+        this.dateEvenement = dateEvenement;
+    }
+
+
+
 }

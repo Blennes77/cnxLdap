@@ -12,6 +12,7 @@ import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjaxRecupererProjetF
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjoutServeurVirtuelFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.DetailsCommandeFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
+import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.*;
 import com.cgihosting.service.exploit.GererServeursVirtuelsService;
 import com.cgihosting.service.exploit.GererTemplateOSService;
@@ -23,7 +24,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -64,7 +64,7 @@ public class MesCommmandesController {
 
 
     @Autowired
-    private RefWorkflowsService refWorkflowsService;
+    private GererWorkflowsService gererWorkflowsService;
 
     @Autowired
     private Environment env;
@@ -131,6 +131,8 @@ public class MesCommmandesController {
             else{
 
                 serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
+
+                serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
                 serveurVirtuelDTO.setIdProjet(idProjet);
                 serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
 
@@ -140,10 +142,12 @@ public class MesCommmandesController {
 
                 // On crée une machine avec l'identifiant déploiement
 
-                serveurVirtuelDTO.setIdWorkflow(refWorkflowsService.recupererRefWorkflowsUuiDTO(
+                /*
+                serveurVirtuelDTO.setIdWorkflow(gererWorkflowsService.recupererRefWorkflowsUuiDTO(
                                                             env.getRequiredProperty("nom.environnement"),
                                                             ConstantesGenerales.OVH_NOM_WORKFLOW_DEPLOIEMENT,
                                                           serveurVirtuelDTO.getIdTypeHeberg()).getId());
+                                                          */
 
                 serveurVirtuelDTO.setIdEnregistreur(gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin()).getId());
 
@@ -151,7 +155,8 @@ public class MesCommmandesController {
 
                 identifiantDonneeTraitee = gererServeursVirtuelsService.creerServeurVirtuel(serveurVirtuelDTO);
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_SERVEUR_VIRTUEL, identifiantDonneeTraitee);
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_SERVEUR_VIRTUEL,
+                                                        identifiantDonneeTraitee, Dates.aujourdhui());
 
                 journaliserService.enregistrerJournalisation(journalDTO);
 

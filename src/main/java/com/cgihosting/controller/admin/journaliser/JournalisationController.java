@@ -9,6 +9,7 @@ import com.cgihosting.formulaire.admin.journaliser.AfficherReferentielJournalisa
 import com.cgihosting.formulaire.admin.journaliser.DetailsReferentielJournalisationFormulaire;
 import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.objets.UtilisateurSession;
+import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.JournaliserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -82,7 +83,8 @@ public class JournalisationController {
 
                 identifiantDonneeTraitee = journaliserService.creerReferentielJournalisation(detailsReferentielJournalisationFormulaire.getTypeJournalisationDTO());
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_REF_JOURNAL, identifiantDonneeTraitee);
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_REF_JOURNAL,
+                                                        identifiantDonneeTraitee,  Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 
 

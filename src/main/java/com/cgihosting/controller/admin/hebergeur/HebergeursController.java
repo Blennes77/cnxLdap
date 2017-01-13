@@ -1,13 +1,14 @@
 package com.cgihosting.controller.admin.hebergeur;
 
-import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.HebergeurDTO;
 import com.cgihosting.domain.JournalDTO;
 import com.cgihosting.formulaire.admin.hebergeur.AfficherHebergeurFormulaire;
 import com.cgihosting.formulaire.admin.hebergeur.DetailsHebergeurFormulaire;
+import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.objets.UtilisateurSession;
+import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.GererHebergeurService;
 import com.cgihosting.service.admin.JournaliserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,8 @@ public class HebergeursController {
 
                 identifiantDonneeTraitee = gererHebergeurService.creerHebergeur(detailsHebergeurFormulaire.getHebergeurDTO());
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_HEBERGEUR, identifiantDonneeTraitee);
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_HEBERGEUR,
+                                        identifiantDonneeTraitee, Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 
 

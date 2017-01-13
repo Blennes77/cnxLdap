@@ -41,7 +41,7 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                             <li><a href="/exploit/afficherServeursVirtuels">Liste des serveurs Virtuels</a></li>
                             <li><a href="#">Décommisionnement</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/exploit/afficherTemplateOS">Réferentiel Systèmes d'exploitation</a></li>
+                            <li><a href="/exploit/afficherTemplateOS">Réferentiel Templates OS</a></li>
                             <li roleDTO="separator" class="divider"></li>
                             <li><a href="#">One more separated link</a></li>
                         </ul>
@@ -49,17 +49,17 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                     <li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/admin/afficherUtilisateurs">Liste des membres du site</a></li>
-                            <li><a href="/admin/afficherExploitants">Gérer les exploitants</a></li>
-                            <li><a href="/admin/afficherAdministrateurs">Gérer les administrateurs</a></li>
+                            <li><a href="/admin/afficherParametresAppli">Paramétrage Application</a></li>
                             <li roleDTO="separator" class="divider"></li>
                             <li><a href="/admin/afficherHebergeurs">Référentiel hébergeurs</a></li>
-                            <li><a href="/admin/afficherProduits">Réferentiel Produits</a></li>
                             <li><a href="/admin/afficherReferentielJournalisation">Réferentiel Libellés Journalisation</a></li>
-                            <li><a href="/admin/afficherReferentielProjets">Réferentiel Projets</a></li>
+                            <li><a href="/admin/afficherProduits">Réferentiel Produits</a></li>
+                            <li><a href="/admin/afficherOS">Réferentiel Systèmes d'exploitation</a></li>
+                            <li><a href="/admin/afficherVirtualisation">Réferentiel virtualisation</a></li>
+                            <li><a href="/admin/afficherReferentielWorkflows">Réferentiel Workflows</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/admin/afficherParametresAppli">Paramétrage Application</a></li>
-                            <li><a href="/admin/afficherParametresVCO">Paramétrage VCO</a></li>
+                            <li><a href="/admin/afficherUtilisateurs">Utilisateurs du site</a></li>
+                            <li><a href="/admin/afficherReferentielProjets">Projets CGI</a></li>
                             <li roleDTO="separator" class="divider"></li>
                             <li><a href="/admin/afficherJournalisation">Journaux d'evênements applicatifs</a></li>
                         </ul>

@@ -114,6 +114,13 @@ public class ConstantesPage {
     public static final String ADMIN_AFFICHAGE_PROJETS_TITRE = "Liste des projets";
 
 
+    public static final String ADMIN_AFFICHAGE_OS_TITRE = "Liste des systèmes d'exploitation";
+    public static final String ADMIN_DETAIL_OS_TITRE ="Système d'exploitation";
+
+    public static final String ADMIN_AFFICHAGE_VIRTUALISATION_TITRE = "Liste des virtualisations";
+    public static final String ADMIN_DETAIL_VIRTUALISATION_TITRE = "Virtualisation";
+
+
     /** Noms des boutons **/
 
     public static final String ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_APPLI = "Enregistrer paramètres Applis";
@@ -130,5 +137,17 @@ public class ConstantesPage {
 
     public static final String ADMIN_BOUTON_MODIFIER_ROLE_UTILISATEUR = "Enregistrer";
     public static final String ADMIN_BOUTON_RETOUR_AFFICHER_UTILISATEURS = "Annuler";
+
+
+    public static final String ADMIN_BOUTON_AJOUTER_OS = "Ajouter OS";
+
+    public static final String ADMIN_BOUTON_MODIFIER_OS = "Modifier OS";
+    public static final String ADMIN_BOUTON_RETOUR_LISTE_OS = "Retour";
+
+    public static final String ADMIN_BOUTON_AJOUTER_VIRTUALISATION = "Ajouter virtualiiation";
+    public static final String ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION ="Retour";
+
+
+
 
 }

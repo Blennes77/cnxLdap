@@ -62,7 +62,7 @@ public class JournaliserServiceImpl implements JournaliserService {
 
 
         journalDTOPage = journalRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
-                new Sort.Order(Sort.Direction.ASC, "login")
+                new Sort.Order(Sort.Direction.ASC, "dateEvenement")
         )));
         return journalDTOPage;
     }

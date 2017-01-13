@@ -31,7 +31,7 @@ public class WorkflowUUIDDTO implements Serializable{
 
     @OneToOne
     @JoinColumn(name="RWU_ID_NOM_WORKFLOW", insertable = false, updatable = false)
-    private WorkflowNomDTO workflowNomDTO;
+    private RefActionsWorkflowDTO refActionsWorkflowDTO;
 
 
     public Integer getId() {
@@ -74,11 +74,11 @@ public class WorkflowUUIDDTO implements Serializable{
         this.typeEnvironnementDTO = typeEnvironnementDTO;
     }
 
-    public WorkflowNomDTO getWorkflowNomDTO() {
-        return workflowNomDTO;
+    public RefActionsWorkflowDTO getRefActionsWorkflowDTO() {
+        return refActionsWorkflowDTO;
     }
 
-    public void setWorkflowNomDTO(WorkflowNomDTO workflowNomDTO) {
-        this.workflowNomDTO = workflowNomDTO;
+    public void setRefActionsWorkflowDTO(RefActionsWorkflowDTO refActionsWorkflowDTO) {
+        this.refActionsWorkflowDTO = refActionsWorkflowDTO;
     }
 }

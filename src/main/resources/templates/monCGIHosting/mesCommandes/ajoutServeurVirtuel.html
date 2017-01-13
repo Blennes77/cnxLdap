@@ -77,7 +77,7 @@
 
             <tr>
                 <td>Systèmes d'exploitation</td>
-                <td> <select th:field="*{serveurVirtuelDTO.idOS}" >
+                <td> <select th:field="*{serveurVirtuelDTO.idTemplate}" >
                     <option th:each="template : ${formulaire.templateOSDTOListe}"
                             th:value="${template.id}" th:text="${template.libelleTemplate}">Template</option>
 

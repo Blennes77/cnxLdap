@@ -2,6 +2,7 @@ package com.cgihosting.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by marinib on 09/12/2016.
@@ -28,8 +29,8 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_CPUS")
     private Integer cpus;
 
-    @Column(name="SVI_ID_OS")
-    private Integer idOS;
+    @Column(name="SVI_ID_TEMPLATE")
+    private Integer idTemplate;
 
     @Column(name="SVI_DISQUE_SYSTEME")
     private Integer tailleDisqueSysteme;
@@ -64,16 +65,8 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_IND_TRAITEMENT")
     private Integer indTraitement;
 
-
     @Column(name="SVI_ID_PROJET")
     private Integer idProjet;
-
-
-
-/*
-    @Column(name="SVI_DATE_TRAITEMENT")
-    private Date dateTraitement;
-    */
 
     @Column(name="SVI_MESSAGE_ERREUR")
     private String messageErreur;
@@ -97,13 +90,21 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_ID_UTI_DP")
     private Integer idDP;
 
+    @Column(name="SVI_DATE_TRAITEMENT")
+    private Date dateTraitement;
+
+    @Column(name="SVI_DATE_ENREGISTREMENT")
+    private Date dateEnregistrement;
+
+    @Column(name="SVI_DATE_VALIDATION")
+    private Date dateValidation;
 
     @OneToOne
     @JoinColumn(name="SVI_IND_TRAITEMENT", insertable = false, updatable = false)
     private EtatTraitementServeurDTO etatTraitementServeurDTO ;
 
     @OneToOne
-    @JoinColumn(name="SVI_ID_OS", insertable = false, updatable = false)
+    @JoinColumn(name="SVI_ID_TEMPLATE", insertable = false, updatable = false)
     private TemplateOSDTO templateOSDTO ;
 
     @OneToOne
@@ -173,12 +174,12 @@ public class ServeurVirtuelDTO implements Serializable{
         this.cpus = cpus;
     }
 
-    public Integer getIdOS() {
-        return idOS;
+    public Integer getIdTemplate() {
+        return idTemplate;
     }
 
-    public void setIdOS(Integer idOS) {
-        this.idOS = idOS;
+    public void setIdTemplate(Integer idTemplate) {
+        this.idTemplate = idTemplate;
     }
 
     public Integer getTailleDisqueSysteme() {
@@ -387,5 +388,30 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setUtilisateurDPDTO(UtilisateurDTO utilisateurDPDTO) {
         this.utilisateurDPDTO = utilisateurDPDTO;
+    }
+
+
+    public Date getDateTraitement() {
+        return dateTraitement;
+    }
+
+    public void setDateTraitement(Date dateTraitement) {
+        this.dateTraitement = dateTraitement;
+    }
+
+    public Date getDateEnregistrement() {
+        return dateEnregistrement;
+    }
+
+    public void setDateEnregistrement(Date dateEnregistrement) {
+        this.dateEnregistrement = dateEnregistrement;
+    }
+
+    public Date getDateValidation() {
+        return dateValidation;
+    }
+
+    public void setDateValidation(Date dateValidation) {
+        this.dateValidation = dateValidation;
     }
 }

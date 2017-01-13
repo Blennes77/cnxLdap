@@ -85,6 +85,105 @@
                     <input th:field="*{parametresAppliDTO.mailAdmin}"  th:value="${formulaire.parametresAppliDTO.mailAdmin}"/>
                 </td>
             </tr>
+
+            <tr >
+                <td>Adresse IP Phpipam</td>
+                <td>
+                    <input th:field="*{parametresAppliDTO.adressePhpipam}"  th:value="${formulaire.parametresAppliDTO.adressePhpipam}"/>
+                </td>
+            </tr>
+
+            <tr >
+                <td>Base Phpipam</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.basePhpipam}" th:value="${formulaire.parametresAppliDTO.basePhpipam}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Compte Phpipam</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.comptePhpipam}" th:value="${formulaire.parametresAppliDTO.comptePhpipam}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Mot de passe Phpipam</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.motDePassePhpipam}" th:value="${formulaire.parametresAppliDTO.motDePassePhpipam}"/>
+                </td>
+            </tr>
+
+            <tr >
+                <td>Timeout ping Phpipam Phpipam</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.timeoutPingPhpipam}" th:value="${formulaire.parametresAppliDTO.timeoutPingPhpipam}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Adresse IP Teampass</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.adresseTeampass}" th:value="${formulaire.parametresAppliDTO.adresseTeampass}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Base Teampass</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.baseTeampass}" th:value="${formulaire.parametresAppliDTO.baseTeampass}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Compte Teampass</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.compteTeampass}" th:value="${formulaire.parametresAppliDTO.compteTeampass}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Mot de passe Teampass</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.motDePasseTeampass}" th:value="${formulaire.parametresAppliDTO.motDePasseTeampass}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Adresse IP Dolibarr</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.adresseDolibarr}" th:value="${formulaire.parametresAppliDTO.adresseDolibarr}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Base Dolibarr</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.baseDolibarr}" th:value="${formulaire.parametresAppliDTO.baseDolibarr}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Compte Dolibarr</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.compteDolibarr}" th:value="${formulaire.parametresAppliDTO.compteDolibarr}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Mot de passe Dolibarr</td>
+                <td>
+                    <input th:field="*{parametresAppliDTO.motDePasseDolibarr}"  th:value="${formulaire.parametresAppliDTO.motDePasseDolibarr}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Adresse SMTP</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.adresseSmtp}" th:value="${formulaire.parametresAppliDTO.adresseSmtp}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Mot de passe Dolibarr</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.expediteurSMTP}" th:value="${formulaire.parametresAppliDTO.expediteurSMTP}"/>
+                </td>
+            </tr>
+            <tr >
+                <td>Longueur Mot de passe</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.longueurMotDePasse}" th:value="${formulaire.parametresAppliDTO.longueurMotDePasse}" size="2"/>
+                </td>
+            </tr>
         </table>
         <br/>
         <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">

@@ -2,73 +2,79 @@ package com.cgihosting.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by marinib on 07/01/2017.
  */
 
 @Entity
-@Table(name="templates_OS")
+@Table(name="ref_templates_OS")
 public class TemplateOSDTO implements Serializable{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="TEO_ID")
+    @Column(name="RTO_ID")
     private Integer id;
 
-    @Column(name="TEO_CODE_TEMPLATE")
+    @Column(name="RTO_CODE_TEMPLATE")
     private String codeTemplate;
 
-    @Column(name="TEO_LIBELLE_TEMPLATE")
+    @Column(name="RTO_LIBELLE_TEMPLATE")
     private String libelleTemplate;
 
-    @Column(name="TEO_DESCRIPTION_TEMPLATE")
+    @Column(name="RTO_DESCRIPTION_TEMPLATE")
     private String descriptionTemplate;
 
-    @Column(name="TEO_ID_HEBERGEUR")
+    @Column(name="RTO_ID_HEBERGEUR")
     private Integer idHebergeur;
 
-    @Column(name="TEO_ID_CREATEUR")
+    @Column(name="RTO_ID_CREATEUR")
     private Integer idCreateur;
 
-    @Column(name="TEO_ID_MODIFICATEUR")
+    @Column(name="RTO_ID_MODIFICATEUR")
     private Integer idModificateur;
 
-    @Column(name="TEO_MINRAM")
+    @Column(name="RTO_MINRAM")
     private Integer minRam;
 
-    @Column(name="TEO_MINCPU")
+    @Column(name="RTO_MINCPU")
     private Integer minCpu;
 
-    @Column(name="TEO_MINDISQUE")
+    @Column(name="RTO_MINDISQUE")
     private Integer minDisque;
 
-    @Column(name="TEO_ID_OS")
+    @Column(name="RTO_ID_OS")
     private Integer idOS;
-    /**
-	`TEO_DATE_CREATION` DATETIME NULL DEFAULT NULL,
-	`TEO_DATE_FIN_ACTIF` DATETIME NULL DEFAULT NULL,
-	`TEO_IND_ACTIF` TINYINT(4) NULL DEFAULT NULL,
-     **/
+
+    @Column(name="RTO_DATE_CREATION")
+    private Date dateCreation;
+
+    @Column(name="RTO_DATE_MODIFICATION")
+    private Date dateModification;
+
+    @Column(name="RTO_DATE_FIN_ACTIF")
+    private Date dateFinActif;
+
 
 
 
     @OneToOne
-    @JoinColumn(name="TEO_ID_CREATEUR", insertable = false, updatable = false)
+    @JoinColumn(name="RTO_ID_CREATEUR", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurCreateurDTO;
 
 
     @OneToOne
-    @JoinColumn(name="TEO_ID_MODIFICATEUR", insertable = false, updatable = false)
+    @JoinColumn(name="RTO_ID_MODIFICATEUR", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurModificateurDTO;
 
     @OneToOne
-    @JoinColumn(name="TEO_ID_HEBERGEUR",  insertable = false, updatable = false)
+    @JoinColumn(name="RTO_ID_HEBERGEUR",  insertable = false, updatable = false)
     private HebergeurDTO hebergeurDTO;
 
 
     @OneToOne
-    @JoinColumn(name="TEO_ID_OS", insertable = false, updatable = false)
+    @JoinColumn(name="RTO_ID_OS", insertable = false, updatable = false)
     private TypeOSDTO typeOSDTO;
 
 
@@ -201,5 +207,30 @@ public class TemplateOSDTO implements Serializable{
 
     public void setTypeOSDTO(TypeOSDTO typeOSDTO) {
         this.typeOSDTO = typeOSDTO;
+    }
+
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Date getDateFinActif() {
+        return dateFinActif;
+    }
+
+    public void setDateFinActif(Date dateFinActif) {
+        this.dateFinActif = dateFinActif;
+    }
+
+    public Date getDateModification() {
+        return dateModification;
+    }
+
+    public void setDateModification(Date dateModification) {
+        this.dateModification = dateModification;
     }
 }

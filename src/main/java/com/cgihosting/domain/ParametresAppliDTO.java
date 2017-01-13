@@ -41,6 +41,54 @@ public class ParametresAppliDTO implements Serializable {
     @Column(name = "CAP_ID_TYPE_ENVIRONNEMENT")
     private Integer typeEnvironnement;
 
+    @Column(name="CAP_ADRESSEIP_PHPIPAM")
+    private String adressePhpipam;
+
+    @Column(name="CAP_BASE_PHPIPAM")
+    private String basePhpipam;
+
+    @Column(name="CAP_COMPTE_PHPIPAM")
+    private String comptePhpipam;
+
+    @Column(name="CAP_MOTDEPASSE_PHPIPAM")
+    private String motDePassePhpipam;
+
+    @Column(name="CAP_ADRESSEIP_TEAMPASS")
+    private String adresseTeampass;
+
+    @Column(name="CAP_BASE_TEAMPASS")
+    private String baseTeampass;
+
+    @Column(name="CAP_COMPTE_TEAMPASS")
+    private String compteTeampass;
+
+    @Column(name="CAP_MOTDEPASSE_TEAMPASS")
+    private String motDePasseTeampass;
+
+    @Column(name="CAP_ADRESSEIP_DOLIBARR")
+    private String adresseDolibarr;
+
+    @Column(name="CAP_BASE_DOLIBARR")
+    private String baseDolibarr;
+
+    @Column(name="CAP_COMPTE_DOLIBARR")
+    private String compteDolibarr;
+
+    @Column(name="CAP_MOTDEPASSE_DOLIBARR")
+    private String motDePasseDolibarr;
+
+    @Column(name="CAP_ADRESSE_SMTP")
+    private String adresseSmtp;
+
+    @Column(name="CAP_MAIL_SMTP")
+    private String expediteurSMTP;
+
+    @Column(name="CAP_LONGUEUR_MOTDEPASSE")
+    private Integer longueurMotDePasse;
+
+    @Column(name="CAP_TIMEOUTPING_PHPIPAM")
+    private Integer timeoutPingPhpipam;
+
 
     @OneToOne
     @JoinColumn(name = "CAP_ID_TYPE_ENVIRONNEMENT", insertable = false, updatable = false)
@@ -124,5 +172,133 @@ public class ParametresAppliDTO implements Serializable {
 
     public void setTypeEnvironnementDTO(TypeEnvironnementDTO typeEnvironnementDTO) {
         this.typeEnvironnementDTO = typeEnvironnementDTO;
+    }
+
+    public String getAdressePhpipam() {
+        return adressePhpipam;
+    }
+
+    public void setAdressePhpipam(String adressePhpipam) {
+        this.adressePhpipam = adressePhpipam;
+    }
+
+    public String getBasePhpipam() {
+        return basePhpipam;
+    }
+
+    public void setBasePhpipam(String basePhpipam) {
+        this.basePhpipam = basePhpipam;
+    }
+
+    public String getComptePhpipam() {
+        return comptePhpipam;
+    }
+
+    public void setComptePhpipam(String comptePhpipam) {
+        this.comptePhpipam = comptePhpipam;
+    }
+
+    public String getMotDePassePhpipam() {
+        return motDePassePhpipam;
+    }
+
+    public void setMotDePassePhpipam(String motDePassePhpipam) {
+        this.motDePassePhpipam = motDePassePhpipam;
+    }
+
+    public String getAdresseTeampass() {
+        return adresseTeampass;
+    }
+
+    public void setAdresseTeampass(String adresseTeampass) {
+        this.adresseTeampass = adresseTeampass;
+    }
+
+    public String getBaseTeampass() {
+        return baseTeampass;
+    }
+
+    public void setBaseTeampass(String baseTeampass) {
+        this.baseTeampass = baseTeampass;
+    }
+
+    public String getCompteTeampass() {
+        return compteTeampass;
+    }
+
+    public void setCompteTeampass(String compteTeampass) {
+        this.compteTeampass = compteTeampass;
+    }
+
+    public String getMotDePasseTeampass() {
+        return motDePasseTeampass;
+    }
+
+    public void setMotDePasseTeampass(String motDePasseTeampass) {
+        this.motDePasseTeampass = motDePasseTeampass;
+    }
+
+    public String getAdresseDolibarr() {
+        return adresseDolibarr;
+    }
+
+    public void setAdresseDolibarr(String adresseDolibarr) {
+        this.adresseDolibarr = adresseDolibarr;
+    }
+
+    public String getBaseDolibarr() {
+        return baseDolibarr;
+    }
+
+    public void setBaseDolibarr(String baseDolibarr) {
+        this.baseDolibarr = baseDolibarr;
+    }
+
+    public String getCompteDolibarr() {
+        return compteDolibarr;
+    }
+
+    public void setCompteDolibarr(String compteDolibarr) {
+        this.compteDolibarr = compteDolibarr;
+    }
+
+    public String getMotDePasseDolibarr() {
+        return motDePasseDolibarr;
+    }
+
+    public void setMotDePasseDolibarr(String motDePasseDolibarr) {
+        this.motDePasseDolibarr = motDePasseDolibarr;
+    }
+
+    public String getAdresseSmtp() {
+        return adresseSmtp;
+    }
+
+    public void setAdresseSmtp(String adresseSmtp) {
+        this.adresseSmtp = adresseSmtp;
+    }
+
+    public String getExpediteurSMTP() {
+        return expediteurSMTP;
+    }
+
+    public void setExpediteurSMTP(String expediteurSMTP) {
+        this.expediteurSMTP = expediteurSMTP;
+    }
+
+    public Integer getLongueurMotDePasse() {
+        return longueurMotDePasse;
+    }
+
+    public void setLongueurMotDePasse(Integer longueurMotDePasse) {
+        this.longueurMotDePasse = longueurMotDePasse;
+    }
+
+    public Integer getTimeoutPingPhpipam() {
+        return timeoutPingPhpipam;
+    }
+
+    public void setTimeoutPingPhpipam(Integer timeoutPingPhpipam) {
+        this.timeoutPingPhpipam = timeoutPingPhpipam;
     }
 }
