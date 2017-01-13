@@ -61,10 +61,10 @@
                 <th>Identifiant technique</th>
                 <th>Non Système exploitation</th>
             </tr>
-            <tr  class="sortable" th:each="typeVirtualisation:${formulaire.typeVirtualisationDTOPage}" th:onclick="'afficherDetailsVirtualisation(\'' + ${typeVirtualisation.id} + '\');'">
-                    <td th:text="${typeVirtualisation.id}"></td>
-                    <td th:text="${typeVirtualisation.nomVirtualisation}"></td>
-                <td th:text="${typeVirtualisation.descriptionVirtualisation}"></td>
+            <tr  class="sortable" th:each="referentielVirtualisation:${formulaire.referentielVirtualisationDTOPage}" th:onclick="'afficherDetailsVirtualisation(\'' + ${referentielVirtualisation.id} + '\');'">
+                    <td th:text="${referentielVirtualisation.id}"></td>
+                    <td th:text="${referentielVirtualisation.nomVirtualisation}"></td>
+                <td th:text="${referentielVirtualisation.descriptionVirtualisation}"></td>
             </tr>
         </table>
 

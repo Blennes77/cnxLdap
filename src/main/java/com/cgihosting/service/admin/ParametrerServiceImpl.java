@@ -2,7 +2,7 @@ package com.cgihosting.service.admin;
 
 import com.cgihosting.domain.ParametresAppliDTO;
 import com.cgihosting.repository.ParametrageAppliRepository;
-import com.cgihosting.repository.RefEnvironnementRepository;
+import com.cgihosting.repository.ReferentielEnvironnementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +20,14 @@ public class ParametrerServiceImpl implements ParametrerService {
 
 
     @Autowired
-    private RefEnvironnementRepository refEnvironnementRepository;
+    private ReferentielEnvironnementRepository referentielEnvironnementRepository;
 
     @Override
     public ParametresAppliDTO recupererParametresAppli(String codeEnvironnement) {
 
         ParametresAppliDTO parametresAppliDTO = new ParametresAppliDTO();
 
-        parametresAppliDTO = parametrageAppliRepository.findByTypeEnvironnement(refEnvironnementRepository.findByCodeEnvironnement(codeEnvironnement).getId());
+        parametresAppliDTO = parametrageAppliRepository.findByTypeEnvironnement(referentielEnvironnementRepository.findByCodeEnvironnement(codeEnvironnement).getId());
 
         return parametresAppliDTO;
 

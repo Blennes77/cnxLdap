@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.TypeVirtualisationDTO;
+import com.cgihosting.domain.ReferentielVirtualisationDTO;
 import com.cgihosting.repository.ReferentielVirtualisationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,34 +24,34 @@ public class GererVirtualisationServiceImpl implements GererVirtualisationServic
     private ReferentielVirtualisationRepository referentielVirtualisationRepository;
 
     @Override
-    public List<TypeVirtualisationDTO> recupererVirtualisation() {
+    public List<ReferentielVirtualisationDTO> recupererReferentielVirtualisation() {
 
-        List<TypeVirtualisationDTO> typeVirtualisationDTOListe = null;
+        List<ReferentielVirtualisationDTO> referentielVirtualisationDTOListe = null;
 
-        typeVirtualisationDTOListe = (List<TypeVirtualisationDTO>) referentielVirtualisationRepository.findAll();
+        referentielVirtualisationDTOListe = (List<ReferentielVirtualisationDTO>) referentielVirtualisationRepository.findAll();
 
-        return typeVirtualisationDTOListe;
+        return referentielVirtualisationDTOListe;
 
     }
 
 
 
     @Override
-    public TypeVirtualisationDTO recupererVirtualisationById(int identifiant) {
+    public ReferentielVirtualisationDTO recupererReferentielVirtualisationById(int identifiant) {
 
-        TypeVirtualisationDTO typeVirtualisationDTO = referentielVirtualisationRepository.findById(identifiant);
+        ReferentielVirtualisationDTO referentielVirtualisationDTO = referentielVirtualisationRepository.findById(identifiant);
 
-        return typeVirtualisationDTO;
+        return referentielVirtualisationDTO;
     }
 
 
 
     @Override
-    public int modifierVirtualisation(TypeVirtualisationDTO typeVirtualisationDTO) {
+    public int modifierReferentielVirtualisation(ReferentielVirtualisationDTO referentielVirtualisationDTO) {
 
-        referentielVirtualisationRepository.save(typeVirtualisationDTO);
+        referentielVirtualisationRepository.save(referentielVirtualisationDTO);
 
-        return typeVirtualisationDTO.getId();
+        return referentielVirtualisationDTO.getId();
     }
 
     public Long nombreTotalVirtualisation() {
@@ -62,15 +62,15 @@ public class GererVirtualisationServiceImpl implements GererVirtualisationServic
     }
 
     @Override
-    public Page<TypeVirtualisationDTO> searchAllVirtualisationDTOPageByPage(Integer page, Integer ligneParPage) {
+    public Page<ReferentielVirtualisationDTO> searchAllReferentielVirtualisationDTOPageByPage(Integer page, Integer ligneParPage) {
 
-        Page<TypeVirtualisationDTO> typeVirtualisationDTOPage;
+        Page<ReferentielVirtualisationDTO> referentielVirtualisationDTOPage;
 
 
-        typeVirtualisationDTOPage = referentielVirtualisationRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
+        referentielVirtualisationDTOPage = referentielVirtualisationRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
                 new Sort.Order(Sort.Direction.ASC, "nomVirtualisation")
         )));
-        return typeVirtualisationDTOPage;
+        return referentielVirtualisationDTOPage;
     }
 
 

@@ -9,73 +9,70 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name="ref_templates_OS")
+@Table(name="templates_OS")
 public class TemplateOSDTO implements Serializable{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="RTO_ID")
+    @Column(name="TOS_ID")
     private Integer id;
 
-    @Column(name="RTO_CODE_TEMPLATE")
+    @Column(name="TOS_CODE_TEMPLATE")
     private String codeTemplate;
 
-    @Column(name="RTO_LIBELLE_TEMPLATE")
+    @Column(name="TOS_LIBELLE_TEMPLATE")
     private String libelleTemplate;
 
-    @Column(name="RTO_DESCRIPTION_TEMPLATE")
+    @Column(name="TOS_DESCRIPTION_TEMPLATE")
     private String descriptionTemplate;
 
-    @Column(name="RTO_ID_HEBERGEUR")
+    @Column(name="TOS_ID_HEBERGEUR")
     private Integer idHebergeur;
 
-    @Column(name="RTO_ID_CREATEUR")
+    @Column(name="TOS_ID_CREATEUR")
     private Integer idCreateur;
 
-    @Column(name="RTO_ID_MODIFICATEUR")
+    @Column(name="TOS_ID_MODIFICATEUR")
     private Integer idModificateur;
 
-    @Column(name="RTO_MINRAM")
+    @Column(name="TOS_MINRAM")
     private Integer minRam;
 
-    @Column(name="RTO_MINCPU")
+    @Column(name="TOS_MINCPU")
     private Integer minCpu;
 
-    @Column(name="RTO_MINDISQUE")
+    @Column(name="TOS_MINDISQUE")
     private Integer minDisque;
 
-    @Column(name="RTO_ID_OS")
+    @Column(name="TOS_ID_OS")
     private Integer idOS;
 
-    @Column(name="RTO_DATE_CREATION")
+    @Column(name="TOS_DATE_CREATION")
     private Date dateCreation;
 
-    @Column(name="RTO_DATE_MODIFICATION")
+    @Column(name="TOS_DATE_MODIFICATION")
     private Date dateModification;
 
-    @Column(name="RTO_DATE_FIN_ACTIF")
+    @Column(name="TOS_DATE_FIN_ACTIF")
     private Date dateFinActif;
 
-
-
-
     @OneToOne
-    @JoinColumn(name="RTO_ID_CREATEUR", insertable = false, updatable = false)
+    @JoinColumn(name="TOS_ID_CREATEUR", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurCreateurDTO;
 
 
     @OneToOne
-    @JoinColumn(name="RTO_ID_MODIFICATEUR", insertable = false, updatable = false)
+    @JoinColumn(name="TOS_ID_MODIFICATEUR", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurModificateurDTO;
 
     @OneToOne
-    @JoinColumn(name="RTO_ID_HEBERGEUR",  insertable = false, updatable = false)
-    private HebergeurDTO hebergeurDTO;
+    @JoinColumn(name="TOS_ID_HEBERGEUR",  insertable = false, updatable = false)
+    private ReferentielHebergeurDTO referentielHebergeurDTO;
 
 
     @OneToOne
-    @JoinColumn(name="RTO_ID_OS", insertable = false, updatable = false)
-    private TypeOSDTO typeOSDTO;
+    @JoinColumn(name="TOS_ID_OS", insertable = false, updatable = false)
+    private ReferentielOSDTO referentielOSDTO;
 
 
 
@@ -177,6 +174,30 @@ public class TemplateOSDTO implements Serializable{
         this.idOS = idOS;
     }
 
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Date getDateModification() {
+        return dateModification;
+    }
+
+    public void setDateModification(Date dateModification) {
+        this.dateModification = dateModification;
+    }
+
+    public Date getDateFinActif() {
+        return dateFinActif;
+    }
+
+    public void setDateFinActif(Date dateFinActif) {
+        this.dateFinActif = dateFinActif;
+    }
+
     public UtilisateurDTO getUtilisateurCreateurDTO() {
         return utilisateurCreateurDTO;
     }
@@ -193,44 +214,19 @@ public class TemplateOSDTO implements Serializable{
         this.utilisateurModificateurDTO = utilisateurModificateurDTO;
     }
 
-    public HebergeurDTO getHebergeurDTO() {
-        return hebergeurDTO;
+    public ReferentielHebergeurDTO getReferentielHebergeurDTO() {
+        return referentielHebergeurDTO;
     }
 
-    public void setHebergeurDTO(HebergeurDTO hebergeurDTO) {
-        this.hebergeurDTO = hebergeurDTO;
+    public void setReferentielHebergeurDTO(ReferentielHebergeurDTO referentielHebergeurDTO) {
+        this.referentielHebergeurDTO = referentielHebergeurDTO;
     }
 
-    public TypeOSDTO getTypeOSDTO() {
-        return typeOSDTO;
+    public ReferentielOSDTO getReferentielOSDTO() {
+        return referentielOSDTO;
     }
 
-    public void setTypeOSDTO(TypeOSDTO typeOSDTO) {
-        this.typeOSDTO = typeOSDTO;
-    }
-
-
-    public Date getDateCreation() {
-        return dateCreation;
-    }
-
-    public void setDateCreation(Date dateCreation) {
-        this.dateCreation = dateCreation;
-    }
-
-    public Date getDateFinActif() {
-        return dateFinActif;
-    }
-
-    public void setDateFinActif(Date dateFinActif) {
-        this.dateFinActif = dateFinActif;
-    }
-
-    public Date getDateModification() {
-        return dateModification;
-    }
-
-    public void setDateModification(Date dateModification) {
-        this.dateModification = dateModification;
+    public void setReferentielOSDTO(ReferentielOSDTO referentielOSDTO) {
+        this.referentielOSDTO = referentielOSDTO;
     }
 }

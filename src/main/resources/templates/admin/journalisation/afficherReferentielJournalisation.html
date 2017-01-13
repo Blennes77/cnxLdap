@@ -58,9 +58,9 @@
                     <th>identifiant technique</th>
                     <th>Libellé action</th>
                 </tr>
-                <tr th:each="typeJournalisation:${formulaire.typeJournalisationDTOPage.content}" th:onclick="'afficherDetailsReferentielJournalisation(\'' + ${typeJournalisation.id} + '\');'">
-                    <td th:text="${typeJournalisation.id}"></td>
-                    <td th:text="${typeJournalisation.libelleAction}"></td>
+                <tr th:each="referentielJournalisation:${formulaire.referentielJournalisationDTOPage.content}" th:onclick="'afficherDetailsReferentielJournalisation(\'' + ${referentielJournalisation.id} + '\');'">
+                    <td th:text="${referentielJournalisation.id}"></td>
+                    <td th:text="${referentielJournalisation.libelleAction}"></td>
                 </tr>
             </table>
 

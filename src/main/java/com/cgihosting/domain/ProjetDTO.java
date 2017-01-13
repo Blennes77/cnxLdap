@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name="ref_projets")
+@Table(name="projets")
 public class ProjetDTO implements Serializable{
 
     @Id

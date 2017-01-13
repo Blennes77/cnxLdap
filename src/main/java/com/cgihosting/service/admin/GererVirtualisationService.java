@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.TypeVirtualisationDTO;
+import com.cgihosting.domain.ReferentielVirtualisationDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
@@ -12,17 +12,17 @@ import java.util.List;
 
 public interface GererVirtualisationService extends Serializable{
 
-    public List<TypeVirtualisationDTO> recupererVirtualisation();
+    public List<ReferentielVirtualisationDTO> recupererReferentielVirtualisation();
 
-    public TypeVirtualisationDTO recupererVirtualisationById(int identifiant);
+    public ReferentielVirtualisationDTO recupererReferentielVirtualisationById(int identifiant);
 
 
-    public int modifierVirtualisation(TypeVirtualisationDTO typeVirtualisationDTO);
+    public int modifierReferentielVirtualisation(ReferentielVirtualisationDTO referentielVirtualisationDTO);
 
 
     public Long nombreTotalVirtualisation();
 
-    public Page<TypeVirtualisationDTO> searchAllVirtualisationDTOPageByPage(Integer page, Integer ligneParPage);
+    public Page<ReferentielVirtualisationDTO> searchAllReferentielVirtualisationDTOPageByPage(Integer page, Integer ligneParPage);
 
 
 

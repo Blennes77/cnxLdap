@@ -25,17 +25,17 @@
     <div class="jumbotron">
         <h2 th:text="${formulaire.titrePage}">Titre</h2>
 
-        <input type="hidden" th:field="*{typeVirtualisationDTO.id}" th:value="${formulaire.typeVirtualisationDTO.id}"/>
+        <input type="hidden" th:field="*{referentielVirtualisationDTO.id}" th:value="${formulaire.referentielVirtualisationDTO.id}"/>
 
         <!-- Table -->
         <table class="table">
             <tr >
                 <td>Nom Virtualisation</td>
-                <td> <input type="text" th:field="*{typeVirtualisationDTO.nomVirtualisation}"  size="20"/></td>
+                <td> <input type="text" th:field="*{referentielVirtualisationDTO.nomVirtualisation}"  size="20"/></td>
             </tr>
             <tr >
                 <td>Description Virtualisation</td>
-                <td> <input type="text" th:field="*{typeVirtualisationDTO.descriptionVirtualisation}"  size="20"/></td>
+                <td> <input type="text" th:field="*{referentielVirtualisationDTO.descriptionVirtualisation}"  size="20"/></td>
             </tr>
 
         </table>

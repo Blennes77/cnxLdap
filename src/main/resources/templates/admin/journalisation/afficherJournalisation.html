@@ -47,7 +47,7 @@
                 <tr th:each="journal:${formulaire.journalDTOPage.content}">
                     <td th:text="${#dates.format(journal.dateEvenement, 'dd/MM/yyyy HH:mm:ss')}"></td>
                     <td th:text="${journal.login}"></td>
-                    <td th:text="${journal.typeJournalisationDTO.libelleAction}"></td>
+                    <td th:text="${journal.referentielJournalisationDTO.libelleAction}"></td>
                     <td th:text="${journal.idDonnee}"></td>
                 </tr>
             </table>

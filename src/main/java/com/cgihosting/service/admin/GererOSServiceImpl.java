@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.TypeOSDTO;
+import com.cgihosting.domain.ReferentielOSDTO;
 import com.cgihosting.repository.ReferentielOSRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,34 +24,34 @@ public class GererOSServiceImpl implements GererOSService {
     private ReferentielOSRepository referentielOSRepository;
 
     @Override
-    public List<TypeOSDTO> recupererOS() {
+    public List<ReferentielOSDTO> recupererReferentielOS() {
 
-        List<TypeOSDTO> typeOSDTOliste = null;
+        List<ReferentielOSDTO> referentielOSDTOListe = null;
 
-        typeOSDTOliste = (List<TypeOSDTO>) referentielOSRepository.findAll();
+        referentielOSDTOListe = (List<ReferentielOSDTO>) referentielOSRepository.findAll();
 
-        return typeOSDTOliste;
+        return referentielOSDTOListe;
 
     }
 
 
 
     @Override
-    public TypeOSDTO recupererOSById(int identifiant) {
+    public ReferentielOSDTO recupererReferentielOSById(int identifiant) {
 
-        TypeOSDTO typeOSDTO = referentielOSRepository.findById(identifiant);
+        ReferentielOSDTO referentielOSDTO = referentielOSRepository.findById(identifiant);
 
-        return typeOSDTO;
+        return referentielOSDTO;
     }
 
 
 
     @Override
-    public int modifierOS(TypeOSDTO typeOSDTO) {
+    public int modifierReferentielOS(ReferentielOSDTO referentielOSDTO) {
 
-        referentielOSRepository.save(typeOSDTO);
+        referentielOSRepository.save(referentielOSDTO);
 
-        return typeOSDTO.getId();
+        return referentielOSDTO.getId();
     }
 
     public Long nombreTotalOS() {
@@ -62,15 +62,15 @@ public class GererOSServiceImpl implements GererOSService {
     }
 
     @Override
-    public Page<TypeOSDTO> searchAllOSDTOPageByPage(Integer page, Integer ligneParPage) {
+    public Page<ReferentielOSDTO> searchAllReferentielOSDTOPageByPage(Integer page, Integer ligneParPage) {
 
-        Page<TypeOSDTO> typeOSDTOPage;
+        Page<ReferentielOSDTO> referentielOSDTOPage;
 
 
-        typeOSDTOPage = referentielOSRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
+        referentielOSDTOPage = referentielOSRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
                 new Sort.Order(Sort.Direction.ASC, "nomOS")
         )));
-        return typeOSDTOPage;
+        return referentielOSDTOPage;
     }
 
 

@@ -92,7 +92,7 @@ public class ParametresAppliDTO implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "CAP_ID_TYPE_ENVIRONNEMENT", insertable = false, updatable = false)
-    private TypeEnvironnementDTO typeEnvironnementDTO;
+    private ReferentielEnvironnementDTO referentielEnvironnementDTO;
 
     public Integer getId() {
         return id;
@@ -164,14 +164,6 @@ public class ParametresAppliDTO implements Serializable {
 
     public void setTypeEnvironnement(Integer typeEnvironnement) {
         this.typeEnvironnement = typeEnvironnement;
-    }
-
-    public TypeEnvironnementDTO getTypeEnvironnementDTO() {
-        return typeEnvironnementDTO;
-    }
-
-    public void setTypeEnvironnementDTO(TypeEnvironnementDTO typeEnvironnementDTO) {
-        this.typeEnvironnementDTO = typeEnvironnementDTO;
     }
 
     public String getAdressePhpipam() {
@@ -300,5 +292,13 @@ public class ParametresAppliDTO implements Serializable {
 
     public void setTimeoutPingPhpipam(Integer timeoutPingPhpipam) {
         this.timeoutPingPhpipam = timeoutPingPhpipam;
+    }
+
+    public ReferentielEnvironnementDTO getReferentielEnvironnementDTO() {
+        return referentielEnvironnementDTO;
+    }
+
+    public void setReferentielEnvironnementDTO(ReferentielEnvironnementDTO referentielEnvironnementDTO) {
+        this.referentielEnvironnementDTO = referentielEnvironnementDTO;
     }
 }

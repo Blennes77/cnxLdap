@@ -35,7 +35,7 @@ public class JournalDTO implements Serializable{
 
     @OneToOne
     @JoinColumn(name="JEV_TYPEACTION_ID",  insertable = false, updatable = false)
-    private TypeJournalisationDTO typeJournalisationDTO;
+    private ReferentielJournalisationDTO referentielJournalisationDTO;
 
 
     @Column(name="JEV_DATE_EVENEMENT")
@@ -102,12 +102,12 @@ public class JournalDTO implements Serializable{
         this.utilisateurDTO = utilisateurDTO;
     }
 
-    public TypeJournalisationDTO getTypeJournalisationDTO() {
-        return typeJournalisationDTO;
+    public ReferentielJournalisationDTO getReferentielJournalisationDTO() {
+        return referentielJournalisationDTO;
     }
 
-    public void setTypeJournalisationDTO(TypeJournalisationDTO typeJournalisationDTO) {
-        this.typeJournalisationDTO = typeJournalisationDTO;
+    public void setReferentielJournalisationDTO(ReferentielJournalisationDTO referentielJournalisationDTO) {
+        this.referentielJournalisationDTO = referentielJournalisationDTO;
     }
 
     public Date getDateEvenement() {
@@ -117,7 +117,4 @@ public class JournalDTO implements Serializable{
     public void setDateEvenement(Date dateEvenement) {
         this.dateEvenement = dateEvenement;
     }
-
-
-
 }

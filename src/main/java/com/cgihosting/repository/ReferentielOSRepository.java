@@ -1,12 +1,12 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.TypeOSDTO;
+import com.cgihosting.domain.ReferentielOSDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * Created by marinib on 09/12/2016.
  */
-public interface ReferentielOSRepository extends PagingAndSortingRepository<TypeOSDTO, Integer> {
+public interface ReferentielOSRepository extends PagingAndSortingRepository<ReferentielOSDTO, Integer> {
     /**
      * This method will find an User instance in the database by its email.
      * Note that this method is not implemented and its working code will be
@@ -14,7 +14,7 @@ public interface ReferentielOSRepository extends PagingAndSortingRepository<Type
      */
 
 
-    public TypeOSDTO findById(int identifiant);
+    public ReferentielOSDTO findById(int identifiant);
 
 
 

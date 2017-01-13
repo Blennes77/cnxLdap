@@ -8,33 +8,33 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name="ref_produits")
+@Table(name="catalogue_produits")
 public class ProduitDTO implements Serializable{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="RPR_ID")
+    @Column(name="CPR_ID")
     private int Integer;
 
-    @Column(name="RPR_TYPE_ID")
+    @Column(name="CPR_TYPE_ID")
     private Integer typeProduit;
 
-    @Column(name="RPR_DESCRIPTION")
+    @Column(name="CPR_DESCRIPTION")
     private String description;
 
-    @Column(name="RPR_CODE")
+    @Column(name="CPR_CODE")
     private String codeProduit;
 
-    @Column(name="RPR_LIBELLE")
+    @Column(name="CPR_LIBELLE")
     private String libelleProduit;
 
-    @Column(name="RPR_PRIX_UNITAIRE")
+    @Column(name="CPR_PRIX_UNITAIRE")
     private Integer prixUnitaire;
 
-    @Column(name="RPR_DOLIBARR_ID")
+    @Column(name="CPR_DOLIBARR_ID")
     private Integer  dolibarrId;
 
-    @Column(name="RPR_HEBERGEUR_ID")
+    @Column(name="CPR_HEBERGEUR_ID")
     private Integer hebergeurId;
 
     public int getInteger() {
