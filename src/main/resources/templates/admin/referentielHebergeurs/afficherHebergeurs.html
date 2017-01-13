@@ -40,38 +40,43 @@
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 <div class="container">
     <div class="jumbotron">
-        <h2 th:text="${formulaire.titrePage}">Titre de la page</h2>
 
-        <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                5
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                <li><a href="/admin/afficherHebergeurs?ligneParPage=5">5</a></li>
-                <li><a href="/admin/afficherHebergeurs?ligneParPage=10">10</a></li>
-                <li><a href="/admin/afficherHebergeurs?ligneParPage=20">20</a></li>
-            </ul>
+        <div class="panel panel-primary">
+            <div class="panel-heading" th:text="${formulaire.titrePage}">Titre de la page</div>
+
+            <div class="dropdown pull-right">
+                <button class="btn btn-default dropdown-toggle"  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                    <li><a href="/admin/afficherHebergeurs?ligneParPage=5">5</a></li>
+                    <li><a href="/admin/afficherHebergeurs?ligneParPage=10">10</a></li>
+                    <li><a href="/admin/afficherHebergeurs?ligneParPage=20">20</a></li>
+                </ul>
+            </div>
+
+            <input id="identifiantHebergeurSelect" name="identifiantHebergeurSelect" type="hidden" value="0" />
+
+            <table class="table table-stripped">
+                <thead>
+                    <tr >
+                        <th>Identifiant technique</th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr  class="sortable" th:each="hebergeur:${formulaire.hebergeurDTOPage.content}" th:onclick="'afficherDetailsHebergeur(\'' + ${hebergeur.id} + '\');'">
+                        <td th:text="${hebergeur.id}"></td>
+                        <td th:text="${hebergeur.nom}"></td>
+                        <td th:text="${hebergeur.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <input id="identifiantHebergeurSelect" name="identifiantHebergeurSelect" type="hidden" value="0" />
-
-        <table class="table">
-            <tr >
-                <th>Identifiant technique</th>
-                <th>Nom</th>
-                <th>Description</th>
-            </tr>
-
-            <tr  class="sortable" th:each="hebergeur:${formulaire.hebergeurDTOPage.content}" th:onclick="'afficherDetailsHebergeur(\'' + ${hebergeur.id} + '\');'">
-
-
-                <td th:text="${hebergeur.id}"></td>
-                <td th:text="${hebergeur.nom}"></td>
-                <td th:text="${hebergeur.description}"></td>
-
-            </tr>
-        </table>
         <nav aria-label="Page navigation">
             <ul class="pagination">
                 <li>
