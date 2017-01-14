@@ -35,18 +35,17 @@
 <div th:replace="fragments/menu :: menu">...</div>
 
 <form id="monformulaire" action="#" th:action="@{/admin/afficherDetailsReferentielVirtualisation}" th:object="${formulaire}" method="post">
-<div class="container">
-    <div class="jumbotron">
+    <div class="container">
+        <div class="jumbotron">
 
+            <div class="panel panel-primary">
+                <div class="panel-heading" th:text="${formulaire.titrePage}">Titre de la page</div>
 
-        <h2 th:text="${formulaire.titrePage}">Titre</h2>
-
-
-        <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                5
-                <span class="caret"></span>
-            </button>
+                <div class="dropdown pull-right">
+                    <button class="btn btn-default dropdown-toggle"  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}"></span>
+                        <span class="caret"></span>
+                    </button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                 <li><a href="/admin/afficherReferentielVirtualisation?ligneParPage=5">5</a></li>
                 <li><a href="/admin/afficherReferentielVirtualisation?ligneParPage=10">10</a></li>
@@ -67,7 +66,7 @@
                 <td th:text="${referentielVirtualisation.descriptionVirtualisation}"></td>
             </tr>
         </table>
-
+            </div>
         <nav aria-label="Page navigation">
             <ul class="pagination">
                 <li>
