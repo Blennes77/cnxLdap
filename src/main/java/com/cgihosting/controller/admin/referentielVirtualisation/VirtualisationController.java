@@ -3,6 +3,7 @@ package com.cgihosting.controller.admin.referentielVirtualisation;
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.application.JournalDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
 import com.cgihosting.formulaire.admin.referentielVirtualisation.AfficherReferentielVirtualisationFormulaire;
 import com.cgihosting.formulaire.admin.referentielVirtualisation.DetailsReferentielVirtualisationFormulaire;
@@ -74,6 +75,8 @@ public class VirtualisationController {
 
         int identifiantDonneeTraitee = 0;
 
+        UtilisateurDTO utilisateurDTO;
+        ReferentielVirtualisationDTO referentielVirtualisationDTO;
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
@@ -84,8 +87,14 @@ public class VirtualisationController {
             }
             else{
 
+                utilisateurDTO = gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
+                referentielVirtualisationDTO = detailsReferentielVirtualisationFormulaire.getReferentielVirtualisationDTO();
+                referentielVirtualisationDTO.setIdModificateur(utilisateurDTO.getId());
+                referentielVirtualisationDTO.setIdCreateur(utilisateurDTO.getId());
+                referentielVirtualisationDTO.setDateCreation(Dates.aujourdhui());
+                referentielVirtualisationDTO.setDateModification(Dates.aujourdhui());
 
-                identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(detailsReferentielVirtualisationFormulaire.getReferentielVirtualisationDTO());
+                identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(referentielVirtualisationDTO);
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_VIRTUALISATION,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());

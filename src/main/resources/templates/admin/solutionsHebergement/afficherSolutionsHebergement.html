@@ -68,6 +68,8 @@
                         <th>Modifcateur</th>
                         <th>Libelle</th>
                         <th>Description</th>
+                        <th>Hébergeur</th>
+                        <th>Type de virtualisation</th>
                     </tr>
                 </thead>
 
@@ -80,6 +82,8 @@
                         <td th:text="${solutionsHebergement.utilisateurModificateurDTO.logonName}"></td>
                         <td th:text="${solutionsHebergement.libelleSolution}"></td>
                         <td th:text="${solutionsHebergement.descriptionSolution}"></td>
+                        <td th:text="${solutionsHebergement.referentielHebergeurDTO.nom}"></td>
+                        <td th:text="${solutionsHebergement.referentielVirtualisationDTO.nomVirtualisation}"></td>
                     </tr>
                 </tbody>
             </table>

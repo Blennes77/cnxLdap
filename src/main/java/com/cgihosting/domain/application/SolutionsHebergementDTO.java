@@ -57,10 +57,10 @@ public class SolutionsHebergementDTO {
     @Column(name="SHE_MOTDEPASSE_DOMAINE")
     private String motDePasseDomaine ="";
 
-    @Column(name="SHE_PREFIXE_NOM_MACHINE")
+    @Column(name="SHE_PREFIXE_NOMMACHINE")
     private String prefixeNomMachine ="";
 
-    @Column(name="SHE_TEXTEDEFINITF_PHPIPAM")
+    @Column(name="SHE_TEXTEDEFINITIF_PHPIPAM")
     private String texteDefinitifPhpipam ="";
 
     @Column(name="SHE_TEXTERESERVATION_PHPIPAM")
@@ -104,7 +104,7 @@ public class SolutionsHebergementDTO {
 
 
     @OneToOne
-    @JoinColumn(name="SHE_ID_HEBERGEMENT", insertable = false, updatable = false)
+    @JoinColumn(name="SHE_ID_HEBERGEUR", insertable = false, updatable = false)
     private ReferentielHebergeurDTO referentielHebergeurDTO ;
 
     @OneToOne

@@ -3,6 +3,7 @@ package com.cgihosting.controller.admin.referentielJournalisation;
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.application.JournalDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.domain.referentiel.ReferentielJournalisationDTO;
 import com.cgihosting.formulaire.admin.journalisation.AfficherJournalisationFormulaire;
 import com.cgihosting.formulaire.admin.referentielJournalisation.AfficherReferentielJournalisationFormulaire;
@@ -10,6 +11,7 @@ import com.cgihosting.formulaire.admin.referentielJournalisation.DetailsReferent
 import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.outils.Dates;
+import com.cgihosting.service.admin.GererUtilisateurService;
 import com.cgihosting.service.admin.JournaliserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,6 +40,9 @@ public class JournalisationController {
 
     @Autowired
     private JournaliserService journaliserService;
+
+    @Autowired
+    private GererUtilisateurService gererUtilisateurService;
 
 
     @RequestMapping("/admin/afficherJournalisation")
@@ -72,6 +77,10 @@ public class JournalisationController {
 
         int identifiantDonneeTraitee = 0;
 
+        UtilisateurDTO utilisateurDTO;
+
+        ReferentielJournalisationDTO referentielJournalisationDTO;
+
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
             if (bindingResult.hasErrors()) {
@@ -81,7 +90,15 @@ public class JournalisationController {
             }
             else{
 
-                identifiantDonneeTraitee = journaliserService.creerReferentielJournalisation(detailsReferentielJournalisationFormulaire.getReferentielJournalisationDTO());
+                utilisateurDTO = gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
+                referentielJournalisationDTO = detailsReferentielJournalisationFormulaire.getReferentielJournalisationDTO();
+
+                referentielJournalisationDTO.setDateCreation(Dates.aujourdhui());
+                referentielJournalisationDTO.setDateModification(Dates.aujourdhui());
+                referentielJournalisationDTO.setIdCreateur(utilisateurDTO.getId());
+                referentielJournalisationDTO.setIdModificateur(utilisateurDTO.getId());
+
+                identifiantDonneeTraitee = journaliserService.creerReferentielJournalisation(referentielJournalisationDTO);
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_REF_JOURNAL,
                                                         identifiantDonneeTraitee,  Dates.aujourdhui());

@@ -4,6 +4,7 @@ import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.domain.application.SolutionsHebergementDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.formulaire.admin.solutionsHebergement.AfficherSolutionsHebergementFormulaire;
 import com.cgihosting.formulaire.admin.solutionsHebergement.DetailsSolutionsHebergementFormulaire;
 import com.cgihosting.objets.PaginationObjet;
@@ -71,9 +72,12 @@ public class SolutionsHebergementController {
 
     @RequestMapping(value = "/admin/modifierSolutionsHebergement", method = RequestMethod.POST)
 
-    String modifierSolutionsHebergement(@Valid DetailsSolutionsHebergementFormulaire detailsReferentielActionsWorkflowsFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String modifierSolutionsHebergement(@Valid DetailsSolutionsHebergementFormulaire detailsSolutionsHebergementFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
+
+        SolutionsHebergementDTO solutionsHebergementDTO;
+        UtilisateurDTO utilisateurDTO;
 
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
@@ -85,8 +89,16 @@ public class SolutionsHebergementController {
             }
             else{
 
+                utilisateurDTO = gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
+                solutionsHebergementDTO = detailsSolutionsHebergementFormulaire.getSolutionsHebergementDTO();
 
-              //  identifiantDonneeTraitee =  gererWorkflowsService.modifierReferentielActionsWorkflows(detailsReferentielActionsWorkflowsFormulaire.getReferentielActionsWorkflowsDTO());
+                solutionsHebergementDTO.setIdCreateur(utilisateurDTO.getId());
+                solutionsHebergementDTO.setIdModificateur(utilisateurDTO.getId());
+                solutionsHebergementDTO.setDateCreation(Dates.aujourdhui());
+                solutionsHebergementDTO.setDateModification(Dates.aujourdhui());
+
+              identifiantDonneeTraitee =  gererHebergeurService.modifierSolutionsHebergement(detailsSolutionsHebergementFormulaire.getSolutionsHebergementDTO());
+
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_OS,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());

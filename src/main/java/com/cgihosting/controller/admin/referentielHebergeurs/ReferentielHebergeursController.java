@@ -2,6 +2,7 @@ package com.cgihosting.controller.admin.referentielHebergeurs;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
 import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.formulaire.admin.referentielHebergeurs.AfficherReferentielHebergeursFormulaire;
@@ -10,6 +11,7 @@ import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.GererHebergeurService;
+import com.cgihosting.service.admin.GererUtilisateurService;
 import com.cgihosting.service.admin.JournaliserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,6 +45,9 @@ public class ReferentielHebergeursController {
     @Autowired
     private JournaliserService journaliserService;
 
+    @Autowired
+    private GererUtilisateurService gererUtilisateurService;
+
 
     @RequestMapping("/admin/afficherReferentielHebergeurs")
     String afficherHebergeurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
@@ -68,6 +73,10 @@ public class ReferentielHebergeursController {
 
         int identifiantDonneeTraitee = 0;
 
+        UtilisateurDTO utilisateurDTO;
+
+        ReferentielHebergeurDTO referentielHebergeurDTO;
+
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
             if (bindingResult.hasErrors()) {
@@ -77,7 +86,15 @@ public class ReferentielHebergeursController {
             }
             else{
 
-                identifiantDonneeTraitee = gererHebergeurService.creerReferentielHebergeur(detailsReferentielHebergeursFormulaire.getReferentielHebergeurDTO());
+                utilisateurDTO = gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
+
+                referentielHebergeurDTO = detailsReferentielHebergeursFormulaire.getReferentielHebergeurDTO();
+                referentielHebergeurDTO.setIdModificateur(utilisateurDTO.getId());
+                referentielHebergeurDTO.setIdCreateur(utilisateurDTO.getId());
+                referentielHebergeurDTO.setDateCreation(Dates.aujourdhui());
+                referentielHebergeurDTO.setDateModification(Dates.aujourdhui());
+
+                identifiantDonneeTraitee = gererHebergeurService.creerReferentielHebergeur(referentielHebergeurDTO);
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_HEBERGEUR,
                                         identifiantDonneeTraitee, Dates.aujourdhui());
