@@ -126,9 +126,6 @@ public class ServeurVirtuelDTO implements Serializable{
     @JoinColumn(name="SVI_ID_UTI_VALIDEUR", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurValideurDTO ;
 
-    @OneToOne
-    @JoinColumn(name="SVI_ID_UTI_DP", insertable = false, updatable = false)
-    private UtilisateurDTO utilisateurDPDTO ;
 
     @OneToOne
     @JoinColumn(name="SVI_ID_SOLUTION_HEBERGEMENT", insertable = false, updatable = false)
@@ -386,14 +383,6 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setUtilisateurValideurDTO(UtilisateurDTO utilisateurValideurDTO) {
         this.utilisateurValideurDTO = utilisateurValideurDTO;
-    }
-
-    public UtilisateurDTO getUtilisateurDPDTO() {
-        return utilisateurDPDTO;
-    }
-
-    public void setUtilisateurDPDTO(UtilisateurDTO utilisateurDPDTO) {
-        this.utilisateurDPDTO = utilisateurDPDTO;
     }
 
 
