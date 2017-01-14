@@ -20,29 +20,28 @@
 
 <body>
 <div th:replace="fragments/menu :: menu">...</div>
-<form action="#" th:action="@{/exploit/modifierServeurVirtuel}" th:object="${formulaire}" method="post">
 <div class="container">
+    <form action="#" th:action="@{/admin/modifierReferentielEtatTraitementServeur}" th:object="${formulaire}" method="post">
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
     <div class="jumbotron">
-        <h2 th:text="${formulaire.titrePage}">Titre</h2>
-        <!-- Table -->
+        <h2 th:text="${formulaire.titrePage}">Titre de la page</h2>
+
+        <input type="hidden" th:field="*{referentielEtatTraitementServeurDTO.id}" th:value="${formulaire.referentielEtatTraitementServeurDTO.id}"/>
+
+
         <table class="table">
             <tr >
-                <td>Nom du serveur</td>
-                <td th:text="${formulaire.serveurVirtuelDTO.nomServeur}"></td>
+                <td>code</td>
+                <td> <input name="nom" type="text" th:field="*{referentielEtatTraitementServeurDTO.code}"  size="20"/></td>
 
             </tr>
             <tr>
-                <td>Adresse IP</td>
-                <td th:text="${formulaire.serveurVirtuelDTO.adresseIp}"></td>
-            </tr>
+                <td>Description</td>
+                <td> <input name="description" type="text" th:field="*{referentielEtatTraitementServeurDTO.description}"  size="20"/></td>
 
-            <tr>
-                <td>Etat traitement</td>
-                <td th:text="${formulaire.serveurVirtuelDTO.referentielEtatTraitementServeurDTO.code}"></td>
-            </tr>
-            <tr>
-                <td>Système Exploitation</td>
-                <td th:text="${formulaire.serveurVirtuelDTO.templateOSDTO.libelleTemplate}"></td>
+
             </tr>
         </table>
         <br/>
@@ -53,8 +52,8 @@
             <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
         </button>
     </div>
-</div>
 
-</form>
+    </form>
+</div>
 </body>
 </html>
