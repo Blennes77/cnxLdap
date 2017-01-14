@@ -58,10 +58,18 @@
             <table class="table">
                 <tr >
                     <th>identifiant technique</th>
+                    <th>Date de création</th>
+                    <th>Créateur</th>
+                    <th>Date de modification</th>
+                    <th>Modifcateur</th>
                     <th>Libellé action</th>
                 </tr>
                 <tr th:each="referentielJournalisation:${formulaire.referentielJournalisationDTOPage.content}" th:onclick="'afficherDetailsReferentielJournalisation(\'' + ${referentielJournalisation.id} + '\');'">
                     <td th:text="${referentielJournalisation.id}"></td>
+                    <td th:text="${#dates.format(referentielJournalisation.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                    <td th:text="${referentielJournalisation.utilisateurCreateurDTO.logonName}"></td>
+                    <td th:text="${#dates.format(referentielJournalisation.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                    <td th:text="${referentielJournalisation.utilisateurModificateurDTO.logonName}"></td>
                     <td th:text="${referentielJournalisation.libelleAction}"></td>
                 </tr>
             </table>

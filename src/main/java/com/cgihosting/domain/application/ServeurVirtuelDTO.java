@@ -55,8 +55,8 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_MASQUE")
     private String masque;
 
-    @Column(name="SVI_ID_TYPE_HEBERGEUR")
-    private Integer idTypeHeberg;
+    @Column(name="SVI_ID_SOLUTION_HEBERGEMENT")
+    private Integer idSolutionHebergement;
 
     @Column(name="SVI_ID_WORKFLOW")
     private Integer idWorkflow;
@@ -129,6 +129,10 @@ public class ServeurVirtuelDTO implements Serializable{
     @OneToOne
     @JoinColumn(name="SVI_ID_UTI_DP", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurDPDTO ;
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_SOLUTION_HEBERGEMENT", insertable = false, updatable = false)
+    private SolutionsHebergementDTO solutionsHebergementDTO ;
 
 
     /**
@@ -240,12 +244,12 @@ public class ServeurVirtuelDTO implements Serializable{
         this.masque = masque;
     }
 
-    public Integer getIdTypeHeberg() {
-        return idTypeHeberg;
+    public Integer getIdSolutionHebergement() {
+        return idSolutionHebergement;
     }
 
-    public void setIdTypeHeberg(Integer idTypeHeberg) {
-        this.idTypeHeberg = idTypeHeberg;
+    public void setIdSolutionHebergement(Integer idSolutionHebergement) {
+        this.idSolutionHebergement = idSolutionHebergement;
     }
 
     public Integer getIdWorkflow() {
@@ -415,5 +419,13 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setDateValidation(Date dateValidation) {
         this.dateValidation = dateValidation;
+    }
+
+    public SolutionsHebergementDTO getSolutionsHebergementDTO() {
+        return solutionsHebergementDTO;
+    }
+
+    public void setSolutionsHebergementDTO(SolutionsHebergementDTO solutionsHebergementDTO) {
+        this.solutionsHebergementDTO = solutionsHebergementDTO;
     }
 }

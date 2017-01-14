@@ -16,7 +16,7 @@
 <script language="javascript">
 
 
-    function afficherDetailsReferentielHebergeur(identifiantHebergeurSelect) {
+    function afficherDetailsReferentielHebergeurs(identifiantHebergeurSelect) {
 
         document.getElementById("identifiantHebergeurSelect").value= identifiantHebergeurSelect;
         document.getElementById("monformulaire").submit();
@@ -62,6 +62,10 @@
                 <thead>
                     <tr >
                         <th>Identifiant technique</th>
+                        <th>Date de création</th>
+                        <th>Créateur</th>
+                        <th>Date de modification</th>
+                        <th>Modifcateur</th>
                         <th>Nom</th>
                         <th>Description</th>
                     </tr>
@@ -70,6 +74,10 @@
                 <tbody>
                     <tr  class="sortable" th:each="referentielHebergeur:${formulaire.referentielHebergeurDTOPage.content}" th:onclick="'afficherDetailsReferentielHebergeurs(\'' + ${referentielHebergeur.id} + '\');'">
                         <td th:text="${referentielHebergeur.id}"></td>
+                        <td th:text="${#dates.format(referentielHebergeur.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${referentielHebergeur.utilisateurCreateurDTO.logonName}"></td>
+                        <td th:text="${#dates.format(referentielHebergeur.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${referentielHebergeur.utilisateurModificateurDTO.logonName}"></td>
                         <td th:text="${referentielHebergeur.nom}"></td>
                         <td th:text="${referentielHebergeur.description}"></td>
                     </tr>

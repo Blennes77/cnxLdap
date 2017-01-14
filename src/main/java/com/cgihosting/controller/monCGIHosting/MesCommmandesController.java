@@ -138,7 +138,7 @@ public class MesCommmandesController {
 
 
                 // Bouchon OVH
-                serveurVirtuelDTO.setIdTypeHeberg(1);
+                serveurVirtuelDTO.setIdSolutionHebergement(1);
 
                 // On crée une machine avec l'identifiant déploiement
 

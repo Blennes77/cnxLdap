@@ -62,6 +62,10 @@
                 <thead>
                     <tr >
                         <th>Identifiant technique</th>
+                        <th>Date de création</th>
+                        <th>Créateur</th>
+                        <th>Date de modification</th>
+                        <th>Modifcateur</th>
                         <th>Libelle</th>
                         <th>Description</th>
                     </tr>
@@ -70,6 +74,10 @@
                 <tbody>
                     <tr  class="sortable" th:each="solutionsHebergement:${formulaire.solutionsHebergementDTOPage.content}" th:onclick="'afficherDetailsSolutionsHebergement(\'' + ${solutionsHebergement.id} + '\');'">
                         <td th:text="${solutionsHebergement.id}"></td>
+                        <td th:text="${#dates.format(solutionsHebergement.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${solutionsHebergement.utilisateurCreateurDTO.logonName}"></td>
+                        <td th:text="${#dates.format(solutionsHebergement.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${solutionsHebergement.utilisateurModificateurDTO.logonName}"></td>
                         <td th:text="${solutionsHebergement.libelleSolution}"></td>
                         <td th:text="${solutionsHebergement.descriptionSolution}"></td>
                     </tr>

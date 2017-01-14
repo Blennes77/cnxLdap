@@ -1,7 +1,11 @@
 package com.cgihosting.domain.application;
 
+import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
+import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Created by marinib on 14/01/2017.
@@ -75,7 +79,37 @@ public class SolutionsHebergementDTO {
     private String compteVirtualisation ="";
 
     @Column(name="SHE_MOTDEPASSE_VIRTUALISATION")
-    private String motDePassevirtualisation ="";
+    private String motDePasseVirtualisation ="";
+
+    @Column(name="SHE_ID_CREATEUR")
+    private Integer idCreateur;
+
+    @Column(name="SHE_ID_MODIFICATEUR")
+    private Integer idModificateur;
+
+    @Column(name="SHE_DATE_CREATION")
+    private Date dateCreation;
+
+    @Column(name="SHE_DATE_MODIFICATION")
+    private Date dateModification;
+
+    @OneToOne
+    @JoinColumn(name="SHE_ID_CREATEUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurCreateurDTO ;
+
+
+    @OneToOne
+    @JoinColumn(name="SHE_ID_MODIFICATEUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurModificateurDTO ;
+
+
+    @OneToOne
+    @JoinColumn(name="SHE_ID_HEBERGEMENT", insertable = false, updatable = false)
+    private ReferentielHebergeurDTO referentielHebergeurDTO ;
+
+    @OneToOne
+    @JoinColumn(name="SHE_ID_VIRTUALISATION", insertable = false, updatable = false)
+    private ReferentielVirtualisationDTO referentielVirtualisationDTO ;
 
 
     public Integer getId() {
@@ -223,12 +257,12 @@ public class SolutionsHebergementDTO {
         this.compteVirtualisation = compteVirtualisation;
     }
 
-    public String getMotDePassevirtualisation() {
-        return motDePassevirtualisation;
+    public String getMotDePasseVirtualisation() {
+        return motDePasseVirtualisation;
     }
 
-    public void setMotDePassevirtualisation(String motDePassevirtualisation) {
-        this.motDePassevirtualisation = motDePassevirtualisation;
+    public void setMotDePasseVirtualisation(String motDePasseVirtualisation) {
+        this.motDePasseVirtualisation = motDePasseVirtualisation;
     }
 
     public String getLibelleSolution() {
@@ -245,5 +279,69 @@ public class SolutionsHebergementDTO {
 
     public void setDescriptionSolution(String descriptionSolution) {
         this.descriptionSolution = descriptionSolution;
+    }
+
+    public ReferentielHebergeurDTO getReferentielHebergeurDTO() {
+        return referentielHebergeurDTO;
+    }
+
+    public void setReferentielHebergeurDTO(ReferentielHebergeurDTO referentielHebergeurDTO) {
+        this.referentielHebergeurDTO = referentielHebergeurDTO;
+    }
+
+    public Integer getIdCreateur() {
+        return idCreateur;
+    }
+
+    public void setIdCreateur(Integer idCreateur) {
+        this.idCreateur = idCreateur;
+    }
+
+    public Integer getIdModificateur() {
+        return idModificateur;
+    }
+
+    public void setIdModificateur(Integer idModificateur) {
+        this.idModificateur = idModificateur;
+    }
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Date getDateModification() {
+        return dateModification;
+    }
+
+    public void setDateModification(Date dateModification) {
+        this.dateModification = dateModification;
+    }
+
+    public UtilisateurDTO getUtilisateurCreateurDTO() {
+        return utilisateurCreateurDTO;
+    }
+
+    public void setUtilisateurCreateurDTO(UtilisateurDTO utilisateurCreateurDTO) {
+        this.utilisateurCreateurDTO = utilisateurCreateurDTO;
+    }
+
+    public UtilisateurDTO getUtilisateurModificateurDTO() {
+        return utilisateurModificateurDTO;
+    }
+
+    public void setUtilisateurModificateurDTO(UtilisateurDTO utilisateurModificateurDTO) {
+        this.utilisateurModificateurDTO = utilisateurModificateurDTO;
+    }
+
+    public ReferentielVirtualisationDTO getReferentielVirtualisationDTO() {
+        return referentielVirtualisationDTO;
+    }
+
+    public void setReferentielVirtualisationDTO(ReferentielVirtualisationDTO referentielVirtualisationDTO) {
+        this.referentielVirtualisationDTO = referentielVirtualisationDTO;
     }
 }
