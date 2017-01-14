@@ -184,6 +184,12 @@
                     <input  th:field="*{parametresAppliDTO.longueurMotDePasse}" th:value="${formulaire.parametresAppliDTO.longueurMotDePasse}" size="2"/>
                 </td>
             </tr>
+            <tr >
+                <td>Délai purge en mois</td>
+                <td>
+                    <input  th:field="*{parametresAppliDTO.delaiPurge}" th:value="${formulaire.parametresAppliDTO.delaiPurge}" size="2"/>
+                </td>
+            </tr>
         </table>
         <br/>
         <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">

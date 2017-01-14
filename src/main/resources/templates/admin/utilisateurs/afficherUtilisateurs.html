@@ -65,6 +65,7 @@
                     <tr >
                         <th>Nom</th>
                         <th>Prénom</th>
+                        <th>Date de dernière connexion</th>
                         <th>Mail</th>
                         <th>Tél bur</th>
                         <th>Tél mob</th>
@@ -74,6 +75,7 @@
                     <tr th:each="utilisateur:${formulaire.utilisateurDTOPage.content}" th:onclick="'afficherDetailsUtilisateur(\'' + ${utilisateur.id} + '\');'">
                         <td th:text="${utilisateur.nom}"></td>
                         <td th:text="${utilisateur.prenom}"></td>
+                        <td th:text="${#dates.format(utilisateur.dateConnexion, 'dd/MM/yyyy HH:mm:ss')}"></td>
                         <td th:text="${utilisateur.mail}"></td>
                         <td th:text="${utilisateur.telephoneBureau}"></td>
                         <td th:text="${utilisateur.telephoneMobile}"></td>

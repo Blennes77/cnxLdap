@@ -91,6 +91,9 @@ public class ParametresAppliDTO implements Serializable {
     @Column(name="CAP_TIMEOUTPING_PHPIPAM")
     private Integer timeoutPingPhpipam;
 
+    @Column(name = "CAP_DELAIMOIS_PURGE")
+    private Integer delaiPurge;
+
 
     @OneToOne
     @JoinColumn(name = "CAP_ID_TYPE_ENVIRONNEMENT", insertable = false, updatable = false)
@@ -302,5 +305,13 @@ public class ParametresAppliDTO implements Serializable {
 
     public void setReferentielEnvironnementDTO(ReferentielEnvironnementDTO referentielEnvironnementDTO) {
         this.referentielEnvironnementDTO = referentielEnvironnementDTO;
+    }
+
+    public Integer getDelaiPurge() {
+        return delaiPurge;
+    }
+
+    public void setDelaiPurge(Integer delaiPurge) {
+        this.delaiPurge = delaiPurge;
     }
 }

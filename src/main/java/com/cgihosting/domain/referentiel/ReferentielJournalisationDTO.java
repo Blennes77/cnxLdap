@@ -37,6 +37,9 @@ public class ReferentielJournalisationDTO {
     @Column(name="RJO_DATE_MODIFICATION")
     private Date dateModification;
 
+    @Column(name="RJO_IND_PURGEABLE")
+    private Integer indPurgeable;
+
     @OneToOne
     @JoinColumn(name="RJO_ID_CREATEUR", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurCreateurDTO ;
@@ -118,5 +121,13 @@ public class ReferentielJournalisationDTO {
 
     public void setUtilisateurModificateurDTO(UtilisateurDTO utilisateurModificateurDTO) {
         this.utilisateurModificateurDTO = utilisateurModificateurDTO;
+    }
+
+    public Integer getIndPurgeable() {
+        return indPurgeable;
+    }
+
+    public void setIndPurgeable(Integer indPurgeable) {
+        this.indPurgeable = indPurgeable;
     }
 }
