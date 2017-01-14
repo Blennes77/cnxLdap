@@ -75,9 +75,9 @@
                     <tr  class="sortable" th:each="referentielActionsWorkflows:${formulaire.referentielActionsWorkflowDTOPage.content}" th:onclick="'afficherDetailsReferentielActionsWorkflows(\'' + ${referentielActionsWorkflows.id} + '\');'">
                         <td th:text="${referentielActionsWorkflows.id}"></td>
                         <td th:text="${#dates.format(referentielActionsWorkflows.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                        <td th:text="${referentielActionsWorkflows.utilisateurCreateurDTO.logonName}"></td>
+                        <td th:text="${referentielActionsWorkflows.utilisateurCreateurDTO.prenom} + ' ' + ${referentielActionsWorkflows.utilisateurCreateurDTO.nom}"></td>
                         <td th:text="${#dates.format(referentielActionsWorkflows.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                        <td th:text="${referentielActionsWorkflows.utilisateurModificateurDTO.logonName}"></td>
+                        <td th:text="${referentielActionsWorkflows.utilisateurModificateurDTO.prenom} + ' ' + ${referentielActionsWorkflows.utilisateurModificateurDTO.nom}"></td>
                         <td th:text="${referentielActionsWorkflows.actionWorkflow}"></td>
                         <td th:text="${referentielActionsWorkflows.descriptionWorkflow}"></td>
                     </tr>

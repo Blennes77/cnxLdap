@@ -67,9 +67,9 @@
                 <tr th:each="referentielJournalisation:${formulaire.referentielJournalisationDTOPage.content}" th:onclick="'afficherDetailsReferentielJournalisation(\'' + ${referentielJournalisation.id} + '\');'">
                     <td th:text="${referentielJournalisation.id}"></td>
                     <td th:text="${#dates.format(referentielJournalisation.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                    <td th:text="${referentielJournalisation.utilisateurCreateurDTO.logonName}"></td>
+                    <td th:text="${referentielJournalisation.utilisateurCreateurDTO.prenom} + ' ' + ${referentielJournalisation.utilisateurCreateurDTO.nom}"></td>
                     <td th:text="${#dates.format(referentielJournalisation.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                    <td th:text="${referentielJournalisation.utilisateurModificateurDTO.logonName}"></td>
+                    <td th:text="${referentielJournalisation.utilisateurModificateurDTO.prenom} + ' ' + ${referentielJournalisation.utilisateurModificateurDTO.nom}"></td>
                     <td th:text="${referentielJournalisation.libelleAction}"></td>
                 </tr>
             </table>

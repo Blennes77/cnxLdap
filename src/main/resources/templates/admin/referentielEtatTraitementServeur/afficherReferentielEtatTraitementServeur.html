@@ -75,9 +75,9 @@
                     <tr  class="sortable" th:each="referentielEtatTraitementServeur:${formulaire.referentielEtatTraitementServeurDTOPage.content}" th:onclick="'afficherDetailsReferentielEtatTraitementServeur(\'' + ${referentielEtatTraitementServeur.id} + '\');'">
                         <td th:text="${referentielEtatTraitementServeur.id}"></td>
                         <td th:text="${#dates.format(referentielEtatTraitementServeur.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                        <td th:text="${referentielEtatTraitementServeur.utilisateurCreateurDTO.logonName}"></td>
+                        <td th:text="${referentielEtatTraitementServeur.utilisateurCreateurDTO.prenom} + ' ' + ${referentielEtatTraitementServeur.utilisateurCreateurDTO.nom}"></td>
                         <td th:text="${#dates.format(referentielEtatTraitementServeur.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                        <td th:text="${referentielEtatTraitementServeur.utilisateurModificateurDTO.logonName}"></td>
+                        <td th:text="${referentielEtatTraitementServeur.utilisateurModificateurDTO.prenom} + ' ' + ${referentielEtatTraitementServeur.utilisateurModificateurDTO.nom}"></td>
                         <td th:text="${referentielEtatTraitementServeur.code}"></td>
                         <td th:text="${referentielEtatTraitementServeur.description}"></td>
                     </tr>
