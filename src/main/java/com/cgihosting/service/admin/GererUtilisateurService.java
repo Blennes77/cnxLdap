@@ -1,8 +1,8 @@
 package com.cgihosting.service.admin;
 
 
-import com.cgihosting.domain.RoleUtilisateurDTO;
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.application.RoleUtilisateurDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;

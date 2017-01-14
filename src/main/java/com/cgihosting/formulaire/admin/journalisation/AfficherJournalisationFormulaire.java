@@ -1,6 +1,6 @@
 package com.cgihosting.formulaire.admin.journalisation;
 
-import com.cgihosting.domain.JournalDTO;
+import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 import org.springframework.data.domain.Page;
 

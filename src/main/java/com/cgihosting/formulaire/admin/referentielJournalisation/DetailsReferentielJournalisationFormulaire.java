@@ -1,6 +1,6 @@
 package com.cgihosting.formulaire.admin.referentielJournalisation;
 
-import com.cgihosting.domain.ReferentielJournalisationDTO;
+import com.cgihosting.domain.referentiel.ReferentielJournalisationDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 
 /**

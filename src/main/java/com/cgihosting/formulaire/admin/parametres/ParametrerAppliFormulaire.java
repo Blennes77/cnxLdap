@@ -1,6 +1,6 @@
 package com.cgihosting.formulaire.admin.parametres;
 
-import com.cgihosting.domain.ParametresAppliDTO;
+import com.cgihosting.domain.application.ParametresAppliDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 
 /**

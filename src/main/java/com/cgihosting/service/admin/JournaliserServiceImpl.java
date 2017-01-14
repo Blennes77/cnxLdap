@@ -1,7 +1,7 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.JournalDTO;
-import com.cgihosting.domain.ReferentielJournalisationDTO;
+import com.cgihosting.domain.application.JournalDTO;
+import com.cgihosting.domain.referentiel.ReferentielJournalisationDTO;
 import com.cgihosting.repository.JournalRepository;
 import com.cgihosting.repository.ReferentielJournalisationRepository;
 import org.springframework.beans.factory.annotation.Autowired;

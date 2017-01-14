@@ -120,6 +120,8 @@ public class ConstantesPage {
     public static final String ADMIN_AFFICHAGE_VIRTUALISATION_TITRE = "Liste des virtualisations";
     public static final String ADMIN_DETAIL_VIRTUALISATION_TITRE = "Virtualisation";
 
+    public static final String ADMIN_AFFICHAGE_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE = "Liste des actions sur les machines virtuelles";
+
 
     /** Noms des boutons **/
 
@@ -146,6 +148,8 @@ public class ConstantesPage {
 
     public static final String ADMIN_BOUTON_AJOUTER_VIRTUALISATION = "Ajouter virtualiiation";
     public static final String ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION ="Retour";
+
+    public static final String ADMIN_BOUTON_AJOUTER_REFERENTIEL_ACTIONS_WORKFLOWS =" AJouter une action";
 
 
 

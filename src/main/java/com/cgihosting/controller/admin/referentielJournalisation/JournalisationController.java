@@ -2,8 +2,8 @@ package com.cgihosting.controller.admin.referentielJournalisation;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.JournalDTO;
-import com.cgihosting.domain.ReferentielJournalisationDTO;
+import com.cgihosting.domain.application.JournalDTO;
+import com.cgihosting.domain.referentiel.ReferentielJournalisationDTO;
 import com.cgihosting.formulaire.admin.journalisation.AfficherJournalisationFormulaire;
 import com.cgihosting.formulaire.admin.referentielJournalisation.AfficherReferentielJournalisationFormulaire;
 import com.cgihosting.formulaire.admin.referentielJournalisation.DetailsReferentielJournalisationFormulaire;

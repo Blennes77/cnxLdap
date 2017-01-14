@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.CommandeDTO;
+import com.cgihosting.domain.application.CommandeDTO;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

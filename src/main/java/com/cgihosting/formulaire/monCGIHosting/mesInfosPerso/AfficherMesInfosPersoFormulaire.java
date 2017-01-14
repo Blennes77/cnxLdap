@@ -1,7 +1,7 @@
 package com.cgihosting.formulaire.monCGIHosting.mesInfosPerso;
 
-import com.cgihosting.domain.ProjetDTO;
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.application.ProjetDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 
 import java.util.List;

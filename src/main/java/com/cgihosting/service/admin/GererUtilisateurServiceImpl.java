@@ -1,8 +1,8 @@
 package com.cgihosting.service.admin;
 
 import com.cgihosting.constantes.ConstantesAdmin;
-import com.cgihosting.domain.RoleUtilisateurDTO;
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.application.RoleUtilisateurDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

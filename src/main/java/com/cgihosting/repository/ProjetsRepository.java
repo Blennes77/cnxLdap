@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.ProjetDTO;
+import com.cgihosting.domain.application.ProjetDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;

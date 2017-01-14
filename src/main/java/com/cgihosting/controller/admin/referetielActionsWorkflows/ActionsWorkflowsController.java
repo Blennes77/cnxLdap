@@ -2,16 +2,16 @@ package com.cgihosting.controller.admin.referetielActionsWorkflows;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.JournalDTO;
-import com.cgihosting.domain.ReferentielOSDTO;
-import com.cgihosting.formulaire.admin.referentielSystemesExploitation.AfficherOSFormulaire;
-import com.cgihosting.formulaire.admin.referentielSystemesExploitation.DetailsOSFormulaire;
+import com.cgihosting.domain.application.JournalDTO;
+import com.cgihosting.domain.referentiel.ReferentielActionsWorkflowDTO;
+import com.cgihosting.formulaire.admin.referentielActionsWorkflows.AfficherReferentielActionsWorkflowsFormulaire;
+import com.cgihosting.formulaire.admin.referentielActionsWorkflows.DetailsReferentielActionsWorkflowsFormulaire;
 import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.outils.Dates;
-import com.cgihosting.service.admin.GererHebergeurService;
 import com.cgihosting.service.admin.GererOSService;
 import com.cgihosting.service.admin.GererUtilisateurService;
+import com.cgihosting.service.admin.GererWorkflowsService;
 import com.cgihosting.service.admin.JournaliserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,31 +46,31 @@ public class ActionsWorkflowsController {
 
 
     @Autowired
-    private GererHebergeurService gererHebergeurService;
+    private GererWorkflowsService gererWorkflowsService;
 
     @Autowired
     private GererUtilisateurService gererUtilisateurService;
 
 
-    @RequestMapping("/admin/afficherReferentielWorkflows")
+    @RequestMapping("/admin/afficherReferentielActionsWorkflows")
     String afficherOS(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherOS(page, ligneParPage));
-        return "admin/referentielWorkflowd/afficherReferentielWrokflows";
+        model.addAttribute("formulaire", recupererFormulaireAfficherReferentielActionsWorkflows(page, ligneParPage));
+        return "admin/referentielActionsWorkflows/afficherReferentielActionsWorkflows";
     }
 
-    @RequestMapping(value = "/admin/afficherDetailsReferentielWorkflows", method = RequestMethod.POST)
-    String affichageDetailsOS(int identifiantOSSelect, Model model){
+    @RequestMapping(value = "/admin/afficherDetailsReferentielActionsWorkflows", method = RequestMethod.POST)
+    String affichageDetailsReferentielWorkflowd(int identifiantWorkflowSelect, Model model){
 
-        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsOS(identifiantOSSelect));
-        return "admin/referentielWorkflowd/detailsReferentielWrorkflowd";
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielActionsWorkflows(identifiantWorkflowSelect));
+        return "admin/referentielActionsWorkflows/detailsReferentielActionsWorkflows";
     }
 
 
-    @RequestMapping(value = "/admin/modifierReferentielWorkflows", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/modifierReferentielActionsWorkflows", method = RequestMethod.POST)
 
-    String creerOS(@Valid DetailsOSFormulaire detailsOSFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String creerOS(@Valid DetailsReferentielActionsWorkflowsFormulaire detailsReferentielActionsWorkflowsFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
 
@@ -80,12 +80,12 @@ public class ActionsWorkflowsController {
             if (bindingResult.hasErrors()) {
 
 
-                return "admin/systemesExploitation/detailsOS";
+                return "admin/referentielActionsWorkflows/detailsReferentielActionsWorkflows";
             }
             else{
 
 
-                identifiantDonneeTraitee =  gererOSService.modifierReferentielOS(detailsOSFormulaire.getReferentielOSDTO());
+                identifiantDonneeTraitee =  gererWorkflowsService.modifierReferentielActionsWorkflows(detailsReferentielActionsWorkflowsFormulaire.getReferentielActionsWorkflowsDTO());
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_OS,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());
@@ -93,7 +93,7 @@ public class ActionsWorkflowsController {
 
 
 
-                return  "redirect:/admin/afficherReferentielWorkflowd";
+                return  "redirect:/admin/afficherReferentielActionsWorkflows";
 
             }
 
@@ -101,7 +101,7 @@ public class ActionsWorkflowsController {
 
         else {
 
-            return  "redirect:/admin/afficherReferentielWorkflows";
+            return  "redirect:/admin/afficherReferentielActionsWorkflows";
 
         }
 
@@ -116,24 +116,25 @@ public class ActionsWorkflowsController {
      * méthodes comme des controleurs
      */
 
-    private AfficherOSFormulaire recupererFormulaireAfficherOS(int pageCourante, int numLigneAfficheParPage)  {
+    private AfficherReferentielActionsWorkflowsFormulaire recupererFormulaireAfficherReferentielActionsWorkflows(int pageCourante, int numLigneAfficheParPage)  {
 
 
-        AfficherOSFormulaire afficherOSFormulaire = new AfficherOSFormulaire();
+        AfficherReferentielActionsWorkflowsFormulaire afficherReferentielActionsWorkflowsFormulaire = new AfficherReferentielActionsWorkflowsFormulaire();
 
         PaginationObjet paginationObjet;
-        paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererOSService.nombreTotalOS());
-        afficherOSFormulaire.setPaginationObjet(paginationObjet);
+        paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererWorkflowsService.nombreTotalReferentielActionsWorkflows());
+        afficherReferentielActionsWorkflowsFormulaire.setPaginationObjet(paginationObjet);
 
-        afficherOSFormulaire.setReferentielOSDTOPage(gererOSService.searchAllReferentielOSDTOPageByPage(pageCourante, numLigneAfficheParPage));
-
-
-        afficherOSFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_OS_TITRE);
-        afficherOSFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_OS);
+        afficherReferentielActionsWorkflowsFormulaire.setReferentielActionsWorkflowDTOPage(gererWorkflowsService.recupererReferentielActionsWorkflows(pageCourante, numLigneAfficheParPage));
 
 
+        afficherReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
 
-        return afficherOSFormulaire;
+        afficherReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_ACTIONS_WORKFLOWS);
+
+
+
+        return afficherReferentielActionsWorkflowsFormulaire;
     }
 
 
@@ -144,33 +145,33 @@ public class ActionsWorkflowsController {
      * méthodes comme des controleurs
      */
 
-    private DetailsOSFormulaire recupererFormulaireDetailsOS(int identifiantOSSelect) {
+    private DetailsReferentielActionsWorkflowsFormulaire recupererFormulaireDetailsReferentielActionsWorkflows(int identifiantWorkflowSelect) {
 
 
         /** Attributs**/
-        DetailsOSFormulaire detailsOSFormulaire = new DetailsOSFormulaire();
-        ReferentielOSDTO referentielOSDTO = new ReferentielOSDTO();
+        DetailsReferentielActionsWorkflowsFormulaire detailsReferentielActionsWorkflowsFormulaire = new DetailsReferentielActionsWorkflowsFormulaire();
+        ReferentielActionsWorkflowDTO referentielActionsWorkflowDTO = new ReferentielActionsWorkflowDTO();
 
-        if (identifiantOSSelect != 0) {
-            referentielOSDTO = gererOSService.recupererReferentielOSById(identifiantOSSelect);
+        if (identifiantWorkflowSelect != 0) {
+            referentielActionsWorkflowDTO = gererWorkflowsService.recupererReferentielActionsWorkflowsById(identifiantWorkflowSelect);
 
-            detailsOSFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
         }
         else {
 
-            detailsOSFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
         }
 
 
 
-        detailsOSFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_OS_TITRE);
-        detailsOSFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+        detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_OS_TITRE);
+        detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
 
 
-        detailsOSFormulaire.setReferentielOSDTO(referentielOSDTO);
+        detailsReferentielActionsWorkflowsFormulaire.setReferentielActionsWorkflowsDTO(referentielActionsWorkflowDTO);
 
 
-        return detailsOSFormulaire;
+        return detailsReferentielActionsWorkflowsFormulaire;
     }
 
 

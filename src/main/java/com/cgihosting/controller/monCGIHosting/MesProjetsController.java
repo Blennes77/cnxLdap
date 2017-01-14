@@ -1,8 +1,7 @@
 package com.cgihosting.controller.monCGIHosting;
 
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.UtilisateurDTO;
-import com.cgihosting.formulaire.monCGIHosting.mesInfosPerso.AfficherMesInfosPersoFormulaire;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.formulaire.monCGIHosting.mesProjets.AfficherMesProjetsFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.service.admin.GererProjetsService;

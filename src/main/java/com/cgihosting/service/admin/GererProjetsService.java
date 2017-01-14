@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ProjetDTO;
+import com.cgihosting.domain.application.ProjetDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;

@@ -1,7 +1,7 @@
 package com.cgihosting.service.admin;
 
 
-import com.cgihosting.domain.ProduitDTO;
+import com.cgihosting.domain.application.ProduitDTO;
 import com.cgihosting.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

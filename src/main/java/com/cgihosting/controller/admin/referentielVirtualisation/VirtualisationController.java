@@ -2,10 +2,10 @@ package com.cgihosting.controller.admin.referentielVirtualisation;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.JournalDTO;
-import com.cgihosting.domain.ReferentielVirtualisationDTO;
-import com.cgihosting.formulaire.admin.referetielVirtualisation.AfficherVirtualisationFormulaire;
-import com.cgihosting.formulaire.admin.referetielVirtualisation.DetailsVirtualisationFormulaire;
+import com.cgihosting.domain.application.JournalDTO;
+import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
+import com.cgihosting.formulaire.admin.referentielVirtualisation.AfficherReferentielVirtualisationFormulaire;
+import com.cgihosting.formulaire.admin.referentielVirtualisation.DetailsReferentielVirtualisationFormulaire;
 import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.outils.Dates;
@@ -52,25 +52,25 @@ public class VirtualisationController {
     private GererUtilisateurService gererUtilisateurService;
 
 
-    @RequestMapping("/admin/afficherVirtualisation")
+    @RequestMapping("/admin/afficherReferentielVirtualisation")
     String afficherVirtualisation(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute("formulaire", recupererFormulaireAfficherVirtualisation(page, ligneParPage));
-        return "admin/virtualisation/afficherVirtualisation";
+        return "admin/referentielVirtualisation/afficherReferentielVirtualisation";
     }
 
-    @RequestMapping(value = "/admin/afficherDetailsVirtualisation", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/afficherDetailsReferentielVirtualisation", method = RequestMethod.POST)
     String affichageDetailsVirtualisation(int identifiantVirtualisationSelect, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsVirtualisation(identifiantVirtualisationSelect));
-        return "admin/virtualisation/detailsVirtualisation";
+        return "admin/referentielVirtualisation/detailsReferentielVirtualisation";
     }
 
 
-    @RequestMapping(value = "/admin/modifierVirtualisation", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/modifierReferentielVirtualisation", method = RequestMethod.POST)
 
-    String creerVirtualisation(@Valid DetailsVirtualisationFormulaire detailsVirtualisationFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String creerVirtualisation(@Valid DetailsReferentielVirtualisationFormulaire detailsReferentielVirtualisationFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
 
@@ -80,12 +80,12 @@ public class VirtualisationController {
             if (bindingResult.hasErrors()) {
 
 
-                return "admin/virtualisation/detailsVirtualisation";
+                return "admin/referentielVirtualisation/detailsReferentielVirtualisation";
             }
             else{
 
 
-                identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(detailsVirtualisationFormulaire.getReferentielVirtualisationDTO());
+                identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(detailsReferentielVirtualisationFormulaire.getReferentielVirtualisationDTO());
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_VIRTUALISATION,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());
@@ -93,7 +93,7 @@ public class VirtualisationController {
 
 
 
-                return  "redirect:/admin/afficherVirtualisation";
+                return  "redirect:/admin/afficherReferentielVirtualisation";
 
             }
 
@@ -101,7 +101,7 @@ public class VirtualisationController {
 
         else {
 
-            return  "redirect:/admin/afficherVirtualisation";
+            return  "redirect:/admin/afficherReferentielVirtualisation";
 
         }
 
@@ -116,24 +116,24 @@ public class VirtualisationController {
      * méthodes comme des controleurs
      */
 
-    private AfficherVirtualisationFormulaire recupererFormulaireAfficherVirtualisation(int pageCourante, int numLigneAfficheParPage)  {
+    private AfficherReferentielVirtualisationFormulaire recupererFormulaireAfficherVirtualisation(int pageCourante, int numLigneAfficheParPage)  {
 
 
-        AfficherVirtualisationFormulaire afficherVirtualisationFormulaire = new AfficherVirtualisationFormulaire();
+        AfficherReferentielVirtualisationFormulaire afficherReferentielVirtualisationFormulaire = new AfficherReferentielVirtualisationFormulaire();
 
         PaginationObjet paginationObjet;
         paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererVirtualisationService.nombreTotalVirtualisation());
-        afficherVirtualisationFormulaire.setPaginationObjet(paginationObjet);
+        afficherReferentielVirtualisationFormulaire.setPaginationObjet(paginationObjet);
 
-        afficherVirtualisationFormulaire.setReferentielVirtualisationDTOPage(gererVirtualisationService.searchAllReferentielVirtualisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
-
-
-        afficherVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_VIRTUALISATION_TITRE);
-        afficherVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+        afficherReferentielVirtualisationFormulaire.setReferentielVirtualisationDTOPage(gererVirtualisationService.searchAllReferentielVirtualisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
 
+        afficherReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_VIRTUALISATION_TITRE);
+        afficherReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
 
-        return afficherVirtualisationFormulaire;
+
+
+        return afficherReferentielVirtualisationFormulaire;
     }
 
 
@@ -144,33 +144,33 @@ public class VirtualisationController {
      * méthodes comme des controleurs
      */
 
-    private DetailsVirtualisationFormulaire recupererFormulaireDetailsVirtualisation(int identifiantVirtualisationSelect) {
+    private DetailsReferentielVirtualisationFormulaire recupererFormulaireDetailsVirtualisation(int identifiantVirtualisationSelect) {
 
 
         /** Attributs**/
-        DetailsVirtualisationFormulaire detailsVirtualisationFormulaire = new DetailsVirtualisationFormulaire();
+        DetailsReferentielVirtualisationFormulaire detailsReferentielVirtualisationFormulaire = new DetailsReferentielVirtualisationFormulaire();
         ReferentielVirtualisationDTO referentielVirtualisationDTO = new ReferentielVirtualisationDTO();
 
         if (identifiantVirtualisationSelect != 0) {
             referentielVirtualisationDTO = gererVirtualisationService.recupererReferentielVirtualisationById(identifiantVirtualisationSelect);
 
-            detailsVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
         }
         else {
 
             referentielVirtualisationDTO.setId(0);
-            detailsVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
         }
 
 
 
-        detailsVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
-        detailsVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+        detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
+        detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
 
-        detailsVirtualisationFormulaire.setReferentielVirtualisationDTO(referentielVirtualisationDTO);
+        detailsReferentielVirtualisationFormulaire.setReferentielVirtualisationDTO(referentielVirtualisationDTO);
 
 
-        return detailsVirtualisationFormulaire;
+        return detailsReferentielVirtualisationFormulaire;
     }
 
 

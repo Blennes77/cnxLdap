@@ -2,7 +2,7 @@ package com.cgihosting.controller.admin.parametresApplication;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.JournalDTO;
+import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.formulaire.admin.parametres.ParametrerAppliFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.outils.Dates;

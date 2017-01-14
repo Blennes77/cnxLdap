@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ReferentielActionsWorkflowDTO;
+import com.cgihosting.domain.referentiel.ReferentielActionsWorkflowDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
@@ -13,6 +13,17 @@ public interface GererWorkflowsService extends Serializable{
 
 
     public Page<ReferentielActionsWorkflowDTO> recupererReferentielActionsWorkflows(Integer page, Integer ligneParPage);
+
+    public Long nombreTotalReferentielActionsWorkflows();
+
+    public int modifierReferentielActionsWorkflows(ReferentielActionsWorkflowDTO referentielActionsWorkflowDTO);
+
+
+    public ReferentielActionsWorkflowDTO recupererReferentielActionsWorkflowsById(int identifiant);
+
+
+
+
 
 
 

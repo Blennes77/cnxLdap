@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ParametresAppliDTO;
+import com.cgihosting.domain.application.ParametresAppliDTO;
 import com.cgihosting.repository.ParametrageAppliRepository;
 import com.cgihosting.repository.ReferentielEnvironnementRepository;
 import org.springframework.beans.factory.annotation.Autowired;

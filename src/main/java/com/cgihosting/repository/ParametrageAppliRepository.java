@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.ParametresAppliDTO;
+import com.cgihosting.domain.application.ParametresAppliDTO;
 import org.springframework.data.repository.CrudRepository;
 
 /**

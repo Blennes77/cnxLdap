@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <form action="#" th:action="@{/admin/modifierReferentielActionsWorkflows}" th:object="${formulaire}" method="post">
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+    <div class="jumbotron">
+        <h2 th:text="${formulaire.titrePage}">Titre de la page</h2>
+
+        <input type="hidden" th:field="*{referentielActionsWorkflowsDTO.id}" th:value="${formulaire.referentielActionsWorkflowsDTO.id}"/>
+
+
+        <table class="table">
+            <tr >
+                <td>Action workflow</td>
+                <td> <input name="nom" type="text" th:field="*{referentielActionsWorkflowsDTO.actionWorkflow}"  size="20"/></td>
+
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td> <input name="description" type="text" th:field="*{referentielActionsWorkflowsDTO.descriptionWorkflow}"  size="20"/></td>
+
+
+            </tr>
+        </table>
+        <br/>
+        <button type="submit" name="action" th:attr="value=${formulaire.actionAnnuler}" class="btn btn-sm btn-danger">
+            <span th:text="${formulaire.boutonRetourLabel}">Label bouton</span>
+        </button>
+        <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">
+            <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
+        </button>
+    </div>
+
+    </form>
+</div>
+</body>
+</html>

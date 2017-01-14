@@ -1,6 +1,6 @@
 package com.cgihosting.formulaire.admin.referentielHebergeurs;
 
-import com.cgihosting.domain.ReferentielHebergeurDTO;
+import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 import org.springframework.data.domain.Page;
 

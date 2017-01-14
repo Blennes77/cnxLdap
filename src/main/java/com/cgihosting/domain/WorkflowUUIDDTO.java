@@ -1,5 +1,8 @@
 package com.cgihosting.domain;
 
+import com.cgihosting.domain.referentiel.ReferentielActionsWorkflowDTO;
+import com.cgihosting.domain.referentiel.ReferentielEnvironnementDTO;
+
 import javax.persistence.*;
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package com.cgihosting.formulaire.admin.projets;
 
-import com.cgihosting.domain.ProjetDTO;
+import com.cgihosting.domain.application.ProjetDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 import org.springframework.data.domain.Page;
 

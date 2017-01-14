@@ -1,7 +1,9 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ReferentielHebergeurDTO;
+import com.cgihosting.domain.application.SolutionsHebergementDTO;
+import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
 import com.cgihosting.repository.ReferentielHebergeurRepository;
+import com.cgihosting.repository.SolutionsHebergementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +23,9 @@ public class GererHebergeurServiceImpl implements GererHebergeurService {
      */
     @Autowired
     private ReferentielHebergeurRepository hebergeurRepository;
+
+    @Autowired
+    private SolutionsHebergementRepository  solutionsHebergementRepository;
 
     @Override
     public List<ReferentielHebergeurDTO> recupererReferentielHebergeurs() {
@@ -69,5 +74,38 @@ public class GererHebergeurServiceImpl implements GererHebergeurService {
                 new Sort.Order(Sort.Direction.ASC, "nom")
         )));
         return referentielHebergeurDTOPage;
+    }
+
+    @Override
+    public SolutionsHebergementDTO recupererSolutionsHebergementById(int identifiant) {
+        SolutionsHebergementDTO solutionsHebergementDTO = solutionsHebergementRepository.findById(identifiant);
+
+        return solutionsHebergementDTO;
+    }
+
+    @Override
+    public int modifierSolutionsHebergement(SolutionsHebergementDTO solutionsHebergementDTO) {
+        solutionsHebergementRepository.save(solutionsHebergementDTO);
+
+        return solutionsHebergementDTO.getId();
+    }
+
+    @Override
+    public Long nombreTotalSolutionshebergement() {
+        Long total;
+
+        total = solutionsHebergementRepository.count();
+        return total;
+    }
+
+    @Override
+    public Page<SolutionsHebergementDTO> searchAllSolutionsHebergementDtoPageByPage(Integer page, Integer ligneParPage) {
+        Page<SolutionsHebergementDTO> solutionsHebergementDTOPage;
+
+
+        solutionsHebergementDTOPage = solutionsHebergementRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
+                new Sort.Order(Sort.Direction.ASC, "libelleSolution")
+        )));
+        return solutionsHebergementDTOPage;
     }
 }

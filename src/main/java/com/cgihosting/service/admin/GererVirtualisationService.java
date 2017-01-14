@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ReferentielVirtualisationDTO;
+import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;

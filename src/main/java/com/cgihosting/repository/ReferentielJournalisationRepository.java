@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.ReferentielJournalisationDTO;
+import com.cgihosting.domain.referentiel.ReferentielJournalisationDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**

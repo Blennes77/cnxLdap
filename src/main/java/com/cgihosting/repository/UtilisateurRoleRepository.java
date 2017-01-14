@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.RoleUtilisateurDTO;
+import com.cgihosting.domain.application.RoleUtilisateurDTO;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

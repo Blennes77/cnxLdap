@@ -2,8 +2,8 @@ package com.cgihosting.controller.admin.referentielHebergeurs;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.ReferentielHebergeurDTO;
-import com.cgihosting.domain.JournalDTO;
+import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
+import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.formulaire.admin.referentielHebergeurs.AfficherReferentielHebergeursFormulaire;
 import com.cgihosting.formulaire.admin.referentielHebergeurs.DetailsReferentielHebergeursFormulaire;
 import com.cgihosting.objets.PaginationObjet;

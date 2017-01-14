@@ -1,6 +1,7 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ReferentielHebergeurDTO;
+import com.cgihosting.domain.application.SolutionsHebergementDTO;
+import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
@@ -22,6 +23,16 @@ public interface GererHebergeurService extends Serializable{
     public Long nombreTotalReferentielHebergeurs();
 
     public Page<ReferentielHebergeurDTO> searchAllReferentielHebergeurDtoPageByPage(Integer page, Integer ligneParPage);
+
+
+    public SolutionsHebergementDTO recupererSolutionsHebergementById(int identifiant);
+
+
+    public  int modifierSolutionsHebergement(SolutionsHebergementDTO solutionsHebergementDTO);
+
+    public Long nombreTotalSolutionshebergement();
+
+    public Page<SolutionsHebergementDTO> searchAllSolutionsHebergementDtoPageByPage(Integer page, Integer ligneParPage);
 
 
 

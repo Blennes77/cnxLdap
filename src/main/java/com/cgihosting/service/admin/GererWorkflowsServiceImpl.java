@@ -1,11 +1,13 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ReferentielActionsWorkflowDTO;
-import com.cgihosting.repository.ReferentielEnvironnementRepository;
-import com.cgihosting.repository.RefWorkflowsUuidRepository;
+import com.cgihosting.domain.referentiel.ReferentielActionsWorkflowDTO;
+import com.cgihosting.repository.ReferentielWorkflowsUuidRepository;
 import com.cgihosting.repository.ReferentielActionsWorkflowsRepository;
+import com.cgihosting.repository.ReferentielEnvironnementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,7 +20,7 @@ public class GererWorkflowsServiceImpl implements GererWorkflowsService {
      * La balise autowired est indispensable
      */
     @Autowired
-    private RefWorkflowsUuidRepository refWorkflowsUuidRepository;
+    private ReferentielWorkflowsUuidRepository refWorkflowsUuidRepository;
 
     @Autowired
     private ReferentielActionsWorkflowsRepository referentielActionsWorkflowsRepository;
@@ -33,13 +35,39 @@ public class GererWorkflowsServiceImpl implements GererWorkflowsService {
 
             Page<ReferentielActionsWorkflowDTO> referentielActionsWorkflowDTOPage = null;
 
-    /*
-        refActionsWorkflowDTOPage = referentielActionsWorkflowsRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
+
+        referentielActionsWorkflowDTOPage = referentielActionsWorkflowsRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
                     new Sort.Order(Sort.Direction.ASC, "actionWorkflow")
             )));
 
-            */
+
             return referentielActionsWorkflowDTOPage;
         }
+
+    @Override
+    public Long nombreTotalReferentielActionsWorkflows() {
+        Long total;
+
+        total = referentielActionsWorkflowsRepository.count();
+        return total;
+    }
+
+
+    @Override
+    public int modifierReferentielActionsWorkflows(ReferentielActionsWorkflowDTO referentielActionsWorkflowDTO) {
+
+        referentielActionsWorkflowsRepository.save(referentielActionsWorkflowDTO);
+
+        return referentielActionsWorkflowDTO.getId();
+    }
+
+
+    @Override
+    public ReferentielActionsWorkflowDTO recupererReferentielActionsWorkflowsById(int identifiant) {
+
+        ReferentielActionsWorkflowDTO referentielActionsWorkflowDTO = referentielActionsWorkflowsRepository.findById(identifiant);
+
+        return referentielActionsWorkflowDTO;
+    }
 
 }

@@ -1,6 +1,6 @@
 package com.cgihosting.formulaire.admin.produits;
 
-import com.cgihosting.domain.ProduitDTO;
+import com.cgihosting.domain.application.ProduitDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.ReferentielEnvironnementDTO;
+import com.cgihosting.domain.referentiel.ReferentielEnvironnementDTO;
 import org.springframework.data.repository.CrudRepository;
 
 /**

@@ -1,8 +1,8 @@
 package com.cgihosting.security;
 
-import com.cgihosting.domain.ProjetDTO;
-import com.cgihosting.domain.RoleUtilisateurDTO;
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.application.ProjetDTO;
+import com.cgihosting.domain.application.RoleUtilisateurDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.repository.ProjetsRepository;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;

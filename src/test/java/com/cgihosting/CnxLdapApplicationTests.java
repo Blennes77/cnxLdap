@@ -2,8 +2,8 @@ package com.cgihosting;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesDate;
-import com.cgihosting.domain.ReferentielRolesDTO;
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.referentiel.ReferentielRolesDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.GererUtilisateurService;
 import org.junit.Test;

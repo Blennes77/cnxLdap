@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ReferentielVirtualisationDTO;
+import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
 import com.cgihosting.repository.ReferentielVirtualisationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

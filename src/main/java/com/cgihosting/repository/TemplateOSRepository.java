@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.TemplateOSDTO;
+import com.cgihosting.domain.application.TemplateOSDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
