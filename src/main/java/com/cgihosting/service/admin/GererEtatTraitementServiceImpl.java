@@ -1,11 +1,7 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.referentiel.ReferentielActionsWorkflowDTO;
 import com.cgihosting.domain.referentiel.ReferentielEtatTraitementServeurDTO;
-import com.cgihosting.repository.ReferentielActionsWorkflowsRepository;
-import com.cgihosting.repository.ReferentielEnvironnementRepository;
 import com.cgihosting.repository.ReferentielEtatTraitementRepository;
-import com.cgihosting.repository.ReferentielWorkflowsUuidRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -31,7 +27,7 @@ public class GererEtatTraitementServiceImpl implements GererEtatTraitementServic
 
 
         referentielEtatTraitementServeurDTOPage = referentielEtatTraitementRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
-                    new Sort.Order(Sort.Direction.ASC, "code")
+                    new Sort.Order(Sort.Direction.ASC, "id")
             )));
 
 

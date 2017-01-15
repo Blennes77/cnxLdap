@@ -66,6 +66,9 @@ public class SolutionsHebergementDTO {
     @Column(name="SHE_TEXTERESERVATION_PHPIPAM")
     private String texteReservationPhpipam ="";
 
+    @Column(name="SHE_NOMSECTION_PHPIPAM")
+    private String nomSectionPhpipam ="";
+
     @Column(name="SHE_ID_VIRTUALISATION")
     private Integer idVirtualisation;
 
@@ -343,5 +346,13 @@ public class SolutionsHebergementDTO {
 
     public void setReferentielVirtualisationDTO(ReferentielVirtualisationDTO referentielVirtualisationDTO) {
         this.referentielVirtualisationDTO = referentielVirtualisationDTO;
+    }
+
+    public String getNomSectionPhpipam() {
+        return nomSectionPhpipam;
+    }
+
+    public void setNomSectionPhpipam(String nomSectionPhpipam) {
+        this.nomSectionPhpipam = nomSectionPhpipam;
     }
 }
