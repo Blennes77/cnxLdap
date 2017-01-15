@@ -150,9 +150,13 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                             //TODO
                             libelleRole = LIBELLE_ROLE_EXPLOITANT;
                             break;
-                        case ROLE_ADMIN:
+                        case ROLE_ADMIN_FONCTIONNEL:
                             //TODO
-                            libelleRole = LIBELLE_ROLE_ADMIN;
+                            libelleRole = LIBELLE_ROLE_ADMIN_FONCTIONNEL;
+                            break;
+                        case ROLE_ADMIN_TECHNIQUE:
+                            //TODO
+                            libelleRole = LIBELLE_ROLE_ADMIN_TECHNIQUE;
                             break;
                         case ROLE_DP:
                             //TODO

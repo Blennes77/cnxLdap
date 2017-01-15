@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<script language="javascript">
+
+
+    function afficherDetailsUtilisateur(identifiantUtilisateurSelect) {
+
+        // alert(identifiant);
+        document.getElementById("identifiantUtilisateurSelect").value= identifiantUtilisateurSelect;
+        document.getElementById("monformulaire").submit();
+    }
+
+</script>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<form id="monformulaire" action="#" th:action="@{/adminFonctionnel/afficherDetailsUtilisateur}" th:object="${formulaire}" method="post">
+
+<div class="container">
+    <div class="jumbotron">
+
+        <div class="panel panel-primary">
+
+            <!-- Default panel contents -->
+            <div class="panel-heading" th:text="${formulaire.titrePage}">Liste des utilisateurs</div>
+            <div class="panel-body">
+                <input id="identifiantUtilisateurSelect" name="identifiantUtilisateurSelect" type="hidden"  />
+                <div class="pull-right">
+                    Affichage par :
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}">Ligne</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" >
+                            <li><a href="/adminFonctionnel/afficherUtilisateurs?ligneParPage=5">5</a></li>
+                            <li><a href="/adminFonctionnel/afficherUtilisateurs?ligneParPage=10">10</a></li>
+                            <li><a href="/adminFonctionnel/afficherUtilisateurs?ligneParPage=20">20</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <table class="table table-striped">
+                <thead>
+                    <tr >
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Date de dernière connexion</th>
+                        <th>Mail</th>
+                        <th>Tél bur</th>
+                        <th>Tél mob</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="utilisateur:${formulaire.utilisateurDTOPage.content}" th:onclick="'afficherDetailsUtilisateur(\'' + ${utilisateur.id} + '\');'">
+                        <td th:text="${utilisateur.nom}"></td>
+                        <td th:text="${utilisateur.prenom}"></td>
+                        <td th:text="${#dates.format(utilisateur.dateConnexion, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${utilisateur.mail}"></td>
+                        <td th:text="${utilisateur.telephoneBureau}"></td>
+                        <td th:text="${utilisateur.telephoneMobile}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li th:each="i : ${#numbers.sequence(1,formulaire.paginationObjet.numPageTotal)}"><a th:text="${i}" th:href="@{'/adminFonctionnel/afficherUtilisateurs?page='+${i-1}+'&amp;ligneParPage='+${formulaire.paginationObjet.nbLigneAfficheParPage}}">1</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</form>
+</body>
+</html>

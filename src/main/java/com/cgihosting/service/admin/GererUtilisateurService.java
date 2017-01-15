@@ -26,7 +26,7 @@ public interface GererUtilisateurService extends Serializable{
 
     public void deleteUser(UtilisateurDTO utilisateurDTO );
 
-    public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin);
+    public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdminTechnique,  boolean roleAdminFonctionnel);
 
     public List<RoleUtilisateurDTO> recupererRolesUtilisateur(int idUser);
 

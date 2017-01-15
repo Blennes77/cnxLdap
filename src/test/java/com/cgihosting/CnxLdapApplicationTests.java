@@ -44,7 +44,8 @@ public class CnxLdapApplicationTests {
 
 		List<ReferentielRolesDTO> referentielRolesDTOList = new ArrayList<>();
 		referentielRolesDTOList.add(new ReferentielRolesDTO(ConstantesAdmin.ROLE_USER));
-		referentielRolesDTOList.add(new ReferentielRolesDTO(ConstantesAdmin.ROLE_ADMIN));
+		referentielRolesDTOList.add(new ReferentielRolesDTO(ConstantesAdmin.ROLE_ADMIN_TECHNIQUE));
+		referentielRolesDTOList.add(new ReferentielRolesDTO(ConstantesAdmin.ROLE_ADMIN_FONCTIONNEL));
 
 		// INSERT - Création d'un utilisateur avec deux rôles
 		//user = new User("prenom", "nom", "mail", "016422", "066422", dateCreation, dateCreation, "logon", "code", roleList);

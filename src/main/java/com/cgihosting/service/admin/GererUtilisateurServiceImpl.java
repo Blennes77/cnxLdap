@@ -79,7 +79,7 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
     }
 
     @Override
-    public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin) {
+    public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdminTechnique, boolean roleAdminFonctionnel ) {
         // Supression des rôles en base de données
         List<RoleUtilisateurDTO> listRoleUtilisateurDTO = new ArrayList<>();
         listRoleUtilisateurDTO = utilisateurRoleRepository.findByIdUser(idUser);
@@ -101,9 +101,15 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
             listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_EXPLOITANT));
         }
 
-        if(roleAdmin){
-            listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_ADMIN));
+        if(roleAdminTechnique){
+            listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_ADMIN_TECHNIQUE));
         }
+
+        if(roleAdminFonctionnel){
+            listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_ADMIN_FONCTIONNEL));
+        }
+
+
 
         utilisateurRoleRepository.save(listRoleUtilisateurDTO);
 
