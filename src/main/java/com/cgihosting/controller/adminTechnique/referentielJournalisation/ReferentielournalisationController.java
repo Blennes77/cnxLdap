@@ -50,7 +50,7 @@ public class ReferentielournalisationController {
                                   @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielJournalisation(page, ligneParPage));
-        return "adminTechnique/journalisation/afficherReferentielJournalisation";
+        return "adminTechnique/referentielJournalisation/afficherReferentielJournalisation";
     }
 
 
@@ -58,7 +58,7 @@ public class ReferentielournalisationController {
     String affichageDetailsReferentielJournalisation(int identifiantReferentielJournalisationSelect, Model model) {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielJournalisation(identifiantReferentielJournalisationSelect));
-        return "adminTechnique/journalisation/detailsReferentielJournalisation";
+        return "adminTechnique/referentielJournalisation/detailsReferentielJournalisation";
     }
 
 
@@ -77,7 +77,7 @@ public class ReferentielournalisationController {
             if (bindingResult.hasErrors()) {
 
 
-                return "adminTechnique/hebergeurs/detailsReferentielJournalisation";
+                return "adminTechnique/referentielJournalisation/detailsReferentielJournalisation";
             }
             else{
 

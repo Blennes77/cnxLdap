@@ -1,4 +1,4 @@
-package com.cgihosting.controller.adminFonctionnel.referentielVirtualisation;
+package com.cgihosting.controller.adminTechnique.referentielVirtualisation;
 
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
@@ -53,23 +53,23 @@ public class VirtualisationController {
     private GererUtilisateurService gererUtilisateurService;
 
 
-    @RequestMapping("/admin/afficherReferentielVirtualisation")
+    @RequestMapping("/adminTechnique/afficherReferentielVirtualisation")
     String afficherVirtualisation(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute("formulaire", recupererFormulaireAfficherVirtualisation(page, ligneParPage));
-        return "admin/referentielVirtualisation/afficherReferentielVirtualisation";
+        return "adminTechnique/referentielVirtualisation/afficherReferentielVirtualisation";
     }
 
-    @RequestMapping(value = "/admin/afficherDetailsReferentielVirtualisation", method = RequestMethod.POST)
+    @RequestMapping(value = "/adminTechnique/afficherDetailsReferentielVirtualisation", method = RequestMethod.POST)
     String affichageDetailsVirtualisation(int identifiantVirtualisationSelect, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsVirtualisation(identifiantVirtualisationSelect));
-        return "admin/referentielVirtualisation/detailsReferentielVirtualisation";
+        return "adminTechnique/referentielVirtualisation/detailsReferentielVirtualisation";
     }
 
 
-    @RequestMapping(value = "/admin/modifierReferentielVirtualisation", method = RequestMethod.POST)
+    @RequestMapping(value = "/adminTechnique/modifierReferentielVirtualisation", method = RequestMethod.POST)
 
     String creerVirtualisation(@Valid DetailsReferentielVirtualisationFormulaire detailsReferentielVirtualisationFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
 
@@ -83,7 +83,7 @@ public class VirtualisationController {
             if (bindingResult.hasErrors()) {
 
 
-                return "admin/referentielVirtualisation/detailsReferentielVirtualisation";
+                return "adminTechnique/referentielVirtualisation/detailsReferentielVirtualisation";
             }
             else{
 
@@ -102,7 +102,7 @@ public class VirtualisationController {
 
 
 
-                return  "redirect:/admin/afficherReferentielVirtualisation";
+                return  "redirect:/adminTechnique/afficherReferentielVirtualisation";
 
             }
 
@@ -110,7 +110,7 @@ public class VirtualisationController {
 
         else {
 
-            return  "redirect:/admin/afficherReferentielVirtualisation";
+            return  "redirect:/adminTechnique/afficherReferentielVirtualisation";
 
         }
 
