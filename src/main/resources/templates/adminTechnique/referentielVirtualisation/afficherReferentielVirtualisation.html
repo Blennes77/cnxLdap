@@ -67,9 +67,9 @@
             <tr  class="sortable" th:each="referentielVirtualisation:${formulaire.referentielVirtualisationDTOPage}" th:onclick="'afficherDetailsReferentielVirtualisation(\'' + ${referentielVirtualisation.id} + '\');'">
                     <td th:text="${referentielVirtualisation.id}"></td>
                     <td th:text="${#dates.format(referentielVirtualisation.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                    <td th:text="${referentielVirtualisation.utilisateurCreateurDTO.prenom} +  ' ' + ${referentielVirtualisation.utilisateurCreateurDTO.nom}"></td>
+                    <td th:text="${referentielVirtualisation.utilisateurCreateurDTO != null} ? ${referentielVirtualisation.utilisateurCreateurDTO.nom} + ' ' + ${referentielVirtualisation.utilisateurCreateurDTO.nom}"></td>
                     <td th:text="${#dates.format(referentielVirtualisation.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                    <td th:text="${referentielVirtualisation.utilisateurModificateurDTO.prenom} + ' ' + ${referentielVirtualisation.utilisateurModificateurDTO.nom}"></td>
+                    <td th:text="${referentielVirtualisation.utilisateurModificateurDTO != null} ? ${referentielVirtualisation.utilisateurModificateurDTO.nom} + ' ' + ${referentielVirtualisation.utilisateurModificateurDTO.nom}"></td>
                     <td th:text="${referentielVirtualisation.nomVirtualisation}"></td>
                     <td th:text="${referentielVirtualisation.descriptionVirtualisation}"></td>
                 </tr>

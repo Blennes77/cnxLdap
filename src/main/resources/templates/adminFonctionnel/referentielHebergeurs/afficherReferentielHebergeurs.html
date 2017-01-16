@@ -75,9 +75,9 @@
                     <tr  class="sortable" th:each="referentielHebergeur:${formulaire.referentielHebergeurDTOPage.content}" th:onclick="'afficherDetailsReferentielHebergeurs(\'' + ${referentielHebergeur.id} + '\');'">
                         <td th:text="${referentielHebergeur.id}"></td>
                         <td th:text="${#dates.format(referentielHebergeur.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                        <td th:text="${referentielHebergeur.utilisateurCreateurDTO.prenom} + ' ' + ${referentielHebergeur.utilisateurCreateurDTO.nom}"></td>
+                        <td th:text="${referentielHebergeur.utilisateurCreateurDTO != null} ? ${referentielHebergeur.utilisateurCreateurDTO.nom} + ' ' + ${referentielHebergeur.utilisateurCreateurDTO.nom}"></td>
                         <td th:text="${#dates.format(referentielHebergeur.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                        <td th:text="${referentielHebergeur.utilisateurModificateurDTO.prenom} +  ' ' + ${referentielHebergeur.utilisateurModificateurDTO.nom}"></td>
+                        <td th:text="${referentielHebergeur.utilisateurModificateurDTO != null} ? ${referentielHebergeur.utilisateurModificateurDTO.nom} + ' ' + ${referentielHebergeur.utilisateurModificateurDTO.nom}"></td>
                         <td th:text="${referentielHebergeur.nom}"></td>
                         <td th:text="${referentielHebergeur.description}"></td>
                     </tr>

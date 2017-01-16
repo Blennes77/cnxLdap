@@ -61,15 +61,16 @@
                 <th>Date de création</th>
                 <th>Créateur</th>
                 <th>Date de modification</th>
+                <th>Modificateur</th>
                 <th>Libellé rôle</th>
                 <th>Description rôles</th>
             </tr>
             <tr  class="sortable" th:each="referentielRoles:${formulaire.referentielRolesDTOPage}" th:onclick="'afficherDetailsReferentielRolesUtilisateur(\'' + ${referentielRoles.id} + '\');'">
                     <td th:text="${referentielRoles.id}"></td>
                     <td th:text="${#dates.format(referentielRoles.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                    <td th:text="${referentielRoles.utilisateurCreateurDTO.prenom} +  ' ' + ${referentielRoles.utilisateurCreateurDTO.nom}"></td>
+                    <td th:text="${referentielRoles.utilisateurCreateurDTO != null} ? ${referentielRoles.utilisateurCreateurDTO.nom} + ' ' + ${referentielRoles.utilisateurCreateurDTO.nom}"></td>
                     <td th:text="${#dates.format(referentielRoles.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
-                    <td th:text="${referentielRoles.utilisateurModificateurDTO.prenom} + ' ' + ${referentielRoles.utilisateurModificateurDTO.nom}"></td>
+                    <td th:text="${referentielRoles.utilisateurModificateurDTO != null} ? ${referentielRoles.utilisateurModificateurDTO.nom} + ' ' + ${referentielRoles.utilisateurModificateurDTO.nom}"></td>
                     <td th:text="${referentielRoles.libelleRole}"></td>
                     <td th:text="${referentielRoles.descriptionRole}"></td>
                 </tr>

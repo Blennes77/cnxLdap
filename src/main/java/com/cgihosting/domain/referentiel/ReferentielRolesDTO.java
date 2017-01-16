@@ -1,5 +1,7 @@
 package com.cgihosting.domain.referentiel;
 
+import com.cgihosting.domain.application.UtilisateurDTO;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -9,7 +11,7 @@ import java.util.Date;
  * Created by garnons on 06/12/2016.
  */
 @Entity
-@Table(name="ref_role_utilisateur")
+@Table(name="referentiel_role_utilisateur")
 public class ReferentielRolesDTO implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +37,16 @@ public class ReferentielRolesDTO implements Serializable{
 
     @Column(name="RRU_DATE_MODIFICATION")
     private Date dateModification;
+
+
+    @OneToOne
+    @JoinColumn(name="RRU_ID_CREATEUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurCreateurDTO ;
+
+
+    @OneToOne
+    @JoinColumn(name="RRU_ID_MODIFICATEUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurModificateurDTO ;
 
     public ReferentielRolesDTO() {
     }
@@ -103,5 +115,22 @@ public class ReferentielRolesDTO implements Serializable{
 
     public void setDescriptionRole(String descriptionRole) {
         this.descriptionRole = descriptionRole;
+    }
+
+
+    public UtilisateurDTO getUtilisateurCreateurDTO() {
+        return utilisateurCreateurDTO;
+    }
+
+    public void setUtilisateurCreateurDTO(UtilisateurDTO utilisateurCreateurDTO) {
+        this.utilisateurCreateurDTO = utilisateurCreateurDTO;
+    }
+
+    public UtilisateurDTO getUtilisateurModificateurDTO() {
+        return utilisateurModificateurDTO;
+    }
+
+    public void setUtilisateurModificateurDTO(UtilisateurDTO utilisateurModificateurDTO) {
+        this.utilisateurModificateurDTO = utilisateurModificateurDTO;
     }
 }
