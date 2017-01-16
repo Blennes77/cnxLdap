@@ -76,7 +76,9 @@ public class ReferentielournalisationController {
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
             if (bindingResult.hasErrors()) {
-
+                detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAILS_REFERENTIEL_JOURNALISATION_TITRE);
+                detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_JOURNALISATIOn);
+                detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_REFERENTIEL_JOURNALISATION);
                 model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielJournalisationFormulaire);
 
 
