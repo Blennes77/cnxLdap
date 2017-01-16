@@ -32,7 +32,7 @@ public class ProjetsController {
     String afficherProjets(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                            @RequestParam(value = "ligneParPage", required = false, defaultValue = "250") int ligneParPage, Model model) {
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherProjets(page, ligneParPage));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherProjets(page, ligneParPage));
         return "adminFonctionnel/projets/afficherProjets";
     }
 

@@ -58,7 +58,7 @@ public class EtatTraitementServeurController {
     String afficherReferentielEtatTraitement(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherReferentielEtatTraitementServeur(page, ligneParPage));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielEtatTraitementServeur(page, ligneParPage));
         return "adminTechnique/referentielEtatTraitementServeur/afficherReferentielEtatTraitementServeur";
     }
 

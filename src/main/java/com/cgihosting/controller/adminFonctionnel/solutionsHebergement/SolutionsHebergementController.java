@@ -58,7 +58,7 @@ public class SolutionsHebergementController {
     String afficherSolutionsHebergement(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherSolutionsHebergement(page, ligneParPage));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherSolutionsHebergement(page, ligneParPage));
         return "adminFonctionnel/solutionsHebergement/afficherSolutionsHebergement";
     }
 

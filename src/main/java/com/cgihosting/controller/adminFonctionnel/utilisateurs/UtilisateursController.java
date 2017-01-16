@@ -42,7 +42,7 @@ public class UtilisateursController {
                                 Model model)
     {
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage, 0));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherUtilisateurs(page, ligneParPage, 0));
         return "adminFonctionnel/utilisateurs/afficherUtilisateurs";
     }
 
@@ -52,7 +52,7 @@ public class UtilisateursController {
                                 Model model)
     {
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage, ConstantesAdmin.ROLE_EXPLOITANT));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherUtilisateurs(page, ligneParPage, ConstantesAdmin.ROLE_EXPLOITANT));
         return "adminFonctionnel/utilisateurs/afficherResponsables";
     }
 
@@ -62,14 +62,14 @@ public class UtilisateursController {
                                Model model)
     {
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherUtilisateurs(page, ligneParPage, ConstantesAdmin.ROLE_ADMIN_FONCTIONNEL));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherUtilisateurs(page, ligneParPage, ConstantesAdmin.ROLE_ADMIN_FONCTIONNEL));
         return "adminFonctionnel/utilisateurs/afficherResponsables";
     }
 
     @RequestMapping(value = "/adminFonctionnel/afficherDetailsUtilisateur", method = RequestMethod.POST)
     String detailsUtilisateur(@RequestParam("identifiantUtilisateurSelect") int id, Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireDetailsUtilisateur(id));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsUtilisateur(id));
         return "adminFonctionnel/utilisateurs/detailsUtilisateur";
     }
 

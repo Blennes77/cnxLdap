@@ -55,7 +55,7 @@ public class RolesController {
     String afficherRolesUtilisateur(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherReferentielRolesUtilisateur(page, ligneParPage));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielRolesUtilisateur(page, ligneParPage));
         return "adminTechnique/referentielRolesutilisateur/afficherReferentielRolesUtilisateur";
     }
 

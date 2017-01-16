@@ -30,7 +30,7 @@ public class ProduitsController {
     @RequestMapping("/adminFonctionnel/afficherProduits")
     String afficherProduits(Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherProduits());
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherProduits());
         return "adminFonctionnel/referentielProduits/afficherProduits";
     }
 
