@@ -1,7 +1,7 @@
 package com.cgihosting.repository;
 
 
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**

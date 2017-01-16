@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <div class="jumbotron">
+        <h2 th:text="${formulaire.titrePage}">Titre</h2>
+        <h2 th:text="${formulaire.utilisateurDTO.nom} + ' ' + ${formulaire.utilisateurDTO.prenom}">Détails de l'utilisateur</h2>
+        <!-- REMPLIR CI-DESSOUS -->
+        <form action="/adminFonctionnel/modifierDetailsUtilisateur" th:object="${form}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <input type="hidden" name="id" th:value="${formulaire.utilisateurDTO.id}"/>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input th:disabled="true" th:name="roleUser" type="checkbox" aria-label="..." th:checked="${formulaire.roleUser}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Utilisateur"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input th:disabled="true" th:name="roleDP" type="checkbox" aria-label="..." th:checked="${formulaire.roleDp}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Directeur de projet"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input th:name="roleExploit" type="checkbox" aria-label="..." th:checked="${formulaire.roleExploit}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Exploitant"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input th:name="roleAdminFonctionnel" type="checkbox" aria-label="..." th:checked="${formulaire.roleAdmin}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Administrateur du site"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input th:name="roleAdminTechnique" type="checkbox" aria-label="..." th:checked="${formulaire.roleAdmin}"/>
+                        </span>
+                        <input type="text" class="form-control" aria-label="..." value="Administrateur technique"/>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <br/>
+            <button type="submit" name="action" th:attr="value=${formulaire.actionAnnuler}" class="btn btn-sm btn-danger">
+                <span th:text="${formulaire.boutonRetourLabel}">Label bouton</span>
+            </button>
+            <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">
+                <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

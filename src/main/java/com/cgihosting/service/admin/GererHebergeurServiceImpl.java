@@ -1,7 +1,9 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.HebergeurDTO;
-import com.cgihosting.repository.HebergeurRepository;
+import com.cgihosting.domain.application.SolutionsHebergementDTO;
+import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
+import com.cgihosting.repository.ReferentielHebergeurRepository;
+import com.cgihosting.repository.SolutionsHebergementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,39 +22,42 @@ public class GererHebergeurServiceImpl implements GererHebergeurService {
      * La balise autowired est indispensable
      */
     @Autowired
-    private HebergeurRepository hebergeurRepository;
+    private ReferentielHebergeurRepository hebergeurRepository;
+
+    @Autowired
+    private SolutionsHebergementRepository  solutionsHebergementRepository;
 
     @Override
-    public List<HebergeurDTO> recupererHebergeurs() {
+    public List<ReferentielHebergeurDTO> recupererReferentielHebergeurs() {
 
-        List<HebergeurDTO> hebergeurDTOListe = null;
+        List<ReferentielHebergeurDTO> referentielHebergeurDTOListe = null;
 
-        hebergeurDTOListe = (List<HebergeurDTO>) hebergeurRepository.findAll();
+        referentielHebergeurDTOListe = (List<ReferentielHebergeurDTO>) hebergeurRepository.findAll();
 
-        return hebergeurDTOListe;
+        return referentielHebergeurDTOListe;
 
     }
 
     @Override
-    public HebergeurDTO recupererHebergeurById(int identifiant) {
+    public ReferentielHebergeurDTO recupererHebergeurById(int identifiant) {
 
-        HebergeurDTO hebergeurDTO = hebergeurRepository.findById(identifiant);
+        ReferentielHebergeurDTO ReferentielHebergeurDTO = hebergeurRepository.findById(identifiant);
 
-        return hebergeurDTO;
+        return ReferentielHebergeurDTO;
     }
 
 
 
-    public int creerHebergeur(HebergeurDTO hebergeurDTO) {
+    public int creerReferentielHebergeur(ReferentielHebergeurDTO referentielHebergeurDTO) {
 
 
-        hebergeurRepository.save(hebergeurDTO);
+        hebergeurRepository.save(referentielHebergeurDTO);
 
-        return hebergeurDTO.getId();
+        return referentielHebergeurDTO.getId();
 
     }
 
-    public Long nombreTotalHebergeurs() {
+    public Long nombreTotalReferentielHebergeurs() {
         Long total;
 
         total = hebergeurRepository.count();
@@ -60,14 +65,47 @@ public class GererHebergeurServiceImpl implements GererHebergeurService {
     }
 
     @Override
-    public Page<HebergeurDTO> searchAllHebergeurDtoPageByPage(Integer page, Integer ligneParPage) {
+    public Page<ReferentielHebergeurDTO> searchAllReferentielHebergeurDtoPageByPage(Integer page, Integer ligneParPage) {
 
-        Page<HebergeurDTO> hebergeurDTOPage;
+        Page<ReferentielHebergeurDTO> referentielHebergeurDTOPage;
 
 
-        hebergeurDTOPage = hebergeurRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
+        referentielHebergeurDTOPage = hebergeurRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
                 new Sort.Order(Sort.Direction.ASC, "nom")
         )));
-        return hebergeurDTOPage;
+        return referentielHebergeurDTOPage;
+    }
+
+    @Override
+    public SolutionsHebergementDTO recupererSolutionsHebergementById(int identifiant) {
+        SolutionsHebergementDTO solutionsHebergementDTO = solutionsHebergementRepository.findById(identifiant);
+
+        return solutionsHebergementDTO;
+    }
+
+    @Override
+    public int modifierSolutionsHebergement(SolutionsHebergementDTO solutionsHebergementDTO) {
+        solutionsHebergementRepository.save(solutionsHebergementDTO);
+
+        return solutionsHebergementDTO.getId();
+    }
+
+    @Override
+    public Long nombreTotalSolutionshebergement() {
+        Long total;
+
+        total = solutionsHebergementRepository.count();
+        return total;
+    }
+
+    @Override
+    public Page<SolutionsHebergementDTO> searchAllSolutionsHebergementDtoPageByPage(Integer page, Integer ligneParPage) {
+        Page<SolutionsHebergementDTO> solutionsHebergementDTOPage;
+
+
+        solutionsHebergementDTOPage = solutionsHebergementRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
+                new Sort.Order(Sort.Direction.ASC, "libelleSolution")
+        )));
+        return solutionsHebergementDTOPage;
     }
 }

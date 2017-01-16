@@ -4,9 +4,10 @@ import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesGenerales;
 import com.cgihosting.constantes.ConstantesMonCGIHosting;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.JournalDTO;
-import com.cgihosting.domain.ProjetDTO;
-import com.cgihosting.domain.ServeurVirtuelDTO;
+import com.cgihosting.domain.application.JournalDTO;
+import com.cgihosting.domain.application.ProjetDTO;
+import com.cgihosting.domain.application.ServeurVirtuelDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AfficherCommandesFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjaxRecupererProjetFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjoutServeurVirtuelFormulaire;
@@ -113,13 +114,15 @@ public class MesCommmandesController {
     }
 
 
-    @RequestMapping(value = "/monCGIHosting/enregistrerServeurVirtuel", method = RequestMethod.POST)
+    @RequestMapping(value = "/monCGIHosting/modifierServeurVirtuel", method = RequestMethod.POST)
 
-    String creerServeurVirtuel(@Valid AjoutServeurVirtuelFormulaire ajoutServeurVirtuelFormulaire, Model model, BindingResult bindingResult,
+    String modifierServeurVirtuel(@Valid AjoutServeurVirtuelFormulaire ajoutServeurVirtuelFormulaire, Model model, BindingResult bindingResult,
                                @RequestParam String action, @RequestParam int idProjet){
 
         int identifiantDonneeTraitee = 0;
         ServeurVirtuelDTO serveurVirtuelDTO;
+
+        UtilisateurDTO utilisateurDTO;
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
@@ -130,15 +133,20 @@ public class MesCommmandesController {
             }
             else{
 
-                serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
+                utilisateurDTO =gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
 
+                serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
+                serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
+                serveurVirtuelDTO.setIdEnregistreur(utilisateurDTO.getId());
                 serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
                 serveurVirtuelDTO.setIdProjet(idProjet);
                 serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
 
 
                 // Bouchon OVH
-                serveurVirtuelDTO.setIdTypeHeberg(1);
+                serveurVirtuelDTO.setIdSolutionHebergement(1);
+
+                serveurVirtuelDTO.setIdWorkflow(1);
 
                 // On crée une machine avec l'identifiant déploiement
 
@@ -149,7 +157,6 @@ public class MesCommmandesController {
                                                           serveurVirtuelDTO.getIdTypeHeberg()).getId());
                                                           */
 
-                serveurVirtuelDTO.setIdEnregistreur(gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin()).getId());
 
 
 

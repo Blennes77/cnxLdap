@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<div class="container">
+    <form action="#" th:action="@{/adminFonctionnel/modifierSolutionsHebergement}" th:object="${formulaire}" method="post">
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+    <div class="jumbotron">
+        <h2 th:text="${formulaire.titrePage}">Titre de la page</h2>
+
+        <input type="hidden" th:field="*{solutionsHebergementDTO.id}" th:value="${formulaire.solutionsHebergementDTO.id}"/>
+
+
+        <table class="table">
+            <tr >
+                <td>Libelle</td>
+                <td> <input type="text" th:field="*{solutionsHebergementDTO.libelleSolution}"  size="20"/></td>
+            </tr>
+            <tr >
+                <td>Description</td>
+                <td> <input type="text" th:field="*{solutionsHebergementDTO.descriptionSolution}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Hébergeur</td>
+                <td> <select th:field="*{solutionsHebergementDTO.idHebergeur}" >
+                    <option th:each="referentielHebergeur : ${formulaire.referentielHebergeurDTOListe}"
+                            th:value="${referentielHebergeur.id}" th:text="${referentielHebergeur.nom}">Hebergeur</option>
+
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Virtualisation</td>
+                <td> <select th:field="*{solutionsHebergementDTO.idVirtualisation}" >
+                    <option th:each="referentielVirtualisation : ${formulaire.referentielVirtualisationDTOListe}"
+                            th:value="${referentielVirtualisation.id}" th:text="${referentielVirtualisation.nomVirtualisation}">Virtualisation</option>
+
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Adresse proxy</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.adresseProxy}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Masque proxy</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.masqueProxy}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Port proxy</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.portProxy}"  size="4"/></td>
+            </tr>
+            <tr>
+                <td>Adresse DNS 1</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.adresseDNS1}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Adresse DNS2</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.adresseDNS2}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Nom domaine</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.nomDomaine}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Administrateur domaine</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.adminDomaine}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Mot de passe administrateur domaine</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.motDePasseDomaine}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Prefixe nom des serveurs</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.prefixeNomMachine}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Texte réservation phpipam</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.texteReservationPhpipam}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Texte définitif phpipam</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.texteDefinitifPhpipam}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Nom section phpipam</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.nomSectionPhpipam}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>URL virtualisation</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.urlVirtualisation}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Compte administrateur virtualisation</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.compteVirtualisation}"  size="20"/></td>
+            </tr>
+            <tr>
+                <td>Mot de passe virtualisation</td>
+                <td> <input  type="text" th:field="*{solutionsHebergementDTO.motDePasseVirtualisation}"  size="20"/></td>
+            </tr>
+        </table>
+        <br/>
+        <button type="submit" name="action" th:attr="value=${formulaire.actionAnnuler}" class="btn btn-sm btn-danger">
+            <span th:text="${formulaire.boutonRetourLabel}">Label bouton</span>
+        </button>
+        <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">
+            <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
+        </button>
+    </div>
+
+    </form>
+</div>
+</body>
+</html>

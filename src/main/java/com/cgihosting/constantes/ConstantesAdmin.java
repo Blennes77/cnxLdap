@@ -20,12 +20,14 @@ public class ConstantesAdmin {
     /**
      * Rôles
      */
-    public static final int ROLE_ADMIN = 2;
-    public static final int ROLE_EXPLOITANT = 3;
     public static final int ROLE_USER = 1;
-    public static final int ROLE_DP = 4;
+    public static final int ROLE_ADMIN_TECHNIQUE = 2;
+    public static final int ROLE_ADMIN_FONCTIONNEL = 3;
+    public static final int ROLE_EXPLOITANT = 4 ;
+    public static final int ROLE_DP = 5;
 
-    public static final String LIBELLE_ROLE_ADMIN = "ROLE_ADMIN";
+    public static final String LIBELLE_ROLE_ADMIN_TECHNIQUE = "ROLE_ADMIN_TECHNIQUE";
+    public static final String LIBELLE_ROLE_ADMIN_FONCTIONNEL = "ROLE_ADMIN_FONCTIONNEL";
     public static final String LIBELLE_ROLE_EXPLOITANT = "ROLE_EXPLOIT";
     public static final String LIBELLE_ROLE_USER = "ROLE_USER";
     public static final String LIBELLE_ROLE_DP = "ROLE_DP";

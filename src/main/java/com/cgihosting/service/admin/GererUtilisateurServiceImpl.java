@@ -1,8 +1,8 @@
 package com.cgihosting.service.admin;
 
 import com.cgihosting.constantes.ConstantesAdmin;
-import com.cgihosting.domain.RoleUtilisateurDTO;
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.application.RoleUtilisateurDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +79,7 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
     }
 
     @Override
-    public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdmin) {
+    public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdminTechnique, boolean roleAdminFonctionnel ) {
         // Supression des rôles en base de données
         List<RoleUtilisateurDTO> listRoleUtilisateurDTO = new ArrayList<>();
         listRoleUtilisateurDTO = utilisateurRoleRepository.findByIdUser(idUser);
@@ -101,9 +101,15 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
             listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_EXPLOITANT));
         }
 
-        if(roleAdmin){
-            listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_ADMIN));
+        if(roleAdminTechnique){
+            listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_ADMIN_TECHNIQUE));
         }
+
+        if(roleAdminFonctionnel){
+            listRoleUtilisateurDTO.add(new RoleUtilisateurDTO(idUser, ConstantesAdmin.ROLE_ADMIN_FONCTIONNEL));
+        }
+
+
 
         utilisateurRoleRepository.save(listRoleUtilisateurDTO);
 

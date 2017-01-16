@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ProduitDTO;
+import com.cgihosting.domain.application.ProduitDTO;
 
 import java.io.Serializable;
 import java.util.List;

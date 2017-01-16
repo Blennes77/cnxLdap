@@ -43,25 +43,34 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                             <li roleDTO="separator" class="divider"></li>
                             <li><a href="/exploit/afficherTemplateOS">Réferentiel Templates OS</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li><a href="/exploit/afficherReferentielErreursRencontrees">Référentiel des erreurs</a></li>
+                            <li><a href="/exploit/afficherReferentielMails">Référentiel des mails</a></li>
                         </ul>
                     </li>
-                    <li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
+                    <li sec:authorize="hasRole('ROLE_ADMIN_FONCTIONNEL')" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration fonctionnelle<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/admin/afficherParametresAppli">Paramétrage Application</a></li>
+                            <li><a href="/adminFonctionnel/afficherParametresAppli">Paramétrage Application</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/admin/afficherHebergeurs">Référentiel hébergeurs</a></li>
-                            <li><a href="/admin/afficherReferentielJournalisation">Réferentiel Libellés Journalisation</a></li>
-                            <li><a href="/admin/afficherProduits">Réferentiel Produits</a></li>
-                            <li><a href="/admin/afficherOS">Réferentiel Systèmes d'exploitation</a></li>
-                            <li><a href="/admin/afficherVirtualisation">Réferentiel virtualisation</a></li>
-                            <li><a href="/admin/afficherReferentielWorkflows">Réferentiel Workflows</a></li>
+                            <li><a href="/adminFonctionnel/afficherReferentielHebergeurs">Hébergeurs</a></li>
+                            <li><a href="/adminFonctionnel/afficherProduits">Catalogue Produits</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/admin/afficherUtilisateurs">Utilisateurs du site</a></li>
-                            <li><a href="/admin/afficherReferentielProjets">Projets CGI</a></li>
+                            <li><a href="/adminFonctionnel/afficherSolutionsHebergement">Solutions hebergement</a></li>
+                            <li><a href="/adminFonctionnel/afficherUtilisateurs">Utilisateurs du site</a></li>
+                            <li><a href="/adminFonctionnel/afficherReferentielProjets">Projets CGI</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/admin/afficherJournalisation">Journaux d'evênements applicatifs</a></li>
+                            <li><a href="/adminFonctionnel/afficherJournalisation">Journaux d'evênements applicatifs</a></li>
+                        </ul>
+                    </li>
+                    <li sec:authorize="hasRole('ROLE_ADMIN_TECHNIQUE')" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration technique<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                             <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur">Réferentiel état traitement</a></li>
+                             <li><a href="/adminTechnique/afficherReferentielActionsWorkflows">Réferentiel Actions Workflows</a></li>
+                            <li><a href="/adminTechnique/afficherReferentielJournalisation">Réferentiel Libellés Journalisation</a></li>
+                            <li><a href="/adminTechnique/afficherReferentielOS">Réferentiel Systèmes d'exploitation</a></li>
+                            <li><a href="/adminTechnique/afficherReferentielVirtualisation">Réferentiel virtualisation</a></li>
+
                         </ul>
                     </li>
                 </ul>

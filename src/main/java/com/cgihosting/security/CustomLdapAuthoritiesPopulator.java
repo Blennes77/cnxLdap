@@ -1,11 +1,13 @@
 package com.cgihosting.security;
 
-import com.cgihosting.domain.ProjetDTO;
-import com.cgihosting.domain.RoleUtilisateurDTO;
-import com.cgihosting.domain.UtilisateurDTO;
+import com.cgihosting.domain.application.ProjetDTO;
+import com.cgihosting.domain.application.RoleUtilisateurDTO;
+import com.cgihosting.domain.application.ServeurVirtuelDTO;
+import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.repository.ProjetsRepository;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;
+import com.cgihosting.service.exploit.GererServeursVirtuelsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,9 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
     @Autowired
     private ProjetsRepository projetsRepository;
+
+    @Autowired
+    private GererServeursVirtuelsService gererServeursVirtuelsService;
 
     //public void setUserRepository(UserRepository userRepository){ this.userRepository = userRepository; }
 
@@ -76,10 +81,14 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                 utilisateurRepository.save(utilisateurDTO);
 
                 // Vérification dans la table ref_projet si l'utilisateur est présent
-                List<ProjetDTO> projetDTOList = new ArrayList<>();
+                List<ProjetDTO> projetDTOList = new ArrayList<ProjetDTO>();
+                List<ServeurVirtuelDTO> serveurVirtuelDTOListe = new ArrayList<ServeurVirtuelDTO>();
+
                 projetDTOList = projetsRepository.findBymailDP(utilisateurDTO.getMail());
 
+
                 // Si oui, il faut lui ajouter le role ROLE_DP et ROLE_USER dans la table utilisateur_a_role
+                // et lui réattribuer les serveurs commandés
                 if(projetDTOList.size()>0){
                     List<RoleUtilisateurDTO> roleUtilisateurDTOList = new ArrayList<>();
                     roleUtilisateurDTOList.add(new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_USER));
@@ -89,6 +98,17 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                     // On boucle maintenant sur les projets pour renseigner l'id utilisateur en regard des id projets
                     for(int i=0;i<projetDTOList.size();i++){
                         projetDTOList.get(i).setIdUser(utilisateurDTO.getId());
+
+                        serveurVirtuelDTOListe = gererServeursVirtuelsService.recupererServeursVirtuelsByIdProjet(projetDTOList.get(i).getId());
+
+                        for(int j=0;i<serveurVirtuelDTOListe.size();j++){
+
+                            serveurVirtuelDTOListe.get(j).setIdDP(utilisateurDTO.getId());
+
+                            gererServeursVirtuelsService.modifierServeurVirtuel(serveurVirtuelDTOListe.get(j));
+
+                        }
+
                     }
                     // Sauvegarde de l'utilisateur
                     projetsRepository.save(projetDTOList);
@@ -130,9 +150,13 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                             //TODO
                             libelleRole = LIBELLE_ROLE_EXPLOITANT;
                             break;
-                        case ROLE_ADMIN:
+                        case ROLE_ADMIN_FONCTIONNEL:
                             //TODO
-                            libelleRole = LIBELLE_ROLE_ADMIN;
+                            libelleRole = LIBELLE_ROLE_ADMIN_FONCTIONNEL;
+                            break;
+                        case ROLE_ADMIN_TECHNIQUE:
+                            //TODO
+                            libelleRole = LIBELLE_ROLE_ADMIN_TECHNIQUE;
                             break;
                         case ROLE_DP:
                             //TODO

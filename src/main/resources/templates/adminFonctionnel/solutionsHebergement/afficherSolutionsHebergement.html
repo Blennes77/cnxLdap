@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<script language="javascript">
+
+
+    function afficherDetailsSolutionsHebergement(identifiantSolutionHebergementSelect) {
+
+        document.getElementById("identifiantSolutionHebergementSelect").value= identifiantSolutionHebergementSelect;
+        document.getElementById("monformulaire").submit();
+    }
+
+</script>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+
+<div th:replace="fragments/menu :: menu">...</div>
+
+<form id="monformulaire" action="#" th:action="@{/adminFonctionnel/afficherDetailsSolutionsHebergement}" th:object="${formulaire}" method="post">
+
+
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+<div class="container">
+    <div class="jumbotron">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading" th:text="${formulaire.titrePage}">Titre de la page</div>
+
+            <div class="dropdown pull-right">
+                <button class="btn btn-default dropdown-toggle"  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                    <li><a href="/adminFonctionnel/afficherSolutionsHebergement?ligneParPage=5">5</a></li>
+                    <li><a href="/adminFonctionnel/afficherSolutionsHebergement?ligneParPage=10">10</a></li>
+                    <li><a href="/adminFonctionnel/afficherSOltionshebergement?ligneParPage=20">20</a></li>
+                </ul>
+            </div>
+
+            <input id="identifiantSolutionHebergementSelect" name="identifiantSolutionHebergementSelect" type="hidden" value="0" />
+
+            <table class="table table-stripped">
+                <thead>
+                    <tr >
+                        <th>Identifiant technique</th>
+                        <th>Date de création</th>
+                        <th>Créateur</th>
+                        <th>Date de modification</th>
+                        <th>Modifcateur</th>
+                        <th>Libelle</th>
+                        <th>Description</th>
+                        <th>Hébergeur</th>
+                        <th>Type de virtualisation</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr  class="sortable" th:each="solutionsHebergement:${formulaire.solutionsHebergementDTOPage.content}" th:onclick="'afficherDetailsSolutionsHebergement(\'' + ${solutionsHebergement.id} + '\');'">
+                        <td th:text="${solutionsHebergement.id}"></td>
+                        <td th:text="${#dates.format(solutionsHebergement.dateCreation, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${solutionsHebergement.utilisateurCreateurDTO.prenom} + ' ' + ${solutionsHebergement.utilisateurCreateurDTO.nom} "></td>
+                        <td th:text="${#dates.format(solutionsHebergement.dateModification, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${solutionsHebergement.utilisateurModificateurDTO.prenom} + ' ' + ${solutionsHebergement.utilisateurModificateurDTO.nom}"></td>
+                        <td th:text="${solutionsHebergement.libelleSolution}"></td>
+                        <td th:text="${solutionsHebergement.descriptionSolution}"></td>
+                        <td th:text="${solutionsHebergement.referentielHebergeurDTO.nom}"></td>
+                        <td th:text="${solutionsHebergement.referentielVirtualisationDTO.nomVirtualisation}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li th:each="i : ${#numbers.sequence(1,formulaire.paginationObjet.numPageTotal)}"><a th:text="${i}" th:href="@{'/adminFonctionnel/afficherSolutionsHebergement?page='+${i-1}+'&amp;ligneParPage='+${formulaire.paginationObjet.nbLigneAfficheParPage}}">1</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <br/>
+        <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">
+            <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
+        </button>
+    </div>
+</div>
+
+    </form>
+</body>
+</html>

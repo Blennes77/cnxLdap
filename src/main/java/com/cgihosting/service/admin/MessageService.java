@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.MessageDTO;
+import com.cgihosting.domain.application.MessageDTO;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.MessageDTO;
+import com.cgihosting.domain.application.MessageDTO;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

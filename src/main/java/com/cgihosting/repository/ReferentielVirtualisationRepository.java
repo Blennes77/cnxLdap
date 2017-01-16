@@ -1,12 +1,12 @@
 package com.cgihosting.repository;
 
-import com.cgihosting.domain.TypeVirtualisationDTO;
+import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * Created by marinib on 12/01/2017.
  */
-public interface ReferentielVirtualisationRepository extends PagingAndSortingRepository<TypeVirtualisationDTO, Integer> {
+public interface ReferentielVirtualisationRepository extends PagingAndSortingRepository<ReferentielVirtualisationDTO, Integer> {
     /**
      * This method will find an User instance in the database by its email.
      * Note that this method is not implemented and its working code will be
@@ -14,7 +14,7 @@ public interface ReferentielVirtualisationRepository extends PagingAndSortingRep
      */
 
 
-    public TypeVirtualisationDTO findById(int identifiant);
+    public ReferentielVirtualisationDTO findById(int identifiant);
 
 
 

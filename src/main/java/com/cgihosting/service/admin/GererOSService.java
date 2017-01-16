@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.TypeOSDTO;
+import com.cgihosting.domain.referentiel.ReferentielOSDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
@@ -12,17 +12,17 @@ import java.util.List;
 
 public interface GererOSService extends Serializable{
 
-    public List<TypeOSDTO> recupererOS();
+    public List<ReferentielOSDTO> recupererReferentielOS();
 
-    public TypeOSDTO recupererOSById(int identifiant);
+    public ReferentielOSDTO recupererReferentielOSById(int identifiant);
 
 
-    public int modifierOS(TypeOSDTO typeOSDTO);
+    public int modifierReferentielOS(ReferentielOSDTO referentielOSDTO);
 
 
     public Long nombreTotalOS();
 
-    public Page<TypeOSDTO> searchAllOSDTOPageByPage(Integer page, Integer ligneParPage);
+    public Page<ReferentielOSDTO> searchAllReferentielOSDTOPageByPage(Integer page, Integer ligneParPage);
 
 
 

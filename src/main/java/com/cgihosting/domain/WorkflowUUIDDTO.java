@@ -1,5 +1,8 @@
 package com.cgihosting.domain;
 
+import com.cgihosting.domain.referentiel.ReferentielActionsWorkflowDTO;
+import com.cgihosting.domain.referentiel.ReferentielEnvironnementDTO;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -27,11 +30,11 @@ public class WorkflowUUIDDTO implements Serializable{
 
     @OneToOne
     @JoinColumn(name="RWU_ID_ENV", insertable = false, updatable = false)
-    private TypeEnvironnementDTO typeEnvironnementDTO;
+    private ReferentielEnvironnementDTO referentielEnvironnementDTO;
 
     @OneToOne
     @JoinColumn(name="RWU_ID_NOM_WORKFLOW", insertable = false, updatable = false)
-    private RefActionsWorkflowDTO refActionsWorkflowDTO;
+    private ReferentielActionsWorkflowDTO refActionsWorkflowDTO;
 
 
     public Integer getId() {
@@ -66,19 +69,19 @@ public class WorkflowUUIDDTO implements Serializable{
         this.typeEnv = typeEnv;
     }
 
-    public TypeEnvironnementDTO getTypeEnvironnementDTO() {
-        return typeEnvironnementDTO;
+    public ReferentielEnvironnementDTO getReferentielEnvironnementDTO() {
+        return referentielEnvironnementDTO;
     }
 
-    public void setTypeEnvironnementDTO(TypeEnvironnementDTO typeEnvironnementDTO) {
-        this.typeEnvironnementDTO = typeEnvironnementDTO;
+    public void setReferentielEnvironnementDTO(ReferentielEnvironnementDTO referentielEnvironnementDTO) {
+        this.referentielEnvironnementDTO = referentielEnvironnementDTO;
     }
 
-    public RefActionsWorkflowDTO getRefActionsWorkflowDTO() {
+    public ReferentielActionsWorkflowDTO getRefActionsWorkflowDTO() {
         return refActionsWorkflowDTO;
     }
 
-    public void setRefActionsWorkflowDTO(RefActionsWorkflowDTO refActionsWorkflowDTO) {
+    public void setRefActionsWorkflowDTO(ReferentielActionsWorkflowDTO refActionsWorkflowDTO) {
         this.refActionsWorkflowDTO = refActionsWorkflowDTO;
     }
 }

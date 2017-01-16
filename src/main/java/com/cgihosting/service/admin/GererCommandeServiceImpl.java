@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.CommandeDTO;
+import com.cgihosting.domain.application.CommandeDTO;
 import com.cgihosting.repository.CommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

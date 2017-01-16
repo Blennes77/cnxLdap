@@ -1,6 +1,6 @@
 package com.cgihosting.service.admin;
 
-import com.cgihosting.domain.ParametresAppliDTO;
+import com.cgihosting.domain.application.ParametresAppliDTO;
 
 import java.io.Serializable;
 
