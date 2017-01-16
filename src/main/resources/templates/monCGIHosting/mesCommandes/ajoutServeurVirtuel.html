@@ -62,6 +62,11 @@
 
         <table class="table">
             <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+            </tr>
+            <tr>
                 <td>&nbsp;</td>
                 <td><input th:field="*{champRechercheProjet}" id="codeProjet" type="text" th:size="10"/> <button type="button" id="boutonAjax">Recherche</button> </td>
             </tr>

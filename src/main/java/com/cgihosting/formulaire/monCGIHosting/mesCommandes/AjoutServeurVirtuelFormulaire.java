@@ -5,6 +5,7 @@ import com.cgihosting.domain.application.ServeurVirtuelDTO;
 import com.cgihosting.domain.application.TemplateOSDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -20,6 +21,8 @@ public class AjoutServeurVirtuelFormulaire extends RacineFormulaire {
 
     private String champRechercheProjet = "";
 
+    @NotNull
+    private String name;
 
     public ServeurVirtuelDTO getServeurVirtuelDTO() {
         return serveurVirtuelDTO;
@@ -51,5 +54,13 @@ public class AjoutServeurVirtuelFormulaire extends RacineFormulaire {
 
     public void setChampRechercheProjet(String champRechercheProjet) {
         this.champRechercheProjet = champRechercheProjet;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
