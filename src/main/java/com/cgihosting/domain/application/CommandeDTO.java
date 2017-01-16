@@ -7,6 +7,7 @@ import java.io.Serializable;
  * Created by marinib on 06/01/2017.
  */
 
+
 @Entity
 @Table(name="commandes_hosting")
 public class CommandeDTO implements Serializable{

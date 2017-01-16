@@ -3,6 +3,8 @@ package com.cgihosting.service.admin;
 import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.domain.application.RoleUtilisateurDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
+import com.cgihosting.domain.referentiel.ReferentielRolesDTO;
+import com.cgihosting.repository.ReferentielRolesUtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,9 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
         UtilisateurDTO utilisateurDTO = utilisateurRepository.findByLogonName(username);
         return utilisateurDTO;
     }
+
+    @Autowired
+    private ReferentielRolesUtilisateurRepository referentielRolesUtilisateurRepository;
 
     @Override
     public int saveUser(UtilisateurDTO utilisateurDTO) {
@@ -122,6 +127,59 @@ public class GererUtilisateurServiceImpl implements GererUtilisateurService {
         listRolesUtilisateurDTO = utilisateurRoleRepository.findByIdUser(idUser);
         return listRolesUtilisateurDTO;
     }
+
+
+    @Override
+    public List<ReferentielRolesDTO> recupererReferentielRolesUtilisateur() {
+
+        List<ReferentielRolesDTO> referentielRolesDTOListe = null;
+
+        referentielRolesDTOListe = (List<ReferentielRolesDTO>) referentielRolesUtilisateurRepository.findAll();
+
+        return referentielRolesDTOListe;
+
+    }
+
+
+
+    @Override
+    public ReferentielRolesDTO recupererReferentielRolesUtilisateurById(int identifiant) {
+
+        ReferentielRolesDTO referentielRolesDTO = referentielRolesUtilisateurRepository.findById(identifiant);
+
+        return referentielRolesDTO;
+    }
+
+
+
+    @Override
+    public int modifierReferentielRolesUtilisateur(ReferentielRolesDTO referentielRolesDTO) {
+
+        referentielRolesUtilisateurRepository.save(referentielRolesDTO);
+
+        return referentielRolesDTO.getId();
+    }
+
+    @Override
+    public Long nombreTotalReferentielRoles() {
+        Long total;
+
+        total = referentielRolesUtilisateurRepository.count();
+        return total;
+    }
+
+    @Override
+    public Page<ReferentielRolesDTO> searchAllReferentielRolesUtilisateurDTOPageByPage(Integer page, Integer ligneParPage) {
+
+        Page<ReferentielRolesDTO> referentielRolesDTOPage;
+
+
+        referentielRolesDTOPage = referentielRolesUtilisateurRepository.findAll(new PageRequest(page,ligneParPage, new Sort(
+                new Sort.Order(Sort.Direction.ASC, "libelleRole")
+        )));
+        return referentielRolesDTOPage;
+    }
+
 }
 
 

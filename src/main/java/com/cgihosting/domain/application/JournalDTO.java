@@ -11,6 +11,7 @@ import java.util.Date;
  * Created by marinib on 09/12/2016.
  */
 
+
 @Entity
 @Table(name="journalisation_evenements")
 public class JournalDTO implements Serializable{

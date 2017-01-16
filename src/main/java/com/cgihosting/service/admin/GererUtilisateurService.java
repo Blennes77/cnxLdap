@@ -3,6 +3,7 @@ package com.cgihosting.service.admin;
 
 import com.cgihosting.domain.application.RoleUtilisateurDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
+import com.cgihosting.domain.referentiel.ReferentielRolesDTO;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
@@ -29,5 +30,18 @@ public interface GererUtilisateurService extends Serializable{
     public Boolean mettreAJourRolesUtilisateur(int idUser, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdminTechnique,  boolean roleAdminFonctionnel);
 
     public List<RoleUtilisateurDTO> recupererRolesUtilisateur(int idUser);
+
+
+    public List<ReferentielRolesDTO> recupererReferentielRolesUtilisateur();
+
+    public ReferentielRolesDTO recupererReferentielRolesUtilisateurById(int identifiant);
+
+
+    public int modifierReferentielRolesUtilisateur(ReferentielRolesDTO referentielRolesDTO);
+
+
+    public Long nombreTotalReferentielRoles();
+
+    public Page<ReferentielRolesDTO> searchAllReferentielRolesUtilisateurDTOPageByPage(Integer page, Integer ligneParPage);
 
 }

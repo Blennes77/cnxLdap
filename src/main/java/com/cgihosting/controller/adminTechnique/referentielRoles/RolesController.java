@@ -5,11 +5,8 @@ import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.domain.referentiel.ReferentielRolesDTO;
-import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
 import com.cgihosting.formulaire.adminTechnique.referentielRolesUtilisateur.AfficherReferentielRolesUtilisateurFormulaire;
 import com.cgihosting.formulaire.adminTechnique.referentielRolesUtilisateur.DetailsReferentielRolesUtilisateurFormulaire;
-import com.cgihosting.formulaire.adminTechnique.referentielVirtualisation.AfficherReferentielVirtualisationFormulaire;
-import com.cgihosting.formulaire.adminTechnique.referentielVirtualisation.DetailsReferentielVirtualisationFormulaire;
 import com.cgihosting.objets.PaginationObjet;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.outils.Dates;
@@ -58,14 +55,14 @@ public class RolesController {
     String afficherRolesUtilisateur(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
-        model.addAttribute("formulaire", recupererFormulaireAfficherVirtualisation(page, ligneParPage));
+        model.addAttribute("formulaire", recupererFormulaireAfficherReferentielRolesUtilisateur(page, ligneParPage));
         return "adminTechnique/referentielRolesutilisateur/afficherReferentielRolesUtilisateur";
     }
 
     @RequestMapping(value = "/adminTechnique/afficherDetailsReferentielRolesUtilisateur", method = RequestMethod.POST)
     String affichageDetailsRolesUtilisateur(int identifiantRolesUtilisateurSelect, Model model){
 
-        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielRolesUtilisateur(identifiantRolesUtilisateurSelect));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielRoles(identifiantRolesUtilisateurSelect));
         return "adminTechnique/referentielRolesUtilisateur/detailsReferentielRolesUtilisateur";
     }
 
@@ -95,7 +92,7 @@ public class RolesController {
                 referentielRolesDTO.setDateCreation(Dates.aujourdhui());
                 referentielRolesDTO.setDateModification(Dates.aujourdhui());
 
-                identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(referentielRolesDTO);
+                identifiantDonneeTraitee =  gererUtilisateurService.modifierReferentielRolesUtilisateur(referentielRolesDTO);
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_VIRTUALISATION,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());
@@ -135,7 +132,7 @@ public class RolesController {
         paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererVirtualisationService.nombreTotalVirtualisation());
         afficherReferentielRolesUtilisateurFormulaire.setPaginationObjet(paginationObjet);
 
-        afficherReferentielRolesUtilisateurFormulaire.setReferentielRolesDTOPage(gererUtilisateurService.searchAllReferentielRolesTOPageByPage(pageCourante, numLigneAfficheParPage));
+        afficherReferentielRolesUtilisateurFormulaire.setReferentielRolesDTOPage(gererUtilisateurService.searchAllReferentielRolesUtilisateurDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
 
         afficherReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_VIRTUALISATION_TITRE);
@@ -158,29 +155,29 @@ public class RolesController {
 
 
         /** Attributs**/
-        DetailsReferentielVirtualisationFormulaire detailsReferentielVirtualisationFormulaire = new DetailsReferentielVirtualisationFormulaire();
-        ReferentielVirtualisationDTO referentielVirtualisationDTO = new ReferentielVirtualisationDTO();
+        DetailsReferentielRolesUtilisateurFormulaire detailsReferentielRolesUtilisateurFormulaire = new DetailsReferentielRolesUtilisateurFormulaire();
+        ReferentielRolesDTO referentielRolesDTO = new ReferentielRolesDTO();
 
-        if (identifiantVirtualisationSelect != 0) {
-            referentielVirtualisationDTO = gererVirtualisationService.recupererReferentielVirtualisationById(identifiantReferentielRolesSelect);
+        if (identifiantReferentielRolesSelect != 0) {
+            referentielRolesDTO = gererUtilisateurService.recupererReferentielRolesUtilisateurById(identifiantReferentielRolesSelect);
 
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
         }
         else {
 
-            referentielVirtualisationDTO.setId(0);
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+            referentielRolesDTO.setId(0);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
         }
 
 
 
-        detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
-        detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+        detailsReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
+        detailsReferentielRolesUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
 
-        detailsReferentielVirtualisationFormulaire.setReferentielVirtualisationDTO(referentielVirtualisationDTO);
+        detailsReferentielRolesUtilisateurFormulaire.setReferentielRolesDTO(referentielRolesDTO);
 
 
-        return detailsReferentielVirtualisationFormulaire;
+        return detailsReferentielRolesUtilisateurFormulaire;
     }
 
 

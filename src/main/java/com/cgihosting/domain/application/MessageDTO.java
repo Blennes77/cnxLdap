@@ -7,6 +7,7 @@ import java.io.Serializable;
  * Created by marinib on 06/01/2017.
  */
 
+
 @Entity
 @Table(name="messages_utilisateur")
 public class MessageDTO implements Serializable {
