@@ -83,8 +83,8 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                 // Vérification dans la table ref_projet si l'utilisateur est présent
                 List<ProjetDTO> projetDTOList = new ArrayList<ProjetDTO>();
                 List<ServeurVirtuelDTO> serveurVirtuelDTOListe = new ArrayList<ServeurVirtuelDTO>();
-
-                projetDTOList = projetsRepository.findBymailDP(utilisateurDTO.getMail());
+                String mail = utilisateurDTO.getMail();
+                projetDTOList = projetsRepository.findByMailDP(mail);
 
 
                 // Si oui, il faut lui ajouter le role ROLE_DP et ROLE_USER dans la table utilisateur_a_role
@@ -101,12 +101,15 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
                         serveurVirtuelDTOListe = gererServeursVirtuelsService.recupererServeursVirtuelsByIdProjet(projetDTOList.get(i).getId());
 
-                        for(int j=0;i<serveurVirtuelDTOListe.size();j++){
+                        if(serveurVirtuelDTOListe != null) {
+                            for (int j = 0; i < serveurVirtuelDTOListe.size(); j++) {
 
-                            serveurVirtuelDTOListe.get(j).setIdDP(utilisateurDTO.getId());
+                                serveurVirtuelDTOListe.get(j).setIdDP(utilisateurDTO.getId());
 
-                            gererServeursVirtuelsService.modifierServeurVirtuel(serveurVirtuelDTOListe.get(j));
 
+                                gererServeursVirtuelsService.modifierServeurVirtuel(serveurVirtuelDTOListe.get(j));
+
+                            }
                         }
 
                     }
