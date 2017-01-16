@@ -10,6 +10,7 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+SET SQL_SAFE_UPDATES = 0;
 
 
 -- Export de données de la table cgihosting.configuration_application : ~4 rows (environ)
@@ -32,53 +33,53 @@ DELETE FROM `messages_utilisateur`;
 /*!40000 ALTER TABLE `messages_utilisateur` DISABLE KEYS */;
 /*!40000 ALTER TABLE `messages_utilisateur` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_actions_workflows : ~0 rows (environ)
-DELETE FROM `ref_actions_workflows`;
-/*!40000 ALTER TABLE `ref_actions_workflows` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ref_actions_workflows` ENABLE KEYS */;
+-- Export de données de la table cgihosting.referentiel_actions_workflows : ~0 rows (environ)
+DELETE FROM `referentiel_actions_workflows`;
+/*!40000 ALTER TABLE `referentiel_actions_workflows` DISABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_actions_workflows` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_etattraitement_serveur : ~0 rows (environ)
-DELETE FROM `ref_etattraitement_serveur`;
-/*!40000 ALTER TABLE `ref_etattraitement_serveur` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ref_etattraitement_serveur` ENABLE KEYS */;
+-- Export de données de la table cgihosting.referentiel_etattraitement_serveur : ~0 rows (environ)
+DELETE FROM `referentiel_etattraitement_serveur`;
+/*!40000 ALTER TABLE `referentiel_etattraitement_serveur` DISABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_etattraitement_serveur` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_hebergeurs : ~2 rows (environ)
-DELETE FROM `ref_hebergeurs`;
-/*!40000 ALTER TABLE `ref_hebergeurs` DISABLE KEYS */;
-INSERT INTO `ref_hebergeurs` (`RHE_ID`, `RHE_NOM`, `RHE_DESCRIPTION`) VALUES
+-- Export de données de la table cgihosting.referentiel_hebergeurs : ~2 rows (environ)
+DELETE FROM `referentiel_hebergeurs`;
+/*!40000 ALTER TABLE `referentiel_hebergeurs` DISABLE KEYS */;
+INSERT INTO `referentiel_hebergeurs` (`RHE_ID`, `RHE_NOM`, `RHE_DESCRIPTION`) VALUES
 	(1, 'OVH', 'OVH'),
 	(2, 'GS', 'Global Switch'),
 	(3, 'VDR', 'Val De reuil');
-/*!40000 ALTER TABLE `ref_hebergeurs` ENABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_hebergeurs` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_mails : ~0 rows (environ)
-DELETE FROM `ref_mails`;
-/*!40000 ALTER TABLE `ref_mails` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ref_mails` ENABLE KEYS */;
+-- Export de données de la table cgihosting.referentiel_mails : ~0 rows (environ)
+DELETE FROM `referentiel_mails`;
+/*!40000 ALTER TABLE `referentiel_mails` DISABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_mails` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_os : ~2 rows (environ)
-DELETE FROM `ref_os`;
-/*!40000 ALTER TABLE `ref_os` DISABLE KEYS */;
-INSERT INTO `ref_os` (`REO_ID`, `REO_NOMOS`) VALUES
+-- Export de données de la table cgihosting. referentiel_os : ~2 rows (environ)
+DELETE FROM `referentiel_os`;
+/*!40000 ALTER TABLE `referentiel_os` DISABLE KEYS */;
+INSERT INTO `referentiel_os` (`REO_ID`, `REO_NOMOS`) VALUES
 	(1, 'WINDOWS'),
 	(2, 'LINUX'),
 	(3, 'MAC OS');
-/*!40000 ALTER TABLE `ref_os` ENABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_os` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_phpipam : ~0 rows (environ)
+-- Export de données de la table cgihosting.referentiel_phpipam : ~0 rows (environ)
 DELETE FROM `ref_phpipam`;
 /*!40000 ALTER TABLE `ref_phpipam` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ref_phpipam` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_produits : ~0 rows (environ)
-DELETE FROM `ref_produits`;
-/*!40000 ALTER TABLE `ref_produits` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ref_produits` ENABLE KEYS */;
+-- Export de données de la table cgihosting.referentiel_produits : ~0 rows (environ)
+DELETE FROM `catalogue_produits`;
+/*!40000 ALTER TABLE `catalogue_produits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `catalogue_produits` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_projets : ~9 625 rows (environ)
-DELETE FROM `ref_projets`;
-/*!40000 ALTER TABLE `ref_projets` DISABLE KEYS */;
-INSERT INTO `ref_projets` (`PRO_ID`, `PRO_UTI_ID`, `PRO_CODE_PROJET`, `PRO_NOM_PROJET`, `PRO_CODE_INGE`, `PRO_NOMDP`, `PRO_PRENOMDP`, `PRO_MAILDP`, `PRO_DATE_DEBUT`, `PRO_DATE_FIN`) VALUES
+-- Export de données de la table cgihosting.projets : ~9 625 rows (environ)
+DELETE FROM `projets`;
+/*!40000 ALTER TABLE `projets` DISABLE KEYS */;
+INSERT INTO `projets` (`PRO_ID`, `PRO_UTI_ID`, `PRO_CODE_PROJET`, `PRO_NOM_PROJET`, `PRO_CODE_INGE`, `PRO_NOMDP`, `PRO_PRENOMDP`, `PRO_MAILDP`, `PRO_DATE_DEBUT`, `PRO_DATE_FIN`) VALUES
 	(1, NULL, '000000000097420', 'Engie_Massification', '00064726', 'Ransbotyn', 'Philippe', 'philippe.ransbotyn@cgi.com', '2016-10-01 00:00:00', '2040-12-12 00:00:00'),
 	(2, NULL, '000000000065005', 'Consulting for GCIO in France', '00274589', 'Ratel', 'Olivier', 'olivier.ratel@cgi.com', '2014-12-01 00:00:00', '2015-05-30 00:00:00'),
 	(3, NULL, '000000000068090', 'France WAN Upgrade 2015', '00274589', 'Ratel', 'Olivier', 'olivier.ratel@cgi.com', '2014-11-27 00:00:00', '2015-09-30 00:00:00'),
@@ -5733,7 +5734,7 @@ INSERT INTO `ref_projets` (`PRO_ID`, `PRO_UTI_ID`, `PRO_CODE_PROJET`, `PRO_NOM_P
 	(5652, NULL, '000000000090053', 'Biomerieux-AT- POC Archivage', '00134545', 'Degremont', 'Éric', 'eric.degremont@cgi.com', '2016-05-02 00:00:00', '2017-12-31 00:00:00'),
 	(5653, NULL, '000000000090133', 'CNMSS F REFONTE DOSSIER UNIQUE', '00140080', 'Grenon', 'Jean Michel', 'jean.michel.grenon@cgi.com', '2016-07-18 00:00:00', '2017-06-30 00:00:00'),
 	(5654, NULL, '000000000090142', 'ASP - F - UGAP OSIRIS', '00133926', 'Levigne', 'Gregory', 'gregory.levigne@cgi.com', '2016-08-01 00:00:00', '2018-12-31 00:00:00');
-INSERT INTO `ref_projets` (`PRO_ID`, `PRO_UTI_ID`, `PRO_CODE_PROJET`, `PRO_NOM_PROJET`, `PRO_CODE_INGE`, `PRO_NOMDP`, `PRO_PRENOMDP`, `PRO_MAILDP`, `PRO_DATE_DEBUT`, `PRO_DATE_FIN`) VALUES
+INSERT INTO `projets` (`PRO_ID`, `PRO_UTI_ID`, `PRO_CODE_PROJET`, `PRO_NOM_PROJET`, `PRO_CODE_INGE`, `PRO_NOMDP`, `PRO_PRENOMDP`, `PRO_MAILDP`, `PRO_DATE_DEBUT`, `PRO_DATE_FIN`) VALUES
 	(5655, NULL, '000000000090143', 'STMICRO - F - AUTOMATION EVOL', '00136758', 'Vergeat', 'Sabine', 'sabine.vergeat@cgi.com', '2016-07-01 00:00:00', '2017-12-31 00:00:00'),
 	(5656, NULL, '000000000090167', 'ENGIE - AT - PROJET RUBIS', '00140076', 'Clerc', 'Laurence', 'laurence.clerc@cgi.com', '2016-07-01 00:00:00', '2020-12-31 00:00:00'),
 	(5657, NULL, '000000000090182', 'STMICRO - M - TMA CIM R&D - 2', '00136758', 'Vergeat', 'Sabine', 'sabine.vergeat@cgi.com', '2016-07-01 00:00:00', '2017-12-31 00:00:00'),
@@ -9624,12 +9625,12 @@ INSERT INTO `ref_projets` (`PRO_ID`, `PRO_UTI_ID`, `PRO_CODE_PROJET`, `PRO_NOM_P
 	(9542, NULL, 'UK245070', 'BAU-SAN', '00070744', 'Durie', 'Michael', 'michael.durie@cgi.com', '2013-04-01 00:00:00', '2020-12-31 00:00:00'),
 	(9543, NULL, 'UKEC232740', 'HELSINKI-MODERNISATION-APPS SU', '00159907', 'Hart', 'Andrew', 'andrew.hart@cgi.com', '2012-11-01 00:00:00', '2099-12-31 00:00:00'),
 	(9544, NULL, 'UKEC232743', 'HELSINKI-MODERNISATION-E2E TES', '00130689', 'Healey', 'Martin', 'martin.healey@cgi.com', '2013-02-28 00:00:00', '2099-12-31 00:00:00');
-/*!40000 ALTER TABLE `ref_projets` ENABLE KEYS */;
+/*!40000 ALTER TABLE `projets` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_psa : ~9 465 rows (environ)
-DELETE FROM `ref_psa`;
-/*!40000 ALTER TABLE `ref_psa` DISABLE KEYS */;
-INSERT INTO `ref_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT`, `LIBELLE`, `MATRICULE_PM`, `NOM_PM`, `PRENOM_PM`, `MAIL_PM`, `DATE_DEBUT`, `DATE_FIN`) VALUES
+-- Export de données de la table cgihosting. referentiel_psa : ~9 465 rows (environ)
+DELETE FROM `referentiel_psa`;
+/*!40000 ALTER TABLE `referentiel_psa` DISABLE KEYS */;
+INSERT INTO `referentiel_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT`, `LIBELLE`, `MATRICULE_PM`, `NOM_PM`, `PRENOM_PM`, `MAIL_PM`, `DATE_DEBUT`, `DATE_FIN`) VALUES
 	('France', 'EUA75', 'Belgium France', '000000000097420', 'Engie_Massification', 'A75000', 'Belgium France', '00064726', 'Ransbotyn', 'Philippe', 'philippe.ransbotyn@cgi.com', '2016-10-01 00:00:00', '2040-12-12 00:00:00'),
 	('France', 'EU706', 'CGI France Corporate', '000000000065005', 'Consulting for GCIO in France', '706003', 'CIO_EUROPE_FRANCE', '00274589', 'Ratel', 'Olivier', 'olivier.ratel@cgi.com', '2014-12-01 00:00:00', '2015-05-30 00:00:00'),
 	('France', 'EU706', 'CGI France Corporate', '000000000068090', 'France WAN Upgrade 2015', '706191', 'CIO_Europe_in_EURO', '00274589', 'Ratel', 'Olivier', 'olivier.ratel@cgi.com', '2014-11-27 00:00:00', '2015-09-30 00:00:00'),
@@ -13923,7 +13924,7 @@ INSERT INTO `ref_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT
 	('France', 'EU430', 'France Business Consulting', 'C00000000059985', 'Auto gest Logs $u', '430012', 'CBC Corporate Functions', '00320198', 'Cagnon', 'Romain', 'romain.cagnon@cgi.com', '2014-10-01 00:00:00', '2014-10-13 00:00:00'),
 	('France', 'EU430', 'France Business Consulting', 'C00000000060032', '[Avril] : assistance redac CDC', '430012', 'CBC Corporate Functions', '00275253', 'Delcros', 'Loic', 'loic.delcros@cgi.com', '2014-10-01 00:00:00', '2015-03-01 00:00:00'),
 	('France', 'EU430', 'France Business Consulting', 'C00000000060037', 'Rexel-LMS-CKIntegration', '430006', 'CBC Manufacturing/CPG/Retail', '00308455', 'Mathis', 'Vincent', 'vincent.mathis@cgi.com', '2014-10-01 00:00:00', '2016-12-31 00:00:00');
-INSERT INTO `ref_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT`, `LIBELLE`, `MATRICULE_PM`, `NOM_PM`, `PRENOM_PM`, `MAIL_PM`, `DATE_DEBUT`, `DATE_FIN`) VALUES
+INSERT INTO `referentiel_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT`, `LIBELLE`, `MATRICULE_PM`, `NOM_PM`, `PRENOM_PM`, `MAIL_PM`, `DATE_DEBUT`, `DATE_FIN`) VALUES
 	('France', 'EU430', 'France Business Consulting', 'C00000000060117', 'Projet intégration Remedyforce', '430012', 'CBC Corporate Functions', '00322341', 'AMAZIT', 'Mouloud', 'mouloud.amazit@cgi.com', '2014-10-01 00:00:00', '2015-06-30 00:00:00'),
 	('France', 'EU430', 'France Business Consulting', 'C00000000061174', 'eCustomer', '430006', 'CBC Manufacturing/CPG/Retail', '00134746', 'Huaux', 'Samuel', 'samuel.huaux@cgi.com', '2014-10-01 00:00:00', '2015-10-02 00:00:00'),
 	('France', 'EU430', 'France Business Consulting', 'C00000000061179', 'Pilotage projets Mobiles', '430006', 'CBC Manufacturing/CPG/Retail', '00134746', 'Huaux', 'Samuel', 'samuel.huaux@cgi.com', '2014-10-01 00:00:00', '2015-04-24 00:00:00'),
@@ -18236,7 +18237,7 @@ INSERT INTO `ref_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT
 	('France', 'EUA67', 'Nord', 'NFREA12468500', 'ADEO - ALIX NOYON', 'A67001', 'Nord', '00181705', 'Bensmaine', 'Rachid', 'rachid.bensmaine@cgi.com', '2016-09-25 00:00:00', '2020-12-31 00:00:00'),
 	('France', 'EUA67', 'Nord', 'NFREA12470800', 'AXA - AT QDUB - T1', 'A67001', 'Nord', '00305057', 'Dusch', 'Julien', 'julien.dusch@cgi.com', '2016-09-25 00:00:00', '2016-12-31 00:00:00'),
 	('France', 'EUA67', 'Nord', 'NFREA12480100', 'AUCHAN IT', 'A67001', 'Nord', '00062968', 'Marliere', 'Valerie', 'valerie.marliere@cgi.com', '2016-09-25 00:00:00', '2020-12-31 00:00:00');
-INSERT INTO `ref_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT`, `LIBELLE`, `MATRICULE_PM`, `NOM_PM`, `PRENOM_PM`, `MAIL_PM`, `DATE_DEBUT`, `DATE_FIN`) VALUES
+INSERT INTO `referentiel_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT`, `LIBELLE`, `MATRICULE_PM`, `NOM_PM`, `PRENOM_PM`, `MAIL_PM`, `DATE_DEBUT`, `DATE_FIN`) VALUES
 	('France', 'EUA67', 'Nord', 'NFREA12480400', 'AECF - POP AUCHANDIRECT', 'A67001', 'Nord', '00260362', 'Nortier', 'Malvina', 'malvina.nortier@cgi.com', '2016-09-25 00:00:00', '2020-12-31 00:00:00'),
 	('France', 'EUA67', 'Nord', 'NFREA12480500', 'AECF - DEV PHP ESMILE - R MAIR', 'A67001', 'Nord', '00260362', 'Nortier', 'Malvina', 'malvina.nortier@cgi.com', '2016-09-25 00:00:00', '2020-12-31 00:00:00'),
 	('France', 'EUA67', 'Nord', 'NFREA12480600', 'AECF - DEV PHP ESMILE - N DELA', 'A67001', 'Nord', '00260362', 'Nortier', 'Malvina', 'malvina.nortier@cgi.com', '2016-09-25 00:00:00', '2020-12-31 00:00:00'),
@@ -19176,49 +19177,42 @@ INSERT INTO `ref_psa` (`PAYS`, `OU`, `LIBELLE_OU`, `PROJET`, `DESCRIPTION`, `DPT
 	('United Kingdom', 'GB245', '', 'UK245070', 'BAU-SAN', '245470', 'SAN', '00070744', 'Durie', 'Michael', 'michael.durie@cgi.com', '2013-04-01 00:00:00', '2020-12-31 00:00:00'),
 	('United Kingdom', 'GB240', '', 'UKEC232740', 'HELSINKI-MODERNISATION-APPS SU', '240320', 'Helsinki GIS', '00159907', 'Hart', 'Andrew', 'andrew.hart@cgi.com', '2012-11-01 00:00:00', '2099-12-31 00:00:00'),
 	('United Kingdom', 'GB240', '', 'UKEC232743', 'HELSINKI-MODERNISATION-E2E TES', '240320', 'Helsinki GIS', '00130689', 'Healey', 'Martin', 'martin.healey@cgi.com', '2013-02-28 00:00:00', '2099-12-31 00:00:00');
-/*!40000 ALTER TABLE `ref_psa` ENABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_psa` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_reseaux_autorises : ~0 rows (environ)
-DELETE FROM `ref_reseaux_autorises`;
-/*!40000 ALTER TABLE `ref_reseaux_autorises` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ref_reseaux_autorises` ENABLE KEYS */;
+-- Export de données de la table cgihosting.reseaux_autorises_hebergement : ~0 rows (environ)
+DELETE FROM `reseaux_autorises_hebergement`;
+/*!40000 ALTER TABLE `reseaux_autorises_hebergement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reseaux_autorises_hebergement` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_role_utilisateur : ~4 rows (environ)
-DELETE FROM `ref_role_utilisateur`;
-/*!40000 ALTER TABLE `ref_role_utilisateur` DISABLE KEYS */;
-INSERT INTO `ref_role_utilisateur` (`RRU_ID`, `RRU_LIBELLE_ROLE`) VALUES
+-- Export de données de la table cgihosting. referentiel_role_utilisateur : ~4 rows (environ)
+DELETE FROM `referentiel_role_utilisateur`;
+/*!40000 ALTER TABLE `referentiel_role_utilisateur` DISABLE KEYS */;
+INSERT INTO `referentiel_role_utilisateur` (`RRU_ID`, `RRU_LIBELLE_ROLE`) VALUES
 	(1, 'ROLE_USER'),
-	(2, 'ROLE_ADMIN'),
-	(3, 'ROLE_EXPLOITANT'),
-	(4, 'ROLE_DP');
-/*!40000 ALTER TABLE `ref_role_utilisateur` ENABLE KEYS */;
+	(2, 'ROLE_ADMIN_TECHNIQUE'),
+	(3, 'ROLE_ADMIN_FONCTIONNEL'),
+	(4, 'ROLE_EXPLOITANT'),
+	(5, 'ROLE_DP');
+/*!40000 ALTER TABLE `referentiel_role_utilisateur` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_templates_os : ~0 rows (environ)
-DELETE FROM `ref_templates_os`;
-/*!40000 ALTER TABLE `ref_templates_os` DISABLE KEYS */;
-INSERT INTO `ref_templates_os` (`RTO_ID`, `RTO_CODE_TEMPLATE`, `RTO_LIBELLE_TEMPLATE`, `RTO_DESCRIPTION_TEMPLATE`, `RTO_DATE_CREATION`, `RTO_DATE_MODIFICATION`, `RTO_DATE_FIN_ACTIF`, `RTO_IND_ACTIF`, `RTO_ID_CREATEUR`, `RTO_ID_HEBERGEUR`, `RTO_ID_MODIFICATEUR`, `RTO_MINRAM`, `RTO_MINCPU`, `RTO_ID_OS`, `RTO_MINDISQUE`) VALUES
-	(1, 'T_WINDOWS2012', 'WINDOWS2012', '', '2017-01-12 21:58:01', '2017-01-12 21:58:01', NULL, NULL, 1, 1, 1, 2024, 2, 1, '20');
-/*!40000 ALTER TABLE `ref_templates_os` ENABLE KEYS */;
+-- Export de données de la table cgihosting.templates_os : ~0 rows (environ)
+DELETE FROM `templates_os`;
 
--- Export de données de la table cgihosting.ref_type_environnement : ~4 rows (environ)
-DELETE FROM `ref_type_environnement`;
-/*!40000 ALTER TABLE `ref_type_environnement` DISABLE KEYS */;
-INSERT INTO `ref_type_environnement` (`RTE_ID`, `RTE_CODE_ENVIRONNEMENT`, `RTE_DESCRIPTION_ENVIRONNEMENT`) VALUES
+-- Export de données de la table cgihosting. referentiel_environnement : ~4 rows (environ)
+DELETE FROM `referentiel_environnement`;
+/*!40000 ALTER TABLE `referentiel_environnement` DISABLE KEYS */;
+INSERT INTO `referentiel_environnement` (`REN_ID`, `REN_CODE_ENVIRONNEMENT`, `REN_DESCRIPTION_ENVIRONNEMENT`) VALUES
 	(1, 'PROD', 'Environnement de production'),
 	(2, 'PREPROD', 'Environnement de préproduction'),
 	(3, 'REC', 'Environnement de recette'),
 	(4, 'DEV', 'Environnement de développement');
-/*!40000 ALTER TABLE `ref_type_environnement` ENABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_environnement` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_type_hebergement : ~0 rows (environ)
-DELETE FROM `ref_type_hebergement`;
-/*!40000 ALTER TABLE `ref_type_hebergement` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ref_type_hebergement` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_type_journalisation : ~18 rows (environ)
-DELETE FROM `ref_type_journalisation`;
-/*!40000 ALTER TABLE `ref_type_journalisation` DISABLE KEYS */;
-INSERT INTO `ref_type_journalisation` (`RTJ_ID`, `RTJ_ACTION_LIBELLE`, `RTJ_DESCRIPTION`) VALUES
+-- Export de données de la table cgihosting. referentiel_type_journalisation : ~18 rows (environ)
+DELETE FROM `referentiel_journalisation`;
+/*!40000 ALTER TABLE `referentiel_journalisation` DISABLE KEYS */;
+INSERT INTO `referentiel_journalisation` (`RJO_ID`, `RJO_ACTION_LIBELLE`, `RJO_DESCRIPTION`) VALUES
 	(1, 'Première connexion de l\'utilisateur', 'On tente'),
 	(2, 'Connexion de l\'utilisateur', NULL),
 	(3, 'Mauvais mot de passe ou mauvais login', NULL),
@@ -19238,20 +19232,20 @@ INSERT INTO `ref_type_journalisation` (`RTJ_ID`, `RTJ_ACTION_LIBELLE`, `RTJ_DESC
 	(17, 'Modification Système exploitation', NULL),
 	(18, 'Ajout virtualisation', NULL),
 	(19, 'Modification virtualisation', NULL);
-/*!40000 ALTER TABLE `ref_type_journalisation` ENABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_journalisation` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_virtualisation : ~3 rows (environ)
-DELETE FROM `ref_virtualisation`;
-/*!40000 ALTER TABLE `ref_virtualisation` DISABLE KEYS */;
-INSERT INTO `ref_virtualisation` (`RVI_ID`, `RVI_NOM_VIRTUALISATION`, `RVI_DESCRPTION_VIRTUALISATION`) VALUES
+-- Export de données de la table cgihosting. referentiel_virtualisation : ~3 rows (environ)
+DELETE FROM `referentiel_virtualisation`;
+/*!40000 ALTER TABLE `referentiel_virtualisation` DISABLE KEYS */;
+INSERT INTO `referentiel_virtualisation` (`RVI_ID`, `RVI_NOM_VIRTUALISATION`, `RVI_DESCRPTION_VIRTUALISATION`) VALUES
 	(1, 'VMware', 'Hyperviseur vmware'),
 	(2, 'Hyper-v', 'Hyperviseur Microsoft'),
 	(3, 'Oracle VM', 'Hyperviseur Oracle'),
 	(4, 'KVM', 'KVM'),
 	(5, 'OpenStack', 'OpenStack');
-/*!40000 ALTER TABLE `ref_virtualisation` ENABLE KEYS */;
+/*!40000 ALTER TABLE `referentiel_virtualisation` ENABLE KEYS */;
 
--- Export de données de la table cgihosting.ref_workflows_uuid : ~0 rows (environ)
+-- Export de données de la table cgihosting. ref_workflows_uuid : ~0 rows (environ)
 DELETE FROM `ref_workflows_uuid`;
 /*!40000 ALTER TABLE `ref_workflows_uuid` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ref_workflows_uuid` ENABLE KEYS */;
