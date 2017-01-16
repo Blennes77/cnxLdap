@@ -65,7 +65,8 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                     <li sec:authorize="hasRole('ROLE_ADMIN_TECHNIQUE')" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration technique<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                             <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur">Réferentiel état traitement</a></li>
+                            <li><a href="/adminTechnique/afficherReferentielRolesUtilisateur">Réferentiel Roles Utilisateur</a></li>
+                             <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur">Réferentiel Etats traitement</a></li>
                              <li><a href="/adminTechnique/afficherReferentielActionsWorkflows">Réferentiel Actions Workflows</a></li>
                             <li><a href="/adminTechnique/afficherReferentielJournalisation">Réferentiel Libellés Journalisation</a></li>
                             <li><a href="/adminTechnique/afficherReferentielOS">Réferentiel Systèmes d'exploitation</a></li>
