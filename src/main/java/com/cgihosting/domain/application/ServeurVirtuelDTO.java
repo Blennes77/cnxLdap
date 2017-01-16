@@ -417,4 +417,6 @@ public class ServeurVirtuelDTO implements Serializable{
     public void setSolutionsHebergementDTO(SolutionsHebergementDTO solutionsHebergementDTO) {
         this.solutionsHebergementDTO = solutionsHebergementDTO;
     }
+
+
 }
