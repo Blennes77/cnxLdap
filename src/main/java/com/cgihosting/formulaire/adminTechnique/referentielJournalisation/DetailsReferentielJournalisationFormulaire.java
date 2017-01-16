@@ -13,7 +13,6 @@ public class DetailsReferentielJournalisationFormulaire extends RacineFormulaire
     @Valid
     private ReferentielJournalisationDTO referentielJournalisationDTO;
 
-
     public ReferentielJournalisationDTO getReferentielJournalisationDTO() {
         return referentielJournalisationDTO;
     }

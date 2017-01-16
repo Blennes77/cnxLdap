@@ -24,11 +24,11 @@ public class ReferentielJournalisationDTO {
 
     @NotNull
     @NotEmpty
-    @Size(min=2, max = 5)
+    @Size(min=10, max = 100)
     @Column(name="RJO_ACTION_LIBELLE")
     private String libelleAction = "";
 
-    @NotNull
+    @Size(min=0, max = 45)
     @Column(name="RJO_DESCRIPTION")
     private String description = "";
 
