@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -72,7 +73,7 @@ public class EtatTraitementServeurController {
 
     @RequestMapping(value = "/adminTechnique/modifierReferentielEtatTraitementServeur", method = RequestMethod.POST)
 
-    String creerEtattraitementServeur(@Valid DetailsReferentielEtatTraitementServeurFormulaire detailsReferentielEtatTraitementServeurFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String creerEtattraitementServeur(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)DetailsReferentielEtatTraitementServeurFormulaire detailsReferentielEtatTraitementServeurFormulaire, BindingResult bindingResult, Model model, @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
 
@@ -85,6 +86,7 @@ public class EtatTraitementServeurController {
 
             if (bindingResult.hasErrors()) {
 
+                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielEtatTraitementServeurFormulaire);
 
                 return "adminTechnique/referentielEtatTraitementServeur/detailsReferentielEtatTraitementServeur";
             }

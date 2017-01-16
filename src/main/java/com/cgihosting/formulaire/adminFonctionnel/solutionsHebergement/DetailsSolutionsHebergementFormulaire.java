@@ -5,6 +5,7 @@ import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
 import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ import java.util.List;
  */
 public class DetailsSolutionsHebergementFormulaire extends RacineFormulaire {
 
+    @Valid
     private SolutionsHebergementDTO solutionsHebergementDTO;
 
     private List<ReferentielHebergeurDTO> referentielHebergeurDTOListe;

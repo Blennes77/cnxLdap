@@ -5,6 +5,7 @@ import com.cgihosting.domain.application.ServeurVirtuelDTO;
 import com.cgihosting.domain.application.TemplateOSDTO;
 import com.cgihosting.formulaire.RacineFormulaire;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  */
 public class AjoutServeurVirtuelFormulaire extends RacineFormulaire {
 
+    @Valid
     private ServeurVirtuelDTO serveurVirtuelDTO;
 
     private List<TemplateOSDTO> templateOSDTOListe;

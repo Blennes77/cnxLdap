@@ -13,11 +13,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
 
 /**
  * Created by marinib on 09/12/2016.
@@ -68,7 +67,7 @@ public class ParametrageController {
      */
     @RequestMapping(value = "/adminFonctionnel/modifierParametresAppli", method = RequestMethod.POST)
 
-    String modifierParametresAppli(@Valid ParametrerAppliFormulaire parametrerAppliFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String modifierParametresAppli(@ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)  ParametrerAppliFormulaire parametrerAppliFormulaire, BindingResult bindingResult, Model model,  @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
 
@@ -92,6 +91,7 @@ public class ParametrageController {
 
         else {
 
+            model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, parametrerAppliFormulaire);
 
 
         }

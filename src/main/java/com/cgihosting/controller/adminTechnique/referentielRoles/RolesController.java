@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -69,7 +70,7 @@ public class RolesController {
 
     @RequestMapping(value = "/adminTechnique/modifierReferentielRolesUtilisateur", method = RequestMethod.POST)
 
-    String creerRoleUtilisateur(@Valid DetailsReferentielRolesUtilisateurFormulaire detailsReferentielRolesUtilisateurFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String creerRoleUtilisateur(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)DetailsReferentielRolesUtilisateurFormulaire detailsReferentielRolesUtilisateurFormulaire, BindingResult bindingResult, Model model,  @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
 
@@ -80,7 +81,7 @@ public class RolesController {
 
             if (bindingResult.hasErrors()) {
 
-
+                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielRolesUtilisateurFormulaire);
                 return "adminTechnique/referentielRolesUtilisateur/detailsReferentielRolesutilisateur";
             }
             else{

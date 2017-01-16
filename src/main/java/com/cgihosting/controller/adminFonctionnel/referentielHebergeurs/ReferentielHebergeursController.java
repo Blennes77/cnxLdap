@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -69,7 +70,7 @@ public class ReferentielHebergeursController {
 
     @RequestMapping(value = "/adminFonctionnel/enregistrerReferentielHebergeurs", method = RequestMethod.POST)
 
-    String creerHebergeur(@Valid DetailsReferentielHebergeursFormulaire detailsReferentielHebergeursFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String creerHebergeur(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML) DetailsReferentielHebergeursFormulaire detailsReferentielHebergeursFormulaire, BindingResult bindingResult, Model model,  @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
 
@@ -80,6 +81,8 @@ public class ReferentielHebergeursController {
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
             if (bindingResult.hasErrors()) {
+
+                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielHebergeursFormulaire);
 
 
                 return "adminFonctionnel/hebergeurs/detailsReferentielHebergeurs";

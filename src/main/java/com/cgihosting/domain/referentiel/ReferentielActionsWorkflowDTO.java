@@ -1,8 +1,10 @@
 package com.cgihosting.domain.referentiel;
 
 import com.cgihosting.domain.application.UtilisateurDTO;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,6 +21,8 @@ public class ReferentielActionsWorkflowDTO implements Serializable{
     @Column(name="RAW_ID")
     private Integer id;
 
+    @NotNull
+    @NotEmpty
     @Column(name="RAW_ACTION_WORKFLOW")
     private String actionWorkflow = "";
 
