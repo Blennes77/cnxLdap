@@ -4,7 +4,10 @@ import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
+import com.cgihosting.domain.referentiel.ReferentielRolesDTO;
 import com.cgihosting.domain.referentiel.ReferentielVirtualisationDTO;
+import com.cgihosting.formulaire.adminTechnique.referentielRolesUtilisateur.AfficherReferentielRolesUtilisateurFormulaire;
+import com.cgihosting.formulaire.adminTechnique.referentielRolesUtilisateur.DetailsReferentielRolesUtilisateurFormulaire;
 import com.cgihosting.formulaire.adminTechnique.referentielVirtualisation.AfficherReferentielVirtualisationFormulaire;
 import com.cgihosting.formulaire.adminTechnique.referentielVirtualisation.DetailsReferentielVirtualisationFormulaire;
 import com.cgihosting.objets.PaginationObjet;
@@ -52,7 +55,7 @@ public class RolesController {
 
 
     @RequestMapping("/adminTechnique/afficherReferentielRolesUtilisateur")
-    String afficherVirtualisation(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+    String afficherRolesUtilisateur(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute("formulaire", recupererFormulaireAfficherVirtualisation(page, ligneParPage));
@@ -60,21 +63,21 @@ public class RolesController {
     }
 
     @RequestMapping(value = "/adminTechnique/afficherDetailsReferentielRolesUtilisateur", method = RequestMethod.POST)
-    String affichageDetailsRolesUtilisateur(int identifiantVirtualisationSelect, Model model){
+    String affichageDetailsRolesUtilisateur(int identifiantRolesUtilisateurSelect, Model model){
 
-        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsVirtualisation(identifiantVirtualisationSelect));
+        model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielRolesUtilisateur(identifiantRolesUtilisateurSelect));
         return "adminTechnique/referentielRolesUtilisateur/detailsReferentielRolesUtilisateur";
     }
 
 
     @RequestMapping(value = "/adminTechnique/modifierReferentielRolesUtilisateur", method = RequestMethod.POST)
 
-    String creerRoleUtilisateur(@Valid DetailsReferentielVirtualisationFormulaire detailsReferentielVirtualisationFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
+    String creerRoleUtilisateur(@Valid DetailsReferentielRolesUtilisateurFormulaire detailsReferentielRolesUtilisateurFormulaire, Model model, BindingResult bindingResult, @RequestParam String action){
 
         int identifiantDonneeTraitee = 0;
 
         UtilisateurDTO utilisateurDTO;
-        ReferentielVirtualisationDTO referentielVirtualisationDTO;
+        ReferentielRolesDTO referentielRolesDTO;
 
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
@@ -86,13 +89,13 @@ public class RolesController {
             else{
 
                 utilisateurDTO = gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
-                referentielVirtualisationDTO = detailsReferentielVirtualisationFormulaire.getReferentielVirtualisationDTO();
-                referentielVirtualisationDTO.setIdModificateur(utilisateurDTO.getId());
-                referentielVirtualisationDTO.setIdCreateur(utilisateurDTO.getId());
-                referentielVirtualisationDTO.setDateCreation(Dates.aujourdhui());
-                referentielVirtualisationDTO.setDateModification(Dates.aujourdhui());
+                referentielRolesDTO = detailsReferentielRolesUtilisateurFormulaire.getReferentielRolesDTO();
+                referentielRolesDTO.setIdModificateur(utilisateurDTO.getId());
+                referentielRolesDTO.setIdCreateur(utilisateurDTO.getId());
+                referentielRolesDTO.setDateCreation(Dates.aujourdhui());
+                referentielRolesDTO.setDateModification(Dates.aujourdhui());
 
-                identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(referentielVirtualisationDTO);
+                identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(referentielRolesDTO);
 
                 JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_VIRTUALISATION,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());
@@ -123,24 +126,24 @@ public class RolesController {
      * méthodes comme des controleurs
      */
 
-    private AfficherReferentielVirtualisationFormulaire recupererFormulaireAfficherVirtualisation(int pageCourante, int numLigneAfficheParPage)  {
+    private AfficherReferentielRolesUtilisateurFormulaire recupererFormulaireAfficherReferentielRolesUtilisateur(int pageCourante, int numLigneAfficheParPage)  {
 
 
-        AfficherReferentielVirtualisationFormulaire afficherReferentielVirtualisationFormulaire = new AfficherReferentielVirtualisationFormulaire();
+        AfficherReferentielRolesUtilisateurFormulaire afficherReferentielRolesUtilisateurFormulaire = new AfficherReferentielRolesUtilisateurFormulaire();
 
         PaginationObjet paginationObjet;
         paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererVirtualisationService.nombreTotalVirtualisation());
-        afficherReferentielVirtualisationFormulaire.setPaginationObjet(paginationObjet);
+        afficherReferentielRolesUtilisateurFormulaire.setPaginationObjet(paginationObjet);
 
-        afficherReferentielVirtualisationFormulaire.setReferentielVirtualisationDTOPage(gererVirtualisationService.searchAllReferentielVirtualisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
-
-
-        afficherReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_VIRTUALISATION_TITRE);
-        afficherReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+        afficherReferentielRolesUtilisateurFormulaire.setReferentielRolesDTOPage(gererUtilisateurService.searchAllReferentielRolesTOPageByPage(pageCourante, numLigneAfficheParPage));
 
 
+        afficherReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_VIRTUALISATION_TITRE);
+        afficherReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
 
-        return afficherReferentielVirtualisationFormulaire;
+
+
+        return afficherReferentielRolesUtilisateurFormulaire;
     }
 
 
@@ -151,7 +154,7 @@ public class RolesController {
      * méthodes comme des controleurs
      */
 
-    private DetailsReferentielVirtualisationFormulaire recupererFormulaireDetailsVirtualisation(int identifiantVirtualisationSelect) {
+    private DetailsReferentielRolesUtilisateurFormulaire recupererFormulaireDetailsReferentielRoles(int identifiantReferentielRolesSelect) {
 
 
         /** Attributs**/
@@ -159,7 +162,7 @@ public class RolesController {
         ReferentielVirtualisationDTO referentielVirtualisationDTO = new ReferentielVirtualisationDTO();
 
         if (identifiantVirtualisationSelect != 0) {
-            referentielVirtualisationDTO = gererVirtualisationService.recupererReferentielVirtualisationById(identifiantVirtualisationSelect);
+            referentielVirtualisationDTO = gererVirtualisationService.recupererReferentielVirtualisationById(identifiantReferentielRolesSelect);
 
             detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
         }

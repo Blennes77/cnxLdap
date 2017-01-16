@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+      th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+      rel="stylesheet" media="screen" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<link href="../static/css/guru.css"
+      th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+
+<script language="javascript">
+
+
+    function afficherDetailsMessage(identifiantMessageSelect) {
+
+        // alert(identifiant);
+        document.getElementById("identifiantMessageSelect").value= identifiantMessageSelect;
+        document.getElementById("monformulaire").submit();
+    }
+
+</script>
+
+<head lang="fr">
+    <title>CGI Hosting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<div th:replace="fragments/menu :: menu">...</div>
+<form id="monformulaire" action="#" th:action="@{/monCGIHosting/afficherDetailsMessages}" th:object="${formulaire}" method="post">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="panel panel-primary">
+                <div class="panel-heading" th:text="${formulaire.titrePage}">Titre</div>
+
+            <input id="identifiantMessageSelect" name="identifiantMessageSelect" type="hidden"  />
+            <!-- Table -->
+            <table class="table table-striped">
+                <tr >
+                    <th>Sujet </th>
+                    <th>Contenu</th>
+                    <th>Expéditeur</th>
+                </tr>
+                <tr  class="sortable" th:each="message:${formulaire.messageDTOListe}" th:onclick="'afficherDetailsMessage(\'' + ${message.id} + '\');'">
+
+
+                    <td th:text="${message.sujet}"></td>
+                    <td th:text="${message.contenu}"></td>
+                    <td ></td>
+
+                </tr>
+            </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
