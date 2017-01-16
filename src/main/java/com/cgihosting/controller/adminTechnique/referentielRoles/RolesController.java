@@ -81,7 +81,12 @@ public class RolesController {
 
             if (bindingResult.hasErrors()) {
 
-                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielRolesUtilisateurFormulaire);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+
+            detailsReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+
+            model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielRolesUtilisateurFormulaire);
                 return "adminTechnique/referentielRolesUtilisateur/detailsReferentielRolesutilisateur";
             }
             else{

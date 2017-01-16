@@ -121,7 +121,10 @@ public class ConstantesPage {
     public static final String ADMIN_DETAIL_VIRTUALISATION_TITRE = "Virtualisation";
 
     public static final String ADMIN_AFFICHAGE_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE = "Liste des actions sur les machines virtuelles";
+    public static final String ADMIN_DETAIL_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE = "Action workflow";
+    public static final String ADMIN_AFFICHAGE_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE = "Liste des états possibles d'un serveur";
 
+    public static final String ADMIN_DETAIL_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE = "Etat traitement";
 
     /** Noms des boutons **/
 

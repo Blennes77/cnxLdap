@@ -83,7 +83,12 @@ public class VirtualisationController {
 
             if (bindingResult.hasErrors()) {
 
-                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielVirtualisationFormulaire);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+
+            detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
+            detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+
+            model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielVirtualisationFormulaire);
 
                 return "adminTechnique/referentielVirtualisation/detailsReferentielVirtualisation";
             }

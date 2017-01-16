@@ -32,10 +32,12 @@
             <tr >
                 <td>Nom Virtualisation</td>
                 <td> <input type="text" th:field="*{referentielRolesDTO.libelleRole}"  size="20"/></td>
+                <td th:if="${#fields.hasErrors('referentielRolesDTO.libelleRole')}" th:errors="*{referentielRolesDTO.libelleRole}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Description Virtualisation</td>
                 <td> <input type="text" th:field="*{referentielRolesDTO.descriptionRole}"  size="20"/></td>
+                <td th:if="${#fields.hasErrors('referentielRolesDTO.descriptionRole')}" th:errors="*{referentielRolesDTO.descriptionRole}">Libelle Error</td>
             </tr>
 
         </table>

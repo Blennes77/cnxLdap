@@ -1,8 +1,11 @@
 package com.cgihosting.domain.referentiel;
 
 import com.cgihosting.domain.application.UtilisateurDTO;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -18,6 +21,9 @@ public class ReferentielVirtualisationDTO {
     @Column(name="RVI_ID")
     private Integer id;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=10, max = 100)
     @Column(name="RVI_NOM_VIRTUALISATION")
     private String nomVirtualisation = "";
 

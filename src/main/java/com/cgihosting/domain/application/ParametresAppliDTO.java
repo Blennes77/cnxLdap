@@ -1,8 +1,11 @@
 package com.cgihosting.domain.application;
 
 import com.cgihosting.domain.referentiel.ReferentielEnvironnementDTO;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -19,78 +22,129 @@ public class ParametresAppliDTO implements Serializable {
     @Column(name = "CAP_ID")
     private Integer id;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_TITRE_SITE")
     private String titreSite;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_CHAINE_CONNEXIONLDAP")
     private String chaineConnexionLDAP;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_COMPTE_LDAP")
     private String compteLDAP;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_MOTDEPASSE_LDAP")
     private String motDePasseLDAP;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_COMPTE_ADMIN")
     private String compteAdmin;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_MOTDEPASSE_ADMIN")
     private String motDePasseAdmin;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_MAIL_ADMIN")
     private String mailAdmin;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "CAP_ID_TYPE_ENVIRONNEMENT")
     private Integer typeEnvironnement;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_ADRESSEIP_PHPIPAM")
     private String adressePhpipam;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_BASE_PHPIPAM")
     private String basePhpipam;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_COMPTE_PHPIPAM")
     private String comptePhpipam;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_MOTDEPASSE_PHPIPAM")
     private String motDePassePhpipam;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_ADRESSEIP_TEAMPASS")
     private String adresseTeampass;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_BASE_TEAMPASS")
     private String baseTeampass;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_COMPTE_TEAMPASS")
     private String compteTeampass;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_MOTDEPASSE_TEAMPASS")
     private String motDePasseTeampass;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_ADRESSEIP_DOLIBARR")
     private String adresseDolibarr;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_BASE_DOLIBARR")
     private String baseDolibarr;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_COMPTE_DOLIBARR")
     private String compteDolibarr;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_MOTDEPASSE_DOLIBARR")
     private String motDePasseDolibarr;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_ADRESSE_SMTP")
     private String adresseSmtp;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_MAIL_SMTP")
     private String expediteurSMTP;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_LONGUEUR_MOTDEPASSE")
     private Integer longueurMotDePasse;
 
+    @NotNull
+    @NotEmpty
     @Column(name="CAP_TIMEOUTPING_PHPIPAM")
     private Integer timeoutPingPhpipam;
 
+    @NotNull
+    @NotEmpty
+    @Max(12)
     @Column(name = "CAP_DELAIMOIS_PURGE")
     private Integer delaiPurge;
 

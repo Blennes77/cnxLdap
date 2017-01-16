@@ -2,8 +2,11 @@ package com.cgihosting.domain.application;
 
 import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
 import com.cgihosting.domain.referentiel.ReferentielOSDTO;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,9 +23,15 @@ public class TemplateOSDTO implements Serializable{
     @Column(name="TOS_ID")
     private Integer id;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=1, max = 100)
     @Column(name="TOS_CODE_TEMPLATE")
     private String codeTemplate;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=1, max = 100)
     @Column(name="TOS_LIBELLE_TEMPLATE")
     private String libelleTemplate;
 

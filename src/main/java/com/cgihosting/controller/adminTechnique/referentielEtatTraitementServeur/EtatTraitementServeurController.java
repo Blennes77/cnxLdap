@@ -86,7 +86,13 @@ public class EtatTraitementServeurController {
 
             if (bindingResult.hasErrors()) {
 
-                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielEtatTraitementServeurFormulaire);
+            detailsReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+
+            detailsReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE);
+            detailsReferentielEtatTraitementServeurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+
+
+            model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielEtatTraitementServeurFormulaire);
 
                 return "adminTechnique/referentielEtatTraitementServeur/detailsReferentielEtatTraitementServeur";
             }
@@ -142,7 +148,7 @@ public class EtatTraitementServeurController {
         afficherReferentielEtatTraitementServeurFormulaire.setReferentielEtatTraitementServeurDTOPage(gererEtatTraitementService.recupererReferentielEtatTraitement(pageCourante, numLigneAfficheParPage));
 
 
-        afficherReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
+        afficherReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE);
 
         afficherReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_ACTIONS_WORKFLOWS);
 
@@ -178,7 +184,7 @@ public class EtatTraitementServeurController {
 
 
 
-        detailsReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_OS_TITRE);
+        detailsReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE);
         detailsReferentielEtatTraitementServeurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
 
 

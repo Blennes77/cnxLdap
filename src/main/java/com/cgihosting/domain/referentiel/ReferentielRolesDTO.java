@@ -1,9 +1,11 @@
 package com.cgihosting.domain.referentiel;
 
 import com.cgihosting.domain.application.UtilisateurDTO;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -18,8 +20,10 @@ public class ReferentielRolesDTO implements Serializable{
     @Column(name="RRU_ID")
     private int id;
 
-    @Column(name="RRU_LIBELLE_ROLE")
     @NotNull
+    @NotEmpty
+    @Size(min=10, max = 100)
+    @Column(name="RRU_LIBELLE_ROLE")
     private String libelleRole;
 
     @Column(name="RRU_DESCRIPTION_ROLE")

@@ -82,10 +82,16 @@ public class ReferentielHebergeursController {
 
             if (bindingResult.hasErrors()) {
 
-                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielHebergeursFormulaire);
+            detailsReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_HEBERGEUR);
+
+            detailsReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_HEBGERGEURS_TITRE);
+            detailsReferentielHebergeursFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_HEBERGEUR);
 
 
-                return "adminFonctionnel/hebergeurs/detailsReferentielHebergeurs";
+            model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielHebergeursFormulaire);
+
+
+                return "adminFonctionnel/referentielHebergeurs/detailsReferentielHebergeur";
             }
             else{
 

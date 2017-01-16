@@ -1,8 +1,11 @@
 package com.cgihosting.domain.referentiel;
 
 import com.cgihosting.domain.application.UtilisateurDTO;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,9 +22,15 @@ public class ReferentielHebergeurDTO implements Serializable{
     @Column(name="RHE_ID")
     private Integer id;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=0, max = 100)
     @Column(name="RHE_NOM")
     private String nom = "";
 
+    @NotNull
+    @NotEmpty
+    @Size(min=0, max = 100)
     @Column(name="RHE_DESCRIPTION")
     private String description = "";
 

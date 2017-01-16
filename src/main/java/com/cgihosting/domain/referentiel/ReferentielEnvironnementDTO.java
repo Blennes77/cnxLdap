@@ -1,6 +1,10 @@
 package com.cgihosting.domain.referentiel;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -16,9 +20,15 @@ public class ReferentielEnvironnementDTO implements Serializable{
     @Column(name="REN_ID")
     private int id;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=10, max = 100)
     @Column(name="REN_CODE_ENVIRONNEMENT")
     private String codeEnvironnement = "";
 
+    @NotNull
+    @NotEmpty
+    @Size(min=10, max = 100)
     @Column(name="REN_DESCRIPTION_ENVIRONNEMENT")
     private String descriptionEnvironnement = "";
 

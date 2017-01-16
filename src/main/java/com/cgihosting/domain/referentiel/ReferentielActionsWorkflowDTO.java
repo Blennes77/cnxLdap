@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,6 +24,7 @@ public class ReferentielActionsWorkflowDTO implements Serializable{
 
     @NotNull
     @NotEmpty
+    @Size(min=10, max = 100)
     @Column(name="RAW_ACTION_WORKFLOW")
     private String actionWorkflow = "";
 

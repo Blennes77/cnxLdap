@@ -85,18 +85,20 @@ public class ParametrageController {
                 journaliserService.enregistrerJournalisation(journalDTO);
 
             }
-
+            return  "redirect:/adminFonctionnel/afficherParametresAppli";
 
         }
 
         else {
+
+            parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_APPLI);
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, parametrerAppliFormulaire);
 
 
         }
 
-        return  "redirect:/adminFonctionnel/afficherParametresAppli";
+        return  "adminFonctionnel/parametres/afficherParametresAppli";
 
 
     }

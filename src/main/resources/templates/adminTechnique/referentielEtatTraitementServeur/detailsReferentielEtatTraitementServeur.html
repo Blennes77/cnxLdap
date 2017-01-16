@@ -35,13 +35,12 @@
             <tr >
                 <td>code</td>
                 <td> <input name="nom" type="text" th:field="*{referentielEtatTraitementServeurDTO.code}"  size="20"/></td>
-
+                <td th:if="${#fields.hasErrors('referentielEtatTraitementServeurDTO.code')}" th:errors="*{referentielEtatTraitementServeurDTO.code}">Libelle Error</td>
             </tr>
             <tr>
                 <td>Description</td>
                 <td> <input name="description" type="text" th:field="*{referentielEtatTraitementServeurDTO.description}"  size="20"/></td>
-
-
+                <td th:if="${#fields.hasErrors('referentielEtatTraitementServeurDTO.description')}" th:errors="*{referentielEtatTraitementServeurDTO.description}">Libelle Error</td>
             </tr>
         </table>
         <br/>

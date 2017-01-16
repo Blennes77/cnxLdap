@@ -84,7 +84,13 @@ public class ActionsWorkflowsController {
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
             if (bindingResult.hasErrors()) {
-                model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielActionsWorkflowsFormulaire);
+
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+
+            detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+
+            model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielActionsWorkflowsFormulaire);
 
 
                 return "adminTechnique/referentielActionsWorkflows/detailsReferentielActionsWorkflows";
@@ -177,7 +183,7 @@ public class ActionsWorkflowsController {
 
 
 
-        detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_OS_TITRE);
+        detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
         detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
 
 

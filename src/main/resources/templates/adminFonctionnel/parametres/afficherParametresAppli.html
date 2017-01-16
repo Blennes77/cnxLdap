@@ -41,29 +41,38 @@
                 <td> Code environnement</td>
                 <td th:text="${formulaire.parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement')}" th:errors="*{parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement}">Libelle Error</td>
+
             </tr>
             <tr >
                 <td> Description de l'environnemment</td>
                 <td th:text="${formulaire.parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement')}" th:errors="*{parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement}">Libelle Error</td>
             </tr>
             <tr >
                 <td> Chaine de connexion LDAP</td>
                 <td>
                     <input th:field="*{parametresAppliDTO.chaineConnexionLDAP}" th:value="${formulaire.parametresAppliDTO.chaineConnexionLDAP}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.chaineConnexionLDAP')}" th:errors="*{parametresAppliDTO.chaineConnexionLDAP}">Libelle Error</td>
+
             </tr>
             <tr >
                 <td>Compte de connexion LDAP</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.compteLDAP}" th:value="${formulaire.parametresAppliDTO.compteLDAP}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.compteLDAP')}" th:errors="*{parametresAppliDTO.compteLDAP}">Libelle Error</td>
+
             </tr>
             <tr >
                 <td>Mot de passe LDAP</td>
                 <td>
                     <input th:field="*{parametresAppliDTO.motDePasseLDAP}"  th:value="${formulaire.parametresAppliDTO.motDePasseLDAP}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.motDePasseLDAP')}" th:errors="*{parametresAppliDTO.motDePasseLDAP}">Libelle Error</td>
+
             </tr>
 
             <tr >
@@ -71,12 +80,14 @@
                 <td>
                     <input  th:field="*{parametresAppliDTO.compteAdmin}" th:value="${formulaire.parametresAppliDTO.compteAdmin}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.compteAdmin')}" th:errors="*{parametresAppliDTO.compteAdmin}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Mot de passe Admin</td>
                 <td>
                     <input th:field="*{parametresAppliDTO.motDePasseAdmin}"  th:value="${formulaire.parametresAppliDTO.motDePasseAdmin}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.motDePasseAdmin')}" th:errors="*{parametresAppliDTO.motDePasseAdmin}">Libelle Error</td>
             </tr>
 
             <tr >
@@ -84,6 +95,8 @@
                 <td>
                     <input th:field="*{parametresAppliDTO.mailAdmin}"  th:value="${formulaire.parametresAppliDTO.mailAdmin}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.mailAdmin')}" th:errors="*{parametresAppliDTO.mailAdmin}">Libelle Error</td>
+
             </tr>
 
             <tr >
@@ -91,6 +104,7 @@
                 <td>
                     <input th:field="*{parametresAppliDTO.adressePhpipam}"  th:value="${formulaire.parametresAppliDTO.adressePhpipam}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.adressePhpipam')}" th:errors="*{parametresAppliDTO.adressePhpipam}">Libelle Error</td>
             </tr>
 
             <tr >
@@ -98,18 +112,21 @@
                 <td>
                     <input  th:field="*{parametresAppliDTO.basePhpipam}" th:value="${formulaire.parametresAppliDTO.basePhpipam}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.basePhpipam')}" th:errors="*{parametresAppliDTO.basePhpipam}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Compte Phpipam</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.comptePhpipam}" th:value="${formulaire.parametresAppliDTO.comptePhpipam}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.comptePhpipam')}" th:errors="*{parametresAppliDTO.comptePhpipam}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Mot de passe Phpipam</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.motDePassePhpipam}" th:value="${formulaire.parametresAppliDTO.motDePassePhpipam}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.motDePassePhpipam')}" th:errors="*{parametresAppliDTO.motDePassePhpipam}">Libelle Error</td>
             </tr>
 
             <tr >
@@ -117,78 +134,92 @@
                 <td>
                     <input  th:field="*{parametresAppliDTO.timeoutPingPhpipam}" th:value="${formulaire.parametresAppliDTO.timeoutPingPhpipam}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.timeoutPingPhpipam')}" th:errors="*{parametresAppliDTO.timeoutPingPhpipam}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Adresse IP Teampass</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.adresseTeampass}" th:value="${formulaire.parametresAppliDTO.adresseTeampass}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.adresseTeampass')}" th:errors="*{parametresAppliDTO.adresseTeampass}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Base Teampass</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.baseTeampass}" th:value="${formulaire.parametresAppliDTO.baseTeampass}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.baseTeampass')}" th:errors="*{parametresAppliDTO.baseTeampass}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Compte Teampass</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.compteTeampass}" th:value="${formulaire.parametresAppliDTO.compteTeampass}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.compteTeampass')}" th:errors="*{parametresAppliDTO.compteTeampass}">Libelle Error</td>
+
             </tr>
             <tr >
                 <td>Mot de passe Teampass</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.motDePasseTeampass}" th:value="${formulaire.parametresAppliDTO.motDePasseTeampass}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.motDePasseTeampass')}" th:errors="*{parametresAppliDTO.motDePasseTeampass}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Adresse IP Dolibarr</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.adresseDolibarr}" th:value="${formulaire.parametresAppliDTO.adresseDolibarr}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.adresseDolibarr')}" th:errors="*{parametresAppliDTO.adresseDolibarr}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Base Dolibarr</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.baseDolibarr}" th:value="${formulaire.parametresAppliDTO.baseDolibarr}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.baseDolibarr')}" th:errors="*{parametresAppliDTO.baseDolibarr}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Compte Dolibarr</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.compteDolibarr}" th:value="${formulaire.parametresAppliDTO.compteDolibarr}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.compteDolibarr')}" th:errors="*{parametresAppliDTO.compteDolibarr}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Mot de passe Dolibarr</td>
                 <td>
                     <input th:field="*{parametresAppliDTO.motDePasseDolibarr}"  th:value="${formulaire.parametresAppliDTO.motDePasseDolibarr}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.motDePasseDolibarr')}" th:errors="*{parametresAppliDTO.motDePasseDolibarr}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Adresse SMTP</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.adresseSmtp}" th:value="${formulaire.parametresAppliDTO.adresseSmtp}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.adresseSmtp')}" th:errors="*{parametresAppliDTO.adresseSmtp}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Mot de passe Dolibarr</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.expediteurSMTP}" th:value="${formulaire.parametresAppliDTO.expediteurSMTP}"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.expediteurSMTP')}" th:errors="*{parametresAppliDTO.expediteurSMTP}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Longueur Mot de passe</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.longueurMotDePasse}" th:value="${formulaire.parametresAppliDTO.longueurMotDePasse}" size="2"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.longueurMotDePasse')}" th:errors="*{parametresAppliDTO.longueurMotDePasse}">Libelle Error</td>
             </tr>
             <tr >
                 <td>Délai purge en mois</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.delaiPurge}" th:value="${formulaire.parametresAppliDTO.delaiPurge}" size="2"/>
                 </td>
+                <td th:if="${#fields.hasErrors('parametresAppliDTO.delaiPurge')}" th:errors="*{parametresAppliDTO.delaiPurge}">Libelle Error</td>
             </tr>
         </table>
         <br/>

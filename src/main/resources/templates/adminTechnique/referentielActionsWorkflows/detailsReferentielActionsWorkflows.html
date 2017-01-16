@@ -35,13 +35,12 @@
             <tr >
                 <td>Action workflow</td>
                 <td> <input name="nom" type="text" th:field="*{referentielActionsWorkflowsDTO.actionWorkflow}"  size="20"/></td>
-
+                <td th:if="${#fields.hasErrors('referentielActionsWorkflowsDTO.actionWorkflow')}" th:errors="*{referentielActionsWorkflowsDTO.actionWorkflow}">Libelle Error</td>
             </tr>
             <tr>
                 <td>Description</td>
                 <td> <input name="description" type="text" th:field="*{referentielActionsWorkflowsDTO.descriptionWorkflow}"  size="20"/></td>
-
-
+                <td th:if="${#fields.hasErrors('referentielActionsWorkflowsDTO.descriptionWorkflow')}" th:errors="*{referentielActionsWorkflowsDTO.descriptionWorkflow}">Libelle Error</td>
             </tr>
         </table>
         <br/>
