@@ -3,6 +3,7 @@ package com.cgihosting.domain.application;
 import com.cgihosting.domain.referentiel.ReferentielHebergeurDTO;
 import com.cgihosting.domain.referentiel.ReferentielOSDTO;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -47,12 +48,18 @@ public class TemplateOSDTO implements Serializable{
     @Column(name="TOS_ID_MODIFICATEUR")
     private Integer idModificateur;
 
+    @NotNull
+    @Range(min=1, max=5000)
     @Column(name="TOS_MINRAM")
     private Integer minRam;
 
+    @NotNull
+    @Range(min=1, max=8)
     @Column(name="TOS_MINCPU")
     private Integer minCpu;
 
+    @NotNull
+    @Range(min=0, max=100)
     @Column(name="TOS_MINDISQUE")
     private Integer minDisque;
 

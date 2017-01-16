@@ -208,14 +208,14 @@
                 <td th:if="${#fields.hasErrors('parametresAppliDTO.expediteurSMTP')}" th:errors="*{parametresAppliDTO.expediteurSMTP}">Libelle Error</td>
             </tr>
             <tr >
-                <td>Longueur Mot de passe</td>
+                <td>Longueur Mot de passe (max 10 caractères)</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.longueurMotDePasse}" th:value="${formulaire.parametresAppliDTO.longueurMotDePasse}" size="2"/>
                 </td>
                 <td th:if="${#fields.hasErrors('parametresAppliDTO.longueurMotDePasse')}" th:errors="*{parametresAppliDTO.longueurMotDePasse}">Libelle Error</td>
             </tr>
             <tr >
-                <td>Délai purge en mois</td>
+                <td>Délai purge en mois (Max 12 mois)</td>
                 <td>
                     <input  th:field="*{parametresAppliDTO.delaiPurge}" th:value="${formulaire.parametresAppliDTO.delaiPurge}" size="2"/>
                 </td>

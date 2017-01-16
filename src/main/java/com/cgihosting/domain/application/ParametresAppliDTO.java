@@ -2,9 +2,9 @@ package com.cgihosting.domain.application;
 
 import com.cgihosting.domain.referentiel.ReferentielEnvironnementDTO;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -58,7 +58,6 @@ public class ParametresAppliDTO implements Serializable {
     private String mailAdmin;
 
     @NotNull
-    @NotEmpty
     @Column(name = "CAP_ID_TYPE_ENVIRONNEMENT")
     private Integer typeEnvironnement;
 
@@ -133,18 +132,17 @@ public class ParametresAppliDTO implements Serializable {
     private String expediteurSMTP;
 
     @NotNull
-    @NotEmpty
+    @Range(min = 7,max = 10)
     @Column(name="CAP_LONGUEUR_MOTDEPASSE")
     private Integer longueurMotDePasse;
 
     @NotNull
-    @NotEmpty
+    @Range(min = 1,max = 50)
     @Column(name="CAP_TIMEOUTPING_PHPIPAM")
     private Integer timeoutPingPhpipam;
 
     @NotNull
-    @NotEmpty
-    @Max(12)
+    @Range(min = 1,max = 12)
     @Column(name = "CAP_DELAIMOIS_PURGE")
     private Integer delaiPurge;
 
