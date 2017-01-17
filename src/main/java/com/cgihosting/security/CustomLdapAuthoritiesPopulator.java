@@ -49,7 +49,7 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
     @Override
     public Collection<? extends GrantedAuthority> getGrantedAuthorities(DirContextOperations ctx, String username) {
 
-        log.debug("Entrée dans CustomLdapAuthoritiesPopulator.");
+        log.info("Connexion de l'utilisateur" + username + " avec succès.");
 
         Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 
@@ -61,10 +61,11 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
             if(utilisateurDTO==null){
                 // ==================== Première connexion. Utilisateur inconnu de l'application.
+                log.debug("Première connexion à l'application pour l'utilisateur " + username + ".");
                 Calendar calendar = Calendar.getInstance();
                 Date dateCreation = new Date(calendar.getTime().getTime());
 
-                log.debug("Création de l'utilisateur " + username + " en base de données.");
+
 
                 // Création de l'utilisateur dans la base de données avec les informations de l'active directory
                 utilisateurDTO = new UtilisateurDTO(ctx.getStringAttribute("givenname"),
@@ -79,6 +80,8 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
                 // Sauvegarde de l'utilisateur
                 utilisateurRepository.save(utilisateurDTO);
+
+                log.debug("Enregistrement de l'utilisateur " + username + " dans la table `utilisateur`.");
 
                 // Vérification dans la table ref_projet si l'utilisateur est présent
                 List<ProjetDTO> projetDTOList = new ArrayList<ProjetDTO>();
@@ -170,6 +173,7 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
                 }
             }
+            log.debug("Sortie de CustomLdapAuthoritiesPopulator.");
         }
         catch (Exception ex) {
             log.error(ex.getMessage() + " " + ex.getStackTrace());
