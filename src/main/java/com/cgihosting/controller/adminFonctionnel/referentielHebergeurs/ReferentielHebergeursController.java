@@ -82,10 +82,10 @@ public class ReferentielHebergeursController {
 
             if (bindingResult.hasErrors()) {
 
-            detailsReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_HEBERGEUR);
+            detailsReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_AJOUTER);
 
-            detailsReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_HEBGERGEURS_TITRE);
-            detailsReferentielHebergeursFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_HEBERGEUR);
+            detailsReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_TITRE);
+            detailsReferentielHebergeursFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_RETOUR);
 
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielHebergeursFormulaire);
@@ -145,8 +145,8 @@ public class ReferentielHebergeursController {
         afficherReferentielHebergeursFormulaire.setPaginationObjet(paginationObjet);
 
 
-        afficherReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_HEBGERGEURS_TITRE);
-        afficherReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_HEBERGEUR);
+        afficherReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_TITRE);
+        afficherReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_BOUTON_AJOUTER);
 
 
         //afficherHebergeurFormulaire.setHebergeurDTOListe(gererHebergeurService.recupererHebergeurs());
@@ -175,11 +175,11 @@ public class ReferentielHebergeursController {
         if (identifiantHebergeurSelect != 0) {
             referentielHebergeurDTO = gererHebergeurService.recupererHebergeurById(identifiantHebergeurSelect);
 
-            detailsReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_HEBERGEUR);
+            detailsReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_MODIFIER);
         }
         else {
 
-            detailsReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_HEBERGEUR);
+            detailsReferentielHebergeursFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_AJOUTER);
         }
 
 
@@ -187,8 +187,8 @@ public class ReferentielHebergeursController {
 
         detailsReferentielHebergeursFormulaire.setReferentielHebergeurDTO(referentielHebergeurDTO);
 
-        detailsReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_HEBGERGEURS_TITRE);
-        detailsReferentielHebergeursFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_HEBERGEUR);
+        detailsReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_TITRE);
+        detailsReferentielHebergeursFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_RETOUR);
 
 
         return detailsReferentielHebergeursFormulaire;

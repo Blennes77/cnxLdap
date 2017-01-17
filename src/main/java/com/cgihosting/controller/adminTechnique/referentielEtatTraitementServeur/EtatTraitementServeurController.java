@@ -86,10 +86,10 @@ public class EtatTraitementServeurController {
 
             if (bindingResult.hasErrors()) {
 
-            detailsReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+            detailsReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_MODIFIER);
 
-            detailsReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE);
-            detailsReferentielEtatTraitementServeurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+            detailsReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_TITRE);
+            detailsReferentielEtatTraitementServeurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_RETOUR);
 
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielEtatTraitementServeurFormulaire);
@@ -148,9 +148,9 @@ public class EtatTraitementServeurController {
         afficherReferentielEtatTraitementServeurFormulaire.setReferentielEtatTraitementServeurDTOPage(gererEtatTraitementService.recupererReferentielEtatTraitement(pageCourante, numLigneAfficheParPage));
 
 
-        afficherReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE);
+        afficherReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ETATTRAITEMENT_SERVEURS_TITRE);
 
-        afficherReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_ACTIONS_WORKFLOWS);
+        afficherReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ETATTRAITEMENT_SERVEURS_BOUTON_AJOUTER);
 
 
 
@@ -175,17 +175,17 @@ public class EtatTraitementServeurController {
         if (identifiantEtattraitementServeurSelect != 0) {
             referentielEtatTraitementServeurDTO = gererEtatTraitementService.recupererReferentielEtatTraitementById(identifiantEtattraitementServeurSelect);
 
-            detailsReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_MODIFIER);
         }
         else {
 
-            detailsReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+            detailsReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_AJOUTER);
         }
 
 
 
-        detailsReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE);
-        detailsReferentielEtatTraitementServeurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+        detailsReferentielEtatTraitementServeurFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_TITRE);
+        detailsReferentielEtatTraitementServeurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_RETOUR);
 
 
         detailsReferentielEtatTraitementServeurFormulaire.setReferentielEtatTraitementServeurDTO(referentielEtatTraitementServeurDTO);

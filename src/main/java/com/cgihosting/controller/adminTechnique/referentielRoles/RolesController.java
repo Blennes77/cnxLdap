@@ -81,10 +81,10 @@ public class RolesController {
 
             if (bindingResult.hasErrors()) {
 
-            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_AJOUTER);
 
-            detailsReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
-            detailsReferentielRolesUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+            detailsReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_TITRE);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_RETOUR);
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielRolesUtilisateurFormulaire);
                 return "adminTechnique/referentielRolesUtilisateur/detailsReferentielRolesutilisateur";
@@ -141,8 +141,8 @@ public class RolesController {
         afficherReferentielRolesUtilisateurFormulaire.setReferentielRolesDTOPage(gererUtilisateurService.searchAllReferentielRolesUtilisateurDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
 
-        afficherReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_VIRTUALISATION_TITRE);
-        afficherReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+        afficherReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ROLES_UTILISATEUR_TITRE);
+        afficherReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ROLES_UTILISATEUR_BOUTON_AJOUTER);
 
 
 
@@ -167,18 +167,18 @@ public class RolesController {
         if (identifiantReferentielRolesSelect != 0) {
             referentielRolesDTO = gererUtilisateurService.recupererReferentielRolesUtilisateurById(identifiantReferentielRolesSelect);
 
-            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_MODIFIER);
         }
         else {
 
             referentielRolesDTO.setId(0);
-            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+            detailsReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_AJOUTER);
         }
 
 
 
-        detailsReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
-        detailsReferentielRolesUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+        detailsReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_TITRE);
+        detailsReferentielRolesUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_RETOUR);
 
         detailsReferentielRolesUtilisateurFormulaire.setReferentielRolesDTO(referentielRolesDTO);
 

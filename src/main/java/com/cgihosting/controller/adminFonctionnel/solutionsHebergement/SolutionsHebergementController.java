@@ -143,9 +143,9 @@ public class SolutionsHebergementController {
         afficherSolutionsHebergementFormulaire.setSolutionsHebergementDTOPage(gererHebergeurService.searchAllSolutionsHebergementDtoPageByPage(pageCourante, numLigneAfficheParPage));
 
 
-        afficherSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
+        afficherSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_TITRE);
 
-        afficherSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_ACTIONS_WORKFLOWS);
+        afficherSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER);
 
 
 
@@ -170,17 +170,17 @@ public class SolutionsHebergementController {
         if (identifiantSolutionsHebergement != 0) {
             solutionsHebergementDTO = gererHebergeurService.recupererSolutionsHebergementById(identifiantSolutionsHebergement);
 
-            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER);
         }
         else {
 
-            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER);
         }
 
 
 
-        detailsSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_OS_TITRE);
-        detailsSolutionsHebergementFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+        detailsSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_TITRE);
+        detailsSolutionsHebergementFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_RETOUR);
 
         detailsSolutionsHebergementFormulaire.setReferentielHebergeurDTOListe(gererHebergeurService.recupererReferentielHebergeurs());
         detailsSolutionsHebergementFormulaire.setReferentielVirtualisationDTOListe(gererVirtualisationService.recupererReferentielVirtualisation());

@@ -83,10 +83,10 @@ public class VirtualisationController {
 
             if (bindingResult.hasErrors()) {
 
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_MODIFIER);
 
-            detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
-            detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+            detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_TITRE);
+            detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_RETOUR);
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielVirtualisationFormulaire);
 
@@ -144,8 +144,8 @@ public class VirtualisationController {
         afficherReferentielVirtualisationFormulaire.setReferentielVirtualisationDTOPage(gererVirtualisationService.searchAllReferentielVirtualisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
 
-        afficherReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_VIRTUALISATION_TITRE);
-        afficherReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+        afficherReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_VIRTUALISATION_TITRE);
+        afficherReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_VIRTUALISATION_BOUTON_AJOUTER);
 
 
 
@@ -170,18 +170,18 @@ public class VirtualisationController {
         if (identifiantVirtualisationSelect != 0) {
             referentielVirtualisationDTO = gererVirtualisationService.recupererReferentielVirtualisationById(identifiantVirtualisationSelect);
 
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_MODIFIER);
         }
         else {
 
             referentielVirtualisationDTO.setId(0);
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_VIRTUALISATION);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_AJOUTER);
         }
 
 
 
-        detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_VIRTUALISATION_TITRE);
-        detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION);
+        detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_TITRE);
+        detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_RETOUR);
 
         detailsReferentielVirtualisationFormulaire.setReferentielVirtualisationDTO(referentielVirtualisationDTO);
 

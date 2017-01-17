@@ -123,7 +123,7 @@ public class JournalisationController {
         afficherJournalisationFormulaire.setPaginationObjet(paginationObjet);
 
 
-        afficherJournalisationFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_JOURNALISATION_TITRE);
+        afficherJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_JOURNALISATION_TITRE);
         //  afficherJournalisationFormulaire.setJournalDTOListe(journaliserService.recupererJournalisation());
 
         afficherJournalisationFormulaire.setJournalDTOPage(journaliserService.searchAllJournalDTOPageByPage(pageCourante, numLigneAfficheParPage));

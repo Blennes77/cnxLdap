@@ -9,16 +9,13 @@ public class ConstantesPage {
 
     /***************************************************************************************************
      *
-     * A. Module GENERAL
+     * A. Module COMMUN
      *
      ***************************************************************************************************/
 
     public static final String NOM_FORMULAIRE_HTML = "formulaire";
-
     public static final String NOM_FORMULAIRE_AJAX = "formulaireAjax";
-
     public static final String ACTION_SAUVEGARDER = "Sauvegarder";
-
     public static final String ACTION_ANNULER = "Annuler";
 
 
@@ -60,101 +57,231 @@ public class ConstantesPage {
      *
      ***************************************************************************************************/
 
-    /** Titre des pages **/
-    public static final String EXPLOIT_AFFICHAGE_SERVEURS_VIRTUELS_TITRE = "Liste des serveurs virtuels commandés";
+    /**
+     * SOUS MENU : liste des serveurs virtuels
+     **/
 
-    public static final String EXPLOIT_DETAIL_SERVEUR_VIRTUEL_TITRE = "Serveur virtuel";
+    /** Ecran Affichage liste des serveurs **/
+    public static final String EXPLOIT_AFFICHAGE_LISTE_SERVEURS_VIRTUELS_TITRE = "Liste des serveurs virtuels commandés";
 
-    public static final String EXPLOIT_AFFICHAGE_TEMPLATES_OS_TITRE = "Liste des templates";
+    /** Ecran détails serveurs virtuels **/
+    public static final String EXPLOIT_DETAILS_SERVEURS_VIRTUELS_TITRE = "Serveur virtuel";
+    public static final String EXPLOIT_DETAILS_SERVEURS_VIRTUELS_BOUTON_MODIFIER = "Modifier Serveur Virtuel";
+    public static final String EXPLOIT_DETAILS_SERVEURS_VIRTUELS_BOUTON_RETOUR = "Retour";
 
-    public static final String EXPLOIT_DETAIL_TEMPLATE_OS_TITRE = "Template";
 
-    /** Noms des boutons **/
+    /**
+     * SOUS MENU : liste des templates
+     **/
+    /** Ecran Affichage liste des templates **/
+    public static final String EXPLOIT_AFFICHAGE_LISTE_TEMPLATES_OS_TITRE = "Liste des templates";
+    public static final String EXPLOIT_AFFICHAGE_LISTE_TEMPLATES_OS_BOUTON_AJOUTER = "Ajouter un template";
+    public static final String EXPLOIT_AFFICHAGE_LISTE_TEMPLATES_OS_BOUTON_RETOUR = "Retour";
 
-    public static final String EXPLOIT_BOUTON_MODIFIER_SERVEUR_VIRTUEL = "Modifier Serveur Virtuel";
-    public static final String EXPLOIT_BOUTON_RETOUR_LISTE_SERVEURS_VIRTUELS = "Retour";
+    /** Ecran Affichage détails des templates **/
+    public static final String EXPLOIT_DETAILS_TEMPLATES_OS_TITRE = "Template";
+    public static final String EXPLOIT_DETAILS_TEMPLATES_OS_BOUTON_AJOUTER = "Ajouter un template";
+    public static final String EXPLOIT_DETAILS_TEMPLATES_OS_BOUTON_MODIFIER = "Modifier un template";
+    public static final String EXPLOIT_DETAILS_TEMPLATES_OS_BOUTON_RETOUR = "Retour";
 
-    public static final String EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS = "Ajouter template";
-    public static final String EXPLOIT_BOUTON_MODIFIER_TEMPLATE_OS = "Modifier template";
-    public static final String EXPLOIT_BOUTON_RETOUR_LISTE_TEMPLATE_OS = "Retour";
+    /**
+     * SOUS MENU : réferentiel des erreurs
+     **/
+    /** Ecran Affichage liste des erreurs rencontrées **/
+    public static final String EXPLOIT_AFFICHAGE_LISTE_ERREURS_RENCONTREES_TITRE = "Liste des erreurs générées";
+    public static final String EXPLOIT_AFFICHAGE_LISTE_ERREURS_RENCONTREES_BOUTON_AJOUTER = "Ajouter une erreur type";
+    public static final String EXPLOIT_AFFICHAGE_LISTE_ERREURS_RENCONTREES_BOUTON_RETOUR = "Retour";
+
+    /** Ecran Affichage détails des erreurs rencontrées **/
+    public static final String EXPLOIT_DETAILS_ERREURS_RENCONTREES_TITRE = "Erreur type";
+    public static final String EXPLOIT_DETAILS_ERREURS_RENCONTREES_BOUTON_AJOUTER = "Ajouter une erreur type";
+    public static final String EXPLOIT_DETAILS_ERREURS_RENCONTREES_BOUTON_MODIFIER = "Modifier une erreur type";
+    public static final String EXPLOIT_DETAILS_ERREURS_RENCONTREES_BOUTON_RETOUR = "Retour";
+
+
+    /**
+     * SOUS MENU : réferentiel des mails
+     **/
+    /** Ecran Affichage liste des mails**/
+    public static final String EXPLOIT_AFFICHAGE_LISTE_MAILS_TITRE = "Liste des mails type";
+    public static final String EXPLOIT_AFFICHAGE_LISTE_MAILS_BOUTON_AJOUTER = "Ajouter un mail type";
+    public static final String EXPLOIT_AFFICHAGE_LISTE_MAILS_BOUTON_RETOUR = "Retour";
+
+    /** Ecran Affichage détails des mails **/
+    public static final String EXPLOIT_DETAILS_MAILS_TITRE = "Mail type";
+    public static final String EXPLOIT_DETAILS_MAILS_BOUTON_AJOUTER = "Modifier un mail type";
+    public static final String EXPLOIT_DETAILS_MAILS_BOUTON_MODIFIER = "Modifier un mail type";
+    public static final String EXPLOIT_DETAILS_MAILS_BOUTON_RETOUR = "Retour";
+
+
+
 
 
     /***************************************************************************************************
      *
-     * B. Module ADMINISTRATION
+     * D. Module ADMINISTRATION fonctionnel
      *
      ***************************************************************************************************/
 
-    /** Titre des pages **/
+    /**
+     * SOUS MENU : Paramétrage appli
+     **/
 
-    public static final String ADMIN_AFFICHAGE_UTILISATEURS_TITRE = "Gestion des rôles utilisateurs";
-
-    public static final String ADMIN_DETAIL_UTILISATEURS_TITRE = "Attribution des rôles de l'utilisateur";
-
-    public static final String ADMIN_AFFICHAGE_HEBGERGEURS_TITRE = "Liste des hébergeurs disponibles";
-
-    public static final String ADMIN_DETAIL_HEBGERGEURS_TITRE = "Affichage hébergeur";
-
-    public static final String ADMIN_AFFICHAGE_UTILISATEIURS_TITRE = "Liste des utilisateurs";
-
-    public static final String ADMIN_DETAIL_UTILISATEUR_TITRE = "Affichage utilisateur";
-
-    public static final String ADMIN_AFFICHAGE_PRODUITS_TITRE = "Liste des produits";
-
-    public static final String ADMIN_PARAMETRAGE_VCO_TITRE = "Configuration des paramètres orchestrator";
-    public static final String ADMIN_PARAMETRAGE_APPLI_TITRE = "Configuration des paramètres applicatifs";
-
-    public static final String ADMIN_AFFICHAGE_JOURNALISATION_TITRE = "Evênements dans l'application";
-
-    public static final String ADMIN_AFFICHAGE_REFERENTIEL_JOURNALISATION_TITRE = "Types d'evênements journalisés";
-
-    public static final String ADMIN_DETAILS_REFERENTIEL_JOURNALISATION_TITRE = "Evênement journalisé";
-
-
-    public static final String ADMIN_AFFICHAGE_PROJETS_TITRE = "Liste des projets";
-
-
-    public static final String ADMIN_AFFICHAGE_OS_TITRE = "Liste des systèmes d'exploitation";
-    public static final String ADMIN_DETAIL_OS_TITRE ="Système d'exploitation";
-
-    public static final String ADMIN_AFFICHAGE_VIRTUALISATION_TITRE = "Liste des virtualisations";
-    public static final String ADMIN_DETAIL_VIRTUALISATION_TITRE = "Virtualisation";
-
-    public static final String ADMIN_AFFICHAGE_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE = "Liste des actions sur les machines virtuelles";
-    public static final String ADMIN_DETAIL_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE = "Action workflow";
-    public static final String ADMIN_AFFICHAGE_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE = "Liste des états possibles d'un serveur";
-
-    public static final String ADMIN_DETAIL_REFERENTIEL_ETATTRAITEMENT_SERVEUR_TITRE = "Etat traitement";
-
-    /** Noms des boutons **/
-
-    public static final String ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_APPLI = "Enregistrer paramètres Applis";
-    public static final String ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_VCO = "Enregistrer paramètres VCO";
-
-    public static final String ADMIN_BOUTON_AJOUTER_HEBERGEUR = "Ajouter un hébergeur";
-    public static final String ADMIN_BOUTON_MODIFIER_HEBERGEUR = "Modifier hébergeur";
-    public static final String ADMIN_BOUTON_RETOUR_HEBERGEUR = "Annuler";
-
-    public static final String ADMIN_BOUTON_AJOUTER_REFERENTIEL_JOURNALISATIOn = "Ajouter un journal";
-    public static final String ADMIN_BOUTON_MODIFIER_REFERENTIEL_JOURNALISATION = "Modifier un journal";
-    public static final String ADMIN_BOUTON_RETOUR_REFERENTIEL_JOURNALISATION = "Annuler";
-
-
-    public static final String ADMIN_BOUTON_MODIFIER_ROLE_UTILISATEUR = "Enregistrer";
-    public static final String ADMIN_BOUTON_RETOUR_AFFICHER_UTILISATEURS = "Annuler";
-
-
-    public static final String ADMIN_BOUTON_AJOUTER_OS = "Ajouter OS";
-
-    public static final String ADMIN_BOUTON_MODIFIER_OS = "Modifier OS";
-    public static final String ADMIN_BOUTON_RETOUR_LISTE_OS = "Retour";
-
-    public static final String ADMIN_BOUTON_AJOUTER_VIRTUALISATION = "Ajouter virtualiiation";
-    public static final String ADMIN_BOUTON_RETOUR_LISTE_VIRTUALISATION ="Retour";
-
-    public static final String ADMIN_BOUTON_AJOUTER_REFERENTIEL_ACTIONS_WORKFLOWS =" AJouter une action";
+    /** Ecran Affichage paramétrage**/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_TITRE = "Paramétrage de l'application";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER = "Enregistrer paramètres";
 
 
 
+    /**
+     * SOUS MENU : liste des hebergeur
+     **/
+
+    /** Ecran Affichage liste des hébergeurs **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_TITRE= "Liste des hébergeurs";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_BOUTON_AJOUTER= "Ajouter un hébergeur";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_BOUTON_MODIFIER = "Modifier hébergeur";
+
+    /** Ecran détails hébergeurs **/
+    public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_TITRE = "Hébergeur";
+    public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_AJOUTER = "Ajouter un  hébergeur";
+    public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_MODIFIER = "Modifier hébergeur";
+    public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_RETOUR = "Retour";
+
+
+    /**
+     * SOUS MENU : réferentiel produits
+     **/
+    public static final String EXPLOIT_AFFICHAGE_LISTE_PRODUITS_TITRE = "Liste des projets CGI";
+
+
+    /**
+     * SOUS MENU : réferentiel produits
+     **/
+
+    public static final String EXPLOIT_AFFICHAGE_LISTE_PROJETS_TITRE = "Liste des projets CGI";
+
+    /**
+     * SOUS MENU : liste des solutions hébergement
+     **/
+
+    /** Ecran Affichage liste des hébergeurs **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_TITRE= "Liste des solutions hébergement";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER= "Ajouter un hébergement";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER = "Modifier hébergement";
+
+    /** Ecran détails hébergeurs **/
+    public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_TITRE = "Hébergement";
+    public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER = "Ajouter un  hébergement";
+    public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER = "Modifier hébergement";
+    public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_RETOUR = "Retour";
+
+
+    /** Ecran Affichage liste des utilisateurs **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_TITRE= "Liste des utilisateurs";
+
+    /** Ecran rôles **/
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_TITRE = "Rôles utilisateur";
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_BOUTON_MODIFIER = "Modifier les rôles";
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_BOUTON_RETOUR = "Retour";
+
+
+
+
+    /***************************************************************************************************
+     *
+     * D. Module ADMINISTRATION technique
+     *
+     ***************************************************************************************************/
+
+
+
+    /**
+     * SOUS MENU : liste des rôles
+     **/
+
+    /** Ecran Affichage liste des rôles **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_ROLES_UTILISATEUR_TITRE= "Liste des rôles utilisateur";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_ROLES_UTILISATEUR_BOUTON_AJOUTER= "Ajouter un rôle";
+
+    /** Ecran détails rôle **/
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_TITRE = "Rôle utilisateur";
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_AJOUTER = "Ajouter un rôle";
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_MODIFIER = "Modifier un rôle";
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_UTILISATEUR_BOUTON_RETOUR = "Retour";
+
+    /**
+     * SOUS MENU : liste des états de traitement serveur
+     **/
+
+    /** Ecran Affichage liste d' états traitement **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_ETATTRAITEMENT_SERVEURS_TITRE= "Liste des états de traitement serveurr";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_ETATTRAITEMENT_SERVEURS_BOUTON_AJOUTER= "Ajouter un état traitement";
+
+    /** Ecran détails états traitement **/
+    public static final String ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_TITRE = "Etat traitement";
+    public static final String ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_AJOUTER = "Ajouter un état traitement";
+    public static final String ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_MODIFIER = "Modifier un état traitement";
+    public static final String ADMINFONCTIONNEL_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_RETOUR = "Retour";
+
+
+    /**
+     * SOUS MENU : liste des actions workflows
+     **/
+
+    /** Ecran Affichage liste des actions workflow **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_TITRE= "Liste des actions workflows";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_BOUTON_AJOUTER= "Ajouter une action";
+
+    /** Ecran détails actions workflows **/
+    public static final String ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_TITRE = "Action workflow";
+    public static final String ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_AJOUTER = "Ajouter une action";
+    public static final String ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER = "Modifier une action";
+    public static final String ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_RETOUR = "Retour";
+
+
+    /**
+     * SOUS MENU : liste journalisation
+     **/
+
+    /** Ecran Affichage liste des êvenements **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_JOURNALISATION_TITRE= "Liste des êvenemnts";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_JOURNALISATION_BOUTON_AJOUTER= "Ajouter un evênement";
+
+    /** Ecran détails evênements **/
+    public static final String ADMINFONCTIONNEL_DETAILS_JOURNALISATION_TITRE = "Evênement";
+    public static final String ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_AJOUTER = "Ajouter un evênement";
+    public static final String ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_MODIFIER = "Modifier un evênement";
+    public static final String ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_RETOUR = "Retour";
+
+
+    /**
+     * SOUS MENU : liste OS
+     **/
+
+    /** Ecran Affichage liste OS **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_OS_TITRE= "Liste des OS";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_OS_BOUTON_AJOUTER= "Ajouter un OS";
+
+    /** Ecran détails OS **/
+    public static final String ADMINFONCTIONNEL_DETAILS_OS_TITRE = "Evênement";
+    public static final String ADMINFONCTIONNEL_DETAILS_OS_BOUTON_AJOUTER = "Ajouter un OS";
+    public static final String ADMINFONCTIONNEL_DETAILS_OS_BOUTON_MODIFIER = "Modifier un OS";
+    public static final String ADMINFONCTIONNEL_DETAILS_OS_BOUTON_RETOUR = "Retour";
+
+
+    /**
+     * SOUS MENU : liste virtualisation
+     **/
+
+    /** Ecran Affichage liste OS **/
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_VIRTUALISATION_TITRE= "Liste des types de virtualisation";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_LISTE_VIRTUALISATION_BOUTON_AJOUTER= "Ajouter une virtualisation";
+
+    /** Ecran détails OS **/
+    public static final String ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_TITRE = "Type de virtualisation ";
+    public static final String ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_AJOUTER = "Ajouter une virtualisation";
+    public static final String ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_MODIFIER = "Modifier une virtualisation";
+    public static final String ADMINFONCTIONNEL_DETAILS_VIRTUALISATION_BOUTON_RETOUR = "Retour";
 
 }

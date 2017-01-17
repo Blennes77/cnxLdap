@@ -85,10 +85,10 @@ public class ActionsWorkflowsController {
 
             if (bindingResult.hasErrors()) {
 
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER);
 
-            detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+            detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_TITRE);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_RETOUR);
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielActionsWorkflowsFormulaire);
 
@@ -147,9 +147,9 @@ public class ActionsWorkflowsController {
         afficherReferentielActionsWorkflowsFormulaire.setReferentielActionsWorkflowDTOPage(gererWorkflowsService.recupererReferentielActionsWorkflows(pageCourante, numLigneAfficheParPage));
 
 
-        afficherReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
+        afficherReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_TITRE);
 
-        afficherReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_AJOUTER_REFERENTIEL_ACTIONS_WORKFLOWS);
+        afficherReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_BOUTON_AJOUTER);
 
 
 
@@ -174,17 +174,17 @@ public class ActionsWorkflowsController {
         if (identifiantWorkflowSelect != 0) {
             referentielActionsWorkflowDTO = gererWorkflowsService.recupererReferentielActionsWorkflowsById(identifiantWorkflowSelect);
 
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_MODIFIER_OS);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER);
         }
         else {
 
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.EXPLOIT_BOUTON_AJOUTER_TEMPLATE_OS);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_AJOUTER);
         }
 
 
 
-        detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMIN_DETAIL_REFERENTIEL_ACTIONS_WORKFLOWS_TITRE);
-        detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMIN_BOUTON_RETOUR_LISTE_OS);
+        detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_TITRE);
+        detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_RETOUR);
 
 
         detailsReferentielActionsWorkflowsFormulaire.setReferentielActionsWorkflowsDTO(referentielActionsWorkflowDTO);

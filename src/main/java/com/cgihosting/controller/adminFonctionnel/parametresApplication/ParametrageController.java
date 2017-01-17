@@ -95,7 +95,7 @@ public class ParametrageController {
 
         else {
 
-            parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_APPLI);
+            parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER);
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, parametrerAppliFormulaire);
 
@@ -122,9 +122,9 @@ public class ParametrageController {
 
         ParametrerAppliFormulaire parametrerAppliFormulaire = new ParametrerAppliFormulaire();
 
-        parametrerAppliFormulaire.setTitrePage(ConstantesPage.ADMIN_PARAMETRAGE_APPLI_TITRE);
+        parametrerAppliFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_TITRE);
         parametrerAppliFormulaire.setParametresAppliDTO(parametrerService.recupererParametresAppli(env.getRequiredProperty("nom.environnement")));
-        parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMIN_BOUTON_SAUVEGARDER_PARAMETRES_APPLI);
+        parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER);
 
         return parametrerAppliFormulaire;
     }

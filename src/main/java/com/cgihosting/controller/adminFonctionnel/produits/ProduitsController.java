@@ -47,7 +47,7 @@ public class ProduitsController {
 
         AfficherProduitsFormulaire afficherProduitsFormulaire = new AfficherProduitsFormulaire();
 
-        afficherProduitsFormulaire.setTitrePage(ConstantesPage.ADMIN_AFFICHAGE_PRODUITS_TITRE);
+        afficherProduitsFormulaire.setTitrePage(ConstantesPage.EXPLOIT_AFFICHAGE_LISTE_PRODUITS_TITRE);
         afficherProduitsFormulaire.setProduitDTOListe(gererProduitService.recupererProduits());
 
         return afficherProduitsFormulaire;
