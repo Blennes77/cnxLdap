@@ -1,8 +1,10 @@
 package com.cgihosting.domain.application;
 
 import com.cgihosting.domain.referentiel.ReferentielEtatTraitementServeurDTO;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,12 +27,17 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_NOM_SERVEUR")
     private String nomServeur;
 
+    @NotNull
+    @Range(min=1,max=32)
     @Column(name="SVI_RAM")
     private Integer ram;
 
+    @NotNull
+    @Range(min=1,max=8)
     @Column(name="SVI_CPUS")
     private Integer cpus;
 
+    @NotNull
     @Column(name="SVI_ID_TEMPLATE")
     private Integer idTemplate;
 
