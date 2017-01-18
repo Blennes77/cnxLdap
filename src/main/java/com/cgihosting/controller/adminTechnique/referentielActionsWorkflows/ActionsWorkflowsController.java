@@ -54,23 +54,23 @@ public class ActionsWorkflowsController {
     private GererUtilisateurService gererUtilisateurService;
 
 
-    @RequestMapping("/adminTechnique/afficherReferentielActionsWorkflows")
+    @RequestMapping(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_ACTION_ENTREE)
     String afficherOS(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielActionsWorkflows(page, ligneParPage));
-        return "adminTechnique/referentielActionsWorkflows/afficherReferentielActionsWorkflows";
+        return ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_PAGE_HTML;
     }
 
-    @RequestMapping(value = "/adminTechnique/afficherDetailsReferentielActionsWorkflows", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_ACTION_ENTREE, method = RequestMethod.POST)
     String affichageDetailsReferentielWorkflowd(int identifiantWorkflowSelect, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielActionsWorkflows(identifiantWorkflowSelect));
-        return "adminTechnique/referentielActionsWorkflows/detailsReferentielActionsWorkflows";
+        return ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = "/adminTechnique/modifierReferentielActionsWorkflows", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_ACTION_MODIFIER, method = RequestMethod.POST)
 
     String creerOS(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)DetailsReferentielActionsWorkflowsFormulaire detailsReferentielActionsWorkflowsFormulaire,BindingResult bindingResult, Model model,  @RequestParam String action){
 
@@ -85,15 +85,15 @@ public class ActionsWorkflowsController {
 
             if (bindingResult.hasErrors()) {
 
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER);
 
-            detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_TITRE);
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_RETOUR);
+            detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_TITRE);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_BOUTON_RETOUR);
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielActionsWorkflowsFormulaire);
 
 
-                return "adminTechnique/referentielActionsWorkflows/detailsReferentielActionsWorkflows";
+                return ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_PAGE_HTML;
             }
             else{
 
@@ -112,7 +112,7 @@ public class ActionsWorkflowsController {
 
 
 
-                return  "redirect:/adminTechnique/afficherReferentielActionsWorkflows";
+                return  "redirect:" + ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_ACTION_ENTREE;
 
             }
 
@@ -120,7 +120,7 @@ public class ActionsWorkflowsController {
 
         else {
 
-            return  "redirect:/adminTechnique/afficherReferentielActionsWorkflows";
+            return  "redirect:" + ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_ACTION_ENTREE;
 
         }
 
@@ -147,9 +147,9 @@ public class ActionsWorkflowsController {
         afficherReferentielActionsWorkflowsFormulaire.setReferentielActionsWorkflowDTOPage(gererWorkflowsService.recupererReferentielActionsWorkflows(pageCourante, numLigneAfficheParPage));
 
 
-        afficherReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_TITRE);
+        afficherReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_TITRE);
 
-        afficherReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_BOUTON_AJOUTER);
+        afficherReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_BOUTON_AJOUTER);
 
 
 
@@ -174,17 +174,17 @@ public class ActionsWorkflowsController {
         if (identifiantWorkflowSelect != 0) {
             referentielActionsWorkflowDTO = gererWorkflowsService.recupererReferentielActionsWorkflowsById(identifiantWorkflowSelect);
 
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER);
         }
         else {
 
-            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_AJOUTER);
+            detailsReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_BOUTON_AJOUTER);
         }
 
 
 
-        detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_TITRE);
-        detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ACTIONS_WORKFLOWS_BOUTON_RETOUR);
+        detailsReferentielActionsWorkflowsFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_TITRE);
+        detailsReferentielActionsWorkflowsFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_BOUTON_RETOUR);
 
 
         detailsReferentielActionsWorkflowsFormulaire.setReferentielActionsWorkflowsDTO(referentielActionsWorkflowDTO);

@@ -53,11 +53,11 @@ public class ParametrageController {
      * @return
      */
 
-    @RequestMapping("/adminFonctionnel/afficherParametresAppli")
+    @RequestMapping(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_ACTION_ENTREE)
     String afficherParametresAppli(Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireParametrageAppli());
-        return "adminFonctionnel/parametres/afficherParametresAppli";
+        return ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_PAGE_HTML;
     }
 
 
@@ -67,7 +67,7 @@ public class ParametrageController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/adminFonctionnel/modifierParametresAppli", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_ACTION_MODIFIER, method = RequestMethod.POST)
 
     String modifierParametresAppli(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)  ParametrerAppliFormulaire parametrerAppliFormulaire, BindingResult bindingResult, Model model, @RequestParam String action){
 
@@ -86,7 +86,7 @@ public class ParametrageController {
                                                         identifiantDonneeTraitee,  Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 
-                return  "redirect:/adminFonctionnel/afficherParametresAppli";
+                return  "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_ACTION_ENTREE;
 
             }
 
@@ -102,7 +102,7 @@ public class ParametrageController {
 
         }
 
-        return  "adminFonctionnel/parametres/afficherParametresAppli";
+        return  ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_PAGE_HTML;
 
 
     }

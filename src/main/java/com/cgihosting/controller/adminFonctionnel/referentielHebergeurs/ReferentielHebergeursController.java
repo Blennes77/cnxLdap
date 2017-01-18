@@ -50,25 +50,25 @@ public class ReferentielHebergeursController {
     private GererUtilisateurService gererUtilisateurService;
 
 
-    @RequestMapping("/adminFonctionnel/afficherReferentielHebergeurs")
+    @RequestMapping(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_ACTION_ENTREE)
     String afficherHebergeurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielHebergeurs(page, ligneParPage));
-        return "adminFonctionnel/referentielHebergeurs/afficherReferentielHebergeurs";
+        return ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_PAGE_HTML;
     }
 
 
 
-    @RequestMapping("/adminFonctionnel/afficherDetailsReferentielHebergeurs")
+    @RequestMapping(ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_ACTION_ENTREE)
     String affichageDetailHebergeurs(int identifiantHebergeurSelect, Model model) {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielHebergeur(identifiantHebergeurSelect));
-        return "adminFonctionnel/referentielHebergeurs/detailsReferentielHebergeur";
+        return ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = "/adminFonctionnel/enregistrerReferentielHebergeurs", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_DETAILS_HEBERGEURS_ACTION_MODIFIER, method = RequestMethod.POST)
 
     String creerHebergeur(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML) DetailsReferentielHebergeursFormulaire detailsReferentielHebergeursFormulaire, BindingResult bindingResult, Model model,  @RequestParam String action){
 
@@ -91,7 +91,7 @@ public class ReferentielHebergeursController {
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielHebergeursFormulaire);
 
 
-                return "adminFonctionnel/referentielHebergeurs/detailsReferentielHebergeur";
+                return ConstantesPage. ADMINFONCTIONNEL_DETAILS_HEBERGEURS_PAGE_HTML;
             }
             else{
 
@@ -112,7 +112,7 @@ public class ReferentielHebergeursController {
 
 
 
-                return  "redirect:/adminFonctionnel/afficherReferentielHebergeurs";
+                return  "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_ACTION_ENTREE;
 
             }
 
@@ -120,7 +120,7 @@ public class ReferentielHebergeursController {
 
         else {
 
-                    return  "redirect:/adminFonctionnel/afficherReferentielHebergeurs";
+                    return  "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_HEBERGEURS_ACTION_ENTREE;
 
         }
 

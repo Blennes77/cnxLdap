@@ -46,24 +46,24 @@ public class ReferentielournalisationController {
 
 
 
-    @RequestMapping("/adminTechnique/afficherReferentielJournalisation")
+    @RequestMapping(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE)
     String afficherReferentielJournalisation(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                                   @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielJournalisation(page, ligneParPage));
-        return "adminTechnique/referentielJournalisation/afficherReferentielJournalisation";
+        return ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_JOURNALISATION_PAHE_HTML;
     }
 
 
-    @RequestMapping("/adminTechnique/afficherDetailsReferentielJournalisation")
+    @RequestMapping(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_ACTION_ENTREE)
     String affichageDetailsReferentielJournalisation(int identifiantReferentielJournalisationSelect, Model model) {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielJournalisation(identifiantReferentielJournalisationSelect));
-        return "adminTechnique/referentielJournalisation/detailsReferentielJournalisation";
+        return ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = "/adminTechnique/enregistrerReferentielJournalisation", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_ACTION_MODIFIER, method = RequestMethod.POST)
 
     String creerJournalisation(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML) DetailsReferentielJournalisationFormulaire detailsReferentielJournalisationFormulaire , BindingResult bindingResult, Model model,  @RequestParam String action){
 
@@ -76,13 +76,13 @@ public class ReferentielournalisationController {
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
             if (bindingResult.hasErrors()) {
-                detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_JOURNALISATION_TITRE);
-                detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_MODIFIER);
-                detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_RETOUR);
+                detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_TITRE);
+                detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_BOUTON_MODIFIER);
+                detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_BOUTON_RETOUR);
                 model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielJournalisationFormulaire);
 
 
-                return "adminTechnique/referentielJournalisation/detailsReferentielJournalisation";
+                return ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_PAGE_HTML;
             }
             else{
 
@@ -103,7 +103,7 @@ public class ReferentielournalisationController {
 
 
 
-                return  "redirect:/adminTechnique/afficherReferentielJournalisation";
+                return  "redirect" + ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE;
 
             }
 
@@ -111,7 +111,7 @@ public class ReferentielournalisationController {
 
         else {
 
-            return  "redirect:/adminTechnique/afficherReferentielJournalisation";
+            return  "redirect:" + ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE;
 
         }
 
@@ -132,8 +132,8 @@ public class ReferentielournalisationController {
         afficherReferentielJournalisationFormulaire.setPaginationObjet(paginationObjet);
 
 
-        afficherReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_JOURNALISATION_TITRE);
-        afficherReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_JOURNALISATION_BOUTON_AJOUTER);
+        afficherReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_JOURNALISATION_TITRE);
+        afficherReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_JOURNALISATION_BOUTON_AJOUTER);
 
         afficherReferentielJournalisationFormulaire.setReferentielJournalisationDTOPage(journaliserService.searchAllReferentielJournalisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
@@ -152,11 +152,11 @@ public class ReferentielournalisationController {
         if (identifiantReferentielJournalisationSelect != 0) {
             referentielJournalisationDTO = journaliserService.recupererReferentielJournalisationById(identifiantReferentielJournalisationSelect);
 
-            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_MODIFIER);
+            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_BOUTON_MODIFIER);
         }
         else {
 
-            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_AJOUTER);
+            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_BOUTON_AJOUTER);
         }
 
 
@@ -164,8 +164,8 @@ public class ReferentielournalisationController {
 
         detailsReferentielJournalisationFormulaire.setReferentielJournalisationDTO(referentielJournalisationDTO);
 
-        detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_JOURNALISATION_TITRE);
-        detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_JOURNALISATION_BOUTON_RETOUR);
+        detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_TITRE);
+        detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_JOURNALISATION_BOUTON_RETOUR);
 
 
         return detailsReferentielJournalisationFormulaire;

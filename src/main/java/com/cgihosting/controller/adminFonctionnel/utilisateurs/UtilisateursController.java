@@ -36,14 +36,14 @@ public class UtilisateursController {
 
 
 
-    @RequestMapping(value = "/adminFonctionnel/afficherUtilisateurs", method = RequestMethod.GET)
+    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_ACTION_ENTREE, method = RequestMethod.GET)
     String afficherUtilisateurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                                 @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,
                                 Model model)
     {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherUtilisateurs(page, ligneParPage, 0));
-        return "adminFonctionnel/utilisateurs/afficherUtilisateurs";
+        return ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_PAGE_HTML;
     }
 
     @RequestMapping(value = "/adminFonctionnel/afficherExploitants", method = RequestMethod.GET)
@@ -66,14 +66,14 @@ public class UtilisateursController {
         return "adminFonctionnel/utilisateurs/afficherResponsables";
     }
 
-    @RequestMapping(value = "/adminFonctionnel/afficherDetailsUtilisateur", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_ACTION_ENTREE, method = RequestMethod.POST)
     String detailsUtilisateur(@RequestParam("identifiantUtilisateurSelect") int id, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsUtilisateur(id));
-        return "adminFonctionnel/utilisateurs/detailsUtilisateur";
+        return ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_PAGE_HTML;
     }
 
-    @RequestMapping(value = "/adminFonctionnel/modifierDetailsUtilisateur", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_ACTION_MODIFIER, method = RequestMethod.POST)
     String submitRole(int id, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdminTechnique, boolean roleAdminFonctionnel, String action){
 
         int identifiantDonneeTraitee = 0;
@@ -91,7 +91,7 @@ public class UtilisateursController {
 
         }
 
-        return "redirect:/adminFonctionnel/afficherUtilisateurs";
+        return "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_ACTION_ENTREE;
     }
 
 

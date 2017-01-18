@@ -55,19 +55,19 @@ public class SolutionsHebergementController {
     private GererVirtualisationService gererVirtualisationService;
 
 
-    @RequestMapping("/adminFonctionnel/afficherSolutionsHebergement")
+    @RequestMapping(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE)
     String afficherSolutionsHebergement(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherSolutionsHebergement(page, ligneParPage));
-        return "adminFonctionnel/solutionsHebergement/afficherSolutionsHebergement";
+        return ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
     }
 
-    @RequestMapping(value = "/adminFonctionnel/afficherDetailsSolutionsHebergement", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE, method = RequestMethod.POST)
     String affichageDetailsSolutionsHebergement(int identifiantSolutionHebergementSelect, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsSolutionsHebergement(identifiantSolutionHebergementSelect));
-        return "adminFonctionnel/solutionsHebergement/detailsSolutionsHebergement";
+        return ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
     }
 
 
@@ -87,7 +87,7 @@ public class SolutionsHebergementController {
 
                 model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsSolutionsHebergementFormulaire);
 
-                return "adminFonctionnel/solutionsHebergement/detailsSolutionsHebergement";
+                return ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
             }
             else{
 
@@ -108,7 +108,7 @@ public class SolutionsHebergementController {
 
 
 
-                return  "redirect:/adminFonctionnel/afficherSolutionsHebergement";
+                return  "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE;
 
             }
 
@@ -116,7 +116,7 @@ public class SolutionsHebergementController {
 
         else {
 
-            return  "redirect:/adminFonctionnel/afficherSolutionsHebergement";
+            return  "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE;
 
         }
 
