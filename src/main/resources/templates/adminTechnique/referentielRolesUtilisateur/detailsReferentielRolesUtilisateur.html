@@ -45,7 +45,7 @@
         <button type="submit" name="action" th:attr="value=${formulaire.actionAnnuler}" class="btn btn-sm btn-danger">
             <span th:text="${formulaire.boutonRetourLabel}">Label bouton</span>
         </button>
-        <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary">
+        <button type="submit" name="action" th:attr="value=${formulaire.actionSauvegarder}" class="btn btn-sm btn-primary" data-dismiss="modal">
             <span th:text="${formulaire.boutonSoumissionLabel}">Label bouton</span>
         </button>
     </div>

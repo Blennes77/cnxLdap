@@ -12,6 +12,7 @@ public class RacineFormulaire {
     private String titrePage;
     private String boutonSoumissionLabel;
     private String boutonRetourLabel;
+    private String messageErreur;
 
 
     private static final String actionSauvegarder = ConstantesPage.ACTION_SAUVEGARDER;
@@ -59,5 +60,13 @@ public class RacineFormulaire {
 
     public void setPaginationObjet(PaginationObjet paginationObjet) {
         this.paginationObjet = paginationObjet;
+    }
+
+    public String getMessageErreur() {
+        return messageErreur;
+    }
+
+    public void setMessageErreur(String messageErreur) {
+        this.messageErreur = messageErreur;
     }
 }

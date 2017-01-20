@@ -28,8 +28,14 @@
         <!-- Table -->
 
         <input type="hidden" th:field="*{parametresAppliDTO.id}" th:value="${formulaire.parametresAppliDTO.id}"/>
+        <input type="hidden" th:field="*{parametresAppliDTO.referentielEnvironnementDTO.id}" th:value="${formulaire.parametresAppliDTO.referentielEnvironnementDTO.id}"/>
         <input type="hidden" th:field="*{parametresAppliDTO.typeEnvironnement}" th:value="${formulaire.parametresAppliDTO.typeEnvironnement}"/>
+        <input type="hidden" th:field="*{parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement}" th:value="${formulaire.parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement}"/>
+        <input type="hidden" th:field="*{parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement}" th:value="${formulaire.parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement}"/>
         <table class="table">
+            <tr>
+                <td th:if="${#fields.hasErrors('*')}" th:text="${formulaire.messageErreur}"> message d'erreur principal</td>
+            </tr>
             <tr >
                 <td>Titre du site</td>
                 <td>
@@ -41,15 +47,12 @@
                 <td> Code environnement</td>
                 <td th:text="${formulaire.parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement}"/>
                 </td>
-                <td th:if="${#fields.hasErrors('parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement')}" th:errors="*{parametresAppliDTO.referentielEnvironnementDTO.codeEnvironnement}">Libelle Error</td>
-
-            </tr>
+               </tr>
             <tr >
                 <td> Description de l'environnemment</td>
                 <td th:text="${formulaire.parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement}"/>
                 </td>
-                <td th:if="${#fields.hasErrors('parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement')}" th:errors="*{parametresAppliDTO.referentielEnvironnementDTO.descriptionEnvironnement}">Libelle Error</td>
-            </tr>
+              </tr>
             <tr >
                 <td> Chaine de connexion LDAP</td>
                 <td>

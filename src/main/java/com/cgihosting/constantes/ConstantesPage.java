@@ -153,6 +153,7 @@ public class ConstantesPage {
     public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_PAGE_HTML = "adminFonctionnel/parametres/afficherParametresAppli";
 
     public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_TITRE = "Paramétrage de l'application";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_MESSAGE_ERREUR = "Impossible d'enregistrer les données de paramétrage";
     public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER = "Enregistrer paramètres";
 
 
