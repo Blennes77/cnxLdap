@@ -4,6 +4,7 @@ import com.cgihosting.domain.application.ProjetDTO;
 import com.cgihosting.domain.application.RoleUtilisateurDTO;
 import com.cgihosting.domain.application.ServeurVirtuelDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
+import com.cgihosting.outils.Dates;
 import com.cgihosting.repository.ProjetsRepository;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;
@@ -17,8 +18,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.ldap.userdetails.LdapAuthoritiesPopulator;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
 
 import static com.cgihosting.constantes.ConstantesAdmin.*;
 
@@ -62,8 +65,7 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
             if(utilisateurDTO==null){
                 // ==================== Première connexion. Utilisateur inconnu de l'application.
                 log.debug("Première connexion à l'application pour l'utilisateur " + username + ".");
-                Calendar calendar = Calendar.getInstance();
-                Date dateCreation = new Date(calendar.getTime().getTime());
+
 
 
 
@@ -73,8 +75,8 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                                 ctx.getStringAttribute("mail"),
                                 ctx.getStringAttribute("telephonenumber"),
                                 ctx.getStringAttribute("mobile"),
-                                dateCreation,
-                                dateCreation,
+                                Dates.aujourdhui(),
+                                Dates.aujourdhui(),
                                 username,
                                 ctx.getStringAttribute("extensionattribute1"));
 
@@ -129,7 +131,11 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
              }else{
                 // ==================== Utilisateur déjà connu de l'application.
-                // DO NOTHING
+                // On met à jour sa date de connexion
+
+                utilisateurDTO.setDateConnexion(Dates.aujourdhui());
+                utilisateurRepository.save(utilisateurDTO);
+
 
             }
 

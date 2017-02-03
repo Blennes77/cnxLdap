@@ -153,7 +153,7 @@ public class ConstantesPage {
     public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_PAGE_HTML = "adminFonctionnel/parametres/afficherParametresAppli";
 
     public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_TITRE = "Paramétrage de l'application";
-    public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_MESSAGE_ERREUR = "Impossible d'enregistrer les données de paramétrage";
+    public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_MESSAGE_ERREUR = "Impossible d'enregistrer les données de paramétrage, les données saisies ne sont pas valides";
     public static final String ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER = "Enregistrer paramètres";
 
 
@@ -172,6 +172,8 @@ public class ConstantesPage {
     public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_ACTION_ENTREE = "/adminFonctionnel/afficherDetailsReferentielHebergeurs";
     public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_ACTION_MODIFIER = "/adminFonctionnel/modifierReferentielHebergeurs";
     public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_TITRE = "Hébergeur";
+    public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_MESSAGE_ERREUR = "Impossible d'enregistrer un hébergeur, les données saisies ne sont pas valides";
+
     public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_PAGE_HTML = "adminFonctionnel/referentielHebergeurs/detailsReferentielHebergeur";
     public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_AJOUTER = "Ajouter un  hébergeur";
     public static final String ADMINFONCTIONNEL_DETAILS_HEBERGEURS_BOUTON_MODIFIER = "Modifier hébergeur";
@@ -204,6 +206,7 @@ public class ConstantesPage {
     /** Ecran détails hébergeurs **/
     public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE = "/adminFonctionnel/afficherDetailsSolutionsHebergement";
     public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_TITRE = "Hébergement";
+    public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_MESSAGE_ERREUR = "Impossible d'enregistrer un hébergement, les données saisies ne sont pas valides";
     public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML = "adminFonctionnel/solutionsHebergement/detailsSolutionsHebergement";
     public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER = "Ajouter un  hébergement";
     public static final String ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER = "Modifier hébergement";
@@ -219,6 +222,7 @@ public class ConstantesPage {
     public static final String ADMINFONCTIONNEL_DETAILS_ROLES_ACTION_ENTREE = "/adminFonctionnel/afficherDetailsUtilisateur";
     public static final String ADMINFONCTIONNEL_DETAILS_ROLES_ACTION_MODIFIER = "/adminFonctionnel/modifierDetailsUtilisateur";
     public static final String ADMINFONCTIONNEL_DETAILS_ROLES_TITRE = "Rôles utilisateur";
+    public static final String ADMINFONCTIONNEL_DETAILS_ROLES_MESSAGE_ERREUR = "Impossible d'enregistrer les rôles, les données saisies ne sont pas valides";
     public static final String ADMINFONCTIONNEL_DETAILS_ROLES_PAGE_HTML = "adminFonctionnel/utilisateurs/detailsUtilisateur";
     public static final String ADMINFONCTIONNEL_DETAILS_ROLES_BOUTON_MODIFIER = "Modifier les rôles";
     public static final String ADMINFONCTIONNEL_DETAILS_ROLES_BOUTON_RETOUR = "Retour";
@@ -251,6 +255,7 @@ public class ConstantesPage {
     public static final String ADMINTECHNIQUE_DETAILS_ROLES_UTILISATEUR_ACTION_ENTREE =  "/adminTechnique/afficherDetailsReferentielRolesUtilisateur";
     public static final String ADMINTECHNIQUE_DETAILS_ROLES_UTILISATEUR_ACTION_MODIFIER =  "/adminTechnique/modifierReferentielRolesUtilisateur";
     public static final String ADMINTECHNIQUE_DETAILS_ROLES_UTILISATEUR_TITRE = "Rôle utilisateur";
+    public static final String ADMINTECHNIQUE_DETAILS_ROLES_UTILISATEUR_MESSAGE_ERREUR = "Impossible d'enregistrer un rôle, les données saisies ne sont pas valides";
     public static final String ADMINTECHNIQUE_DETAILS_ROLES_UTILISATEUR_PAHGE_HTML = "adminTechnique/referentielRolesUtilisateur/detailsReferentielRolesutilisateur";
     public static final String ADMINTECHNIQUE_DETAILS_ROLES_UTILISATEUR_BOUTON_AJOUTER = "Ajouter un rôle";
     public static final String ADMINTECHNIQUE_DETAILS_ROLES_UTILISATEUR_BOUTON_MODIFIER = "Modifier un rôle";
@@ -271,6 +276,7 @@ public class ConstantesPage {
     public static final String ADMINTECHNIQUE_DETAILS_ETATTRAITEMENT_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielEtatTraitementServeur";
     public static final String ADMINTECHNIQUE_DETAILS_ETATTRAITEMENT_ACTION_MODIFIER = "/adminTechnique/modifierReferentielEtatTraitementServeur";
     public static final String ADMINTECHNIQUE_DETAILS_ETATTRAITEMENT_SERVEURS_TITRE = "Etat traitement";
+    public static final String ADMINTECHNIQUE_DETAILS_ETATTRAITEMENT_MESSAGE_ERREUR = "Impossible d'enregistrer un état traitement, les données saisies ne sont pas valides";
     public static final String ADMINTECHNIQUE_DETAILS_ETATTRAITEMENT_SERVEURS_PAGE_HTML = "adminTechnique/referentielEtatTraitementServeur/detailsReferentielEtatTraitementServeur";
     public static final String ADMINTECHNIQUE_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_AJOUTER = "Ajouter un état traitement";
     public static final String ADMINTECHNIQUE_DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_MODIFIER = "Modifier un état traitement";
@@ -282,7 +288,7 @@ public class ConstantesPage {
      **/
 
     /** Ecran Affichage liste des actions workflow **/
-    public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_ACTION_ENTREE= "\"/adminTechnique/afficherReferentielActionsWorkflows\"";
+    public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_ACTION_ENTREE= "/adminTechnique/afficherReferentielActionsWorkflows";
     public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_TITRE= "Liste des actions workflows";
     public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_PAGE_HTML= "adminTechnique/referentielActionsWorkflows/afficherReferentielActionsWorkflows";
     public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_BOUTON_AJOUTER= "Ajouter une action";
@@ -291,6 +297,7 @@ public class ConstantesPage {
     public static final String ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielActionsWorkflows";
     public static final String ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_ACTION_MODIFIER = "/adminTechnique/modifierReferentielActionsWorkflows";
     public static final String ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_TITRE = "Action workflow";
+    public static final String ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_MESSAGE_ERREUR = "Impossible d'enregistrer une action workflow, les données saisies ne sont pas valides";
     public static final String ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_PAGE_HTML = "adminTechnique/referentielActionsWorkflows/detailsReferentielActionsWorkflows";
     public static final String ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_BOUTON_AJOUTER = "Ajouter une action";
     public static final String ADMINTECHNIQUE_DETAILS_ACTIONS_WORKFLOWS_BOUTON_MODIFIER = "Modifier une action";
@@ -311,6 +318,8 @@ public class ConstantesPage {
     public static final String ADMINTECHNIQUE_DETAILS_JOURNALISATION_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielJournalisation";
     public static final String ADMINTECHNIQUE_DETAILS_JOURNALISATION_ACTION_MODIFIER = "/adminTechnique/enregistrerReferentielJournalisation";
     public static final String ADMINTECHNIQUE_DETAILS_JOURNALISATION_TITRE = "Evênement";
+    public static final String ADMINTECHNIQUE_DETAILS_JOURNALISATION_MESSAGE_ERREUR = "Impossible d'enregistrer un type de journalisation, les données saisies ne sont pas valides";
+
     public static final String ADMINTECHNIQUE_DETAILS_JOURNALISATION_PAGE_HTML = "adminTechnique/referentielJournalisation/detailsReferentielJournalisation";
     public static final String ADMINTECHNIQUE_DETAILS_JOURNALISATION_BOUTON_AJOUTER = "Ajouter un evênement";
     public static final String ADMINTECHNIQUE_DETAILS_JOURNALISATION_BOUTON_MODIFIER = "Modifier un evênement";
@@ -324,13 +333,14 @@ public class ConstantesPage {
     /** Ecran Affichage liste OS **/
     public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_OS_ACTION_ENTREE= "/adminTechnique/afficherReferentielOS";
     public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_OS_TITRE= "Liste des OS";
-    public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_OS_PAGE_HTML= "\"adminTechnique/referentielSystemesExploitation/afficherReferentielOS\"";
+    public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_OS_PAGE_HTML= "adminTechnique/referentielSystemesExploitation/afficherReferentielOS";
     public static final String ADMINTECHNIQUE_AFFICHAGE_LISTE_OS_BOUTON_AJOUTER= "Ajouter un OS";
 
     /** Ecran détails OS **/
     public static final String ADMINTECHNIQUE_DETAILS_OS_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielOS";
     public static final String ADMINTECHNIQUE_DETAILS_OS_ACTION_MODIFIER = "/adminTechnique/modifierReferentielOS";
     public static final String ADMINTECHNIQUE_DETAILS_OS_TITRE = "Evênement";
+    public static final String ADMINTECHNIQUE_DETAILS_OS_MESSAGE_ERREUR = "Impossible d'enregistrer un système d'exploitation, les données saisies ne sont pas valides";
     public static final String ADMINTECHNIQUE_DETAILS_OS_PAGE_HTML = "adminTechnique/referentielSystemesExploitation/detailsReferentielOS";
     public static final String ADMINTECHNIQUE_DETAILS_OS_BOUTON_AJOUTER = "Ajouter un OS";
     public static final String ADMINTECHNIQUE_DETAILS_OS_BOUTON_MODIFIER = "Modifier un OS";
@@ -351,6 +361,7 @@ public class ConstantesPage {
     public static final String ADMINTECHNIQUE_DETAILS_VIRTUALISATION_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielVirtualisation";
     public static final String ADMINTECHNIQUE_DETAILS_VIRTUALISATION_ACTION_MODIFIER = "/adminTechnique/modifierReferentielVirtualisation";
     public static final String ADMINTECHNIQUE_DETAILS_VIRTUALISATION_TITRE = "Type de virtualisation ";
+    public static final String ADMINTECHNIQUE_DETAILS_VIRTUALISATION_MESSAGE_ERREUR = "Impossible d'enregistrer un type de virtualisation, les données saisies ne sont pas valides";
     public static final String ADMINTECHNIQUE_DETAILS_VIRTUALISATION_PAGE_HTML = "adminTechnique/referentielVirtualisation/detailsReferentielVirtualisation";
     public static final String ADMINTECHNIQUE_DETAILS_VIRTUALISATION_BOUTON_AJOUTER = "Ajouter une virtualisation";
     public static final String ADMINTECHNIQUE_DETAILS_VIRTUALISATION_BOUTON_MODIFIER = "Modifier une virtualisation";

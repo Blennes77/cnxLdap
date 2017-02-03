@@ -55,7 +55,7 @@ public class ActionsWorkflowsController {
 
 
     @RequestMapping(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_ACTION_ENTREE)
-    String afficherOS(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+    String afficherReferentielWorkflows(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielActionsWorkflows(page, ligneParPage));
