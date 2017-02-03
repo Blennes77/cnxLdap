@@ -124,6 +124,7 @@ public class JournalisationController {
 
 
         afficherJournalisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_TITRE);
+
         //  afficherJournalisationFormulaire.setJournalDTOListe(journaliserService.recupererJournalisation());
 
         afficherJournalisationFormulaire.setJournalDTOPage(journaliserService.searchAllJournalDTOPageByPage(pageCourante, numLigneAfficheParPage));

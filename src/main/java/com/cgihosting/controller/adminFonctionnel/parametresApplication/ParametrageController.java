@@ -127,6 +127,7 @@ public class ParametrageController {
         parametrerAppliFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_PARAMETRAGE_TITRE);
         parametrerAppliFormulaire.setMessageErreur((ConstantesPage.AFFICHAGE_PARAMETRAGE_MESSAGE_ERREUR));
         parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER);
+        parametrerAppliFormulaire.setUrlActionSortie(ConstantesPage.AFFICHAGE_PARAMETRAGE_ACTION_MODIFIER);
 
        }
 

@@ -131,6 +131,8 @@ public class ReferentielournalisationController {
 
         afficherReferentielJournalisationFormulaire.setReferentielJournalisationDTOPage(journaliserService.searchAllReferentielJournalisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
+        afficherReferentielJournalisationFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE);
+        afficherReferentielJournalisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_JOURNALISATION_ACTION_ENTREE);
 
         return afficherReferentielJournalisationFormulaire;
     }
@@ -160,6 +162,7 @@ public class ReferentielournalisationController {
 
         detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.DETAILS_JOURNALISATION_TITRE);
         detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_JOURNALISATION_BOUTON_RETOUR);
+        detailsReferentielJournalisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_JOURNALISATION_ACTION_MODIFIER);
 
 
         return detailsReferentielJournalisationFormulaire;

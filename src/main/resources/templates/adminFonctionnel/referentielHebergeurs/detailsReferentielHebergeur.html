@@ -21,7 +21,7 @@
 <body>
 <div th:replace="fragments/menu :: menu">...</div>
 <div class="container">
-    <form action="#" th:action="@{/adminFonctionnel/modifierReferentielHebergeurs}" th:object="${formulaire}" method="post">
+    <form action="#" th:action="${formulaire.urlActionSortie}" th:object="${formulaire}" method="post">
 
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 

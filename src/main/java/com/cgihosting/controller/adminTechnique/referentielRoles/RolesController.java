@@ -144,6 +144,9 @@ public class RolesController {
         afficherReferentielRolesUtilisateurFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_ROLES_UTILISATEUR_TITRE);
         afficherReferentielRolesUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_ROLES_UTILISATEUR_BOUTON_AJOUTER);
 
+        afficherReferentielRolesUtilisateurFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_ROLES_UTILISATEUR_ACTION_ENTREE );
+        afficherReferentielRolesUtilisateurFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ROLES_UTILISATEUR_ACTION_ENTREE);
+
 
 
         return afficherReferentielRolesUtilisateurFormulaire;
@@ -181,6 +184,8 @@ public class RolesController {
         detailsReferentielRolesUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_ROLES_UTILISATEUR_BOUTON_RETOUR);
 
         detailsReferentielRolesUtilisateurFormulaire.setReferentielRolesDTO(referentielRolesDTO);
+
+        detailsReferentielRolesUtilisateurFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ROLES_UTILISATEUR_ACTION_MODIFIER);
 
 
         return detailsReferentielRolesUtilisateurFormulaire;

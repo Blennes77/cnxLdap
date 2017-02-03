@@ -34,7 +34,7 @@
 <body>
 <div th:replace="fragments/menu :: menu">...</div>
 
-<form id="monformulaire" action="#" th:action="@{/adminTechnique/afficherDetailsReferentielRolesUtilisateur}" th:object="${formulaire}" method="post">
+<form id="monformulaire" action="#" th:action="${formulaire.urlActionSortie}" th:object="${formulaire}" method="post">
     <div class="container">
         <div class="jumbotron">
 
@@ -46,11 +46,11 @@
                         <span th:text="${formulaire.paginationObjet.nbLigneAfficheParPage}"></span>
                         <span class="caret"></span>
                     </button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                <li><a href="/adminTechnique/afficherReferentielRolesUtilisateur?ligneParPage=5">5</a></li>
-                <li><a href="/adminTechnique/afficherReferentielRolesUtilisateur?ligneParPage=10">10</a></li>
-                <li><a href="/adminTechnique/afficherReferentielRolesUtilisateur?ligneParPage=20">20</a></li>
-            </ul>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                        <li><a th:href="${formulaire.urlActionEntree} + '?ligneParPage=5'">5</a></li>
+                        <li><a th:href="${formulaire.urlActionEntree} + '?ligneParPage=10'">10</a></li>
+                        <li><a th:href="${formulaire.urlActionEntree} + '?ligneParPage=20'">20</a></li>
+                    </ul>
         </div>
 
         <input id="identifiantRolesUtilisateurSelect" name="identifiantRolesUtilisateurSelect" type="hidden" value="0" />
@@ -83,7 +83,7 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li th:each="i : ${#numbers.sequence(1,formulaire.paginationObjet.numPageTotal)}"><a th:text="${i}" th:href="@{'/adminTechnique/afficherReferentielRolesUtilisateur?page='+${i-1}+'&amp;ligneParPage='+${formulaire.paginationObjet.nbLigneAfficheParPage}}">1</a></li>
+                <li th:each="i : ${#numbers.sequence(1,formulaire.paginationObjet.numPageTotal)}"><a th:text="${i}" th:href="${formulaire.urlActionEntree} + '?page='+${i-1}+'&amp;ligneParPage='+${formulaire.paginationObjet.nbLigneAfficheParPage}">1</a></li>
                 <li>
                     <a href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

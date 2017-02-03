@@ -116,6 +116,10 @@ public class UtilisateursController {
         // Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
         afficherUtilisateursFormulaire.setUtilisateurDTOPage(gererUtilisateurService.searchAllUsersByPage(pageCourante, numLigneAfficheParPage));
 
+        afficherUtilisateursFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_UTILISATEURS_ACTION_ENTREE);
+        afficherUtilisateursFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ROLES_ACTION_ENTREE);
+
+
         return afficherUtilisateursFormulaire;
 
     }
@@ -129,6 +133,9 @@ public class UtilisateursController {
         detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_ROLES_BOUTON_RETOUR);
 
         detailsUtilisateurFormulaire.setTitrePage(ConstantesPage.DETAILS_ROLES_TITRE);
+
+        detailsUtilisateurFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ROLES_ACTION_MODIFIER);
+
 
         List<RoleUtilisateurDTO> listRolesUtilisateurDTO = gererUtilisateurService.recupererRolesUtilisateur(id);
         for(int i = 0; i<listRolesUtilisateurDTO.size();i++){

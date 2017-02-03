@@ -71,7 +71,7 @@ public class SolutionsHebergementController {
     }
 
 
-    @RequestMapping(value = "/adminFonctionnel/modifierSolutionsHebergement", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_MODIFIER,  method = RequestMethod.POST)
 
     String modifierSolutionsHebergement(@Valid  @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)DetailsSolutionsHebergementFormulaire detailsSolutionsHebergementFormulaire, BindingResult bindingResult, Model model,  @RequestParam String action){
 
@@ -147,6 +147,9 @@ public class SolutionsHebergementController {
 
         afficherSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER);
 
+        afficherSolutionsHebergementFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE);
+        afficherSolutionsHebergementFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE);
+
 
 
         return afficherSolutionsHebergementFormulaire;
@@ -185,6 +188,8 @@ public class SolutionsHebergementController {
         detailsSolutionsHebergementFormulaire.setReferentielHebergeurDTOListe(gererHebergeurService.recupererReferentielHebergeurs());
         detailsSolutionsHebergementFormulaire.setReferentielVirtualisationDTOListe(gererVirtualisationService.recupererReferentielVirtualisation());
         detailsSolutionsHebergementFormulaire.setSolutionsHebergementDTO(solutionsHebergementDTO);
+
+        detailsSolutionsHebergementFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_MODIFIER);
 
 
         return detailsSolutionsHebergementFormulaire;

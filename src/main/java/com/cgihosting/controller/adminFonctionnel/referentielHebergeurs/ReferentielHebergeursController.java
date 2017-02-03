@@ -153,6 +153,8 @@ public class ReferentielHebergeursController {
 
         afficherReferentielHebergeursFormulaire.setReferentielHebergeurDTOPage(gererHebergeurService.searchAllReferentielHebergeurDtoPageByPage(pageCourante, numLigneAfficheParPage));
 
+        afficherReferentielHebergeursFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_HEBERGEURS_ACTION_ENTREE);
+        afficherReferentielHebergeursFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_HEBERGEURS_ACTION_ENTREE);
 
         return afficherReferentielHebergeursFormulaire;
     }
@@ -189,6 +191,8 @@ public class ReferentielHebergeursController {
 
         detailsReferentielHebergeursFormulaire.setTitrePage(ConstantesPage.DETAILS_HEBERGEURS_TITRE);
         detailsReferentielHebergeursFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_HEBERGEURS_BOUTON_RETOUR);
+
+        detailsReferentielHebergeursFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_HEBERGEURS_ACTION_MODIFIER);
 
 
         return detailsReferentielHebergeursFormulaire;

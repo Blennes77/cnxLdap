@@ -152,6 +152,9 @@ public class EtatTraitementServeurController {
 
         afficherReferentielEtatTraitementServeurFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_ETATTRAITEMENT_SERVEURS_BOUTON_AJOUTER);
 
+        afficherReferentielEtatTraitementServeurFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_ETATTRAITEMENT_SERVEURS_ACTION_ENTREE);
+        afficherReferentielEtatTraitementServeurFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ETATTRAITEMENT_ACTION_ENTREE);
+
 
 
         return afficherReferentielEtatTraitementServeurFormulaire;
@@ -189,6 +192,8 @@ public class EtatTraitementServeurController {
 
 
         detailsReferentielEtatTraitementServeurFormulaire.setReferentielEtatTraitementServeurDTO(referentielEtatTraitementServeurDTO);
+
+        detailsReferentielEtatTraitementServeurFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ETATTRAITEMENT_ACTION_MODIFIER);
 
 
         return detailsReferentielEtatTraitementServeurFormulaire;

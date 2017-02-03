@@ -152,6 +152,9 @@ public class ActionsWorkflowsController {
         afficherReferentielActionsWorkflowsFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_BOUTON_AJOUTER);
 
 
+        afficherReferentielActionsWorkflowsFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_ACTIONS_WORKFLOWS_ACTION_ENTREE);
+        afficherReferentielActionsWorkflowsFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ACTIONS_WORKFLOWS_ACTION_ENTREE);
+
 
         return afficherReferentielActionsWorkflowsFormulaire;
     }
@@ -188,6 +191,8 @@ public class ActionsWorkflowsController {
 
 
         detailsReferentielActionsWorkflowsFormulaire.setReferentielActionsWorkflowsDTO(referentielActionsWorkflowDTO);
+
+        detailsReferentielActionsWorkflowsFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_ACTIONS_WORKFLOWS_ACTION_MODIFIER);
 
 
         return detailsReferentielActionsWorkflowsFormulaire;

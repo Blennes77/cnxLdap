@@ -147,6 +147,9 @@ public class VirtualisationController {
         afficherReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_TITRE);
         afficherReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_BOUTON_AJOUTER);
 
+        afficherReferentielVirtualisationFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_ACTION_ENTREE);
+        afficherReferentielVirtualisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_VIRTUALISATION_ACTION_ENTREE);
+
 
 
         return afficherReferentielVirtualisationFormulaire;
@@ -182,6 +185,8 @@ public class VirtualisationController {
 
         detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.DETAILS_VIRTUALISATION_TITRE);
         detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_VIRTUALISATION_BOUTON_RETOUR);
+
+        detailsReferentielVirtualisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_VIRTUALISATION_ACTION_MODIFIER);
 
         detailsReferentielVirtualisationFormulaire.setReferentielVirtualisationDTO(referentielVirtualisationDTO);
 

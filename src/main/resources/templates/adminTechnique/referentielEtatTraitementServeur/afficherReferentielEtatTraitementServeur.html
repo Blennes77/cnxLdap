@@ -34,7 +34,7 @@
 
 <div th:replace="fragments/menu :: menu">...</div>
 
-<form id="monformulaire" action="#" th:action="@{/adminTechnique/afficherDetailsReferentielEtatTraitementServeur}" th:object="${formulaire}" method="post">
+<form id="monformulaire" action="#" th:action="${formulaire.urlActionSortie}" th:object="${formulaire}" method="post">
 
 
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
@@ -50,9 +50,9 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                    <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur?ligneParPage=5">5</a></li>
-                    <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur?ligneParPage=10">10</a></li>
-                    <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur?ligneParPage=20">20</a></li>
+                    <li><a th:href="${formulaire.urlActionEntree} + '?ligneParPage=5'">5</a></li>
+                    <li><a th:href="${formulaire.urlActionEntree} + '?ligneParPage=10'">10</a></li>
+                    <li><a th:href="${formulaire.urlActionEntree} + '?ligneParPage=20'">20</a></li>
                 </ul>
             </div>
 
@@ -92,7 +92,7 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li th:each="i : ${#numbers.sequence(1,formulaire.paginationObjet.numPageTotal)}"><a th:text="${i}" th:href="@{'/adminTechnique/afficherReferentielEtatTraitementServeur?page='+${i-1}+'&amp;ligneParPage='+${formulaire.paginationObjet.nbLigneAfficheParPage}}">1</a></li>
+                <li th:each="i : ${#numbers.sequence(1,formulaire.paginationObjet.numPageTotal)}"><a th:text="${i}" th:href="${formulaire.urlActionEntree} + '?page='+${i-1}+'&amp;ligneParPage='+${formulaire.paginationObjet.nbLigneAfficheParPage}">1</a></li>
                 <li>
                     <a href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

@@ -21,6 +21,10 @@ public class RacineFormulaire {
     private PaginationObjet paginationObjet;
 
 
+    private String urlActionSortie;
+    private String urlActionEntree;
+
+
     /** Getters et seters **/
     public static String getActionSauvegarder() {
         return actionSauvegarder;
@@ -68,5 +72,22 @@ public class RacineFormulaire {
 
     public void setMessageErreur(String messageErreur) {
         this.messageErreur = messageErreur;
+    }
+
+
+    public String getUrlActionSortie() {
+        return urlActionSortie;
+    }
+
+    public void setUrlActionSortie(String urlActionSortie) {
+        this.urlActionSortie = urlActionSortie;
+    }
+
+    public String getUrlActionEntree() {
+        return urlActionEntree;
+    }
+
+    public void setUrlActionEntree(String urlActionEntree) {
+        this.urlActionEntree = urlActionEntree;
     }
 }

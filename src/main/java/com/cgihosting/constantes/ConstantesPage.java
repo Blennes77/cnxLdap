@@ -87,7 +87,7 @@ public class ConstantesPage {
 
     /** Ecran Affichage détails des templates **/
     public static final String DETAILS_TEMPLATES_OS_ACTION_ENTREE = "/exploit/afficherDetailsTemplateOS";
-    public static final String DETAILS_TEMPLATES_OS_ACTION_MODIFIER = "exploit/modifierTemplateOS";
+    public static final String DETAILS_TEMPLATES_OS_ACTION_MODIFIER = "/exploit/modifierTemplateOS";
     public static final String DETAILS_TEMPLATES_OS_TITRE = "Template";
     public static final String DETAILS_TEMPLATES_OS_PAGE_HTML = "exploit/templatesOS/detailsTemplateOS";
     public static final String DETAILS_TEMPLATES_OS_BOUTON_AJOUTER = "Ajouter un template";
@@ -205,6 +205,7 @@ public class ConstantesPage {
 
     /** Ecran détails hébergeurs **/
     public static final String DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE = "/adminFonctionnel/afficherDetailsSolutionsHebergement";
+    public static final String DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_MODIFIER = "/adminFonctionnel/modifierSolutionsHebergement";
     public static final String DETAILS_SOLUTIONS_HEBERGEMENT_TITRE = "Hébergement";
     public static final String DETAILS_SOLUTIONS_HEBERGEMENT_MESSAGE_ERREUR = "Impossible d'enregistrer un hébergement, les données saisies ne sont pas valides";
     public static final String DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML = "adminFonctionnel/solutionsHebergement/detailsSolutionsHebergement";
