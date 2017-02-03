@@ -55,19 +55,19 @@ public class SolutionsHebergementController {
     private GererVirtualisationService gererVirtualisationService;
 
 
-    @RequestMapping(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE)
+    @RequestMapping(ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE)
     String afficherSolutionsHebergement(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherSolutionsHebergement(page, ligneParPage));
-        return ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
+        return ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
     }
 
-    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE, method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE, method = RequestMethod.POST)
     String affichageDetailsSolutionsHebergement(int identifiantSolutionHebergementSelect, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsSolutionsHebergement(identifiantSolutionHebergementSelect));
-        return ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
+        return ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
     }
 
 
@@ -87,7 +87,7 @@ public class SolutionsHebergementController {
 
                 model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsSolutionsHebergementFormulaire);
 
-                return ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
+                return ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_PAGE_HTML;
             }
             else{
 
@@ -108,7 +108,7 @@ public class SolutionsHebergementController {
 
 
 
-                return  "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE;
+                return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE;
 
             }
 
@@ -116,7 +116,7 @@ public class SolutionsHebergementController {
 
         else {
 
-            return  "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE;
+            return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE;
 
         }
 
@@ -143,9 +143,9 @@ public class SolutionsHebergementController {
         afficherSolutionsHebergementFormulaire.setSolutionsHebergementDTOPage(gererHebergeurService.searchAllSolutionsHebergementDtoPageByPage(pageCourante, numLigneAfficheParPage));
 
 
-        afficherSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_TITRE);
+        afficherSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_TITRE);
 
-        afficherSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER);
+        afficherSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER);
 
 
 
@@ -170,17 +170,17 @@ public class SolutionsHebergementController {
         if (identifiantSolutionsHebergement != 0) {
             solutionsHebergementDTO = gererHebergeurService.recupererSolutionsHebergementById(identifiantSolutionsHebergement);
 
-            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER);
+            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER);
         }
         else {
 
-            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER);
+            detailsSolutionsHebergementFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER);
         }
 
 
 
-        detailsSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_TITRE);
-        detailsSolutionsHebergementFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_RETOUR);
+        detailsSolutionsHebergementFormulaire.setTitrePage(ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_TITRE);
+        detailsSolutionsHebergementFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_SOLUTIONS_HEBERGEMENT_BOUTON_RETOUR);
 
         detailsSolutionsHebergementFormulaire.setReferentielHebergeurDTOListe(gererHebergeurService.recupererReferentielHebergeurs());
         detailsSolutionsHebergementFormulaire.setReferentielVirtualisationDTOListe(gererVirtualisationService.recupererReferentielVirtualisation());

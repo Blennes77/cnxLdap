@@ -54,23 +54,23 @@ public class VirtualisationController {
     private GererUtilisateurService gererUtilisateurService;
 
 
-    @RequestMapping(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_VIRTUALISATION_ACTION_ENTREE)
+    @RequestMapping(ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_ACTION_ENTREE)
     String afficherVirtualisation(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                               @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherVirtualisation(page, ligneParPage));
-        return ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_VIRTUALISATION_PAGE_HTML;
+        return ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_PAGE_HTML;
     }
 
-    @RequestMapping(value = ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_ACTION_ENTREE, method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_VIRTUALISATION_ACTION_ENTREE, method = RequestMethod.POST)
     String affichageDetailsVirtualisation(int identifiantVirtualisationSelect, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsVirtualisation(identifiantVirtualisationSelect));
-        return ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_PAGE_HTML;
+        return ConstantesPage.DETAILS_VIRTUALISATION_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_ACTION_MODIFIER, method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_VIRTUALISATION_ACTION_MODIFIER, method = RequestMethod.POST)
 
     String creerVirtualisation(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)DetailsReferentielVirtualisationFormulaire detailsReferentielVirtualisationFormulaire, BindingResult bindingResult, Model model,  @RequestParam String action){
 
@@ -83,14 +83,14 @@ public class VirtualisationController {
 
             if (bindingResult.hasErrors()) {
 
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_BOUTON_MODIFIER);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_VIRTUALISATION_BOUTON_MODIFIER);
 
-            detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_TITRE);
-            detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_BOUTON_RETOUR);
+            detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.DETAILS_VIRTUALISATION_TITRE);
+            detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_VIRTUALISATION_BOUTON_RETOUR);
 
             model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielVirtualisationFormulaire);
 
-                return ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_PAGE_HTML;
+                return ConstantesPage.DETAILS_VIRTUALISATION_PAGE_HTML;
             }
             else{
 
@@ -109,7 +109,7 @@ public class VirtualisationController {
 
 
 
-                return  "redirect:" + ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_VIRTUALISATION_ACTION_ENTREE;
+                return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_ACTION_ENTREE;
 
             }
 
@@ -117,7 +117,7 @@ public class VirtualisationController {
 
         else {
 
-            return  "redirect:" + ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_VIRTUALISATION_ACTION_ENTREE;
+            return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_ACTION_ENTREE;
 
         }
 
@@ -144,8 +144,8 @@ public class VirtualisationController {
         afficherReferentielVirtualisationFormulaire.setReferentielVirtualisationDTOPage(gererVirtualisationService.searchAllReferentielVirtualisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
 
-        afficherReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_VIRTUALISATION_TITRE);
-        afficherReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_VIRTUALISATION_BOUTON_AJOUTER);
+        afficherReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_TITRE);
+        afficherReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_VIRTUALISATION_BOUTON_AJOUTER);
 
 
 
@@ -170,18 +170,18 @@ public class VirtualisationController {
         if (identifiantVirtualisationSelect != 0) {
             referentielVirtualisationDTO = gererVirtualisationService.recupererReferentielVirtualisationById(identifiantVirtualisationSelect);
 
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_BOUTON_MODIFIER);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_VIRTUALISATION_BOUTON_MODIFIER);
         }
         else {
 
             referentielVirtualisationDTO.setId(0);
-            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_BOUTON_AJOUTER);
+            detailsReferentielVirtualisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_VIRTUALISATION_BOUTON_AJOUTER);
         }
 
 
 
-        detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_TITRE);
-        detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINTECHNIQUE_DETAILS_VIRTUALISATION_BOUTON_RETOUR);
+        detailsReferentielVirtualisationFormulaire.setTitrePage(ConstantesPage.DETAILS_VIRTUALISATION_TITRE);
+        detailsReferentielVirtualisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_VIRTUALISATION_BOUTON_RETOUR);
 
         detailsReferentielVirtualisationFormulaire.setReferentielVirtualisationDTO(referentielVirtualisationDTO);
 

@@ -1,13 +1,12 @@
 package com.cgihosting.security;
 
-import com.cgihosting.domain.application.ProjetDTO;
-import com.cgihosting.domain.application.RoleUtilisateurDTO;
-import com.cgihosting.domain.application.ServeurVirtuelDTO;
-import com.cgihosting.domain.application.UtilisateurDTO;
+import com.cgihosting.constantes.ConstantesAdmin;
+import com.cgihosting.domain.application.*;
 import com.cgihosting.outils.Dates;
 import com.cgihosting.repository.ProjetsRepository;
 import com.cgihosting.repository.UtilisateurRepository;
 import com.cgihosting.repository.UtilisateurRoleRepository;
+import com.cgihosting.service.admin.JournaliserService;
 import com.cgihosting.service.exploit.GererServeursVirtuelsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +45,10 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
     @Autowired
     private GererServeursVirtuelsService gererServeursVirtuelsService;
+
+
+    @Autowired
+    private JournaliserService journaliserService;
 
     //public void setUserRepository(UserRepository userRepository){ this.userRepository = userRepository; }
 
@@ -129,6 +132,12 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
                     utilisateurRoleRepository.save(roleUtilisateurDTO);
                 }
 
+
+                // Journalisation de la création de l'utilisateur
+                journaliserService.enregistrerJournalisation(new JournalDTO(utilisateurDTO.getLogonName(),
+                                                                                ConstantesAdmin.JOURNAL_CREATION_UTILISATEUR,
+                                                                                utilisateurDTO.getId(),Dates.aujourdhui()));
+
              }else{
                 // ==================== Utilisateur déjà connu de l'application.
                 // On met à jour sa date de connexion
@@ -179,6 +188,13 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
                 }
             }
+
+
+            // Journalisation de la connexion de l'utilisateur
+            journaliserService.enregistrerJournalisation(new JournalDTO(utilisateurDTO.getLogonName(),
+                    ConstantesAdmin.JOURNAL_CONNEXION_UTILISATEUR,
+                    utilisateurDTO.getId(),Dates.aujourdhui()));
+
             log.debug("Sortie de CustomLdapAuthoritiesPopulator.");
         }
         catch (Exception ex) {

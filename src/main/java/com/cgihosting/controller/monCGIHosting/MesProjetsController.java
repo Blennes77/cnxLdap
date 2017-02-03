@@ -43,7 +43,7 @@ public class MesProjetsController {
 
         AfficherMesProjetsFormulaire afficherMesProjetsFormulaire = new AfficherMesProjetsFormulaire();
 
-        afficherMesProjetsFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_MESPROJETS);
+        afficherMesProjetsFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_MESPROJETS);
         afficherMesProjetsFormulaire.setProjetDTODPList(gererProjetsService.recupererProjetsDP(utilisateurDTO.getId()));
 
         return afficherMesProjetsFormulaire;

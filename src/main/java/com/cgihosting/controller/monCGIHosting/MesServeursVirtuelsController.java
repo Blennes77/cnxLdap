@@ -72,7 +72,7 @@ public class MesServeursVirtuelsController {
         paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererServeursVirtuelsService.nombreTotalServeursVirtuels());
         afficherServeursVirtuelsFormulaire.setPaginationObjet(paginationObjet);
 
-        afficherServeursVirtuelsFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_SERVEURS_VIRTUELS_TITRE);
+        afficherServeursVirtuelsFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_SERVEURS_VIRTUELS_TITRE);
         afficherServeursVirtuelsFormulaire.setServeurVirtuelDTOListe(gererServeursVirtuelsService.recupererServeursVirtuels());
 
         afficherServeursVirtuelsFormulaire.setServeurVirtuelDTOPage(gererServeursVirtuelsService.searchAllServeurVirtuelDTOPageByPageByUser(
@@ -100,9 +100,9 @@ public class MesServeursVirtuelsController {
 
 
         detailsMonServeurVirtuelFormulaire.setServeurVirtuelDTO(gererServeursVirtuelsService.recupererServeurVirtuelById(identifiantServeurSelect));
-        detailsMonServeurVirtuelFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_DETAIL_SERVEUR_VIRTUEL_TITRE);
-        detailsMonServeurVirtuelFormulaire.setBoutonSoumissionLabel(ConstantesPage.MONCGIHOSTING_BOUTON_MODIFIER_SERVEUR_VIRTUEL);
-        detailsMonServeurVirtuelFormulaire.setBoutonRetourLabel(ConstantesPage.MONCGIHOSTING_BOUTON_RETOUR_LISTE_SERVEURS_VIRTUELS);
+        detailsMonServeurVirtuelFormulaire.setTitrePage(ConstantesPage.DETAIL_SERVEUR_VIRTUEL_TITRE);
+        detailsMonServeurVirtuelFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_MODIFIER_SERVEUR_VIRTUEL);
+        detailsMonServeurVirtuelFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_LISTE_SERVEURS_VIRTUELS);
 
 
         return detailsMonServeurVirtuelFormulaire;

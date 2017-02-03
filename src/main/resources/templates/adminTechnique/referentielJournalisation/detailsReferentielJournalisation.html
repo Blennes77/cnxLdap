@@ -44,6 +44,14 @@
                 <td> <input type="text" th:field="*{referentielJournalisationDTO.description}"  size="20"/></td>
                 <td th:if="${#fields.hasErrors('referentielJournalisationDTO.description')}" th:errors="*{referentielJournalisationDTO.description}">Description Error</td>
             </tr>
+            <tr>
+                <td>Elément de journalisation purgeable?</td>
+                <td> <select th:field="*{referentielJournalisationDTO.indPurgeable}" >
+                        <option value="1" selected="selected">Non</option>
+                        <option value="2">Oui</option>
+                    </select>
+                </td>
+            </tr>
         </table>
         <br/>
         <button type="submit" name="action" th:attr="value=${formulaire.actionAnnuler}" class="btn btn-sm btn-danger">

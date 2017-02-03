@@ -201,7 +201,7 @@ public class MesCommmandesController {
 
         AfficherCommandesFormulaire afficherCommandesFormulaire = new AfficherCommandesFormulaire();
 
-        afficherCommandesFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_COMMANDES_TITRE);
+        afficherCommandesFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_COMMANDES_TITRE);
         afficherCommandesFormulaire.setCommandeDTOListe(gererCommandeService.recupererCommandesUtilisateur(identifiant));
 
         return afficherCommandesFormulaire;
@@ -223,8 +223,8 @@ public class MesCommmandesController {
 
 
         detailsCommandeFormulaire.setCommandeDTO(gererCommandeService.recupererCommandeById(identifiantCommandeSelect));
-        detailsCommandeFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_DETAILS_COMMANDE_TITRE);
-        detailsCommandeFormulaire.setBoutonRetourLabel(ConstantesPage.MONCGIHOSTING_BOUTON_RETOUR_LISTE_COMMANDES);
+        detailsCommandeFormulaire.setTitrePage(ConstantesPage.DETAILS_COMMANDE_TITRE);
+        detailsCommandeFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_LISTE_COMMANDES);
 
 
         return detailsCommandeFormulaire;
@@ -248,14 +248,14 @@ public class MesCommmandesController {
 
         ajoutServeurVirtuelFormulaire.setServeurVirtuelDTO(serveurVirtuelDTO);
 
-        ajoutServeurVirtuelFormulaire.setTitrePage(ConstantesPage.MONCGIHOSTING_AFFICHAGE_COMMANDES_TITRE);
+        ajoutServeurVirtuelFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_COMMANDES_TITRE);
         ajoutServeurVirtuelFormulaire.setTemplateOSDTOListe(gererTemplateOSService.recupererTemplateOSActifs());
 
         ajoutServeurVirtuelFormulaire.setProjetDTOListe(gererProjetsService.recupererProjets());
 
-        ajoutServeurVirtuelFormulaire.setBoutonSoumissionLabel(ConstantesPage.MONCGIHOSTING_BOUTON_AJOUT_SERVEUR_ENREGISTRER);
+        ajoutServeurVirtuelFormulaire.setBoutonSoumissionLabel(ConstantesPage.BOUTON_AJOUT_SERVEUR_ENREGISTRER);
 
-        ajoutServeurVirtuelFormulaire.setBoutonRetourLabel(ConstantesPage.MONCGIHOSTING_BOUTON_RETOUR_AJOUT_SERVEUR);
+        ajoutServeurVirtuelFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_AJOUT_SERVEUR);
 
         return ajoutServeurVirtuelFormulaire;
     }

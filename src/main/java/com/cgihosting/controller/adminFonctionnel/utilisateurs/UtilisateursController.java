@@ -36,14 +36,14 @@ public class UtilisateursController {
 
 
 
-    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_ACTION_ENTREE, method = RequestMethod.GET)
+    @RequestMapping(value = ConstantesPage.AFFICHAGE_LISTE_UTILISATEURS_ACTION_ENTREE, method = RequestMethod.GET)
     String afficherUtilisateurs(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                                 @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,
                                 Model model)
     {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherUtilisateurs(page, ligneParPage, 0));
-        return ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_PAGE_HTML;
+        return ConstantesPage.AFFICHAGE_LISTE_UTILISATEURS_PAGE_HTML;
     }
 
     @RequestMapping(value = "/adminFonctionnel/afficherExploitants", method = RequestMethod.GET)
@@ -66,14 +66,14 @@ public class UtilisateursController {
         return "adminFonctionnel/utilisateurs/afficherResponsables";
     }
 
-    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_ACTION_ENTREE, method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_ROLES_ACTION_ENTREE, method = RequestMethod.POST)
     String detailsUtilisateur(@RequestParam("identifiantUtilisateurSelect") int id, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsUtilisateur(id));
-        return ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_PAGE_HTML;
+        return ConstantesPage.DETAILS_ROLES_PAGE_HTML;
     }
 
-    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_ACTION_MODIFIER, method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_ROLES_ACTION_MODIFIER, method = RequestMethod.POST)
     String submitRole(int id, boolean roleUser, boolean roleDP, boolean roleExploit, boolean roleAdminTechnique, boolean roleAdminFonctionnel, String action){
 
         int identifiantDonneeTraitee = 0;
@@ -91,7 +91,7 @@ public class UtilisateursController {
 
         }
 
-        return "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_ACTION_ENTREE;
+        return "redirect:" + ConstantesPage.AFFICHAGE_LISTE_UTILISATEURS_ACTION_ENTREE;
     }
 
 
@@ -111,7 +111,7 @@ public class UtilisateursController {
         paginationObjet = new PaginationObjet(numLigneAfficheParPage, pageCourante, gererUtilisateurService.nombreTotalUtilisateurs(roleUtilisateur));
         afficherUtilisateursFormulaire.setPaginationObjet(paginationObjet);
 
-        afficherUtilisateursFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_LISTE_UTILISATEURS_TITRE);
+        afficherUtilisateursFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_UTILISATEURS_TITRE);
 
         // Recherche des utilisateurs en fonction de la page et du nombre de ligne par page
         afficherUtilisateursFormulaire.setUtilisateurDTOPage(gererUtilisateurService.searchAllUsersByPage(pageCourante, numLigneAfficheParPage));
@@ -125,10 +125,10 @@ public class UtilisateursController {
         DetailsUtilisateurFormulaire detailsUtilisateurFormulaire = new DetailsUtilisateurFormulaire();
         detailsUtilisateurFormulaire.setUtilisateurDTO(gererUtilisateurService.searchUserById(id));
 
-        detailsUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_BOUTON_MODIFIER);
-        detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_BOUTON_RETOUR);
+        detailsUtilisateurFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_ROLES_BOUTON_MODIFIER);
+        detailsUtilisateurFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_ROLES_BOUTON_RETOUR);
 
-        detailsUtilisateurFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_DETAILS_ROLES_TITRE);
+        detailsUtilisateurFormulaire.setTitrePage(ConstantesPage.DETAILS_ROLES_TITRE);
 
         List<RoleUtilisateurDTO> listRolesUtilisateurDTO = gererUtilisateurService.recupererRolesUtilisateur(id);
         for(int i = 0; i<listRolesUtilisateurDTO.size();i++){

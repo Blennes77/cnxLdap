@@ -53,7 +53,7 @@ public class ParametrageController {
      * @return
      */
 
-    @RequestMapping(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_ACTION_ENTREE)
+    @RequestMapping(ConstantesPage.AFFICHAGE_PARAMETRAGE_ACTION_ENTREE)
     String afficherParametresAppli(Model model){
 
         ParametrerAppliFormulaire parametrerAppliFormulaire = new ParametrerAppliFormulaire();
@@ -64,7 +64,7 @@ public class ParametrageController {
 
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, parametrerAppliFormulaire);
-        return ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_PAGE_HTML;
+        return ConstantesPage.AFFICHAGE_PARAMETRAGE_PAGE_HTML;
     }
 
 
@@ -74,7 +74,7 @@ public class ParametrageController {
      * @param model
      * @return
      */
-    @RequestMapping(value = ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_ACTION_MODIFIER, method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.AFFICHAGE_PARAMETRAGE_ACTION_MODIFIER, method = RequestMethod.POST)
 
     String modifierParametresAppli(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)  ParametrerAppliFormulaire parametrerAppliFormulaire, BindingResult bindingResult, Model model, @RequestParam String action){
 
@@ -93,11 +93,11 @@ public class ParametrageController {
                         identifiantDonneeTraitee, Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 
-                return "redirect:" + ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_ACTION_ENTREE;
+                return "redirect:" + ConstantesPage.AFFICHAGE_PARAMETRAGE_ACTION_ENTREE;
 
             } else {
 
-                parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER);
+                parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER);
 
                 configurationConstantesPagesParametrageAppli(parametrerAppliFormulaire);
 
@@ -107,7 +107,7 @@ public class ParametrageController {
             }
         }
 
-        return  ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_PAGE_HTML;
+        return  ConstantesPage.AFFICHAGE_PARAMETRAGE_PAGE_HTML;
 
 
     }
@@ -124,9 +124,9 @@ public class ParametrageController {
     private void configurationConstantesPagesParametrageAppli(ParametrerAppliFormulaire parametrerAppliFormulaire) {
 
 
-        parametrerAppliFormulaire.setTitrePage(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_TITRE);
-        parametrerAppliFormulaire.setMessageErreur((ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_MESSAGE_ERREUR));
-        parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.ADMINFONCTIONNEL_AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER);
+        parametrerAppliFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_PARAMETRAGE_TITRE);
+        parametrerAppliFormulaire.setMessageErreur((ConstantesPage.AFFICHAGE_PARAMETRAGE_MESSAGE_ERREUR));
+        parametrerAppliFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_PARAMETRAGE_BOUTON_ENREGISTRER);
 
        }
 

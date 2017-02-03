@@ -35,19 +35,20 @@ public class ConstantesAdmin {
     /**
      * Journalisation
      */
-    public static final Integer JOURNAL_PREMIERE_CONNEXION = 1;
-    public static final Integer JOURNAL_CONNEXION = 2;
+
+    public static final Integer JOURNAL_CREATION_UTILISATEUR = 1;
+    public static final Integer JOURNAL_CONNEXION_UTILISATEUR = 2;
     public static final Integer JOURNAL_MAUVAIS_MOT_DE_PASSE = 3;
+    public static final Integer JOURNAL_MODIFICATION_PARAMETRESAPPLI = 4;
+
+
     public static final Integer JOURNAL_VALIDATION_COMMANDE = 4;
-    public static final Integer JOURNAL_MODIFICATION_PARAMETRESVCO = 5;
-    public static final Integer JOURNAL_MODIFICATION_PARAMETRESAPPLI = 6;
-    public static final Integer JOURNAL_AJOUT_HEBERGEUR = 7;
+    public static final Integer JOURNAL_AJOUT_HEBERGEUR = 6;
     public static final Integer JOURNAL_MODIFICATION_HEBERGEUR = 8;
     public static final Integer JOURNAL_INTERVENTION_EXPLOITATION = 9;
     public static final Integer JOURNAL_MODIFICATION_ROLES_UTILISATEUR = 10;
     public static final Integer JOURNAL_AJOUT_TEMPLATE = 11;
     public static final Integer JOURNAL_MODIFICATION_TEMPLATE = 12;
-    public static final Integer JOURNAL_AJOUT_REF_JOURNAL= 13;
     public static final Integer JOURNAL_MODIFICATION_REF_JOURNAL = 14;
     public static final Integer JOURNAL_AJOUT_SERVEUR_VIRTUEL = 15;
     public static final Integer JOURNAL_AJOUT_OS = 16;

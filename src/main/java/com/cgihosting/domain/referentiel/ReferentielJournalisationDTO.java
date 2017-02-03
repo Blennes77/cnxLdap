@@ -57,6 +57,9 @@ public class ReferentielJournalisationDTO {
     private UtilisateurDTO utilisateurModificateurDTO ;
 
 
+    @OneToOne
+    @JoinColumn(name="RJO_IND_PURGEABLE", insertable = false, updatable = false)
+    private ReferentielIndActifDTO referentielIndActifDTO ;
 
     public Integer getId() {
         return id;
@@ -136,5 +139,14 @@ public class ReferentielJournalisationDTO {
 
     public void setIndPurgeable(Integer indPurgeable) {
         this.indPurgeable = indPurgeable;
+    }
+
+
+    public ReferentielIndActifDTO getReferentielIndActifDTO() {
+        return referentielIndActifDTO;
+    }
+
+    public void setReferentielIndActifDTO(ReferentielIndActifDTO referentielIndActifDTO) {
+        this.referentielIndActifDTO = referentielIndActifDTO;
     }
 }

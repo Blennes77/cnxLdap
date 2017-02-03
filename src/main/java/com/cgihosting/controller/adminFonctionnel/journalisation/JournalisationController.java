@@ -83,7 +83,7 @@ public class JournalisationController {
 
                 identifiantDonneeTraitee = journaliserService.creerReferentielJournalisation(referentielJournalisationDTO);
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_REF_JOURNAL,
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_HEBERGEUR,
                                                         identifiantDonneeTraitee,  Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 
@@ -123,7 +123,7 @@ public class JournalisationController {
         afficherJournalisationFormulaire.setPaginationObjet(paginationObjet);
 
 
-        afficherJournalisationFormulaire.setTitrePage(ConstantesPage.ADMINTECHNIQUE_AFFICHAGE_LISTE_JOURNALISATION_TITRE);
+        afficherJournalisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_TITRE);
         //  afficherJournalisationFormulaire.setJournalDTOListe(journaliserService.recupererJournalisation());
 
         afficherJournalisationFormulaire.setJournalDTOPage(journaliserService.searchAllJournalDTOPageByPage(pageCourante, numLigneAfficheParPage));
