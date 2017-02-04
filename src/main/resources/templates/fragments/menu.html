@@ -48,12 +48,13 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                         </ul>
                     </li>
                     <li sec:authorize="hasRole('ROLE_ADMIN_FONCTIONNEL')" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration fonctionnelle<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration application<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/adminFonctionnel/afficherParametresAppli">Paramétrage Application</a></li>
                             <li roleDTO="separator" class="divider"></li>
                             <li><a href="/adminFonctionnel/afficherReferentielHebergeurs">Hébergeurs</a></li>
                             <li><a href="/adminFonctionnel/afficherProduits">Catalogue Produits</a></li>
+                            <li><a href="/adminTechnique/afficherReferentielOS">Réferentiel Systèmes d'exploitation</a></li>
+                            <li><a href="/adminTechnique/afficherReferentielVirtualisation">Réferentiel virtualisation</a></li>
                             <li roleDTO="separator" class="divider"></li>
                             <li><a href="/adminFonctionnel/afficherSolutionsHebergement">Solutions hebergement</a></li>
                             <li><a href="/adminFonctionnel/afficherUtilisateurs">Utilisateurs du site</a></li>
@@ -63,15 +64,14 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                         </ul>
                     </li>
                     <li sec:authorize="hasRole('ROLE_ADMIN_TECHNIQUE')" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration technique<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Socle technique<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/adminTechnique/afficherReferentielRolesUtilisateur">Réferentiel Roles Utilisateur</a></li>
                              <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur">Réferentiel Etats traitement</a></li>
                              <li><a href="/adminTechnique/afficherReferentielActionsWorkflows">Réferentiel Actions Workflows</a></li>
                             <li><a href="/adminTechnique/afficherReferentielJournalisation">Réferentiel Libellés Journalisation</a></li>
-                            <li><a href="/adminTechnique/afficherReferentielOS">Réferentiel Systèmes d'exploitation</a></li>
-                            <li><a href="/adminTechnique/afficherReferentielVirtualisation">Réferentiel virtualisation</a></li>
-
+                            <li roleDTO="separator" class="divider"></li>
+                            <li><a href="/adminFonctionnel/afficherParametresAppli">Paramétrage Application</a></li>
                         </ul>
                     </li>
                 </ul>

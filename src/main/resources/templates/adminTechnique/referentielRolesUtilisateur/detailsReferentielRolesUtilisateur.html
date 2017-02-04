@@ -30,12 +30,17 @@
         <!-- Table -->
         <table class="table">
             <tr >
-                <td>Nom Virtualisation</td>
+                <td>Libelle du rôle</td>
                 <td> <input type="text" th:field="*{referentielRolesDTO.libelleRole}"  size="20"/></td>
                 <td th:if="${#fields.hasErrors('referentielRolesDTO.libelleRole')}" th:errors="*{referentielRolesDTO.libelleRole}">Libelle Error</td>
             </tr>
             <tr >
-                <td>Description Virtualisation</td>
+                <td>Code technique du rôle</td>
+                <td> <input type="text" th:field="*{referentielRolesDTO.codeTechRole}"  size="20"/></td>
+                <td th:if="${#fields.hasErrors('referentielRolesDTO.codeTechRole')}" th:errors="*{referentielRolesDTO.codeTechRole}">Libelle Error</td>
+            </tr>
+            <tr >
+                <td>Description du rôle</td>
                 <td> <input type="text" th:field="*{referentielRolesDTO.descriptionRole}"  size="20"/></td>
                 <td th:if="${#fields.hasErrors('referentielRolesDTO.descriptionRole')}" th:errors="*{referentielRolesDTO.descriptionRole}">Libelle Error</td>
             </tr>

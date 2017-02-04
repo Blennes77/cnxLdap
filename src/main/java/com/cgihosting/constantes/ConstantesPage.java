@@ -229,6 +229,12 @@ public class ConstantesPage {
     public static final String DETAILS_ROLES_BOUTON_RETOUR = "Retour";
 
 
+    /** Ecran Affichage liste des êvenements **/
+    public static final String AFFICHAGE_LISTE_EVENEMENT_ACTION_ENTREE= "/adminFonctionnel/afficherJournalisation";
+    public static final String AFFICHAGE_LISTE_EVENEMENT_TITRE= "Liste des êvenements";
+    public static final String AFFICHAGE_LISTE_EVENEMENT_PAGE_HTML= "adminFonctionnel/journalisation/afficherJournalisation";
+
+
 
 
 
@@ -310,21 +316,21 @@ public class ConstantesPage {
      **/
 
     /** Ecran Affichage liste des êvenements **/
-    public static final String AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE= "/adminTechnique/afficherReferentielJournalisation";
-    public static final String AFFICHAGE_LISTE_JOURNALISATION_TITRE= "Liste des êvenemnts";
-    public static final String AFFICHAGE_LISTE_JOURNALISATION_PAHE_HTML= "adminTechnique/referentielJournalisation/afficherReferentielJournalisation";
-    public static final String AFFICHAGE_LISTE_JOURNALISATION_BOUTON_AJOUTER= "Ajouter un evênement";
+    public static final String AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_ACTION_ENTREE= "/adminTechnique/afficherReferentielJournalisation";
+    public static final String AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_TITRE= "Référentiel Journalisation";
+    public static final String AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_PAHE_HTML= "adminTechnique/referentielJournalisation/afficherReferentielJournalisation";
+    public static final String AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_BOUTON_AJOUTER= "Ajouter un evênement";
 
     /** Ecran détails evênements **/
-    public static final String DETAILS_JOURNALISATION_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielJournalisation";
-    public static final String DETAILS_JOURNALISATION_ACTION_MODIFIER = "/adminTechnique/enregistrerReferentielJournalisation";
-    public static final String DETAILS_JOURNALISATION_TITRE = "Evênement";
-    public static final String DETAILS_JOURNALISATION_MESSAGE_ERREUR = "Impossible d'enregistrer un type de journalisation, les données saisies ne sont pas valides";
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielJournalisation";
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_ACTION_MODIFIER = "/adminTechnique/enregistrerReferentielJournalisation";
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_TITRE = "Evênement";
+    public static final String DETAILS_REFERENTIEL_OURNALISATION_MESSAGE_ERREUR = "Impossible d'enregistrer un type de journalisation, les données saisies ne sont pas valides";
 
-    public static final String DETAILS_JOURNALISATION_PAGE_HTML = "adminTechnique/referentielJournalisation/detailsReferentielJournalisation";
-    public static final String DETAILS_JOURNALISATION_BOUTON_AJOUTER = "Ajouter un evênement";
-    public static final String DETAILS_JOURNALISATION_BOUTON_MODIFIER = "Modifier un evênement";
-    public static final String DETAILS_JOURNALISATION_BOUTON_RETOUR = "Retour";
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_PAGE_HTML = "adminTechnique/referentielJournalisation/detailsReferentielJournalisation";
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_AJOUTER = "Ajouter un evênement";
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_MODIFIER = "Modifier un evênement";
+    public static final String DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_RETOUR = "Retour";
 
 
     /**

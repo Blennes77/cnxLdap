@@ -26,6 +26,12 @@ public class ReferentielRolesDTO implements Serializable{
     @Column(name="RRU_LIBELLE_ROLE")
     private String libelleRole;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=10, max = 100)
+    @Column(name="RRU_CODE_TECH_ROLE")
+    private String codeTechRole;
+
     @Column(name="RRU_DESCRIPTION_ROLE")
     @NotNull
     private String descriptionRole;
@@ -136,5 +142,13 @@ public class ReferentielRolesDTO implements Serializable{
 
     public void setUtilisateurModificateurDTO(UtilisateurDTO utilisateurModificateurDTO) {
         this.utilisateurModificateurDTO = utilisateurModificateurDTO;
+    }
+
+    public String getCodeTechRole() {
+        return codeTechRole;
+    }
+
+    public void setCodeTechRole(String codeTechRole) {
+        this.codeTechRole = codeTechRole;
     }
 }

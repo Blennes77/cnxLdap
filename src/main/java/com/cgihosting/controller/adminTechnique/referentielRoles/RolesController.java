@@ -1,8 +1,6 @@
 package com.cgihosting.controller.adminTechnique.referentielRoles;
 
-import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.domain.referentiel.ReferentielRolesDTO;
 import com.cgihosting.formulaire.adminTechnique.referentielRolesUtilisateur.AfficherReferentielRolesUtilisateurFormulaire;
@@ -100,9 +98,6 @@ public class RolesController {
 
                 identifiantDonneeTraitee =  gererUtilisateurService.modifierReferentielRolesUtilisateur(referentielRolesDTO);
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_VIRTUALISATION,
-                                                        identifiantDonneeTraitee, Dates.aujourdhui());
-                journaliserService.enregistrerJournalisation(journalDTO);
 
 
 

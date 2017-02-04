@@ -1,8 +1,6 @@
 package com.cgihosting.controller.adminTechnique.referentielEtatTraitementServeur;
 
-import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.domain.referentiel.ReferentielEtatTraitementServeurDTO;
 import com.cgihosting.formulaire.adminTechnique.refrentielEtatTraitementServeur.AfficherReferentielEtatTraitementServeurFormulaire;
@@ -107,9 +105,6 @@ public class EtatTraitementServeurController {
 
                 identifiantDonneeTraitee =  gererEtatTraitementService.modifierReferentielEtatTraitement(referentielEtatTraitementServeurDTO);
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_OS,
-                                                        identifiantDonneeTraitee, Dates.aujourdhui());
-                journaliserService.enregistrerJournalisation(journalDTO);
 
 
 

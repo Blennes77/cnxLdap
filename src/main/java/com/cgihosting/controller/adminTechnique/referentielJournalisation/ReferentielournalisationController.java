@@ -44,24 +44,24 @@ public class ReferentielournalisationController {
 
 
 
-    @RequestMapping(ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE)
+    @RequestMapping(ConstantesPage.AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_ACTION_ENTREE)
     String afficherReferentielJournalisation(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                                   @RequestParam(value = "ligneParPage", required = false, defaultValue = "5") int ligneParPage,Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAfficherReferentielJournalisation(page, ligneParPage));
-        return ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_PAHE_HTML;
+        return ConstantesPage.AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_PAHE_HTML;
     }
 
 
-    @RequestMapping(ConstantesPage.DETAILS_JOURNALISATION_ACTION_ENTREE)
+    @RequestMapping(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_ACTION_ENTREE)
     String affichageDetailsReferentielJournalisation(int identifiantReferentielJournalisationSelect, Model model) {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsReferentielJournalisation(identifiantReferentielJournalisationSelect));
-        return ConstantesPage.DETAILS_JOURNALISATION_PAGE_HTML;
+        return ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = ConstantesPage.DETAILS_JOURNALISATION_ACTION_MODIFIER, method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_ACTION_MODIFIER, method = RequestMethod.POST)
 
     String creerJournalisation(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML) DetailsReferentielJournalisationFormulaire detailsReferentielJournalisationFormulaire , BindingResult bindingResult, Model model,  @RequestParam String action){
 
@@ -74,13 +74,13 @@ public class ReferentielournalisationController {
         if (action.equals(ConstantesPage.ACTION_SAUVEGARDER)) {
 
             if (bindingResult.hasErrors()) {
-                detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.DETAILS_JOURNALISATION_TITRE);
-                detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_JOURNALISATION_BOUTON_MODIFIER);
-                detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_JOURNALISATION_BOUTON_RETOUR);
+                detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_TITRE);
+                detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_MODIFIER);
+                detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_RETOUR);
                 model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, detailsReferentielJournalisationFormulaire);
 
 
-                return ConstantesPage.DETAILS_JOURNALISATION_PAGE_HTML;
+                return ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_PAGE_HTML;
             }
             else{
 
@@ -97,7 +97,7 @@ public class ReferentielournalisationController {
 
 
 
-                return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE;
+                return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_ACTION_ENTREE;
 
             }
 
@@ -105,7 +105,7 @@ public class ReferentielournalisationController {
 
         else {
 
-            return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE;
+            return  "redirect:" + ConstantesPage.AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_ACTION_ENTREE;
 
         }
 
@@ -126,13 +126,13 @@ public class ReferentielournalisationController {
         afficherReferentielJournalisationFormulaire.setPaginationObjet(paginationObjet);
 
 
-        afficherReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_TITRE);
-        afficherReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_BOUTON_AJOUTER);
+        afficherReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_TITRE);
+        afficherReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_BOUTON_AJOUTER);
 
         afficherReferentielJournalisationFormulaire.setReferentielJournalisationDTOPage(journaliserService.searchAllReferentielJournalisationDTOPageByPage(pageCourante, numLigneAfficheParPage));
 
-        afficherReferentielJournalisationFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_JOURNALISATION_ACTION_ENTREE);
-        afficherReferentielJournalisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_JOURNALISATION_ACTION_ENTREE);
+        afficherReferentielJournalisationFormulaire.setUrlActionEntree(ConstantesPage.AFFICHAGE_LISTE_REFERENTIEL_JOURNALISATION_ACTION_ENTREE);
+        afficherReferentielJournalisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_ACTION_ENTREE);
 
         return afficherReferentielJournalisationFormulaire;
     }
@@ -148,11 +148,11 @@ public class ReferentielournalisationController {
         if (identifiantReferentielJournalisationSelect != 0) {
             referentielJournalisationDTO = journaliserService.recupererReferentielJournalisationById(identifiantReferentielJournalisationSelect);
 
-            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_JOURNALISATION_BOUTON_MODIFIER);
+            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_MODIFIER);
         }
         else {
 
-            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_JOURNALISATION_BOUTON_AJOUTER);
+            detailsReferentielJournalisationFormulaire.setBoutonSoumissionLabel(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_AJOUTER);
         }
 
 
@@ -160,9 +160,9 @@ public class ReferentielournalisationController {
 
         detailsReferentielJournalisationFormulaire.setReferentielJournalisationDTO(referentielJournalisationDTO);
 
-        detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.DETAILS_JOURNALISATION_TITRE);
-        detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_JOURNALISATION_BOUTON_RETOUR);
-        detailsReferentielJournalisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_JOURNALISATION_ACTION_MODIFIER);
+        detailsReferentielJournalisationFormulaire.setTitrePage(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_TITRE);
+        detailsReferentielJournalisationFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_BOUTON_RETOUR);
+        detailsReferentielJournalisationFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_REFERENTIEL_JOURNALISATION_ACTION_MODIFIER);
 
 
         return detailsReferentielJournalisationFormulaire;
