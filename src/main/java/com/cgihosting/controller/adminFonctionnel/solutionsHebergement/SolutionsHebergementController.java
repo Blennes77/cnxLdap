@@ -102,7 +102,7 @@ public class SolutionsHebergementController {
               identifiantDonneeTraitee =  gererHebergeurService.modifierSolutionsHebergement(detailsSolutionsHebergementFormulaire.getSolutionsHebergementDTO());
 
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_OS,
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_SOLUTION_HEBERGEMENT,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 

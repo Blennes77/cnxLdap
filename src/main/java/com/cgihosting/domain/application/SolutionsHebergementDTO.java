@@ -355,4 +355,6 @@ public class SolutionsHebergementDTO {
     public void setNomSectionPhpipam(String nomSectionPhpipam) {
         this.nomSectionPhpipam = nomSectionPhpipam;
     }
+
+
 }

@@ -200,8 +200,8 @@ public class ConstantesPage {
     public static final String AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE = "/adminFonctionnel/afficherSolutionsHebergement";
     public static final String AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_TITRE = "Liste des solutions hébergement";
     public static final String AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_PAGE_HTML = "adminFonctionnel/solutionsHebergement/afficherSolutionsHebergement";
-    public static final String AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER= "Ajouter un hébergement";
-    public static final String AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER = "Modifier hébergement";
+    public static final String AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_AJOUTER= "Ajouter une solution d'hébergement";
+    public static final String AFFICHAGE_LISTE_SOLUTIONS_HEBERGEMENT_BOUTON_MODIFIER = "Modifier la solution d'hébergement";
 
     /** Ecran détails hébergeurs **/
     public static final String DETAILS_SOLUTIONS_HEBERGEMENT_ACTION_ENTREE = "/adminFonctionnel/afficherDetailsSolutionsHebergement";
@@ -346,7 +346,7 @@ public class ConstantesPage {
     /** Ecran détails OS **/
     public static final String DETAILS_OS_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielOS";
     public static final String DETAILS_OS_ACTION_MODIFIER = "/adminTechnique/modifierReferentielOS";
-    public static final String DETAILS_OS_TITRE = "Evênement";
+    public static final String DETAILS_OS_TITRE = "Système d'exploitation";
     public static final String DETAILS_OS_MESSAGE_ERREUR = "Impossible d'enregistrer un système d'exploitation, les données saisies ne sont pas valides";
     public static final String DETAILS_OS_PAGE_HTML = "adminTechnique/referentielSystemesExploitation/detailsReferentielOS";
     public static final String DETAILS_OS_BOUTON_AJOUTER = "Ajouter un OS";

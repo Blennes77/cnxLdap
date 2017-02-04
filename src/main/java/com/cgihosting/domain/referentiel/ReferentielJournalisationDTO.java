@@ -24,7 +24,7 @@ public class ReferentielJournalisationDTO {
 
     @NotNull
     @NotEmpty
-    @Size(min=10, max = 100)
+    @Size(min=1, max = 100)
     @Column(name="RJO_ACTION_LIBELLE")
     private String libelleAction = "";
 

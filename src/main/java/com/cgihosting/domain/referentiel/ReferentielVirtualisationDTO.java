@@ -23,7 +23,7 @@ public class ReferentielVirtualisationDTO {
 
     @NotNull
     @NotEmpty
-    @Size(min=10, max = 100)
+    @Size(min=1, max = 100)
     @Column(name="RVI_NOM_VIRTUALISATION")
     private String nomVirtualisation = "";
 

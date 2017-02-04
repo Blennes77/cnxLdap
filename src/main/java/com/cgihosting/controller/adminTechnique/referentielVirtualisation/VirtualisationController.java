@@ -103,7 +103,7 @@ public class VirtualisationController {
 
                 identifiantDonneeTraitee =  gererVirtualisationService.modifierReferentielVirtualisation(referentielVirtualisationDTO);
 
-                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_MODIFICATION_VIRTUALISATION,
+                JournalDTO journalDTO = new JournalDTO(UtilisateurSession.getLogin(), ConstantesAdmin.JOURNAL_AJOUT_VIRTUALISATION,
                                                         identifiantDonneeTraitee, Dates.aujourdhui());
                 journaliserService.enregistrerJournalisation(journalDTO);
 
