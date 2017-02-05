@@ -19,7 +19,7 @@ public interface ServeurVirtuelRepository extends PagingAndSortingRepository<Ser
     public ServeurVirtuelDTO findById(Integer id);
 
 
-    public ServeurVirtuelDTO findByIdEnregistreurOrIdDP(Integer idEnregistreur, Integer idDP);
+  //  public ServeurVirtuelDTO findByIdEnregistreurOrIdDP(Integer idEnregistreur, Integer idDP);
 
     public List<ServeurVirtuelDTO> findByIdProjet(Integer idprojet);
 

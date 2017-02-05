@@ -1,7 +1,6 @@
 package com.cgihosting.controller.monCGIHosting;
 
 import com.cgihosting.constantes.ConstantesAdmin;
-import com.cgihosting.constantes.ConstantesGenerales;
 import com.cgihosting.constantes.ConstantesMonCGIHosting;
 import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.application.JournalDTO;
@@ -136,17 +135,17 @@ public class MesCommmandesController {
                 utilisateurDTO =gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
 
                 serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
-                serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
-                serveurVirtuelDTO.setIdEnregistreur(utilisateurDTO.getId());
-                serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
+            //    serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
+           //     serveurVirtuelDTO.setIdEnregistreur(utilisateurDTO.getId());
+           //     serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
                 serveurVirtuelDTO.setIdProjet(idProjet);
-                serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
+           //     serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
 
 
                 // Bouchon OVH
                 serveurVirtuelDTO.setIdSolutionHebergement(1);
 
-                serveurVirtuelDTO.setIdWorkflow(1);
+              //  serveurVirtuelDTO.setIdWorkflow(1);
 
                 // On crée une machine avec l'identifiant déploiement
 

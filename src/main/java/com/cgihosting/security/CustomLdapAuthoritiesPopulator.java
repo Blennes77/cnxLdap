@@ -96,33 +96,14 @@ public class CustomLdapAuthoritiesPopulator implements LdapAuthoritiesPopulator 
 
 
                 // Si oui, il faut lui ajouter le role ROLE_DP et ROLE_USER dans la table utilisateur_a_role
-                // et lui réattribuer les serveurs commandés
+
                 if(projetDTOList.size()>0){
                     List<RoleUtilisateurDTO> roleUtilisateurDTOList = new ArrayList<>();
                     roleUtilisateurDTOList.add(new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_USER));
                     roleUtilisateurDTOList.add(new RoleUtilisateurDTO(utilisateurDTO.getId(), ROLE_DP));
                     utilisateurRoleRepository.save(roleUtilisateurDTOList);
 
-                    // On boucle maintenant sur les projets pour renseigner l'id utilisateur en regard des id projets
-                    for(int i=0;i<projetDTOList.size();i++){
-                        projetDTOList.get(i).setIdUser(utilisateurDTO.getId());
 
-                        serveurVirtuelDTOListe = gererServeursVirtuelsService.recupererServeursVirtuelsByIdProjet(projetDTOList.get(i).getId());
-
-                        if(serveurVirtuelDTOListe != null) {
-                            for (int j = 0; i < serveurVirtuelDTOListe.size(); j++) {
-
-                                serveurVirtuelDTOListe.get(j).setIdDP(utilisateurDTO.getId());
-
-
-                                gererServeursVirtuelsService.modifierServeurVirtuel(serveurVirtuelDTOListe.get(j));
-
-                            }
-                        }
-
-                    }
-                    // Sauvegarde de l'utilisateur
-                    projetsRepository.save(projetDTOList);
                 }
                 else
                 {
