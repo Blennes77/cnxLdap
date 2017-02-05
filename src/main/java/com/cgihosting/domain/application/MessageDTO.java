@@ -2,6 +2,7 @@ package com.cgihosting.domain.application;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by marinib on 06/01/2017.
@@ -29,12 +30,11 @@ public class MessageDTO implements Serializable {
     @Column(name = "MUT_ID_EXP")
     private Integer idExp;
 
+    @Column(name = "MUT_DATE_ENVOI")
+    private Date dateEnvoi;
 
-   /*
-	`MUT_IND_LU` INT(11) NULL DEFAULT NULL,
-	`MUT_DATE_ENVOI` DATE NULL DEFAULT NULL,
-	`MUT_DATE_LECTURE`
-	*/
+    @Column(name = "MUT_DATE_LECTURE")
+    private Date dateLecture;
 
     public Integer getId() {
         return id;
@@ -74,5 +74,21 @@ public class MessageDTO implements Serializable {
 
     public void setIdExp(Integer idExp) {
         this.idExp = idExp;
+    }
+
+    public Date getDateEnvoi() {
+        return dateEnvoi;
+    }
+
+    public void setDateEnvoi(Date dateEnvoi) {
+        this.dateEnvoi = dateEnvoi;
+    }
+
+    public Date getDateLecture() {
+        return dateLecture;
+    }
+
+    public void setDateLecture(Date dateLecture) {
+        this.dateLecture = dateLecture;
     }
 }
