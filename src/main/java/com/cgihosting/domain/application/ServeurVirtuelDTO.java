@@ -4,6 +4,7 @@ package com.cgihosting.domain.application;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by marinib on 09/12/2016.
@@ -95,6 +96,11 @@ public class ServeurVirtuelDTO implements Serializable{
     @OneToOne
     @JoinColumn(name="SVI_ID_SOLUTION_HEBERGEMENT", insertable = false, updatable = false)
     private SolutionsHebergementDTO solutionsHebergementDTO ;
+
+    @OneToMany
+    @JoinColumn(name = "SAT_SVI_ID", insertable = false, updatable = false)
+    private List<TraitementServeurVirtuelDTO> traitementServeurVirtuelDTOListe;
+
 
 
     /**
@@ -283,5 +289,11 @@ public class ServeurVirtuelDTO implements Serializable{
         this.solutionsHebergementDTO = solutionsHebergementDTO;
     }
 
+    public List<TraitementServeurVirtuelDTO> getTraitementServeurVirtuelDTOListe() {
+        return traitementServeurVirtuelDTOListe;
+    }
 
+    public void setTraitementServeurVirtuelDTOListe(List<TraitementServeurVirtuelDTO> traitementServeurVirtuelDTOListe) {
+        this.traitementServeurVirtuelDTOListe = traitementServeurVirtuelDTOListe;
+    }
 }

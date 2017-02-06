@@ -45,9 +45,6 @@ public class TraitementServeurVirtuelDTO implements Serializable{
     @JoinColumn(name = "SAT_UTI_ID", insertable = false, updatable = false)
     private UtilisateurDTO utilisateurDTO;
 
-    @OneToOne
-    @JoinColumn(name = "SAT_SVI_ID", insertable = false, updatable = false)
-    private ServeurVirtuelDTO serveurVirtuelDTO;
 
     @OneToOne
     @JoinColumn(name = "SAT_RES_ID", insertable = false, updatable = false)
@@ -109,14 +106,6 @@ public class TraitementServeurVirtuelDTO implements Serializable{
 
     public void setUtilisateurDTO(UtilisateurDTO utilisateurDTO) {
         this.utilisateurDTO = utilisateurDTO;
-    }
-
-    public ServeurVirtuelDTO getServeurVirtuelDTO() {
-        return serveurVirtuelDTO;
-    }
-
-    public void setServeurVirtuelDTO(ServeurVirtuelDTO serveurVirtuelDTO) {
-        this.serveurVirtuelDTO = serveurVirtuelDTO;
     }
 
     public ReferentielEtatTraitementServeurDTO getReferentielEtatTraitementServeurDTO() {
