@@ -36,7 +36,7 @@ public class TraitementServeurVirtuelDTO implements Serializable{
     private Date dateTraitement;
 
     @Column(name="SAT_UTI_ID")
-    private Integer iduser;
+    private Integer idUser;
 
     @Column(name="SAT_IND_EN_COURS")
     private int indEnCours;
@@ -84,12 +84,12 @@ public class TraitementServeurVirtuelDTO implements Serializable{
         this.dateTraitement = dateTraitement;
     }
 
-    public Integer getIduser() {
-        return iduser;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setIduser(Integer iduser) {
-        this.iduser = iduser;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
     public int getIndEnCours() {

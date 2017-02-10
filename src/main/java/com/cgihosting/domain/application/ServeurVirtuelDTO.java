@@ -1,6 +1,5 @@
 package com.cgihosting.domain.application;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -72,15 +71,53 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_ID_PROJET")
     private Integer idProjet;
 
+
+    @Column(name="SVI_IND_SERVEUREXISTANT")
+    private Integer indServeurExistant;
+
     @Column(name="SVI_MESSAGE_ERREUR")
     private String messageErreur;
-
 
     @Column(name="SVI_IND_CUSTOMISATION")
     private Integer indCustomisation;
 
+    @Lob
+    @Column(columnDefinition="TEXT", name="SVI_LOG_CUSTOMISATION")
+    private String logCustomisation;
+
     @Column(name="SVI_ID_PHPIPAM")
     private Integer idPhpipam;
+
+
+    @Column(name="SVI_IND_SAUVEGARDE")
+    private Integer indSauvegarde;
+
+
+    @Column(name="SVI_IND_REVERSEPROXY")
+    private Integer indReverseProxy;
+
+    @Column(name="SVI_IND_AUTHRADIUS")
+    private Integer indAuthRadius;
+
+    @Column(name="SVI_IND_RESEAUISOLE")
+    private Integer indReseauIsole;
+
+    @Column(name="SVI_IND_INTERNETDIRECT")
+    private Integer indInternetDirect;
+
+    @Column(name="SVI_IND_ENVOIMAIL")
+    private Integer indEnvoiMail;
+
+
+    @Column(name="SVI_WORKFLOWEXECUTION_ID")
+    private String idWorkflowExecution;
+
+    @Column(name="SVI_NOM_DOMAINECGI")
+    private String nomDomaineCgi;
+
+    @Column(name="SVI_ID_COMMANDE")
+    private Integer idCommandei;
+
 
 
 
@@ -92,7 +129,6 @@ public class ServeurVirtuelDTO implements Serializable{
     @JoinColumn(name="SVI_ID_PROJET", insertable = false, updatable = false)
     private ProjetDTO projetDTO ;
 
-
     @OneToOne
     @JoinColumn(name="SVI_ID_SOLUTION_HEBERGEMENT", insertable = false, updatable = false)
     private SolutionsHebergementDTO solutionsHebergementDTO ;
@@ -100,6 +136,8 @@ public class ServeurVirtuelDTO implements Serializable{
     @OneToMany
     @JoinColumn(name = "SAT_SVI_ID", insertable = false, updatable = false)
     private List<TraitementServeurVirtuelDTO> traitementServeurVirtuelDTOListe;
+
+
 
 
 
@@ -296,4 +334,87 @@ public class ServeurVirtuelDTO implements Serializable{
     public void setTraitementServeurVirtuelDTOListe(List<TraitementServeurVirtuelDTO> traitementServeurVirtuelDTOListe) {
         this.traitementServeurVirtuelDTOListe = traitementServeurVirtuelDTOListe;
     }
+
+    public Integer getIndSauvegarde() {
+        return indSauvegarde;
+    }
+
+    public void setIndSauvegarde(Integer indSauvegarde) {
+        this.indSauvegarde = indSauvegarde;
+    }
+
+    public Integer getIndReverseProxy() {
+        return indReverseProxy;
+    }
+
+    public void setIndReverseProxy(Integer indReverseProxy) {
+        this.indReverseProxy = indReverseProxy;
+    }
+
+    public Integer getIndAuthRadius() {
+        return indAuthRadius;
+    }
+
+    public void setIndAuthRadius(Integer indAuthRadius) {
+        this.indAuthRadius = indAuthRadius;
+    }
+
+    public Integer getIndReseauIsole() {
+        return indReseauIsole;
+    }
+
+    public void setIndReseauIsole(Integer indReseauIsole) {
+        this.indReseauIsole = indReseauIsole;
+    }
+
+    public Integer getIndInternetDirect() {
+        return indInternetDirect;
+    }
+
+    public void setIndInternetDirect(Integer indInternetDirect) {
+        this.indInternetDirect = indInternetDirect;
+    }
+
+    public Integer getIndEnvoiMail() {
+        return indEnvoiMail;
+    }
+
+    public void setIndEnvoiMail(Integer indEnvoiMail) {
+        this.indEnvoiMail = indEnvoiMail;
+    }
+
+    public Integer getIndServeurExistant() {
+        return indServeurExistant;
+    }
+
+    public void setIndServeurExistant(Integer indServeurExistant) {
+        this.indServeurExistant = indServeurExistant;
+    }
+
+    public String getLogCustomisation() {
+        return logCustomisation;
+    }
+
+    public void setLogCustomisation(String logCustomisation) {
+        this.logCustomisation = logCustomisation;
+    }
+
+    public String getIdWorkflowExecution() {
+        return idWorkflowExecution;
+    }
+
+    public void setIdWorkflowExecution(String idWorkflowExecution) {
+        this.idWorkflowExecution = idWorkflowExecution;
+    }
+
+    public String getNomDomaineCgi() {
+        return nomDomaineCgi;
+    }
+
+    public void setNomDomaineCgi(String nomDomaineCgi) {
+        this.nomDomaineCgi = nomDomaineCgi;
+    }
+
+
+
 }

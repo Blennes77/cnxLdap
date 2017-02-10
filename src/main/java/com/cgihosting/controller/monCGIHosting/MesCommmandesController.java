@@ -7,13 +7,14 @@ import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.domain.application.ProjetDTO;
 import com.cgihosting.domain.application.ServeurVirtuelDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
-import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AfficherCommandesFormulaire;
+import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AfficherMesCommandesFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjaxRecupererProjetFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjoutServeurVirtuelFormulaire;
-import com.cgihosting.formulaire.monCGIHosting.mesCommandes.DetailsCommandeFormulaire;
+import com.cgihosting.formulaire.monCGIHosting.mesCommandes.DetailsMesCommandeFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.*;
+import com.cgihosting.service.exploit.GererCommandeService;
 import com.cgihosting.service.exploit.GererServeursVirtuelsService;
 import com.cgihosting.service.exploit.GererTemplateOSService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -194,16 +195,16 @@ public class MesCommmandesController {
      * méthodes comme des controleurs
      */
 
-    private AfficherCommandesFormulaire recupererFormulaireCommandes() {
+    private AfficherMesCommandesFormulaire recupererFormulaireCommandes() {
 
         int identifiant = 1;
 
-        AfficherCommandesFormulaire afficherCommandesFormulaire = new AfficherCommandesFormulaire();
+        AfficherMesCommandesFormulaire afficherMesCommandesFormulaire = new AfficherMesCommandesFormulaire();
 
-        afficherCommandesFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_COMMANDES_TITRE);
-        afficherCommandesFormulaire.setCommandeDTOListe(gererCommandeService.recupererCommandesUtilisateur(identifiant));
+        afficherMesCommandesFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_COMMANDES_TITRE);
+       // afficherCommandesFormulaire.setCommandeDTOListe(gererCommandeService.recupererCommandeById(5));
 
-        return afficherCommandesFormulaire;
+        return afficherMesCommandesFormulaire;
     }
 
 
@@ -214,19 +215,19 @@ public class MesCommmandesController {
      * méthodes comme des controleurs
      */
 
-    private DetailsCommandeFormulaire recupererFormulaireDetailsCommande(int identifiantCommandeSelect) {
+    private DetailsMesCommandeFormulaire recupererFormulaireDetailsCommande(int identifiantCommandeSelect) {
 
 
-        DetailsCommandeFormulaire detailsCommandeFormulaire = new DetailsCommandeFormulaire();
+        DetailsMesCommandeFormulaire detailsMesCommandeFormulaire = new DetailsMesCommandeFormulaire();
 
 
 
-        detailsCommandeFormulaire.setCommandeDTO(gererCommandeService.recupererCommandeById(identifiantCommandeSelect));
-        detailsCommandeFormulaire.setTitrePage(ConstantesPage.DETAILS_COMMANDE_TITRE);
-        detailsCommandeFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_LISTE_COMMANDES);
+        detailsMesCommandeFormulaire.setCommandeDTO(gererCommandeService.recupererCommandeById(identifiantCommandeSelect));
+        detailsMesCommandeFormulaire.setTitrePage(ConstantesPage.DETAILS_COMMANDE_TITRE);
+        detailsMesCommandeFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_LISTE_COMMANDES);
 
 
-        return detailsCommandeFormulaire;
+        return detailsMesCommandeFormulaire;
     }
 
     /**

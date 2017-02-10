@@ -74,6 +74,23 @@ public class ConstantesPage {
     public static final String DETAILS_SERVEURS_VIRTUELS_BOUTON_MODIFIER = "Modifier Serveur Virtuel";
     public static final String DETAILS_SERVEURS_VIRTUELS_BOUTON_RETOUR = "Retour";
 
+    /**
+     * SOUS MENU : liste des commandes
+     **/
+
+    /** Ecran Affichage liste des serveurs **/
+    public static final String AFFICHAGE_LISTE_COMMANDES_TITRE = "Liste des commandes";
+    public static final String AFFICHAGE_LISTE_COMMANDES_ACTION_ENTREE = "/exploit/afficherCommandes";
+    public static final String AFFICHAGE_LISTE_COMMANDES_PAGE_HTML = "exploit/commandes/afficherCommandes";
+
+    /** Ecran détails serveurs virtuels **/
+    public static final String DETAILS_COMMANDES_TITRE = "Serveur virtuel";
+    public static final String DETAILS_COMMANDES_ACTION_ENTREE = "/exploit/afficherDetailsCommande";
+    public static final String DETAILS_COMMANDES_ACTION_MODIFIER = "/exploit/modifierCommande";
+    public static final String DETAILS_COMMANDES_PAGE_HTML = "exploit/commandes/detailsCommande";
+    public static final String DETAILS_COMMANDES_BOUTON_MODIFIER = "Modifier commande";
+    public static final String DETAILS_COMMANDES_BOUTON_RETOUR = "Retour";
+
 
     /**
      * SOUS MENU : liste des templates
@@ -288,6 +305,28 @@ public class ConstantesPage {
     public static final String DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_AJOUTER = "Ajouter un état traitement";
     public static final String DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_MODIFIER = "Modifier un état traitement";
     public static final String DETAILS_ETATTRAITEMENT_SERVEURS_BOUTON_RETOUR = "Retour";
+
+
+    /**
+     * SOUS MENU : liste des états de traitement serveur
+     **/
+
+    /** Ecran Affichage liste d' états traitement **/
+    public static final String AFFICHAGE_LISTE_ETATCOMMANDE_ACTION_ENTREE= "/adminTechnique/afficherReferentielEtatCommande";
+    public static final String AFFICHAGE_LISTE_ETATCOMMANDE_TITRE= "Liste des états de commande";
+    public static final String AFFICHAGE_LISTE_ETATCOMMANDE_PAGE_HTML= "adminTechnique/referentielEtatCommande/afficherReferentielEtatCommande";
+    public static final String AFFICHAGE_LISTE_ETATCOMMANDE_BOUTON_AJOUTER= "Ajouter un état commande";
+
+    /** Ecran détails états traitement **/
+    public static final String DETAILS_ETATCOMMANDE_ACTION_ENTREE = "/adminTechnique/afficherDetailsReferentielEtatCommande";
+    public static final String DETAILS_ETATCOMMANDE_ACTION_MODIFIER = "/adminTechnique/modifierReferentielEtatCommande";
+    public static final String DETAILS_ETATCOMMANDE_TITRE = "Etat commande";
+    public static final String DETAILS_ETATCOMMANDE_MESSAGE_ERREUR = "Impossible d'enregistrer un état commande, les données saisies ne sont pas valides";
+    public static final String DETAILS_ETATCOMMANDE_PAGE_HTML = "adminTechnique/referentielEtatCommande/detailsReferentielEtatCommande";
+    public static final String DETAILS_ETATCOMMANDE_BOUTON_AJOUTER = "Ajouter un état commande";
+    public static final String DETAILS_ETATCOMMANDE_BOUTON_MODIFIER = "Modifier un état commande";
+    public static final String DETAILS_ETATCOMMANDE_BOUTON_RETOUR = "Retour";
+
 
 
     /**

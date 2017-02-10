@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CnxLdapApplication {
+public class SiteHostingLancementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CnxLdapApplication.class, args);
+		SpringApplication.run(SiteHostingLancementApplication.class, args);
 	}
 }

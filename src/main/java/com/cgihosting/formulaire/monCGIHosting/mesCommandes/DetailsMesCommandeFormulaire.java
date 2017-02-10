@@ -6,7 +6,7 @@ import com.cgihosting.formulaire.RacineFormulaire;
 /**
  * Created by marinib on 06/01/2017.
  */
-public class DetailsCommandeFormulaire extends RacineFormulaire {
+public class DetailsMesCommandeFormulaire extends RacineFormulaire {
 
     private CommandeDTO commandeDTO;
 

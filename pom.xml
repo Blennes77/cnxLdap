@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>cnxLdap</name>
-	<description>Application securisee via LDAP avec Form de login par defaut</description>
+	<description>Application Site Hosting</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

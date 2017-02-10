@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by marinib on 06/01/2017.
  */
-public class AfficherCommandesFormulaire extends RacineFormulaire {
+public class AfficherMesCommandesFormulaire extends RacineFormulaire {
 
     private List<CommandeDTO> commandeDTOListe;
 
