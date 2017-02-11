@@ -85,9 +85,9 @@ public class ConstantesPage {
 
     /** Ecran détails serveurs virtuels **/
     public static final String DETAILS_COMMANDES_TITRE = "Serveur virtuel";
-    public static final String DETAILS_COMMANDES_ACTION_ENTREE = "/exploit/afficherDetailsCommande";
+    public static final String DETAILS_COMMANDES_ACTION_ENTREE = "/exploit/afficherDetailsCommandes";
     public static final String DETAILS_COMMANDES_ACTION_MODIFIER = "/exploit/modifierCommande";
-    public static final String DETAILS_COMMANDES_PAGE_HTML = "exploit/commandes/detailsCommande";
+    public static final String DETAILS_COMMANDES_PAGE_HTML = "exploit/commandes/detailsCommandes";
     public static final String DETAILS_COMMANDES_BOUTON_MODIFIER = "Modifier commande";
     public static final String DETAILS_COMMANDES_BOUTON_RETOUR = "Retour";
 

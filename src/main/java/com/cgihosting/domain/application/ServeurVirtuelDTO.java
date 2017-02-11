@@ -1,5 +1,6 @@
 package com.cgihosting.domain.application;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -68,9 +69,6 @@ public class ServeurVirtuelDTO implements Serializable{
     @Column(name="SVI_MASQUECICDR")
     private Integer masqueCICDR;
 
-    @Column(name="SVI_ID_PROJET")
-    private Integer idProjet;
-
 
     @Column(name="SVI_IND_SERVEUREXISTANT")
     private Integer indServeurExistant;
@@ -116,18 +114,14 @@ public class ServeurVirtuelDTO implements Serializable{
     private String nomDomaineCgi;
 
     @Column(name="SVI_ID_COMMANDE")
-    private Integer idCommandei;
-
-
+    private Integer idCommande;
 
 
     @OneToOne
     @JoinColumn(name="SVI_ID_TEMPLATE", insertable = false, updatable = false)
     private TemplateOSDTO templateOSDTO ;
 
-    @OneToOne
-    @JoinColumn(name="SVI_ID_PROJET", insertable = false, updatable = false)
-    private ProjetDTO projetDTO ;
+
 
     @OneToOne
     @JoinColumn(name="SVI_ID_SOLUTION_HEBERGEMENT", insertable = false, updatable = false)
@@ -136,6 +130,11 @@ public class ServeurVirtuelDTO implements Serializable{
     @OneToMany
     @JoinColumn(name = "SAT_SVI_ID", insertable = false, updatable = false)
     private List<TraitementServeurVirtuelDTO> traitementServeurVirtuelDTOListe;
+
+
+    @OneToOne
+    @JoinColumn(name="SVI_ID_COMMANDE", insertable = false, updatable = false)
+    private CommandeDTO commandeDTO ;
 
 
 
@@ -268,14 +267,6 @@ public class ServeurVirtuelDTO implements Serializable{
         this.masqueCICDR = masqueCICDR;
     }
 
-    public Integer getIdProjet() {
-        return idProjet;
-    }
-
-    public void setIdProjet(Integer idProjet) {
-        this.idProjet = idProjet;
-    }
-
 
     public String getMessageErreur() {
         return messageErreur;
@@ -310,13 +301,6 @@ public class ServeurVirtuelDTO implements Serializable{
         this.templateOSDTO = templateOSDTO;
     }
 
-    public ProjetDTO getProjetDTO() {
-        return projetDTO;
-    }
-
-    public void setProjetDTO(ProjetDTO projetDTO) {
-        this.projetDTO = projetDTO;
-    }
 
 
     public SolutionsHebergementDTO getSolutionsHebergementDTO() {
@@ -413,6 +397,22 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setNomDomaineCgi(String nomDomaineCgi) {
         this.nomDomaineCgi = nomDomaineCgi;
+    }
+
+    public Integer getIdCommande() {
+        return idCommande;
+    }
+
+    public void setIdCommande(Integer idCommande) {
+        this.idCommande = idCommande;
+    }
+
+    public CommandeDTO getCommandeDTO() {
+        return commandeDTO;
+    }
+
+    public void setCommandeDTO(CommandeDTO commandeDTO) {
+        this.commandeDTO = commandeDTO;
     }
 
 

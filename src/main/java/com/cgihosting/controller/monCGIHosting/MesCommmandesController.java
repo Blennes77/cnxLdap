@@ -139,7 +139,7 @@ public class MesCommmandesController {
             //    serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
            //     serveurVirtuelDTO.setIdEnregistreur(utilisateurDTO.getId());
            //     serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
-                serveurVirtuelDTO.setIdProjet(idProjet);
+            //    serveurVirtuelDTO.setIdProjet(idProjet);
            //     serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
 
 
