@@ -117,6 +117,13 @@ public class ServeurVirtuelDTO implements Serializable{
     private Integer idCommande;
 
 
+    @Column(name="SVI_IND_RESERVATIONADRESSE")
+    private Integer indReservationAdresse;
+
+    @Column(name="SVI_LOG_RESERVATIONADRESSE")
+    private String logReservationAdresse;
+
+
     @OneToOne
     @JoinColumn(name="SVI_ID_TEMPLATE", insertable = false, updatable = false)
     private TemplateOSDTO templateOSDTO ;
@@ -413,6 +420,22 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setCommandeDTO(CommandeDTO commandeDTO) {
         this.commandeDTO = commandeDTO;
+    }
+
+    public Integer getIndReservationAdresse() {
+        return indReservationAdresse;
+    }
+
+    public void setIndReservationAdresse(Integer indReservationAdresse) {
+        this.indReservationAdresse = indReservationAdresse;
+    }
+
+    public String getLogReservationAdresse() {
+        return logReservationAdresse;
+    }
+
+    public void setLogReservationAdresse(String logReservationAdresse) {
+        this.logReservationAdresse = logReservationAdresse;
     }
 
 
