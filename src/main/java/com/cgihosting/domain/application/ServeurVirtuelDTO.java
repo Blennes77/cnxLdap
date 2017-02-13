@@ -1,6 +1,5 @@
 package com.cgihosting.domain.application;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -122,6 +121,12 @@ public class ServeurVirtuelDTO implements Serializable{
 
     @Column(name="SVI_LOG_RESERVATIONADRESSE")
     private String logReservationAdresse;
+
+    @Column(name="SVI_ADRESSEIP_PASSERELLE")
+    private String adresseIPPasserelle;
+
+    @Column(name="SVI_ID_VM")
+    private String idVm;
 
 
     @OneToOne
@@ -436,6 +441,22 @@ public class ServeurVirtuelDTO implements Serializable{
 
     public void setLogReservationAdresse(String logReservationAdresse) {
         this.logReservationAdresse = logReservationAdresse;
+    }
+
+    public String getAdresseIPPasserelle() {
+        return adresseIPPasserelle;
+    }
+
+    public void setAdresseIPPasserelle(String adresseIPPasserelle) {
+        this.adresseIPPasserelle = adresseIPPasserelle;
+    }
+
+    public String getIdVm() {
+        return idVm;
+    }
+
+    public void setIdVm(String idVm) {
+        this.idVm = idVm;
     }
 
 

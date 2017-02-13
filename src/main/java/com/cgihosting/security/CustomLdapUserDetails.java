@@ -95,4 +95,9 @@ public class CustomLdapUserDetails implements LdapUserDetails {
     public boolean isCredentialsNonExpired() {
         return details.isCredentialsNonExpired();
     }
+
+    @Override
+    public void eraseCredentials() {
+
+    }
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="reseaux_autorises_hebergement")
-public class ReseauxAutorisesHebergementDTO implements Serializable {
+public class ReseauxAutorisesSolutionHebergementDTO implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
