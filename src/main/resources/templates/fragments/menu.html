@@ -14,7 +14,9 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">CGI Hosting</a>
+                <a class="navbar-brand" href="/">
+                    <img  width="100"  th:src="@{/images/logoCGI.png}"/>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -73,9 +75,11 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                             <li><a href="/adminTechnique/afficherReferentielJournalisation">Réferentiel Libellés Journalisation</a></li>
                             <li><a href="/adminTechnique/afficherReferentielVirtualisation">Réferentiel virtualisation</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/adminFonctionnel/afficherParametresAppli">Paramétrage Application</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Panier <img width="50" th:src="@{/images/cart.png}"/></a>
+                    </li>S
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
@@ -94,7 +98,7 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                     </div>
                 </form>
                 <div class="navbar-text navbar-right" th:if="${#httpServletRequest.remoteUser != null}">
-                    <p>Welcome <span sec:authentication="principal.displayName" /></p>
+                    <p>Bonjour <span sec:authentication="principal.displayName" /></p>
                     <p>Role: <span sec:authentication="principal.authorities">Liste Role</span></p>
                 </div>
             </div><!-- /.navbar-collapse -->
