@@ -11,7 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @RequestMapping("/")
-    public String  index(){
+    public String  getHomeLocal(){
+        //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return "index";
+    }
+
+
+    @RequestMapping("/portailhosting/")
+    public String  getHomEExterieur(){
         //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return "index";
     }

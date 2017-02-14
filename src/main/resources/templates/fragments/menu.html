@@ -20,7 +20,7 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
+                    <li sec:authorize="hasRole('ROLE_USER')"class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Mon CGI Hosting<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/monCGIHosting/afficherMesInfosPerso">Mes infos perso</a></li>
@@ -85,7 +85,12 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                 </form>
                 <form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
                     <div class="form-group">
-                        <input class="btn btn-link" type="submit" value="Log out" />
+                        <input class="btn btn-link" type="submit" value="Se déconnecter" />
+                    </div>
+                </form>
+                <form class="navbar-form navbar-right" th:action="@{/login}" method="post">
+                    <div class="form-group">
+                        <input class="btn btn-link" type="submit" value="Se connecter" />
                     </div>
                 </form>
                 <div class="navbar-text navbar-right" th:if="${#httpServletRequest.remoteUser != null}">

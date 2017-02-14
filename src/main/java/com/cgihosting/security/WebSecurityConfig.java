@@ -40,6 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        /*
         http.authorizeRequests()
                 .antMatchers("/webjars/**", "/css/**", "/images/**").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
@@ -47,6 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/login").permitAll().and()
                 .logout().permitAll();
+                */
     }
 
     @Bean
