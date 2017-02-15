@@ -6,6 +6,9 @@ package com.cgihosting.constantes;
 public class ConstantesPage {
 
 
+    // Connexion
+
+    public static final String CONNEXION_ACTION = "/login";
 
     /***************************************************************************************************
      *
@@ -25,11 +28,30 @@ public class ConstantesPage {
      *
      ***************************************************************************************************/
 
-    /** Titre des pages **/
+    /** Mes infos perso **/
     public static final String AFFICHAGE_MESINFOS_PERSO_TITRE = "Mes informations personnelles";
+    public static final String AFFICHAGE_MESINFOS_PERSO_ACTION_ENTREE = "/monCGIHosting/afficherMesInfosPerso";
+    public static final String AFFICHAGE_MESINFOS_PERSO_PAGE_HTML = "monCGIHosting/mesInfosPerso/afficherMesInfosPerso";
+
+    /** Messsages **/
+    public static final String AFFICHAGE_MESSAGES_TITRE = "Mes messages";
+    public static final String AFFICHAGE_MESSAGES_ACTION_ENTREE = "/monCGIHosting/afficherMessages";
+    public static final String AFFICHAGE_MESSAGES_PAGE_HTML = "monCGIHosting/messages/afficherMessages";
+
+    /** Ecran détails serveurs virtuels **/
+    public static final String DETAILS_MESSAGE_TITRE = "Message";
+    public static final String DETAILS_MESSAGE_ACTION_ENTREE = "/monCGIHosting/afficheMessage";
+    public static final String DETAILS_MESSAGE_ACTION_MODIFIER = "/monCGIHosting/modifierServeurVirtuel";
+    public static final String DETAILS_MESSAGE_PAGE_HTML = "monCGIHosting/serveursVirtuels/detailsServeurVirtuel";
+    public static final String DETAILS_MESSAGE_BOUTON_MODIFIER = "Modifier Serveur Virtuel";
+    public static final String DETAILS_MESSAGE_VIRTUELS_BOUTON_RETOUR = "Retour";
+
+
+
+
     public static final String AFFICHAGE_MESPROJETS = "Mes projets";
 
-    public static final String AFFICHAGE_MESSAGES_TITRE = "Mes messages";
+
     public static final String AFFICHAGE_COMMANDES_TITRE = "Mes commandes";
     public static final String DETAILS_COMMANDE_TITRE = "Mes commandes";
 
@@ -63,7 +85,7 @@ public class ConstantesPage {
 
     /** Ecran Affichage liste des serveurs **/
     public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_TITRE = "Liste des serveurs virtuels commandés";
-    public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_ACTION_ENTREE = "/exploit/afficherServeursVirtuels";
+    public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_ACTION_ENTREE = "exploit/afficherServeursVirtuels";
     public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_PAGE_HTML = "exploit/serveursVirtuels/afficherServeursVirtuels";
 
     /** Ecran détails serveurs virtuels **/

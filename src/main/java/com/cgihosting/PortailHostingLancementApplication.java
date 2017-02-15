@@ -6,14 +6,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class SiteHostingLancementApplication extends SpringBootServletInitializer {
+public class PortailHostingLancementApplication extends SpringBootServletInitializer {
 
 @Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(SiteHostingLancementApplication.class);
+		return application.sources(PortailHostingLancementApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SiteHostingLancementApplication.class, args);
+		SpringApplication.run(PortailHostingLancementApplication.class, args);
 	}
 }

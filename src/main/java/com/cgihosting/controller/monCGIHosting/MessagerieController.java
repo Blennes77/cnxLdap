@@ -31,19 +31,19 @@ public class MessagerieController {
     private MessageService messageService;
 
 
-    @RequestMapping("/monCGIHosting/afficherMessages")
+    @RequestMapping(ConstantesPage.AFFICHAGE_MESSAGES_ACTION_ENTREE)
     String afficherMessages(Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireMessages());
-        return "monCGIHosting/messages/afficherMessages";
+        return ConstantesPage.AFFICHAGE_MESSAGES_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = "/exploit/afficherDetailsMessage", method = RequestMethod.POST)
-    String affichageDetailHebergeurs(int identifiantMessageSelect, Model model){
+    @RequestMapping(value = ConstantesPage.DETAILS_MESSAGE_ACTION_ENTREE, method = RequestMethod.POST)
+    String affichageDetailsMessage(int identifiantMessageSelect, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsMessage(identifiantMessageSelect));
-        return "monCGIHosting/messages/detailsMessage";
+        return ConstantesPage.DETAILS_MESSAGE_PAGE_HTML;
     }
 
 

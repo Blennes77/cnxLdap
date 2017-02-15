@@ -31,11 +31,11 @@ public class MesInfosPersoController {
     @Autowired
     private GererProjetsService gererProjetsService;
 
-    @RequestMapping("/monCGIHosting/afficherMesInfosPerso")
+    @RequestMapping(ConstantesPage.AFFICHAGE_MESINFOS_PERSO_ACTION_ENTREE)
     String afficherMesInfosPerso(Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireMesInfosPerso());
-        return "monCGIHosting/mesInfosPerso/afficherMesInfosPerso";
+        return ConstantesPage.AFFICHAGE_MESINFOS_PERSO_PAGE_HTML;
     }
 
 
