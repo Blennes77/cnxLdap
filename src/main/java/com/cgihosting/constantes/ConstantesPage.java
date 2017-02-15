@@ -85,7 +85,7 @@ public class ConstantesPage {
 
     /** Ecran Affichage liste des serveurs **/
     public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_TITRE = "Liste des serveurs virtuels commandés";
-    public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_ACTION_ENTREE = "exploit/afficherServeursVirtuels";
+    public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_ACTION_ENTREE = "/exploit/afficherServeursVirtuels";
     public static final String AFFICHAGE_LISTE_SERVEURS_VIRTUELS_PAGE_HTML = "exploit/serveursVirtuels/afficherServeursVirtuels";
 
     /** Ecran détails serveurs virtuels **/

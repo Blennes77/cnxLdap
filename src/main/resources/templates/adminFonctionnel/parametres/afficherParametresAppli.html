@@ -20,7 +20,7 @@
 
 <body>
 <div th:replace="fragments/menu :: menu">...</div>
-<form id="monformulaire" action="#" th:action="${formulaire.urlActionSortie}" th:object="${formulaire}" method="post">
+<form id="monformulaire" action="#" th:action="@{${formulaire.urlActionSortie}}" th:object="${formulaire}" method="post">
 <div class="container">
     <div class="jumbotron">
         <h2 th:text="${formulaire.titrePage}">Titre</h2>

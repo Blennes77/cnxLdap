@@ -25,55 +25,55 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                     <li sec:authorize="hasRole('ROLE_USER')"class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Mon CGI Hosting<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/monCGIHosting/afficherMesInfosPerso">Mes infos perso</a></li>
-                            <li sec:authorize="hasRole('ROLE_DP')"><a href="/monCGIHosting/afficherMesProjets">Mes projets</a></li>
-                            <li><a href="/monCGIHosting/afficherMessages">Mes messages</a></li>
+                            <li><a th:href="@{/monCGIHosting/afficherMesInfosPerso}">Mes infos perso</a></li>
+                            <li sec:authorize="hasRole('ROLE_DP')"><a th:href="@{/monCGIHosting/afficherMesProjets}">Mes projets</a></li>
+                            <li><a th:href="@{/monCGIHosting/afficherMessages}">Mes messages</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/monCGIHosting/afficherCommandes">Mes commandes</a></li>
-                            <li><a href="/monCGIHosting/afficherMesServeursVirtuels">Mes serveurs virtuels</a></li>
+                            <li><a th:href="@{/monCGIHosting/afficherCommandes}">Mes commandes</a></li>
+                            <li><a th:href="@{/monCGIHosting/afficherMesServeursVirtuels}">Mes serveurs virtuels</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/monCGIHosting/ajouterServeurVirtuel">Ajout serveur</a></li>
+                            <li><a th:href="@{/monCGIHosting/ajouterServeurVirtuel}">Ajout serveur</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li><a th:href="@{#}">One more separated link</a></li>
                         </ul>
                     </li>
                     <li sec:authorize="hasRole('ROLE_EXPLOIT')" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Exploitation<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/exploit/afficherServeursVirtuels">Liste des serveurs Virtuels</a></li>
-                            <li><a href="#">Décommisionnement</a></li>
+                            <li><a th:href="@{/exploit/afficherServeursVirtuels}">Liste des serveurs Virtuels</a></li>
+                            <li><a th:href="@{#}">Décommisionnement</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/exploit/afficherTemplateOS">Réferentiel Templates OS</a></li>
+                            <li><a th:href="@{/exploit/afficherTemplateOS}">Réferentiel Templates OS</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/exploit/afficherReferentielErreursRencontrees">Référentiel des erreurs</a></li>
-                            <li><a href="/exploit/afficherReferentielMails">Référentiel des mails</a></li>
-                            <li><a href="/exploit/afficherCommandes">Commandes</a></li>
+                            <li><a th:href="@{/exploit/afficherReferentielErreursRencontrees}">Référentiel des erreurs</a></li>
+                            <li><a th:href="@{/exploit/afficherReferentielMails}">Référentiel des mails</a></li>
+                            <li><a th:href="@{/exploit/afficherCommandes}">Commandes</a></li>
                         </ul>
                     </li>
                     <li sec:authorize="hasRole('ROLE_ADMIN_FONCTIONNEL')" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Administration application<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/adminFonctionnel/afficherProduits">Catalogue Produits</a></li>
+                            <li><a th:href="@{/adminFonctionnel/afficherProduits}">Catalogue Produits</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/adminFonctionnel/afficherSolutionsHebergement">Solutions hebergement</a></li>
-                            <li><a href="/adminFonctionnel/afficherUtilisateurs">Utilisateurs du site</a></li>
-                            <li><a href="/adminFonctionnel/afficherReferentielProjets">Projets CGI</a></li>
+                            <li><a th:href="@{/adminFonctionnel/afficherSolutionsHebergement}">Solutions hebergement</a></li>
+                            <li><a th:href="@{/adminFonctionnel/afficherUtilisateurs}">Utilisateurs du site</a></li>
+                            <li><a th:href="@{/adminFonctionnel/afficherReferentielProjets}">Projets CGI</a></li>
                             <li roleDTO="separator" class="divider"></li>
-                            <li><a href="/adminFonctionnel/afficherJournalisation">Journaux d'evênements applicatifs</a></li>
+                            <li><a th:href="@{/adminFonctionnel/afficherJournalisation}">Journaux d'evênements applicatifs</a></li>
                         </ul>
                     </li>
                     <li sec:authorize="hasRole('ROLE_ADMIN_TECHNIQUE')" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" roleDTO="button" aria-haspopup="true" aria-expanded="false">Socle technique<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/adminFonctionnel/afficherReferentielHebergeurs">Hébergeurs</a></li>
-                            <li><a href="/adminTechnique/afficherReferentielOS">Réferentiel Systèmes d'exploitation</a></li>
-                            <li><a href="/adminTechnique/afficherReferentielRolesUtilisateur">Réferentiel Roles Utilisateur</a></li>
-                             <li><a href="/adminTechnique/afficherReferentielEtatTraitementServeur">Réferentiel Etats traitement</a></li>
-                            <li><a href="/adminTechnique/afficherReferentielEtatCommande">Réferentiel Etats commande</a></li>
-                             <li><a href="/adminTechnique/afficherReferentielActionsWorkflows">Réferentiel Actions Workflows</a></li>
-                            <li><a href="/adminTechnique/afficherReferentielJournalisation">Réferentiel Libellés Journalisation</a></li>
-                            <li><a href="/adminTechnique/afficherReferentielVirtualisation">Réferentiel virtualisation</a></li>
+                            <li><a th:href="@{/adminFonctionnel/afficherReferentielHebergeurs}">Hébergeurs</a></li>
+                            <li><a th:href="@{/adminTechnique/afficherReferentielOS}">Réferentiel Systèmes d'exploitation</a></li>
+                            <li><a th:href="@{/adminTechnique/afficherReferentielRolesUtilisateur}">Réferentiel Roles Utilisateur</a></li>
+                             <li><a th:href="@{/adminTechnique/afficherReferentielEtatTraitementServeur}">Réferentiel Etats traitement</a></li>
+                            <li><a th:href="@{/adminTechnique/afficherReferentielEtatCommande}">Réferentiel Etats commande</a></li>
+                             <li><a th:href="@{/adminTechnique/afficherReferentielActionsWorkflows}">Réferentiel Actions Workflows</a></li>
+                            <li><a th:href="@{/adminTechnique/afficherReferentielJournalisation}">Réferentiel Libellés Journalisation</a></li>
+                            <li><a th:href="@{/adminTechnique/afficherReferentielVirtualisation}">Réferentiel virtualisation</a></li>
                             <li roleDTO="separator" class="divider"></li>
                         </ul>
                     </li>
