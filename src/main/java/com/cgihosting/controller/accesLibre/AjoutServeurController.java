@@ -23,6 +23,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,11 +88,11 @@ public class AjoutServeurController {
 
 
     @RequestMapping(value = "/monCGIHosting/modifierServeurVirtuel", method = RequestMethod.POST)
+     String modifierServeurVirtuel(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)  AjoutServeurVirtuelFormulaire ajoutServeurVirtuelFormulaire,
+                                   BindingResult bindingResult, Model model, @RequestParam String action, @RequestParam int idProjet){
 
-    String modifierServeurVirtuel(@Valid AjoutServeurVirtuelFormulaire ajoutServeurVirtuelFormulaire, Model model, BindingResult bindingResult,
-                               @RequestParam String action, @RequestParam int idProjet){
 
-        int identifiantDonneeTraitee = 0;
+            int identifiantDonneeTraitee = 0;
         ServeurVirtuelDTO serveurVirtuelDTO;
 
         UtilisateurDTO utilisateurDTO;
