@@ -55,9 +55,12 @@ public class TraitementServeurVirtuelDTO implements Serializable{
     public TraitementServeurVirtuelDTO() {
     }
 
-    public TraitementServeurVirtuelDTO(Integer idServeur, Integer idTraitement) {
+    public TraitementServeurVirtuelDTO(Integer idServeur, Integer idTraitement, Date dateTraitement, Integer indEnCours, Integer idUser) {
         this.idServeur = idServeur;
         this.idTraitement = idTraitement;
+        this.dateTraitement = dateTraitement;
+        this.indEnCours = indEnCours;
+        this.idUser = idUser;
     }
 
     public Integer getIdServeur() {

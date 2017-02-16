@@ -53,9 +53,12 @@ public class TraitementCommandeDTO implements Serializable{
     public TraitementCommandeDTO() {
     }
 
-    public TraitementCommandeDTO(Integer idCommande, Integer idEtatCommande) {
+    public TraitementCommandeDTO(Integer idCommande, Integer idEtatCommande, Date dateTraitement, Integer indEnCours, Integer idUser) {
         this.idCommande = idCommande;
         this.idEtatCommande = idEtatCommande;
+        this.dateTraitement = dateTraitement;
+        this.indEnCours = indEnCours;
+        this.idUser = idUser;
     }
 
     public Integer getId() {

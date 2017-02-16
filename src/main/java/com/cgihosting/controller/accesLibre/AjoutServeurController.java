@@ -1,16 +1,13 @@
 package com.cgihosting.controller.accesLibre;
 
-import com.cgihosting.constantes.ConstantesAdmin;
 import com.cgihosting.constantes.ConstantesMonCGIHosting;
 import com.cgihosting.constantes.ConstantesPage;
-import com.cgihosting.domain.application.JournalDTO;
 import com.cgihosting.domain.application.ProjetDTO;
 import com.cgihosting.domain.application.ServeurVirtuelDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjaxRecupererProjetFormulaire;
 import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjoutServeurVirtuelFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
-import com.cgihosting.outils.Dates;
 import com.cgihosting.service.admin.GererProjetsService;
 import com.cgihosting.service.admin.GererUtilisateurService;
 import com.cgihosting.service.admin.GererWorkflowsService;
@@ -108,28 +105,20 @@ public class AjoutServeurController {
 
                 utilisateurDTO =gererUtilisateurService.searchUserByLogonName(UtilisateurSession.getLogin());
 
+
+                // On crée la commande
+
+              //  TraitementCommandeDTO traitementCommandeDTO = new TraitementCommandeDTO(ConstantesGenerales.COMMANDE_ENREGISTREE,
+
+
                 serveurVirtuelDTO = ajoutServeurVirtuelFormulaire.getServeurVirtuelDTO();
-            //    serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
-           //     serveurVirtuelDTO.setIdEnregistreur(utilisateurDTO.getId());
-           //     serveurVirtuelDTO.setDateEnregistrement(Dates.aujourdhui());
-            //    serveurVirtuelDTO.setIdProjet(idProjet);
-           //     serveurVirtuelDTO.setIndTraitement(ConstantesGenerales.ETAT_SERVEUR_VIRTUEL_ENREGISTRE);
 
 
-                // Bouchon OVH
-                serveurVirtuelDTO.setIdSolutionHebergement(1);
+                gererCommandeService.creerCommande(serveurVirtuelDTO, utilisateurDTO.getId());
 
-              //  serveurVirtuelDTO.setIdWorkflow(1);
 
-                // On crée une machine avec l'identifiant déploiement
 
-                /*
-                serveurVirtuelDTO.setIdWorkflow(gererWorkflowsService.recupererRefWorkflowsUuiDTO(
-                                                            env.getRequiredProperty("nom.environnement"),
-                                                            ConstantesGenerales.OVH_NOM_WORKFLOW_DEPLOIEMENT,
-                                                          serveurVirtuelDTO.getIdTypeHeberg()).getId());
-                                                          */
-
+              /*
 
 
 
@@ -139,6 +128,7 @@ public class AjoutServeurController {
                                                         identifiantDonneeTraitee, Dates.aujourdhui());
 
                 journaliserService.enregistrerJournalisation(journalDTO);
+                */
 
 
 

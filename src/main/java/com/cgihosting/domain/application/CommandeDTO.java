@@ -25,6 +25,12 @@ public class CommandeDTO implements Serializable{
     @Column(name="COH_REFERENCE")
     private String reference;
 
+    @Column(name="COH_UTI_ID_ENREGISTREUR")
+    private Integer idEnregistreur;
+
+    @Column(name="COH_UTI_ID_VALIDEUR")
+    private Integer idValideur;
+
 
     @OneToOne
     @JoinColumn(name="COH_ID_PROJET", insertable = false, updatable = false)
@@ -35,6 +41,15 @@ public class CommandeDTO implements Serializable{
     @JoinColumn(name = "CAT_COH_ID", insertable = false, updatable = false)
     private List<TraitementCommandeDTO> traitementCommandeDTOListe;
 
+
+    @OneToOne
+    @JoinColumn(name="COH_UTI_ID_ENREGISTREUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurEnregistreurDTO ;
+
+
+    @OneToOne
+    @JoinColumn(name="COH_UTI_ID_VALIDEUR", insertable = false, updatable = false)
+    private UtilisateurDTO utilisateurValideurDTO ;
 
 
     public int getId() {
@@ -83,5 +98,37 @@ public class CommandeDTO implements Serializable{
 
     public void setTraitementCommandeDTOListe(List<TraitementCommandeDTO> traitementCommandeDTOListe) {
         this.traitementCommandeDTOListe = traitementCommandeDTOListe;
+    }
+
+    public Integer getIdEnregistreur() {
+        return idEnregistreur;
+    }
+
+    public void setIdEnregistreur(Integer idEnregistreur) {
+        this.idEnregistreur = idEnregistreur;
+    }
+
+    public Integer getIdValideur() {
+        return idValideur;
+    }
+
+    public void setIdValideur(Integer idValideur) {
+        this.idValideur = idValideur;
+    }
+
+    public UtilisateurDTO getUtilisateurEnregistreurDTO() {
+        return utilisateurEnregistreurDTO;
+    }
+
+    public void setUtilisateurEnregistreurDTO(UtilisateurDTO utilisateurEnregistreurDTO) {
+        this.utilisateurEnregistreurDTO = utilisateurEnregistreurDTO;
+    }
+
+    public UtilisateurDTO getUtilisateurValideurDTO() {
+        return utilisateurValideurDTO;
+    }
+
+    public void setUtilisateurValideurDTO(UtilisateurDTO utilisateurValideurDTO) {
+        this.utilisateurValideurDTO = utilisateurValideurDTO;
     }
 }
