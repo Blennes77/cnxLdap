@@ -13,17 +13,8 @@
 <link href="../../static/css/guru.css"
       th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
 
-<script language="javascript">
+<script  th:src="@{/javascript/adminFonctionnel/utilisateurs/afficherUtilisateurs.js}"></script>
 
-
-    function afficherDetailsUtilisateur(identifiantUtilisateurSelect) {
-
-        // alert(identifiant);
-        document.getElementById("identifiantUtilisateurSelect").value= identifiantUtilisateurSelect;
-        document.getElementById("monformulaire").submit();
-    }
-
-</script>
 
 <head lang="fr">
     <title>CGI Hosting</title>

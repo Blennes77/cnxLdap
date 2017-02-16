@@ -13,16 +13,9 @@
 <link href="../static/css/guru.css"
       th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
 
-<script language="javascript">
+<script  th:src="@{/javascript/adminFonctionnel/referentielHebergeurs/afficherReferentielHebergeurs.js}"></script>
 
 
-    function afficherDetailsReferentielHebergeurs(identifiantHebergeurSelect) {
-
-        document.getElementById("identifiantHebergeurSelect").value= identifiantHebergeurSelect;
-        document.getElementById("monformulaire").submit();
-    }
-
-</script>
 
 <head lang="fr">
     <title>CGI Hosting</title>
