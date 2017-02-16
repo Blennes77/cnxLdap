@@ -10,18 +10,8 @@
 <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
         th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 
+<script  th:src="@{/javascript/adminTechnique/referentielVirtualisation/afficherReferentielVirtualisation.js}"></script>
 
-<script language="javascript">
-
-
-    function afficherDetailsReferentielVirtualisation(identifiantVirtualisationSelect) {
-
-       // alert(identifiant);
-        document.getElementById("identifiantVirtualisationSelect").value= identifiantVirtualisationSelect;
-        document.getElementById("monformulaire").submit();
-    }
-
-</script>
 
 <link href="../static/css/guru.css"
       th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
