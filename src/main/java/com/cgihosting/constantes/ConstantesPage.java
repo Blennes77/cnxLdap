@@ -80,13 +80,13 @@ public class ConstantesPage {
     /** Ecran Affichage liste des serveurs **/
     public static final String AFFICHAGE_LISTE_MESCOMMANDES_TITRE = "Liste des commandes me concernant";
     public static final String AFFICHAGE_LISTE_MESCOMMANDES_ACTION_ENTREE = "/monCGIHosting/afficherCommandes";
-    public static final String AFFICHAGE_LISTE_MESCOMMANDES_PAGE_HTML = "monCGIHosting/mesCommandes/afficherCommandes";
+    public static final String AFFICHAGE_LISTE_MESCOMMANDES_PAGE_HTML = "monCGIHosting/mesCommandes/afficherMesCommandes";
 
     /** Ecran détails serveurs virtuels **/
     public static final String DETAILS_MESCOMMANDES_TITRE = "Détails commandel";
     public static final String DETAILS_MESCOMMANDES_ACTION_ENTREE = "/monCGIHosting/afficherDetailsCommande";
     public static final String DETAILS_MESCOMMANDES_ACTION_MODIFIER = "/monCGIHosting/modifierDetailCommande";
-    public static final String DETAILS_MESCOMMANDES_PAGE_HTML = "monCGIHosting/mesCommandes/detailsCommande";
+    public static final String DETAILS_MESCOMMANDES_PAGE_HTML = "monCGIHosting/mesCommandes/detailsMesCommandes";
     public static final String DETAILS_MESCOMMANDES_BOUTON_MODIFIER = "Modifier Commande";
     public static final String DETAILS_MESCOMMANDES_BOUTON_RETOUR = "Retour";
 
