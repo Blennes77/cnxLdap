@@ -46,7 +46,7 @@ xmlns:sec="http://www.thymleaf.org/thymleaf-extra-springsecurity4">
                             <li roleDTO="separator" class="divider"></li>
                             <li><a th:href="@{/exploit/afficherReferentielErreursRencontrees}">Référentiel des erreurs</a></li>
                             <li><a th:href="@{/exploit/afficherReferentielMails}">Référentiel des mails</a></li>
-                            <li><a th:href="@{/exploit/afficherCommandes}">Commandes</a></li>
+                            <li><a th:href="@{/exploit/afficherCommandes}">Commandes passées</a></li>
                         </ul>
                     </li>
                     <li sec:authorize="hasRole('ROLE_ADMIN_FONCTIONNEL')" class="dropdown">

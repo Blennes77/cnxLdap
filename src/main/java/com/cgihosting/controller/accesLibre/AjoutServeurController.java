@@ -5,8 +5,8 @@ import com.cgihosting.constantes.ConstantesPage;
 import com.cgihosting.domain.application.ProjetDTO;
 import com.cgihosting.domain.application.ServeurVirtuelDTO;
 import com.cgihosting.domain.application.UtilisateurDTO;
-import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjaxRecupererProjetFormulaire;
-import com.cgihosting.formulaire.monCGIHosting.mesCommandes.AjoutServeurVirtuelFormulaire;
+import com.cgihosting.formulaire.accesLibre.AjaxRecupererProjetFormulaire;
+import com.cgihosting.formulaire.accesLibre.AjoutServeurVirtuelFormulaire;
 import com.cgihosting.objets.UtilisateurSession;
 import com.cgihosting.service.admin.GererProjetsService;
 import com.cgihosting.service.admin.GererUtilisateurService;
@@ -69,22 +69,22 @@ public class AjoutServeurController {
     @Autowired
     private Environment env;
 
-    @RequestMapping("/monCGIHosting/ajouterServeurVirtuel")
+    @RequestMapping("/accesLibre/ajouterServeurVirtuel")
     String afficherEcranAjoutServeurVirtuel(Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireAjoutServeurVirtuel());
-        return "monCGIHosting/mesCommandes/ajoutServeurVirtuel";
+        return "accesLibre/ajoutServeurVirtuel";
     }
 
-    @RequestMapping(value = "/monCGIHosting/ajaxRechercheProjet", method = RequestMethod.POST)
+    @RequestMapping(value = "/accesLibre/ajaxRechercheProjet", method = RequestMethod.POST)
     String ajaxRechercheProjet(@RequestParam String champRechercheProjet, Model model){
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_AJAX, recupererAjaxProjets(champRechercheProjet));
-        return "monCGIHosting/mesCommandes/ajaxAfficherProjet";
+        return "accesLibre/ajaxAfficherProjet";
     }
 
 
-    @RequestMapping(value = "/monCGIHosting/modifierServeurVirtuel", method = RequestMethod.POST)
+    @RequestMapping(value = "/accesLibre/modifierServeurVirtuel", method = RequestMethod.POST)
      String modifierServeurVirtuel(@Valid @ModelAttribute(ConstantesPage.NOM_FORMULAIRE_HTML)  AjoutServeurVirtuelFormulaire ajoutServeurVirtuelFormulaire,
                                    BindingResult bindingResult, Model model, @RequestParam String action, @RequestParam int idProjet){
 
@@ -99,7 +99,7 @@ public class AjoutServeurController {
             if (bindingResult.hasErrors()) {
 
 
-                return "monCGIHosting/mesCommandes/ajoutServeurVirtuel";
+                return "accesLibre/ajoutServeurVirtuel";
             }
             else{
 

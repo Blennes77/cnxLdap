@@ -1,4 +1,4 @@
-package com.cgihosting.formulaire.monCGIHosting.mesCommandes;
+package com.cgihosting.formulaire.accesLibre;
 
 import com.cgihosting.domain.application.ProjetDTO;
 import com.cgihosting.domain.application.ServeurVirtuelDTO;

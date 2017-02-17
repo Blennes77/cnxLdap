@@ -10,14 +10,24 @@ import java.util.List;
  */
 public class AfficherMesCommandesFormulaire extends RacineFormulaire {
 
-    private List<CommandeDTO> commandeDTOListe;
+    private List<CommandeDTO> commandeDTOUtilisateurDPListe;
 
 
-    public List<CommandeDTO> getCommandeDTOListe() {
-        return commandeDTOListe;
+    private List<CommandeDTO> commandeDTOUtilisateurNonDPListe;
+
+    public List<CommandeDTO> getCommandeDTOUtilisateurDPListe() {
+        return commandeDTOUtilisateurDPListe;
     }
 
-    public void setCommandeDTOListe(List<CommandeDTO> commandeDTOListe) {
-        this.commandeDTOListe = commandeDTOListe;
+    public void setCommandeDTOUtilisateurDPListe(List<CommandeDTO> commandeDTOUtilisateurDPListe) {
+        this.commandeDTOUtilisateurDPListe = commandeDTOUtilisateurDPListe;
+    }
+
+    public List<CommandeDTO> getCommandeDTOUtilisateurNonDPListe() {
+        return commandeDTOUtilisateurNonDPListe;
+    }
+
+    public void setCommandeDTOUtilisateurNonDPListe(List<CommandeDTO> commandeDTOUtilisateurNonDPListe) {
+        this.commandeDTOUtilisateurNonDPListe = commandeDTOUtilisateurNonDPListe;
     }
 }
