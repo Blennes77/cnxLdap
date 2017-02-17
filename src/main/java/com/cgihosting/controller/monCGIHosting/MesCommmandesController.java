@@ -100,7 +100,12 @@ public class MesCommmandesController {
         afficherMesCommandesFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_MESCOMMANDES_TITRE);
 
         afficherMesCommandesFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_MESCOMMANDES_ACTION_ENTREE);
-        // afficherCommandesFormulaire.setCommandeDTOListe(gererCommandeService.recupererCommandeById(5));
+
+
+        afficherMesCommandesFormulaire.setCommandeDTOUtilisateurNonDPListe(gererCommandeService.recupererCommandesNonDPById(5));
+
+
+        afficherMesCommandesFormulaire.setCommandeDTOUtilisateurDPListe(gererCommandeService.recupererCommandesDPById(5));
 
         return afficherMesCommandesFormulaire;
     }

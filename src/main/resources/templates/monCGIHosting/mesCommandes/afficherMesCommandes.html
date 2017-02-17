@@ -45,16 +45,22 @@
             <input id="identifiantCommandeSelect" name="identifiantCommandeSelect" type="hidden"  />
             <!-- Table -->
             <table class="table">
-                <tr >
-                    <th>identifiant commande</th>
-                    <th>utilisateur enregistreur</th>
-                </tr>
-                <tr  class="sortable" th:each="commande:${formulaire.commandeDTOListe}" th:onclick="'afficherDetailsCommande(\'' + ${commande.id} + '\');'">
-
-
-                    <td th:text="${commande.id}"></td>
-                        <td> A saisir</td>
-                </tr>
+                    <tr >
+                        <th>Référence commande</th>
+                        <th>Nom du projet</th>
+                        <th>Directeur du projet</th>
+                        <th>Enregistreur</th>
+                        <th>Valideur</th>
+                        <th>Etat traitement</th>
+                    </tr>
+                    <tr  class="sortable" th:each="commande:${formulaire.commandeDTOUtilisateurDPListe}" th:onclick="'afficherDetailsCommande(\'' + ${commande.id} + '\');'">
+                        <td th:text="${commande.reference}"></td>
+                        <td th:text="${commande.projetDTO.nomProjet}"></td>
+                        <td th:text="${commande.projetDTO.prenomDP} + ' ' + ${commande.projetDTO.nomDP}"></td>
+                        <td th:text="${commande.utilisateurEnregistreurDTO != null} ? ${commande.utilisateurEnregistreurDTO.prenom} + ' ' + ${commande.utilisateurEnregistreurDTO.nom}"></td>
+                        <td th:text="${commande.utilisateurValideurDTO != null} ? ${commande.utilisateurValideurDTO.prenom} + ' ' + ${commande.utilisateurValideurDTO.nom}"></td>
+                        <td> traitement</td>
+                    </tr>
             </table>
         </div>
     </div>
