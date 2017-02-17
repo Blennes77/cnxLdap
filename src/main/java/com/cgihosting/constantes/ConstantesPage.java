@@ -10,6 +10,16 @@ public class ConstantesPage {
 
     public static final String CONNEXION_ACTION = "/login";
 
+
+    /***************************************************************************************************
+     *
+     * A. PREFIXE DOMAINE
+     *
+     ***************************************************************************************************/
+
+
+
+
     /***************************************************************************************************
      *
      * A. Module COMMUN
@@ -21,6 +31,16 @@ public class ConstantesPage {
     public static final String ACTION_SAUVEGARDER = "Sauvegarder";
     public static final String ACTION_ANNULER = "Annuler";
 
+
+    /***************************************************************************************************
+     *
+     * B. Module Accès libre
+     *
+     ***************************************************************************************************/
+
+    public static final String AFFICHAGE_AJOUTERSERVEUR_TITRE = "Mes informations personnelles";
+    public static final String AFFICHAGE_AJOUTSERVEUR_ACTION_ENTREE = "/accesLibre/ajouterServeur";
+    public static final String AFFICHAGE_AJOUTSERVEUR_PAGE_HTML = "accesLibre/mesInfosPerso/ajouterServeur";
 
     /***************************************************************************************************
      *
@@ -48,14 +68,30 @@ public class ConstantesPage {
 
 
 
-
+    /** Mes projets **/
     public static final String AFFICHAGE_MESPROJETS = "Mes projets";
 
 
-    public static final String AFFICHAGE_COMMANDES_TITRE = "Mes commandes";
-    public static final String DETAILS_COMMANDE_TITRE = "Mes commandes";
 
-    public static final String AFFICHAGE_AJOUT_SERVEUR_TITRE = "Ajouter serveur";
+    /**
+     * SOUS MENU : liste des serveurs virtuels
+     **/
+
+    /** Ecran Affichage liste des serveurs **/
+    public static final String AFFICHAGE_LISTE_MESCOMMANDES_TITRE = "Liste des commandes me concernant";
+    public static final String AFFICHAGE_LISTE_MESCOMMANDES_ACTION_ENTREE = "/monCGIHosting/afficherCommandes";
+    public static final String AFFICHAGE_LISTE_MESCOMMANDES_PAGE_HTML = "monCGIHosting/mesCommandes/afficherCommandes";
+
+    /** Ecran détails serveurs virtuels **/
+    public static final String DETAILS_MESCOMMANDES_TITRE = "Détails commandel";
+    public static final String DETAILS_MESCOMMANDES_ACTION_ENTREE = "/monCGIHosting/afficherDetailsCommande";
+    public static final String DETAILS_MESCOMMANDES_ACTION_MODIFIER = "/monCGIHosting/modifierDetailCommande";
+    public static final String DETAILS_MESCOMMANDES_PAGE_HTML = "monCGIHosting/mesCommandes/detailsCommande";
+    public static final String DETAILS_MESCOMMANDES_BOUTON_MODIFIER = "Modifier Commande";
+    public static final String DETAILS_MESCOMMANDES_BOUTON_RETOUR = "Retour";
+
+
+
 
 
     public static final String AFFICHAGE_SERVEURS_VIRTUELS_TITRE = "Mes serveurs virtuels";
@@ -65,7 +101,7 @@ public class ConstantesPage {
     /** Noms des boutons **/
 
     public static final String BOUTON_RETOUR_LISTE_MESSAGES = "Retour liste de messages";
-    public static final String BOUTON_RETOUR_LISTE_COMMANDES =  "Retour";
+
 
     public static final String BOUTON_RETOUR_AJOUT_SERVEUR =  "Retour";
     public static final String BOUTON_AJOUT_SERVEUR_ENREGISTRER =  "Enregistrer";

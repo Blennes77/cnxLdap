@@ -59,27 +59,27 @@ public class MesCommmandesController {
     private Environment env;
 
 
-    @RequestMapping("/monCGIHosting/afficherCommandes")
+    @RequestMapping(ConstantesPage.AFFICHAGE_LISTE_MESCOMMANDES_ACTION_ENTREE)
     String afficherCommandes(Model model) {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireCommandes());
-        return "monCGIHosting/mesCommandes/afficherCommandes";
+        return ConstantesPage.AFFICHAGE_LISTE_MESCOMMANDES_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = "/monCGIHosting/afficherDetailCommande", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_MESCOMMANDES_ACTION_ENTREE, method = RequestMethod.POST)
     String affichageDetailsCommande(int identifiantCommandeSelect, Model model) {
 
         model.addAttribute(ConstantesPage.NOM_FORMULAIRE_HTML, recupererFormulaireDetailsCommande(identifiantCommandeSelect));
-        return "monCGIHosting/mesCommandes/detailsCommande";
+        return ConstantesPage.DETAILS_MESCOMMANDES_PAGE_HTML;
     }
 
 
-    @RequestMapping(value = "/monCGIHosting/quitterCommande", method = RequestMethod.POST)
+    @RequestMapping(value = ConstantesPage.DETAILS_MESCOMMANDES_ACTION_MODIFIER, method = RequestMethod.POST)
     String quitterCommande(Model model, BindingResult bindingResult, @RequestParam String action) {
 
 
-        return "redirect:/monCGIHosting/afficherCommandes";
+        return "redirect:" + ConstantesPage.AFFICHAGE_LISTE_MESCOMMANDES_ACTION_ENTREE;
 
 
     }
@@ -97,7 +97,9 @@ public class MesCommmandesController {
 
         AfficherMesCommandesFormulaire afficherMesCommandesFormulaire = new AfficherMesCommandesFormulaire();
 
-        afficherMesCommandesFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_COMMANDES_TITRE);
+        afficherMesCommandesFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_LISTE_MESCOMMANDES_TITRE);
+
+        afficherMesCommandesFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_MESCOMMANDES_ACTION_ENTREE);
         // afficherCommandesFormulaire.setCommandeDTOListe(gererCommandeService.recupererCommandeById(5));
 
         return afficherMesCommandesFormulaire;
@@ -117,8 +119,10 @@ public class MesCommmandesController {
 
 
         detailsMesCommandeFormulaire.setCommandeDTO(gererCommandeService.recupererCommandeById(identifiantCommandeSelect));
-        detailsMesCommandeFormulaire.setTitrePage(ConstantesPage.DETAILS_COMMANDE_TITRE);
-        detailsMesCommandeFormulaire.setBoutonRetourLabel(ConstantesPage.BOUTON_RETOUR_LISTE_COMMANDES);
+        detailsMesCommandeFormulaire.setTitrePage(ConstantesPage.DETAILS_MESCOMMANDES_TITRE);
+        detailsMesCommandeFormulaire.setBoutonRetourLabel(ConstantesPage.DETAILS_MESCOMMANDES_BOUTON_RETOUR);
+
+        detailsMesCommandeFormulaire.setUrlActionSortie(ConstantesPage.DETAILS_MESCOMMANDES_ACTION_MODIFIER);
 
 
         return detailsMesCommandeFormulaire;

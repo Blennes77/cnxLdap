@@ -170,7 +170,7 @@ public class AjoutServeurController {
 
         ajoutServeurVirtuelFormulaire.setServeurVirtuelDTO(serveurVirtuelDTO);
 
-        ajoutServeurVirtuelFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_COMMANDES_TITRE);
+        ajoutServeurVirtuelFormulaire.setTitrePage(ConstantesPage.AFFICHAGE_AJOUTERSERVEUR_TITRE);
         ajoutServeurVirtuelFormulaire.setTemplateOSDTOListe(gererTemplateOSService.recupererTemplateOSActifs());
 
         ajoutServeurVirtuelFormulaire.setProjetDTOListe(gererProjetsService.recupererProjets());
